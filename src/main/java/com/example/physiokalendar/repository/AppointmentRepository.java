@@ -1,5 +1,10 @@
-package com.physiokalendar-backend.physiocalendar-backend.entity;
+package com.example.physiokalendar.repository;
 
-public class Appointment {
-    
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.physiokalendar.entity.Appointment;
+
+@Repository
+public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
 }

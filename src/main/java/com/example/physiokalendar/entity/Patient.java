@@ -1,3 +1,4 @@
+package com.example.physiokalendar.entity;
 
 import java.util.Date;
 

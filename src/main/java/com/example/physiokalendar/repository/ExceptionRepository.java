@@ -1,10 +1,9 @@
 package com.example.physiokalendar.repository;
 
+import com.example.physiokalendar.entity.Exception;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.physiokalendar.entity.Absence;
-
 @Repository
-public interface AbsenceRepository extends JpaRepository<Absence, Long> {
+public interface ExceptionRepository extends JpaRepository<Exception, Long> {
 }
