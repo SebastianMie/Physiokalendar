@@ -3,8 +3,6 @@ package com.example.physiokalendar.entity;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.poi.ss.formula.functions.Columns;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

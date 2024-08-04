@@ -1,22 +1,15 @@
 package com.example.physiokalendar.controller;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.example.physiokalendar.entity.Patient;
 import com.example.physiokalendar.service.PatientService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/patients")
+@RequestMapping("/patients")
 public class PatientController {
 
     @Autowired
@@ -28,17 +21,31 @@ public class PatientController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Patient> getPatientById(@PathVariable Long id) {
+    public Patient getPatientById(@PathVariable Long id) {
         return patientService.getPatientById(id);
     }
 
     @PostMapping
-    public Patient createOrUpdatePatient(@RequestBody Patient patient) {
-        return patientService.savePatient(patient);
+    public Patient createPatient(@RequestBody Patient patient) {
+        return PatientService.createPatient(patient);
+    }
+
+    @PutMapping("/{id}")
+    public Patient updatePatient(@PathVariable Long id, @RequestBody Patient updatedPatient) {
+        return patientService.updatePatient(id, updatedPatient);
     }
 
     @DeleteMapping("/{id}")
     public void deletePatient(@PathVariable Long id) {
         patientService.deletePatient(id);
+    }
+
+    @GetMapping("/filter")
+    public List<Patient> filterPatients(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) Date activeSince,
+            @RequestParam(required = false) Date activeUntil,
+            @RequestParam(required = false) Boolean isBWO) {
+        return patientService.filterPatients(name, activeSince, activeUntil, isBWO);
     }
 }

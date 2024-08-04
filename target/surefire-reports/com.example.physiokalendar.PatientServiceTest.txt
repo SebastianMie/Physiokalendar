@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+Test set: com.example.physiokalendar.PatientServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 1.427 s <<< FAILURE! -- in com.example.physiokalendar.PatientServiceTest
+com.example.physiokalendar.PatientServiceTest.testGetPatientById -- Time elapsed: 1.331 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.physiokalendar.repository.PatientRepository.findById(Object)" because "com.example.physiokalendar.service.PatientService.patientRepository" is null
+	at com.example.physiokalendar.service.PatientService.getPatientById(PatientService.java:22)
+	at com.example.physiokalendar.PatientServiceTest.testGetPatientById(PatientServiceTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.physiokalendar.PatientServiceTest.testCreatePatient -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.physiokalendar.repository.PatientRepository.save(Object)" because "com.example.physiokalendar.service.PatientService.patientRepository" is null
+	at com.example.physiokalendar.service.PatientService.createPatient(PatientService.java:26)
+	at com.example.physiokalendar.PatientServiceTest.testCreatePatient(PatientServiceTest.java:40)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.physiokalendar.PatientServiceTest.testUpdatePatient -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.physiokalendar.repository.PatientRepository.findById(Object)" because "com.example.physiokalendar.service.PatientService.patientRepository" is null
+	at com.example.physiokalendar.service.PatientService.getPatientById(PatientService.java:22)
+	at com.example.physiokalendar.service.PatientService.updatePatient(PatientService.java:30)
+	at com.example.physiokalendar.PatientServiceTest.testUpdatePatient(PatientServiceTest.java:59)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.physiokalendar.PatientServiceTest.testDeletePatient -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.physiokalendar.repository.PatientRepository.deleteById(Object)" because "com.example.physiokalendar.service.PatientService.patientRepository" is null
+	at com.example.physiokalendar.service.PatientService.deletePatient(PatientService.java:40)
+	at com.example.physiokalendar.PatientServiceTest.testDeletePatient(PatientServiceTest.java:49)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
