@@ -1,11 +1,11 @@
-version: "3.8"
+version: '3.8'
 services:
   db:
     image: mysql:8
     container_name: mysql_db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: physiocalender
+      MYSQL_DATABASE: physiocalendar
       MYSQL_USER: physiouser
       MYSQL_PASSWORD: password
     ports:
@@ -18,16 +18,14 @@ services:
     container_name: spring_app
     ports:
       - "8080:8080"
-    depends_on:
-      - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/physiocalender
-      SPRING_DATASOURCE_USERNAME: physiouser
-      SPRING_DATASOURCE_PASSWORD: password
     volumes:
       - .:/usr/src/app
       - ~/.m2:/root/.m2
-    command: ./mvnw spring-boot:run
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/physiocalendar
+      SPRING_DATASOURCE_USERNAME: physiouser
+      SPRING_DATASOURCE_PASSWORD: password
+    command: mvn clean spring-boot:run
 
 volumes:
   db_data:

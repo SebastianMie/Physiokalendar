@@ -41,5 +41,4 @@ public class Therapist {
     @OneToMany(mappedBy = "therapist")
     private List<Exception> exceptions;
 
-    // Getter und Setter werden durch Lombok generiert
 }

@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>Physiokalendar</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Physiokalendar</name>
+	<description>Backend for physiokalendar application</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -68,6 +68,11 @@
      <artifactId>poi</artifactId>
      <version>4.1.0</version>
    </dependency>
+   <dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+</dependency>
+
  </dependencies>
 
 	<build>
@@ -75,6 +80,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.3.2</version>
+            	<configuration>
+                	<mainClass>com.example.physiokalendar.PhysiokalendarApplication</mainClass>
+           	 	</configuration>
 			</plugin>
 		</plugins>
 	</build>

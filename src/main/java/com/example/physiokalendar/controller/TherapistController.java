@@ -1,7 +1,6 @@
 package com.example.physiokalendar.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.physiokalendar.entity.Therapist;
+import com.example.physiokalendar.dto.JSONTherapistDTO;
 import com.example.physiokalendar.service.TherapistService;
 
 @RestController
@@ -23,22 +22,22 @@ public class TherapistController {
     private TherapistService therapistService;
 
     @GetMapping
-    public List<Therapist> getAllTherapists() {
+    public List<JSONTherapistDTO> getAllTherapists() {
         return therapistService.getAllTherapists();
     }
 
     @GetMapping("/{id}")
-    public Optional<Therapist> getTherapistById(@PathVariable Long id) {
-        return therapistService.getTherapistById(id);
+    public JSONTherapistDTO getTherapistById(@PathVariable String id) {
+        return therapistService.getTherapistById(Long.valueOf(id));
     }
 
     @PostMapping
-    public Therapist createOrUpdateTherapist(@RequestBody Therapist therapist) {
-        return therapistService.saveTherapist(therapist);
+    public JSONTherapistDTO createOrUpdateTherapist(@RequestBody JSONTherapistDTO therapistDTO) {
+        return therapistService.saveTherapist(therapistDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteTherapist(@PathVariable Long id) {
+    public void deleteTherapist(@PathVariable String id) {
         therapistService.deleteTherapist(id);
     }
 }
