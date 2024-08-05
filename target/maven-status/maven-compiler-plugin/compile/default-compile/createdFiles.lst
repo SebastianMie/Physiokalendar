@@ -1,3 +1,4 @@
+com\example\physiokalendar\controller\TherapistController.class
 com\example\physiokalendar\entity\Appointment.class
 com\example\physiokalendar\repository\CancellationRepository.class
 com\example\physiokalendar\controller\ExceptionController.class
@@ -13,10 +14,14 @@ com\example\physiokalendar\service\PatientService.class
 com\example\physiokalendar\controller\PatientController.class
 com\example\physiokalendar\controller\AbsenceController.class
 com\example\physiokalendar\service\AppointmentService.class
+com\example\physiokalendar\dto\JSONExceptionDTO.class
 com\example\physiokalendar\repository\TherapistRepository.class
+com\example\physiokalendar\service\TherapistService.class
 com\example\physiokalendar\controller\AppointmentController.class
 com\example\physiokalendar\controller\CancellationController.class
 com\example\physiokalendar\repository\AppointmentRepository.class
+com\example\physiokalendar\dto\JSONPatientDTO.class
+com\example\physiokalendar\dto\JSONTherapistDTO.class
 com\example\physiokalendar\entity\Patient.class
 com\example\physiokalendar\repository\AbsenceRepository.class
 com\example\physiokalendar\entity\Cancellation.class
@@ -24,4 +29,5 @@ com\example\physiokalendar\entity\AppointmentSeries.class
 com\example\physiokalendar\entity\Exception.class
 com\example\physiokalendar\repository\PatientRepository.class
 com\example\physiokalendar\controller\AppointmentSeriesController.class
+com\example\physiokalendar\dto\JSONAbsenceDTO.class
 com\example\physiokalendar\repository\ExceptionRepository.class

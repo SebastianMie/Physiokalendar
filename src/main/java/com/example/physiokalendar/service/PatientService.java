@@ -1,51 +1,69 @@
 package com.example.physiokalendar.service;
 
-import com.example.physiokalendar.entity.Patient;
-import com.example.physiokalendar.repository.PatientRepository;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
+import com.example.physiokalendar.dto.JSONPatientDTO;
+import com.example.physiokalendar.entity.Patient;
+import com.example.physiokalendar.repository.PatientRepository;
 
 @Service
 public class PatientService {
-
+    
     @Autowired
-    private static PatientRepository patientRepository;
+    private PatientRepository patientRepository;
 
-    public List<Patient> getAllPatients() {
-        return patientRepository.findAll();
+    public List<JSONPatientDTO> getAllPatients() {
+        List<Patient> patients = patientRepository.findAll();
+        return patients.stream().map(this::convertEntityToDTO).collect(Collectors.toList());
     }
 
-    public Patient getPatientById(Long id) {
-        return patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
+    public JSONPatientDTO getPatientById(Long id) {
+        Patient patient = patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
+        return convertEntityToDTO(patient);
     }
 
-    public static Patient createPatient(Patient patient) {
+    public Patient createPatient(JSONPatientDTO dto) {
+        Patient patient = convertDTOToEntity(dto);
         return patientRepository.save(patient);
     }
 
-    public Patient updatePatient(Long id, Patient updatedPatient) {
-        Patient patient = getPatientById(id);
-        patient.setFirstName(updatedPatient.getFirstName());
-        patient.setLastName(updatedPatient.getLastName());
-        patient.setActiveSince(updatedPatient.getActiveSince());
-        patient.setActiveUntil(updatedPatient.getActiveUntil());
-        patient.setIsBWO(updatedPatient.getIsBWO());
-        return patientRepository.save(patient);
+    public Patient updatePatient(Long id, JSONPatientDTO dto) {
+        Patient existingPatient = patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
+        existingPatient.setFirstName(dto.getFirstName());
+        existingPatient.setLastName(dto.getLastName());
+        existingPatient.setActiveSince(new Date(dto.getActiveSince()));
+        existingPatient.setActiveUntil(new Date(dto.getActiveUntil()));
+        existingPatient.setIsBWO(dto.getIsBWO());
+        return patientRepository.save(existingPatient);
     }
 
     public void deletePatient(Long id) {
         patientRepository.deleteById(id);
     }
 
-    public List<Patient> filterPatients(String name, Date activeSince, Date activeUntil, Boolean isBWO) {
-        return patientRepository.findAll().stream()
-                .filter(p -> (name == null || (p.getFirstName() + " " + p.getLastName()).toLowerCase().contains(name.toLowerCase())))
-                .filter(p -> (activeSince == null || !p.getActiveSince().before(activeSince)))
-                .filter(p -> (activeUntil == null || !p.getActiveUntil().after(activeUntil)))
-                .filter(p -> (isBWO == null || p.getIsBWO().equals(isBWO)))
-                .toList();
+    private JSONPatientDTO convertEntityToDTO(Patient patient) {
+        JSONPatientDTO dto = new JSONPatientDTO();
+        dto.setId(patient.getId());
+        dto.setFirstName(patient.getFirstName());
+        dto.setLastName(patient.getLastName());
+        dto.setActiveSince(patient.getActiveSince().getTime()); // Convert Date to long
+        dto.setActiveUntil(patient.getActiveUntil().getTime()); // Convert Date to long
+        dto.setIsBWO(patient.getIsBWO());
+        return dto;
+    }
+
+    private Patient convertDTOToEntity(JSONPatientDTO dto) {
+        Patient patient = new Patient();
+        patient.setFirstName(dto.getFirstName());
+        patient.setLastName(dto.getLastName());
+        patient.setActiveSince(new Date(dto.getActiveSince())); // Convert long to Date
+        patient.setActiveUntil(new Date(dto.getActiveUntil())); // Convert long to Date
+        patient.setIsBWO(dto.getIsBWO());
+        return patient;
     }
 }

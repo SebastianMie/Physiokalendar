@@ -2,11 +2,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-PhysiokalendarApplication<demo>",
+            "name": "Spring Boot-PhysiokalendarApplication<physiokalendar>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.example.physiokalendar.PhysiokalendarApplication",
-            "projectName": "demo",
+            "projectName": "physiokalendar",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
