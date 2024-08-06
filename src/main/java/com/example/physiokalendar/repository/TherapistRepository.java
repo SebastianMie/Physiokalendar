@@ -13,6 +13,4 @@ public interface TherapistRepository extends JpaRepository<Therapist, Long> {
     @Query("SELECT t FROM Therapist t WHERE t.name LIKE %:name%")
     List<Therapist> findByNameContaining(String name);
 
-    public Object findById(String id);
-
 }

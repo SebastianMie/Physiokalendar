@@ -1,22 +1,20 @@
-# Base image
-FROM openjdk:11-jre-slim
+# Verwenden Sie ein Basis-Image mit Java 17
+FROM openjdk:17-jdk-slim
 
-# Set the working directory
+# Setzen Sie das Arbeitsverzeichnis im Container
 WORKDIR /usr/src/app
 
-# Copy the Maven wrapper and pom.xml
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
+# Installieren Sie Maven
+RUN apt-get update && \
+    apt-get install -y maven && \
+    rm -rf /var/lib/apt/lists/*
 
-# Ensure the Maven wrapper has executable permissions
-RUN chmod +x ./mvnw
-
-# Install dependencies and package the application
-# First, download the dependencies, then copy the rest of the application
+# Kopieren Sie die Anwendung und die notwendigen Dateien in das Arbeitsverzeichnis
+COPY pom.xml ./
 COPY src ./src
-RUN ./mvnw dependency:go-offline -B
-RUN ./mvnw package -DskipTests -B
 
-# Define the command to run the application
-CMD ["java", "-jar", "target/yourapp.jar"]
+# Installieren Sie die Abhängigkeiten und kompilieren Sie die Anwendung
+RUN mvn dependency:go-offline -B
+
+# Der Befehl zum Starten der Anwendung
+CMD ["mvn", "spring-boot:run"]

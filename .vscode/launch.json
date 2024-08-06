@@ -1,14 +1,34 @@
 {
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Spring Boot-PhysiokalendarApplication<physiokalendar>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "com.example.physiokalendar.PhysiokalendarApplication",
-            "projectName": "physiokalendar",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
-        }
-    ]
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-PhysiokalendarApplication<physiokalendar>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.physiokalendar.PhysiokalendarApplication",
+      "projectName": "physiokalendar",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-PhysiokalendarApplication<demo>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.physiokalendar.PhysiokalendarApplication",
+      "projectName": "demo",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-PhysiokalendarApplication<Physiokalendar>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.physiokalendar.PhysiokalendarApplication",
+      "projectName": "Physiokalendar",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
 }
