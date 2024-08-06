@@ -7,17 +7,17 @@ import lombok.Setter;
 @Getter
 @Setter
 public class JSONTherapistDTO {
-    private String id;
+    private Long id;
     private String name;
     private long activeSince;
     private long activeUntil;
 
     // Getter and Setter
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

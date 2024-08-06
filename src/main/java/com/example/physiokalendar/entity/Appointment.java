@@ -8,10 +8,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,7 +38,10 @@ public class Appointment {
     @Column(name = "end_time")
     private Date endTime;
 
+    @Column(name = "date")
     private Date date;
+
+    @Column(name = "comment")
     private String comment;
 
     @Column(name = "is_hotair")

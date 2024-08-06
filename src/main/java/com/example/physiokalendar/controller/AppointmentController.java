@@ -1,3 +1,4 @@
+// AppointmentController.java
 package com.example.physiokalendar.controller;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.physiokalendar.dto.JSONAppointmentDTO;
 import com.example.physiokalendar.entity.Appointment;
 import com.example.physiokalendar.service.AppointmentService;
 
@@ -33,8 +35,8 @@ public class AppointmentController {
     }
 
     @PostMapping
-    public Appointment createOrUpdateAppointment(@RequestBody Appointment appointment) {
-        return appointmentService.saveAppointment(appointment);
+    public Appointment createOrUpdateAppointment(@RequestBody JSONAppointmentDTO appointmentDTO) {
+        return appointmentService.saveAppointment(appointmentDTO);
     }
 
     @DeleteMapping("/{id}")

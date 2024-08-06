@@ -49,7 +49,7 @@ public class TherapistService {
 
     private JSONTherapistDTO convertEntityToDTO(Therapist therapist) {
         JSONTherapistDTO dto = new JSONTherapistDTO();
-        dto.setId(therapist.getId().toString());
+        dto.setId(therapist.getId());
         dto.setName(therapist.getName());
         dto.setActiveSince(therapist.getActiveSince().getTime());
         dto.setActiveUntil(therapist.getActiveUntil().getTime());
@@ -59,7 +59,7 @@ public class TherapistService {
 
     private Therapist convertDTOToEntity(JSONTherapistDTO dto) {
         Therapist therapist = new Therapist();
-        therapist.setId(Long.valueOf(dto.getId()));
+        therapist.setId(dto.getId());
         therapist.setName(dto.getName());
         therapist.setActiveSince(new Date(dto.getActiveSince()));
         therapist.setActiveUntil(new Date(dto.getActiveUntil()));

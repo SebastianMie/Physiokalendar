@@ -1,0 +1,36 @@
+package com.example.physiokalendar.dto;
+
+import java.util.Date;
+import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@ToString
+@Data
+@Setter
+@EqualsAndHashCode
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+public class JSONAppointmentSeriesDTO {
+    private Long id;
+    private JSONTherapistDTO therapist;
+    private Long patientId;
+    private String patientName;
+    private Date startTime;
+    private Date endTime;
+    private String comment;
+    private Date startDate;
+    private Date endDate;
+    private Integer weeklyFrequency;
+    private Boolean isBWO;
+    private List<JSONCancellationDTO> cancellations;
+
+    // Getters and Setters
+}
