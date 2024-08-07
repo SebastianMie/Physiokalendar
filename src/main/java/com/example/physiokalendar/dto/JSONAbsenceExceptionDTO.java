@@ -1,5 +1,7 @@
 package com.example.physiokalendar.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,10 +17,11 @@ import lombok.ToString;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class JSONExceptionDTO {
-    private String day;
-    private String start;
-    private String end;
+public class JSONAbsenceExceptionDTO {
+    private Long id;
+    private Date date;
+    private String startTime;
+    private String endTime;
 
     // Getters and Setters
 }

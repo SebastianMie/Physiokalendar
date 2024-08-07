@@ -1,6 +1,6 @@
 package com.example.physiokalendar.service;
 
-import com.example.physiokalendar.entity.Exception;
+import com.example.physiokalendar.entity.AbsenceException;
 import com.example.physiokalendar.repository.ExceptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,15 +14,15 @@ public class ExceptionService {
     @Autowired
     private ExceptionRepository exceptionRepository;
 
-    public List<Exception> getAllExceptions() {
+    public List<AbsenceException> getAllExceptions() {
         return exceptionRepository.findAll();
     }
 
-    public Optional<Exception> getExceptionById(Long id) {
+    public Optional<AbsenceException> getExceptionById(Long id) {
         return exceptionRepository.findById(id);
     }
 
-    public Exception saveException(Exception exception) {
+    public AbsenceException saveException(AbsenceException exception) {
         return exceptionRepository.save(exception);
     }
 

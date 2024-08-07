@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import com.example.physiokalendar.dto.JSONAbsenceDTO;
+import com.example.physiokalendar.dto.JSONAbsenceExceptionDTO;
 import com.example.physiokalendar.dto.JSONTherapistDTO;
 import com.example.physiokalendar.entity.Therapist;
 import com.example.physiokalendar.service.TherapistService;
@@ -42,6 +44,16 @@ public class TherapistController {
     @PutMapping("/{id}")
     public Therapist updateTherapist(@PathVariable Long id, @RequestBody JSONTherapistDTO therapistDTO) {
         return therapistService.updateTherapist(id, therapistDTO);
+    }
+
+    @PostMapping("/{id}/absences")
+    public Therapist addAbsence(@PathVariable Long id, @RequestBody JSONAbsenceDTO absenceDTO) {
+        return therapistService.addAbsence(id, absenceDTO);
+    }
+
+    @PostMapping("/{id}/absenceexceptions")
+    public Therapist addAbsenceException(@PathVariable Long id, @RequestBody JSONAbsenceExceptionDTO exceptionDTO) {
+        return therapistService.addAbsenceException(id, exceptionDTO);
     }
 
     @DeleteMapping("/{id}")

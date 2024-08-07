@@ -1,6 +1,6 @@
 package com.example.physiokalendar.controller;
 
-import com.example.physiokalendar.entity.Exception;
+import com.example.physiokalendar.entity.AbsenceException;
 import com.example.physiokalendar.service.ExceptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,17 +16,17 @@ public class ExceptionController {
     private ExceptionService exceptionService;
 
     @GetMapping
-    public List<Exception> getAllExceptions() {
+    public List<AbsenceException> getAllExceptions() {
         return exceptionService.getAllExceptions();
     }
 
     @GetMapping("/{id}")
-    public Optional<Exception> getExceptionById(@PathVariable Long id) {
+    public Optional<AbsenceException> getExceptionById(@PathVariable Long id) {
         return exceptionService.getExceptionById(id);
     }
 
     @PostMapping
-    public Exception createOrUpdateException(@RequestBody Exception exception) {
+    public AbsenceException createOrUpdateException(@RequestBody AbsenceException exception) {
         return exceptionService.saveException(exception);
     }
 

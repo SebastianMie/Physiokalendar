@@ -1,7 +1,6 @@
 package com.example.physiokalendar.entity;
 
 import java.util.Date;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,8 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
@@ -52,14 +49,6 @@ public class Appointment {
 
     @Column(name = "is_electric")
     private Boolean isElectric;
-
-    @ManyToMany
-    @JoinTable(
-        name = "appointment_has_cancellation",
-        joinColumns = @JoinColumn(name = "appointment_id"),
-        inverseJoinColumns = @JoinColumn(name = "cancellation_id")
-    )
-    private List<Cancellation> cancellations;
 
     // Getter und Setter werden durch Lombok generiert
 }

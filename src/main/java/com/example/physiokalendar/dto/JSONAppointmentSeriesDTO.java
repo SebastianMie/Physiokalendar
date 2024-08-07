@@ -31,6 +31,6 @@ public class JSONAppointmentSeriesDTO {
     private Integer weeklyFrequency;
     private Boolean isBWO;
     private List<JSONCancellationDTO> cancellations;
-
+    private List<Long> cancellationIds;
     // Getters and Setters
 }

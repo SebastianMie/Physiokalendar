@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.physiokalendar.dto.JSONAppointmentSeriesDTO;
+import com.example.physiokalendar.dto.JSONCancellationDTO;
 import com.example.physiokalendar.entity.AppointmentSeries;
 import com.example.physiokalendar.service.AppointmentSeriesService;
 
@@ -42,6 +43,12 @@ public class AppointmentSeriesController {
     public ResponseEntity<AppointmentSeries> createOrUpdateAppointmentSeries(@RequestBody JSONAppointmentSeriesDTO appointmentSeriesDTO) {
         AppointmentSeries savedSeries = appointmentSeriesService.saveAppointmentSeries(appointmentSeriesDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedSeries);
+    }
+    
+    //TODO: cancellations appointment mapping und return
+    @PostMapping("/{id}/cancellations")
+    public AppointmentSeries addCancellations(@PathVariable Long id, @RequestBody List<JSONCancellationDTO> cancellationDTOs) {
+        return appointmentSeriesService.addCancellations(id, cancellationDTOs);
     }
 
     @DeleteMapping("/{id}")

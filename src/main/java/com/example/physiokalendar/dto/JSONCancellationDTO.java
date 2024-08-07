@@ -18,8 +18,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JSONCancellationDTO {
+    private Long Id;
     private Date date;
-    private String patient;
 
     // Getters and Setters
 }

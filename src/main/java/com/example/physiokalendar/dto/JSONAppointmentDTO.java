@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class JSONAppointmentDTO {
     private Long id;
     private JSONTherapistDTO therapist;
+    private Long therapistId;
     private Date date;
     private Long patientId;
     private Date startTime;

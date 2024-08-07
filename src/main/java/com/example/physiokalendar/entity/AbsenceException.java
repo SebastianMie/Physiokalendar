@@ -1,5 +1,9 @@
 package com.example.physiokalendar.entity;
 
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Exception {
+public class AbsenceException {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,16 +27,18 @@ public class Exception {
 
     @ManyToOne
     @JoinColumn(name = "therapist_id")
+    @JsonBackReference
     private Therapist therapist;
 
-    private String day;
+    @Column(name = "date")
+    private Date date;
 
     @Column(name = "start_time")
-
     private String startTime;
 
     @Column(name = "end_time")
     private String endTime;
+
 
     // Getter und Setter werden durch Lombok generiert
 }

@@ -1,6 +1,8 @@
 // JSONTherapistDTO.java
 package com.example.physiokalendar.dto;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,37 +13,10 @@ public class JSONTherapistDTO {
     private String name;
     private long activeSince;
     private long activeUntil;
-
+    private List<Long> absenceIds;
+    private List<JSONAbsenceDTO> absences;
+    private List<Long> absenceExceptionIds;
+    private List<JSONAbsenceExceptionDTO> absenceExceptions;
     // Getter and Setter
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public long getActiveSince() {
-        return activeSince;
-    }
-
-    public void setActiveSince(long activeSince) {
-        this.activeSince = activeSince;
-    }
-
-    public long getActiveUntil() {
-        return activeUntil;
-    }
-
-    public void setActiveUntil(long activeUntil) {
-        this.activeUntil = activeUntil;
-    }
 }

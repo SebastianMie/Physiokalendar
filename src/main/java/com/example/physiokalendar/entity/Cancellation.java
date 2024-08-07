@@ -1,15 +1,15 @@
 package com.example.physiokalendar.entity;
 
 import java.util.Date;
-import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,14 +25,9 @@ public class Cancellation {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-
-    @ManyToMany(mappedBy = "cancellations")
-    private List<Appointment> appointments;
-
-    @ManyToMany(mappedBy = "cancellations")
-    private List<AppointmentSeries> appointmentSeries;
+    @JoinColumn(name = "appointment_series_id")
+    @JsonBackReference
+    private AppointmentSeries appointmentSeries;
 
     // Getter und Setter werden durch Lombok generiert
 }
