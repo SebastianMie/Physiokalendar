@@ -8,10 +8,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.physiokalendar.dto.JSONAbsenceDTO;
 import com.example.physiokalendar.dto.JSONAppointmentSeriesDTO;
 import com.example.physiokalendar.dto.JSONCancellationDTO;
-import com.example.physiokalendar.entity.Absence;
 import com.example.physiokalendar.entity.AppointmentSeries;
 import com.example.physiokalendar.entity.Cancellation;
 import com.example.physiokalendar.entity.Patient;
@@ -79,18 +77,26 @@ public class AppointmentSeriesService {
 
     @Transactional
     public AppointmentSeries addCancellations(Long appointmentSeriesId, List<JSONCancellationDTO> cancellationDTOs) {
+        // Holen des AppointmentSeries-Objekts anhand der ID
         AppointmentSeries appointmentSeries = appointmentSeriesRepository.findById(appointmentSeriesId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid appointment series ID"));
-                
+
+        // Durchlaufen der DTOs und Erstellen der Cancellation-Objekte
         List<Cancellation> cancellations = cancellationDTOs.stream().map(dto -> {
             Cancellation cancellation = convertDTOToEntity(dto);
+
+            // Zuweisen des AppointmentSeries zu Cancellation
+            cancellation.setAppointmentSeries(appointmentSeries);
+
+            // Speichern der Cancellation in der Datenbank
             return cancellationRepository.save(cancellation);
         }).collect(Collectors.toList());
 
+        // Hinzufügen der neuen Cancellations zur AppointmentSeries
         appointmentSeries.getCancellations().addAll(cancellations);
-        appointmentSeriesRepository.save(appointmentSeries);
 
-        return appointmentSeries;
+        // Speichern des aktualisierten AppointmentSeries-Objekts
+        return appointmentSeriesRepository.save(appointmentSeries);
     }
 
     public void deleteAppointmentSeries(Long id) {

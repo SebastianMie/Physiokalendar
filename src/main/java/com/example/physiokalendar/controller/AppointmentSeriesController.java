@@ -45,7 +45,6 @@ public class AppointmentSeriesController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedSeries);
     }
     
-    //TODO: cancellations appointment mapping und return
     @PostMapping("/{id}/cancellations")
     public AppointmentSeries addCancellations(@PathVariable Long id, @RequestBody List<JSONCancellationDTO> cancellationDTOs) {
         return appointmentSeriesService.addCancellations(id, cancellationDTOs);
