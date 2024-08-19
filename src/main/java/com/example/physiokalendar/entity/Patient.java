@@ -2,7 +2,6 @@ package com.example.physiokalendar.entity;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,14 +30,8 @@ public class Patient {
 
     private String firstName;
     private String lastName;
-
-    @Column(name = "active_since")
     private Date activeSince;
-
-    @Column(name = "active_until")
     private Date activeUntil;
-
-    @Column(name = "is_bwo")
     private Boolean isBWO;
 
     // Getter und Setter
