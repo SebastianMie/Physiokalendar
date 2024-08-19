@@ -1,6 +1,8 @@
 // PatientDTO.java
 package com.example.physiokalendar.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,8 +22,8 @@ public class JSONPatientDTO {
     private Long id;
     private String firstName;
     private String lastName;
-    private long activeSince;
-    private long activeUntil;
+    private Date activeSince;
+    private Date activeUntil;
     private Boolean isBWO;
 
     // Getters and Setters

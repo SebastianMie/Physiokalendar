@@ -1,6 +1,5 @@
 package com.example.physiokalendar.service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,8 +35,8 @@ public class PatientService {
         Patient existingPatient = patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
         existingPatient.setFirstName(dto.getFirstName());
         existingPatient.setLastName(dto.getLastName());
-        existingPatient.setActiveSince(new Date(dto.getActiveSince()));
-        existingPatient.setActiveUntil(new Date(dto.getActiveUntil()));
+        existingPatient.setActiveSince(dto.getActiveSince());
+        existingPatient.setActiveUntil(dto.getActiveUntil());
         existingPatient.setIsBWO(dto.getIsBWO());
         return patientRepository.save(existingPatient);
     }
@@ -51,8 +50,8 @@ public class PatientService {
         dto.setId(patient.getId());
         dto.setFirstName(patient.getFirstName());
         dto.setLastName(patient.getLastName());
-        dto.setActiveSince(patient.getActiveSince().getTime()); // Convert Date to long
-        dto.setActiveUntil(patient.getActiveUntil().getTime()); // Convert Date to long
+        dto.setActiveSince(patient.getActiveSince()); 
+        dto.setActiveUntil(patient.getActiveUntil()); 
         dto.setIsBWO(patient.getIsBWO());
         return dto;
     }
@@ -61,8 +60,8 @@ public class PatientService {
         Patient patient = new Patient();
         patient.setFirstName(dto.getFirstName());
         patient.setLastName(dto.getLastName());
-        patient.setActiveSince(new Date(dto.getActiveSince())); // Convert long to Date
-        patient.setActiveUntil(new Date(dto.getActiveUntil())); // Convert long to Date
+        patient.setActiveSince(dto.getActiveSince()); // Convert long to Date
+        patient.setActiveUntil(dto.getActiveUntil()); // Convert long to Date
         patient.setIsBWO(dto.getIsBWO());
         return patient;
     }

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.physiokalendar.dto.JSONAbsenceDTO;
 import com.example.physiokalendar.entity.Absence;
 import com.example.physiokalendar.repository.AbsenceRepository;
 
@@ -29,5 +30,25 @@ public class AbsenceService {
 
     public void deleteAbsence(Long id) {
         absenceRepository.deleteById(id);
+    }
+
+    public static Absence convertDTOToEntity(JSONAbsenceDTO dto) {
+        Absence absence = new Absence();
+        absence.setId(dto.getId());
+        absence.setDate(dto.getDate());
+        absence.setStartTime(dto.getStartTime());
+        absence.setEndTime(dto.getEndTime());
+        // Weitere Felder falls nötig
+        return absence;
+    }
+
+    public static JSONAbsenceDTO convertEntityToDTO(Absence absence) {
+        JSONAbsenceDTO dto = new JSONAbsenceDTO();
+        dto.setId(absence.getId());
+        dto.setDate(absence.getDate());
+        dto.setStartTime(absence.getStartTime());
+        dto.setEndTime(absence.getEndTime());
+        // Weitere Felder falls nötig
+        return dto;
     }
 }

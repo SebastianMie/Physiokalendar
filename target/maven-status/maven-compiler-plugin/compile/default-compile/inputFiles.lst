@@ -1,4 +1,5 @@
 /usr/src/app/src/main/java/com/example/physiokalendar/PhysiokalendarApplication.java
+/usr/src/app/src/main/java/com/example/physiokalendar/WebConfig.java
 /usr/src/app/src/main/java/com/example/physiokalendar/controller/AbsenceController.java
 /usr/src/app/src/main/java/com/example/physiokalendar/controller/AppointmentController.java
 /usr/src/app/src/main/java/com/example/physiokalendar/controller/AppointmentSeriesController.java
@@ -21,17 +22,17 @@
 /usr/src/app/src/main/java/com/example/physiokalendar/entity/Cancellation.java
 /usr/src/app/src/main/java/com/example/physiokalendar/entity/Patient.java
 /usr/src/app/src/main/java/com/example/physiokalendar/entity/Therapist.java
+/usr/src/app/src/main/java/com/example/physiokalendar/repository/AbsenceExceptionRepository.java
 /usr/src/app/src/main/java/com/example/physiokalendar/repository/AbsenceRepository.java
 /usr/src/app/src/main/java/com/example/physiokalendar/repository/AppointmentRepository.java
 /usr/src/app/src/main/java/com/example/physiokalendar/repository/AppointmentSeriesRepository.java
 /usr/src/app/src/main/java/com/example/physiokalendar/repository/CancellationRepository.java
-/usr/src/app/src/main/java/com/example/physiokalendar/repository/ExceptionRepository.java
 /usr/src/app/src/main/java/com/example/physiokalendar/repository/PatientRepository.java
 /usr/src/app/src/main/java/com/example/physiokalendar/repository/TherapistRepository.java
+/usr/src/app/src/main/java/com/example/physiokalendar/service/AbsenceExceptionService.java
 /usr/src/app/src/main/java/com/example/physiokalendar/service/AbsenceService.java
 /usr/src/app/src/main/java/com/example/physiokalendar/service/AppointmentSeriesService.java
 /usr/src/app/src/main/java/com/example/physiokalendar/service/AppointmentService.java
 /usr/src/app/src/main/java/com/example/physiokalendar/service/CancellationService.java
-/usr/src/app/src/main/java/com/example/physiokalendar/service/ExceptionService.java
 /usr/src/app/src/main/java/com/example/physiokalendar/service/PatientService.java
 /usr/src/app/src/main/java/com/example/physiokalendar/service/TherapistService.java

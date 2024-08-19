@@ -1,6 +1,5 @@
 package com.example.physiokalendar.service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,8 +12,8 @@ import com.example.physiokalendar.dto.JSONTherapistDTO;
 import com.example.physiokalendar.entity.Absence;
 import com.example.physiokalendar.entity.AbsenceException;
 import com.example.physiokalendar.entity.Therapist;
+import com.example.physiokalendar.repository.AbsenceExceptionRepository;
 import com.example.physiokalendar.repository.AbsenceRepository;
-import com.example.physiokalendar.repository.ExceptionRepository;
 import com.example.physiokalendar.repository.TherapistRepository;
 
 @Service
@@ -27,7 +26,7 @@ public class TherapistService {
     private AbsenceRepository absenceRepository;
 
     @Autowired
-    private ExceptionRepository exceptionRepository;
+    private AbsenceExceptionRepository exceptionRepository;
 
     public List<JSONTherapistDTO> getAllTherapists() {
         return therapistRepository.findAll().stream()
@@ -50,8 +49,8 @@ public class TherapistService {
         Therapist existingTherapist = therapistRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Therapist not found"));
         existingTherapist.setName(dto.getName());
-        existingTherapist.setActiveSince(new Date(dto.getActiveSince()));
-        existingTherapist.setActiveUntil(new Date(dto.getActiveUntil()));
+        existingTherapist.setActiveSince(dto.getActiveSince());
+        existingTherapist.setActiveUntil(dto.getActiveUntil());
         // Weitere Feldaktualisierungen, falls vorhanden
         return therapistRepository.save(existingTherapist);
     }
@@ -63,7 +62,7 @@ public class TherapistService {
     public Therapist addAbsence(Long therapistId, JSONAbsenceDTO absenceDTO) {
         Therapist therapist = therapistRepository.findById(therapistId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));
-        Absence absence = convertDTOToEntity(absenceDTO);
+        Absence absence = AbsenceService.convertDTOToEntity(absenceDTO);
         absence.setTherapist(therapist);
         absenceRepository.save(absence);
         therapist.getAbsences().add(absence);
@@ -73,7 +72,7 @@ public class TherapistService {
     public Therapist addAbsenceException(Long therapistId, JSONAbsenceExceptionDTO exceptionDTO) {
         Therapist therapist = therapistRepository.findById(therapistId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));
-        AbsenceException exception = convertDTOToEntity(exceptionDTO);
+        AbsenceException exception = AbsenceExceptionService.convertDTOToEntity(exceptionDTO);
         exception.setTherapist(therapist);
         exceptionRepository.save(exception);
         therapist.getExceptions().add(exception);
@@ -84,8 +83,8 @@ public class TherapistService {
         JSONTherapistDTO dto = new JSONTherapistDTO();
         dto.setId(therapist.getId());
         dto.setName(therapist.getName());
-        dto.setActiveSince(therapist.getActiveSince().getTime());
-        dto.setActiveUntil(therapist.getActiveUntil().getTime());
+        dto.setActiveSince(therapist.getActiveSince());
+        dto.setActiveUntil(therapist.getActiveUntil());
         // Weitere Felder falls nötig
         return dto;
     }
@@ -94,50 +93,10 @@ public class TherapistService {
         Therapist therapist = new Therapist();
         therapist.setId(dto.getId());
         therapist.setName(dto.getName());
-        therapist.setActiveSince(new Date(dto.getActiveSince()));
-        therapist.setActiveUntil(new Date(dto.getActiveUntil()));
+        therapist.setActiveSince(dto.getActiveSince());
+        therapist.setActiveUntil(dto.getActiveUntil());
         // Weitere Felder falls nötig
         return therapist;
-    }
-
-    private Absence convertDTOToEntity(JSONAbsenceDTO dto) {
-        Absence absence = new Absence();
-        absence.setId(dto.getId());
-        absence.setDate(dto.getDate());
-        absence.setStartTime(dto.getStartTime());
-        absence.setEndTime(dto.getEndTime());
-        // Weitere Felder falls nötig
-        return absence;
-    }
-
-    private JSONAbsenceDTO convertEntityToDTO(Absence absence) {
-        JSONAbsenceDTO dto = new JSONAbsenceDTO();
-        dto.setId(absence.getId());
-        dto.setDate(absence.getDate());
-        dto.setStartTime(absence.getStartTime());
-        dto.setEndTime(absence.getEndTime());
-        // Weitere Felder falls nötig
-        return dto;
-    }
-
-    private AbsenceException convertDTOToEntity(JSONAbsenceExceptionDTO dto) {
-        AbsenceException exception = new AbsenceException();
-        exception.setId(dto.getId());
-        exception.setDate(dto.getDate());
-        exception.setStartTime(dto.getStartTime());
-        exception.setEndTime(dto.getEndTime());
-        // Weitere Felder falls nötig
-        return exception;
-    }
-
-    private JSONAbsenceExceptionDTO convertEntityToDTO(AbsenceException exception) {
-        JSONAbsenceExceptionDTO dto = new JSONAbsenceExceptionDTO();
-        dto.setId(exception.getId());
-        dto.setDate(exception.getDate());
-        dto.setStartTime(exception.getStartTime());
-        dto.setEndTime(exception.getEndTime());
-        // Weitere Felder falls nötig
-        return dto;
     }
 
 }

@@ -36,7 +36,6 @@ public class AppointmentSeries {
     private Patient patient;
 
     @Column(name = "start_time")
-
     private Date startTime;
 
     @Column(name = "end_time")
@@ -50,6 +49,7 @@ public class AppointmentSeries {
     @Column(name = "end_date")
     private Date endDate;
 
+    @Column(name = "weekly_frequency")
     private Integer weeklyfrequency;
 
     @Column(name = "is_bwo")
