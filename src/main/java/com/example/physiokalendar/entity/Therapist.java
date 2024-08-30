@@ -35,13 +35,23 @@ public class Therapist {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "full_name")
+    private String fullName;
 
     @Column(name = "active_since")
     private Date activeSince;
 
     @Column(name = "active_until")
     private Date activeUntil;
+
+    @Column(name = "is_active")
+    private Boolean isActive;
 
     @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference

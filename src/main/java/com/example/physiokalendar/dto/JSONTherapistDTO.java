@@ -11,9 +11,14 @@ import lombok.Setter;
 @Setter
 public class JSONTherapistDTO {
     private Long id;
-    private String name;
+    private String userName;
+    private String password;
+    private String fullName;
+    private String firstName;
+    private String lastName;
     private Date activeSince;
     private Date activeUntil;
+    private Boolean isActive;
     private List<Long> absenceIds;
     private List<JSONAbsenceDTO> absences;
     private List<Long> absenceExceptionIds;

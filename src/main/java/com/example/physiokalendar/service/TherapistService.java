@@ -48,7 +48,9 @@ public class TherapistService {
     public Therapist updateTherapist(Long id, JSONTherapistDTO dto) {
         Therapist existingTherapist = therapistRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Therapist not found"));
-        existingTherapist.setName(dto.getName());
+        existingTherapist.setFirstName(dto.getFirstName());
+        existingTherapist.setLastName(dto.getLastName());
+        existingTherapist.setFullName(dto.getFullName());
         existingTherapist.setActiveSince(dto.getActiveSince());
         existingTherapist.setActiveUntil(dto.getActiveUntil());
         // Weitere Feldaktualisierungen, falls vorhanden
@@ -88,20 +90,24 @@ public class TherapistService {
     private JSONTherapistDTO convertEntityToDTO(Therapist therapist) {
         JSONTherapistDTO dto = new JSONTherapistDTO();
         dto.setId(therapist.getId());
-        dto.setName(therapist.getName());
+        dto.setFirstName(therapist.getFirstName());
+        dto.setLastName(therapist.getLastName());
+        dto.setFullName(therapist.getFullName());
         dto.setActiveSince(therapist.getActiveSince());
         dto.setActiveUntil(therapist.getActiveUntil());
-        // Weitere Felder falls nötig
+        dto.setIsActive(therapist.getIsActive());
         return dto;
     }
 
     private Therapist convertDTOToEntity(JSONTherapistDTO dto) {
         Therapist therapist = new Therapist();
         therapist.setId(dto.getId());
-        therapist.setName(dto.getName());
+        therapist.setFirstName(dto.getFirstName());
+        therapist.setLastName(dto.getLastName());
+        therapist.setFullName(dto.getFullName());
         therapist.setActiveSince(dto.getActiveSince());
         therapist.setActiveUntil(dto.getActiveUntil());
-        // Weitere Felder falls nötig
+        therapist.setIsActive(dto.getIsActive());
         return therapist;
     }
 

@@ -20,6 +20,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class JSONPatientDTO {
     private Long id;
+    private String fullName;
     private String firstName;
     private String lastName;
     private Date activeSince;
