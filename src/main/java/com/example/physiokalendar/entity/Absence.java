@@ -33,9 +33,12 @@ public class Absence {
     @Column(name = "date")
     private Date date;
 
+    @Column(name = "weekday")
+    private String weekday;
+
     @Column(name = "start_time")
-    private String startTime;
+    private Date startTime;
 
     @Column(name = "end_time")
-    private String endTime;
+    private Date endTime;
 }

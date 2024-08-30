@@ -24,8 +24,8 @@ public class AbsenceService {
         return absenceRepository.findById(id);
     }
 
-    public Absence saveAbsence(Absence absence) {
-        return absenceRepository.save(absence);
+    public Absence saveAbsence(JSONAbsenceDTO absence) {
+        return absenceRepository.save(convertDTOToEntity(absence));
     }
 
     public void deleteAbsence(Long id) {
@@ -36,8 +36,9 @@ public class AbsenceService {
         Absence absence = new Absence();
         absence.setId(dto.getId());
         absence.setDate(dto.getDate());
-        absence.setStartTime(dto.getStartTime());
-        absence.setEndTime(dto.getEndTime());
+        absence.setWeekday(dto.getWeekday());
+        absence.setStartTime(dto.getDate());
+        absence.setEndTime(dto.getDate());
         // Weitere Felder falls nötig
         return absence;
     }
@@ -46,8 +47,9 @@ public class AbsenceService {
         JSONAbsenceDTO dto = new JSONAbsenceDTO();
         dto.setId(absence.getId());
         dto.setDate(absence.getDate());
-        dto.setStartTime(absence.getStartTime());
-        dto.setEndTime(absence.getEndTime());
+        dto.setWeekday(dto.getWeekday());
+        dto.setStartTime(dto.getDate());
+        dto.setEndTime(dto.getDate());
         // Weitere Felder falls nötig
         return dto;
     }

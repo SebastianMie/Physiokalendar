@@ -22,4 +22,5 @@ public class JSONAppointmentDTO {
     private Boolean isHotair;
     private Boolean isUltrasonic;
     private Boolean isElectric;
+    private Boolean createdBySeriesAppointment;
 }

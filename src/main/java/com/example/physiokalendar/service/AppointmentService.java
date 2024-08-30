@@ -53,6 +53,7 @@ public class AppointmentService {
         appointment.setStartTime(appointmentDTO.getStartTime());
         appointment.setEndTime(appointmentDTO.getEndTime());
         appointment.setComment(appointmentDTO.getComment());
+        appointment.setCreatedBySeriesAppointment(appointmentDTO.getCreatedBySeriesAppointment());
         appointment.setIsHotair(appointmentDTO.getIsHotair());
         appointment.setIsUltrasonic(appointmentDTO.getIsUltrasonic());
         appointment.setIsElectric(appointmentDTO.getIsElectric());

@@ -20,8 +20,9 @@ import lombok.ToString;
 public class JSONAbsenceExceptionDTO {
     private Long id;
     private Date date;
-    private String startTime;
-    private String endTime;
+    private String weekday;
+    private Date startTime;
+    private Date endTime;
 
     // Getters and Setters
 }

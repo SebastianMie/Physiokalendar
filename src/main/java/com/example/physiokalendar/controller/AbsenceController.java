@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.physiokalendar.dto.JSONAbsenceDTO;
 import com.example.physiokalendar.entity.Absence;
 import com.example.physiokalendar.service.AbsenceService;
 
@@ -33,7 +34,7 @@ public class AbsenceController {
     }
 
     @PostMapping
-    public Absence createOrUpdateAbsence(@RequestBody Absence absence) {
+    public Absence createOrUpdateAbsence(@RequestBody JSONAbsenceDTO absence) {
         return absenceService.saveAbsence(absence);
     }
 

@@ -41,6 +41,9 @@ public class Appointment {
     @Column(name = "comment")
     private String comment;
 
+    @Column(name = "created_by_series_appointment")
+    private Boolean createdBySeriesAppointment;
+
     @Column(name = "is_hotair")
     private Boolean isHotair;
 

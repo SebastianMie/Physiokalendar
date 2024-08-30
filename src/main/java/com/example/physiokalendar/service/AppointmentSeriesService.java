@@ -1,6 +1,7 @@
 // AppointmentSeriesService.java
 package com.example.physiokalendar.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -55,10 +56,13 @@ public class AppointmentSeriesService {
         Patient patient = patientRepository.findById(patientId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
 
-        List<Cancellation> cancellations = appointmentSeriesDTO.getCancellationIds().stream()
+        List<Long> cancellationIds = appointmentSeriesDTO.getCancellationIds();
+        List<Cancellation> cancellations = (cancellationIds != null) 
+            ? cancellationIds.stream()
                 .map(cancellationId -> cancellationRepository.findById(cancellationId)
-                        .orElseThrow(() -> new IllegalArgumentException("Invalid cancellation ID: " + cancellationId)))
-                .collect(Collectors.toList());
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid cancellation ID: " + cancellationId)))
+                .collect(Collectors.toList())
+            : Collections.emptyList(); // Leere Liste, wenn keine Stornierungen vorhanden
 
         AppointmentSeries appointmentSeries = new AppointmentSeries();
         appointmentSeries.setTherapist(therapist);

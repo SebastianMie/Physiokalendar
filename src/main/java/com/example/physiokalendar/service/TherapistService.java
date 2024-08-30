@@ -59,6 +59,12 @@ public class TherapistService {
         therapistRepository.deleteById(id);
     }
 
+    public List<JSONAbsenceDTO> getAllAbsences() {
+        return absenceRepository.findAll().stream()
+                .map(AbsenceService::convertEntityToDTO)
+                .collect(Collectors.toList());
+    }
+
     public Therapist addAbsence(Long therapistId, JSONAbsenceDTO absenceDTO) {
         Therapist therapist = therapistRepository.findById(therapistId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));

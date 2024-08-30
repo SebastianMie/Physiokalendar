@@ -35,9 +35,10 @@ public class AbsenceExceptionService {
     public static AbsenceException convertDTOToEntity(JSONAbsenceExceptionDTO dto) {
         AbsenceException exception = new AbsenceException();
         exception.setId(dto.getId());
+        exception.setWeekday(dto.getWeekday());
         exception.setDate(dto.getDate());
-        exception.setStartTime(dto.getStartTime());
-        exception.setEndTime(dto.getEndTime());
+        exception.setStartTime(dto.getDate());
+        exception.setEndTime(dto.getDate());
         // Weitere Felder falls nötig
         return exception;
     }
@@ -46,8 +47,9 @@ public class AbsenceExceptionService {
         JSONAbsenceExceptionDTO dto = new JSONAbsenceExceptionDTO();
         dto.setId(exception.getId());
         dto.setDate(exception.getDate());
-        dto.setStartTime(exception.getStartTime());
-        dto.setEndTime(exception.getEndTime());
+        dto.setWeekday(dto.getWeekday());
+        dto.setStartTime(exception.getDate());
+        dto.setEndTime(exception.getDate());
         // Weitere Felder falls nötig
         return dto;
     }
