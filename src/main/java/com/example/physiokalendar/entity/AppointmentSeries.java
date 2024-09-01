@@ -52,8 +52,8 @@ public class AppointmentSeries {
     @Column(name = "weekly_frequency")
     private Integer weeklyfrequency;
 
-    @Column(name = "is_bwo")
-    private Boolean isBWO;
+    @Column(name = "week_day")
+    private String weekday;
 
     @OneToMany(mappedBy = "appointmentSeries", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference

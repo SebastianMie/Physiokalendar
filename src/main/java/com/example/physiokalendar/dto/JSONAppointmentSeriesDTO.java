@@ -29,7 +29,7 @@ public class JSONAppointmentSeriesDTO {
     private Date startDate;
     private Date endDate;
     private Integer weeklyFrequency;
-    private Boolean isBWO;
+    private String weekday;
     private List<JSONCancellationDTO> cancellations;
     private List<Long> cancellationIds;
     // Getters and Setters

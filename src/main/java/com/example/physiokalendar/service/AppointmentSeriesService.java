@@ -1,7 +1,8 @@
 // AppointmentSeriesService.java
 package com.example.physiokalendar.service;
 
-import java.util.Collections;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -11,10 +12,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.physiokalendar.dto.JSONAppointmentSeriesDTO;
 import com.example.physiokalendar.dto.JSONCancellationDTO;
+import com.example.physiokalendar.entity.Appointment;
 import com.example.physiokalendar.entity.AppointmentSeries;
 import com.example.physiokalendar.entity.Cancellation;
-import com.example.physiokalendar.entity.Patient;
 import com.example.physiokalendar.entity.Therapist;
+import com.example.physiokalendar.repository.AppointmentRepository;
 import com.example.physiokalendar.repository.AppointmentSeriesRepository;
 import com.example.physiokalendar.repository.CancellationRepository;
 import com.example.physiokalendar.repository.PatientRepository;
@@ -27,6 +29,9 @@ public class AppointmentSeriesService {
 
     @Autowired
     private AppointmentSeriesRepository appointmentSeriesRepository;
+
+    @Autowired
+    private AppointmentRepository appointmentRepository;
 
     @Autowired
     private TherapistRepository therapistRepository;
@@ -45,38 +50,107 @@ public class AppointmentSeriesService {
         return appointmentSeriesRepository.findById(id);
     }
 
-    @Transactional
+     @Transactional
     public AppointmentSeries saveAppointmentSeries(JSONAppointmentSeriesDTO appointmentSeriesDTO) {
         // Mapping DTO to Entity
         Long therapistId = appointmentSeriesDTO.getTherapist().getId();
-        Long patientId = appointmentSeriesDTO.getPatientId();
-        
         Therapist therapist = therapistRepository.findById(therapistId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));
-        Patient patient = patientRepository.findById(patientId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
-
-        List<Long> cancellationIds = appointmentSeriesDTO.getCancellationIds();
-        List<Cancellation> cancellations = (cancellationIds != null) 
-            ? cancellationIds.stream()
-                .map(cancellationId -> cancellationRepository.findById(cancellationId)
-                    .orElseThrow(() -> new IllegalArgumentException("Invalid cancellation ID: " + cancellationId)))
-                .collect(Collectors.toList())
-            : Collections.emptyList(); // Leere Liste, wenn keine Stornierungen vorhanden
 
         AppointmentSeries appointmentSeries = new AppointmentSeries();
         appointmentSeries.setTherapist(therapist);
-        appointmentSeries.setPatient(patient);
+        appointmentSeries.setPatient(patientRepository.findById(appointmentSeriesDTO.getPatientId())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID")));
         appointmentSeries.setStartTime(appointmentSeriesDTO.getStartTime());
         appointmentSeries.setEndTime(appointmentSeriesDTO.getEndTime());
-        appointmentSeries.setComment(appointmentSeriesDTO.getComment());
         appointmentSeries.setStartDate(appointmentSeriesDTO.getStartDate());
         appointmentSeries.setEndDate(appointmentSeriesDTO.getEndDate());
         appointmentSeries.setWeeklyfrequency(appointmentSeriesDTO.getWeeklyFrequency());
-        appointmentSeries.setCancellations(cancellations);
-        appointmentSeries.setIsBWO(appointmentSeriesDTO.getIsBWO());
+        appointmentSeries.setWeekday(appointmentSeriesDTO.getWeekday());
+        appointmentSeries.setComment(appointmentSeriesDTO.getComment());
 
-        return appointmentSeriesRepository.save(appointmentSeries);
+        // Speichern der AppointmentSeries
+        AppointmentSeries savedSeries = appointmentSeriesRepository.save(appointmentSeries);
+
+        // Einzeltermine erstellen
+        createAppointmentsFromSeries(savedSeries, appointmentSeriesDTO.getStartDate(), appointmentSeriesDTO.getEndDate(), appointmentSeriesDTO.getWeeklyFrequency());
+
+        return savedSeries;
+    }
+
+    private void createAppointmentsFromSeries(AppointmentSeries series, Date startDate, Date endDate, int weeklyFrequency) {
+        Therapist therapist = series.getTherapist();
+
+        // Erstellen des Kalenders für die Datumsmathematik
+        Calendar startCalendar = Calendar.getInstance();
+        startCalendar.setTime(startDate);
+        
+        Calendar endCalendar = Calendar.getInstance();
+        endCalendar.setTime(endDate);
+
+        Calendar endTimeCalendar = Calendar.getInstance();
+        endTimeCalendar.setTime(series.getEndTime());
+
+        // Iterieren durch die Wochen, um die Einzeltermine zu erstellen
+        while (startCalendar.before(endCalendar) || startCalendar.equals(endCalendar)) {
+            // Erstellen des Einzeltermins
+            Appointment appointment = new Appointment();
+            appointment.setTherapist(therapist);
+            appointment.setPatient(series.getPatient());
+            Date startTime = startCalendar.getTime();
+            Calendar endCalendarAppointment = (Calendar) startCalendar.clone();
+            endCalendarAppointment.set(Calendar.HOUR_OF_DAY, endTimeCalendar.get(Calendar.HOUR_OF_DAY));
+            endCalendarAppointment.set(Calendar.MINUTE, endTimeCalendar.get(Calendar.MINUTE));
+            endCalendarAppointment.set(Calendar.SECOND, endTimeCalendar.get(Calendar.SECOND));
+            Date endTime = endCalendarAppointment.getTime();
+            appointment.setDate(startTime);
+            appointment.setStartTime(startTime);
+            appointment.setEndTime(endTime);
+            appointment.setCreatedBySeriesAppointment(true);
+            appointment.setIsElectric(false);
+            appointment.setIsHotair(false);
+            appointment.setIsUltrasonic(false);
+            appointment.setComment("generiert aus SerienTermin id "+ series.getId());
+            // Überprüfen auf Konflikte
+            if (checkForConflicts(appointment)) {
+                throw new IllegalStateException("Appointment conflicts with an existing appointment.");
+            }
+
+            // Speichern des Einzeltermins
+            appointmentRepository.save(appointment);
+
+            // Nächster Termin basierend auf der wöchentlichen Frequenz
+            startCalendar.add(Calendar.WEEK_OF_YEAR, weeklyFrequency);
+        }
+    }
+
+    private boolean checkForConflicts(Appointment newAppointment) {
+        // Filterlogik für Konflikte, z.B. Termine des heutigen Tages
+        Calendar todayCalendar = Calendar.getInstance();
+        todayCalendar.set(Calendar.HOUR_OF_DAY, 0);
+        todayCalendar.set(Calendar.MINUTE, 0);
+        todayCalendar.set(Calendar.SECOND, 0);
+        todayCalendar.set(Calendar.MILLISECOND, 0);
+        Date today = todayCalendar.getTime();
+
+        List<Appointment> appointments = appointmentRepository.findAll().stream()
+                .filter(a -> isSameDay(a.getStartTime(), today) && a.getTherapist().getId().equals(newAppointment.getTherapist().getId()))
+                .collect(Collectors.toList());
+
+        return appointments.stream().anyMatch(existingAppointment -> isOverlapping(existingAppointment, newAppointment));
+    }
+
+    private boolean isOverlapping(Appointment a, Appointment b) {
+        return a.getEndTime().after(b.getStartTime()) && b.getEndTime().after(a.getStartTime());
+    }
+
+    private boolean isSameDay(Date d1, Date d2) {
+        Calendar cal1 = Calendar.getInstance();
+        cal1.setTime(d1);
+        Calendar cal2 = Calendar.getInstance();
+        cal2.setTime(d2);
+        return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+               cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR);
     }
 
     @Transactional

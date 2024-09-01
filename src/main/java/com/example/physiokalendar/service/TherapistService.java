@@ -50,10 +50,10 @@ public class TherapistService {
                 .orElseThrow(() -> new RuntimeException("Therapist not found"));
         existingTherapist.setFirstName(dto.getFirstName());
         existingTherapist.setLastName(dto.getLastName());
-        existingTherapist.setFullName(dto.getFullName());
+        existingTherapist.setFullName(dto.getFirstName() + " " + dto.getLastName());
         existingTherapist.setActiveSince(dto.getActiveSince());
         existingTherapist.setActiveUntil(dto.getActiveUntil());
-        // Weitere Feldaktualisierungen, falls vorhanden
+        existingTherapist.setIsActive(dto.getIsActive());
         return therapistRepository.save(existingTherapist);
     }
 
@@ -87,7 +87,7 @@ public class TherapistService {
         return therapistRepository.save(therapist);
     }
 
-    private JSONTherapistDTO convertEntityToDTO(Therapist therapist) {
+    public JSONTherapistDTO convertEntityToDTO(Therapist therapist) {
         JSONTherapistDTO dto = new JSONTherapistDTO();
         dto.setId(therapist.getId());
         dto.setFirstName(therapist.getFirstName());
@@ -99,7 +99,7 @@ public class TherapistService {
         return dto;
     }
 
-    private Therapist convertDTOToEntity(JSONTherapistDTO dto) {
+    public Therapist convertDTOToEntity(JSONTherapistDTO dto) {
         Therapist therapist = new Therapist();
         therapist.setId(dto.getId());
         therapist.setFirstName(dto.getFirstName());

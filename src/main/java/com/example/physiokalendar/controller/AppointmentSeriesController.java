@@ -1,4 +1,3 @@
-// AppointmentSeriesController.java
 package com.example.physiokalendar.controller;
 
 import java.util.List;
@@ -40,19 +39,48 @@ public class AppointmentSeriesController {
     }
 
     @PostMapping
-    public ResponseEntity<AppointmentSeries> createOrUpdateAppointmentSeries(@RequestBody JSONAppointmentSeriesDTO appointmentSeriesDTO) {
-        AppointmentSeries savedSeries = appointmentSeriesService.saveAppointmentSeries(appointmentSeriesDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedSeries);
+    public ResponseEntity<String> createOrUpdateAppointmentSeries(@RequestBody JSONAppointmentSeriesDTO appointmentSeriesDTO) {
+        try {
+            AppointmentSeries savedSeries = appointmentSeriesService.saveAppointmentSeries(appointmentSeriesDTO);
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body("Appointment Series successfully created with ID: " + savedSeries.getId());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Invalid data provided: " + e.getMessage());
+        } catch (IllegalStateException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("Conflict with existing appointments: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error creating appointment series.");
+        }
     }
-    
+
     @PostMapping("/{id}/cancellations")
-    public AppointmentSeries addCancellations(@PathVariable Long id, @RequestBody List<JSONCancellationDTO> cancellationDTOs) {
-        return appointmentSeriesService.addCancellations(id, cancellationDTOs);
+    public ResponseEntity<String> addCancellations(@PathVariable Long id, @RequestBody List<JSONCancellationDTO> cancellationDTOs) {
+        try {
+            AppointmentSeries updatedSeries = appointmentSeriesService.addCancellations(id, cancellationDTOs);
+            return ResponseEntity.ok("Cancellations added successfully to Appointment Series ID: " + updatedSeries.getId());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Appointment Series not found: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error adding cancellations.");
+        }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAppointmentSeries(@PathVariable Long id) {
-        appointmentSeriesService.deleteAppointmentSeries(id);
-        return ResponseEntity.noContent().build();
+        try {
+            appointmentSeriesService.deleteAppointmentSeries(id);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .build();
+        }
     }
 }

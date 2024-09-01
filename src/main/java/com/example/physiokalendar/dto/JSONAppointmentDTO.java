@@ -15,6 +15,7 @@ public class JSONAppointmentDTO {
     private JSONTherapistDTO therapist;
     private Long therapistId;
     private Date date;
+    private JSONPatientDTO patient;
     private Long patientId;
     private Date startTime;
     private Date endTime;

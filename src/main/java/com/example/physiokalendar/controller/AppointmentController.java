@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,8 +37,18 @@ public class AppointmentController {
     }
 
     @PostMapping
-    public Appointment createOrUpdateAppointment(@RequestBody JSONAppointmentDTO appointmentDTO) {
-        return appointmentService.saveAppointment(appointmentDTO);
+    public ResponseEntity<String> createOrUpdateAppointment(@RequestBody JSONAppointmentDTO appointmentDTO) {
+        try {
+            if (appointmentService.checkForConflicts(appointmentService.convertDTOToEntity(appointmentDTO))) {
+                return ResponseEntity.status(HttpStatus.CONFLICT)
+                        .body("Konflikt mit einem bestehenden Termin für den Therapeuten.");
+            }
+
+            appointmentService.saveAppointment(appointmentDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body("Termin erfolgreich erstellt.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Fehler beim Erstellen des Termins.");
+        }
     }
 
     @DeleteMapping("/{id}")

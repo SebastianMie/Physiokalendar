@@ -35,6 +35,7 @@ public class PatientService {
         Patient existingPatient = patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
         existingPatient.setFirstName(dto.getFirstName());
         existingPatient.setLastName(dto.getLastName());
+        existingPatient.setFullName(dto.getFullName());
         existingPatient.setActiveSince(dto.getActiveSince());
         existingPatient.setActiveUntil(dto.getActiveUntil());
         existingPatient.setIsBWO(dto.getIsBWO());
@@ -45,18 +46,19 @@ public class PatientService {
         patientRepository.deleteById(id);
     }
 
-    private JSONPatientDTO convertEntityToDTO(Patient patient) {
+    public JSONPatientDTO convertEntityToDTO(Patient patient) {
         JSONPatientDTO dto = new JSONPatientDTO();
         dto.setId(patient.getId());
         dto.setFirstName(patient.getFirstName());
         dto.setLastName(patient.getLastName());
+        dto.setFullName(patient.getFirstName() + " " + patient.getLastName());
         dto.setActiveSince(patient.getActiveSince()); 
         dto.setActiveUntil(patient.getActiveUntil()); 
         dto.setIsBWO(patient.getIsBWO());
         return dto;
     }
 
-    private Patient convertDTOToEntity(JSONPatientDTO dto) {
+    public Patient convertDTOToEntity(JSONPatientDTO dto) {
         Patient patient = new Patient();
         patient.setFirstName(dto.getFirstName());
         patient.setLastName(dto.getLastName());
