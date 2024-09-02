@@ -73,7 +73,7 @@ public class AppointmentSeriesService {
         AppointmentSeries savedSeries = appointmentSeriesRepository.save(appointmentSeries);
 
         // Einzeltermine erstellen
-        createAppointmentsFromSeries(savedSeries, appointmentSeriesDTO.getStartDate(), appointmentSeriesDTO.getEndDate(), appointmentSeriesDTO.getWeeklyFrequency());
+        createAppointmentsFromSeries(savedSeries, appointmentSeriesDTO.getStartTime(), appointmentSeriesDTO.getEndDate(), appointmentSeriesDTO.getWeeklyFrequency());
 
         return savedSeries;
     }

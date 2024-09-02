@@ -46,7 +46,7 @@ public class AppointmentService {
     public Appointment saveAppointment(JSONAppointmentDTO appointmentDTO) {
         // Mapping DTO to Entity
         Long therapistId = appointmentDTO.getTherapist().getId();
-        Long patientId = appointmentDTO.getPatientId();
+        Long patientId = appointmentDTO.getPatient().getId();
         
         Therapist therapist = therapistRepository.findById(therapistId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));
@@ -54,6 +54,7 @@ public class AppointmentService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
 
         Appointment appointment = new Appointment();
+        appointment.setId(appointmentDTO.getId());
         appointment.setTherapist(therapist);
         appointment.setPatient(patient);
         appointment.setDate(appointmentDTO.getDate());

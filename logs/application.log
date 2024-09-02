@@ -11700,3 +11700,1026 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 2024-09-02 00:25:24 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-09-02 00:25:24 - Initializing Servlet 'dispatcherServlet'
 2024-09-02 00:25:24 - Completed initialization in 4 ms
+2024-09-02 08:51:33 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 08:51:33 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 08:51:33 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-02 08:51:33 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-02 08:51:37 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 08:51:37 - Finished Spring Data repository scanning in 293 ms. Found 7 JPA repository interfaces.
+2024-09-02 08:51:43 - Tomcat initialized with port 8080 (http)
+2024-09-02 08:51:43 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 08:51:43 - Starting service [Tomcat]
+2024-09-02 08:51:43 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 08:51:44 - Initializing Spring embedded WebApplicationContext
+2024-09-02 08:51:44 - Root WebApplicationContext: initialization completed in 11107 ms
+2024-09-02 08:51:45 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 08:51:46 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-02 08:51:46 - HHH000026: Second-level cache disabled
+2024-09-02 08:51:48 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 08:51:49 - HikariPool-1 - Starting...
+2024-09-02 08:51:51 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@386de11d
+2024-09-02 08:51:51 - HikariPool-1 - Start completed.
+2024-09-02 08:51:51 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 08:51:51 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 08:51:55 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 08:51:55 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 08:51:57 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 08:52:00 - LiveReload server is running on port 35729
+2024-09-02 08:52:00 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 08:52:00 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 08:52:00 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 08:52:01 - Started PhysiokalendarApplication in 28.962 seconds (process running for 30.633)
+2024-09-02 08:53:04 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-02 08:53:04 - Initializing Servlet 'dispatcherServlet'
+2024-09-02 08:53:04 - Completed initialization in 4 ms
+2024-09-02 09:13:20 - Resolved [org.springframework.web.context.request.async.AsyncRequestNotUsableException: ServletOutputStream failed to write: java.io.IOException: Eine bestehende Verbindung wurde softwaregesteuert<EOL><EOL>durch den Hostcomputer abgebrochen]
+2024-09-02 09:48:14 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m22s706ms134µs300ns).
+2024-09-02 10:19:55 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 10:19:55 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 10:19:56 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 10:19:56 - HikariPool-1 - Shutdown initiated...
+2024-09-02 10:19:57 - HikariPool-1 - Shutdown completed.
+2024-09-02 10:19:57 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 10:19:57 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 10:20:00 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 10:20:00 - Finished Spring Data repository scanning in 70 ms. Found 7 JPA repository interfaces.
+2024-09-02 10:20:00 - Tomcat initialized with port 8080 (http)
+2024-09-02 10:20:00 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 10:20:00 - Starting service [Tomcat]
+2024-09-02 10:20:00 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 10:20:01 - Initializing Spring embedded WebApplicationContext
+2024-09-02 10:20:01 - Root WebApplicationContext: initialization completed in 3217 ms
+2024-09-02 10:20:01 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 10:20:01 - HHH000026: Second-level cache disabled
+2024-09-02 10:20:01 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 10:20:01 - HikariPool-2 - Starting...
+2024-09-02 10:20:02 - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6d019867
+2024-09-02 10:20:02 - HikariPool-2 - Start completed.
+2024-09-02 10:20:02 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 10:20:02 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 10:20:02 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 10:20:04 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 10:20:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 10:20:07 - LiveReload server is running on port 35729
+2024-09-02 10:20:07 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 10:20:07 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 10:20:07 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 10:20:07 - Started PhysiokalendarApplication in 9.717 seconds (process running for 5317.035)
+2024-09-02 10:20:07 - Condition evaluation unchanged
+2024-09-02 10:20:08 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 10:20:08 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 10:20:09 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 10:20:09 - HikariPool-2 - Shutdown initiated...
+2024-09-02 10:20:09 - HikariPool-2 - Shutdown completed.
+2024-09-02 10:20:09 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 10:20:09 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 10:20:11 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 10:20:11 - Finished Spring Data repository scanning in 107 ms. Found 7 JPA repository interfaces.
+2024-09-02 10:20:11 - Tomcat initialized with port 8080 (http)
+2024-09-02 10:20:11 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 10:20:11 - Starting service [Tomcat]
+2024-09-02 10:20:11 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 10:20:11 - Initializing Spring embedded WebApplicationContext
+2024-09-02 10:20:11 - Root WebApplicationContext: initialization completed in 2398 ms
+2024-09-02 10:20:12 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 10:20:12 - HHH000026: Second-level cache disabled
+2024-09-02 10:20:12 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 10:20:12 - HikariPool-3 - Starting...
+2024-09-02 10:20:12 - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@f0fa231
+2024-09-02 10:20:12 - HikariPool-3 - Start completed.
+2024-09-02 10:20:12 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 10:20:12 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 10:20:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 10:20:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 10:20:14 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 10:20:15 - LiveReload server is running on port 35729
+2024-09-02 10:20:15 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 10:20:15 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 10:20:15 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 10:20:15 - Started PhysiokalendarApplication in 6.121 seconds (process running for 5325.12)
+2024-09-02 10:20:15 - Condition evaluation unchanged
+2024-09-02 10:20:49 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-02 10:20:49 - Initializing Servlet 'dispatcherServlet'
+2024-09-02 10:20:49 - Completed initialization in 1 ms
+2024-09-02 12:47:04 - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=59m21s493ms154µs600ns).
+2024-09-02 13:22:08 - Resolved [org.springframework.web.context.request.async.AsyncRequestNotUsableException: ServletOutputStream failed to flush: java.io.IOException: Eine bestehende Verbindung wurde softwaregesteuert<EOL><EOL>durch den Hostcomputer abgebrochen]
+2024-09-02 14:53:42 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2024-09-02 14:55:52 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2024-09-02 14:58:04 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2024-09-02 14:58:16 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2024-09-02 15:00:19 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:00:19 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:19 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:00:19 - HikariPool-3 - Shutdown initiated...
+2024-09-02 15:00:20 - HikariPool-3 - Shutdown completed.
+2024-09-02 15:00:20 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:00:20 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:00:22 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:00:22 - Finished Spring Data repository scanning in 83 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:00:23 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:00:23 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:23 - Starting service [Tomcat]
+2024-09-02 15:00:23 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:00:23 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:00:23 - Root WebApplicationContext: initialization completed in 2480 ms
+2024-09-02 15:00:23 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:00:23 - HHH000026: Second-level cache disabled
+2024-09-02 15:00:23 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:00:23 - HikariPool-4 - Starting...
+2024-09-02 15:00:23 - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@62f47375
+2024-09-02 15:00:23 - HikariPool-4 - Start completed.
+2024-09-02 15:00:23 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:00:23 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:00:24 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:00:24 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:00:25 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:00:26 - LiveReload server is running on port 35729
+2024-09-02 15:00:26 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:00:26 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:26 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:00:26 - Started PhysiokalendarApplication in 5.556 seconds (process running for 22135.799)
+2024-09-02 15:00:26 - Condition evaluation unchanged
+2024-09-02 15:00:27 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:00:27 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:28 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:00:28 - HikariPool-4 - Shutdown initiated...
+2024-09-02 15:00:28 - HikariPool-4 - Shutdown completed.
+2024-09-02 15:00:28 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:00:28 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:00:30 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:00:30 - Finished Spring Data repository scanning in 71 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:00:30 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:00:30 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:30 - Starting service [Tomcat]
+2024-09-02 15:00:30 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:00:30 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:00:30 - Root WebApplicationContext: initialization completed in 1827 ms
+2024-09-02 15:00:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:00:30 - HHH000026: Second-level cache disabled
+2024-09-02 15:00:30 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:00:30 - HikariPool-5 - Starting...
+2024-09-02 15:00:31 - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3a366207
+2024-09-02 15:00:31 - HikariPool-5 - Start completed.
+2024-09-02 15:00:31 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:00:31 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:00:31 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:00:31 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:00:32 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:00:33 - LiveReload server is running on port 35729
+2024-09-02 15:00:33 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:00:33 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:33 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:00:33 - Started PhysiokalendarApplication in 4.525 seconds (process running for 22142.82)
+2024-09-02 15:00:33 - Condition evaluation unchanged
+2024-09-02 15:00:34 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:00:34 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:34 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:00:34 - HikariPool-5 - Shutdown initiated...
+2024-09-02 15:00:34 - HikariPool-5 - Shutdown completed.
+2024-09-02 15:00:34 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:00:34 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:00:36 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:00:36 - Finished Spring Data repository scanning in 246 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:00:36 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:00:36 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:36 - Starting service [Tomcat]
+2024-09-02 15:00:36 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:00:36 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:00:36 - Root WebApplicationContext: initialization completed in 1999 ms
+2024-09-02 15:00:37 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:00:37 - HHH000026: Second-level cache disabled
+2024-09-02 15:00:37 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:00:37 - HikariPool-6 - Starting...
+2024-09-02 15:00:37 - HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5dbd6107
+2024-09-02 15:00:37 - HikariPool-6 - Start completed.
+2024-09-02 15:00:37 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:00:37 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:00:37 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:00:38 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:00:38 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:00:39 - LiveReload server is running on port 35729
+2024-09-02 15:00:39 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:00:39 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:39 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:00:40 - Started PhysiokalendarApplication in 5.117 seconds (process running for 22149.636)
+2024-09-02 15:00:40 - Condition evaluation unchanged
+2024-09-02 15:00:41 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:00:41 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:41 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:00:41 - HikariPool-6 - Shutdown initiated...
+2024-09-02 15:00:41 - HikariPool-6 - Shutdown completed.
+2024-09-02 15:00:42 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:00:42 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:00:44 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:00:44 - Finished Spring Data repository scanning in 107 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:00:44 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:00:44 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:44 - Starting service [Tomcat]
+2024-09-02 15:00:44 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:00:44 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:00:44 - Root WebApplicationContext: initialization completed in 2628 ms
+2024-09-02 15:00:45 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:00:45 - HHH000026: Second-level cache disabled
+2024-09-02 15:00:45 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:00:45 - HikariPool-7 - Starting...
+2024-09-02 15:00:45 - HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b0ce943
+2024-09-02 15:00:45 - HikariPool-7 - Start completed.
+2024-09-02 15:00:45 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:00:45 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:00:46 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:00:46 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:00:46 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:00:47 - LiveReload server is running on port 35729
+2024-09-02 15:00:47 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:00:47 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:47 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:00:47 - Started PhysiokalendarApplication in 5.957 seconds (process running for 22157.613)
+2024-09-02 15:00:47 - Condition evaluation unchanged
+2024-09-02 15:00:49 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:00:49 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:49 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:00:49 - HikariPool-7 - Shutdown initiated...
+2024-09-02 15:00:49 - HikariPool-7 - Shutdown completed.
+2024-09-02 15:00:50 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:00:50 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:00:50 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:00:50 - Finished Spring Data repository scanning in 52 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:00:51 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:00:51 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:51 - Starting service [Tomcat]
+2024-09-02 15:00:51 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:00:51 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:00:51 - Root WebApplicationContext: initialization completed in 1206 ms
+2024-09-02 15:00:51 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:00:51 - HHH000026: Second-level cache disabled
+2024-09-02 15:00:51 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:00:51 - HikariPool-8 - Starting...
+2024-09-02 15:00:51 - HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3faae968
+2024-09-02 15:00:51 - HikariPool-8 - Start completed.
+2024-09-02 15:00:51 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:00:51 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:00:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:00:51 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:00:52 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:00:53 - LiveReload server is running on port 35729
+2024-09-02 15:00:53 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:00:53 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:00:53 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:00:53 - Started PhysiokalendarApplication in 3.584 seconds (process running for 22163.143)
+2024-09-02 15:00:53 - Condition evaluation unchanged
+2024-09-02 15:01:06 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:01:06 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:01:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:01:06 - HikariPool-8 - Shutdown initiated...
+2024-09-02 15:01:07 - HikariPool-8 - Shutdown completed.
+2024-09-02 15:01:07 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:01:07 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:01:08 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:01:08 - Finished Spring Data repository scanning in 50 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:01:08 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:01:08 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:01:08 - Starting service [Tomcat]
+2024-09-02 15:01:08 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:01:09 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:01:09 - Root WebApplicationContext: initialization completed in 1627 ms
+2024-09-02 15:01:09 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:01:09 - HHH000026: Second-level cache disabled
+2024-09-02 15:01:09 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:01:09 - HikariPool-9 - Starting...
+2024-09-02 15:01:09 - HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@316518d5
+2024-09-02 15:01:09 - HikariPool-9 - Start completed.
+2024-09-02 15:01:09 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:01:09 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:01:09 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:01:09 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:01:10 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:01:10 - LiveReload server is running on port 35729
+2024-09-02 15:01:10 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:01:10 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:01:10 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:01:10 - Started PhysiokalendarApplication in 3.763 seconds (process running for 22180.608)
+2024-09-02 15:01:10 - Condition evaluation unchanged
+2024-09-02 15:01:12 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:01:12 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:01:13 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:01:13 - HikariPool-9 - Shutdown initiated...
+2024-09-02 15:01:13 - HikariPool-9 - Shutdown completed.
+2024-09-02 15:01:13 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:01:13 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:01:15 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:01:15 - Finished Spring Data repository scanning in 120 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:01:16 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:01:16 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:01:16 - Starting service [Tomcat]
+2024-09-02 15:01:16 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:01:16 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:01:16 - Root WebApplicationContext: initialization completed in 2327 ms
+2024-09-02 15:01:16 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:01:16 - HHH000026: Second-level cache disabled
+2024-09-02 15:01:16 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:01:16 - HikariPool-10 - Starting...
+2024-09-02 15:01:16 - HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e7d146d
+2024-09-02 15:01:16 - HikariPool-10 - Start completed.
+2024-09-02 15:01:16 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:01:16 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:01:16 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:01:16 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:01:17 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:01:18 - LiveReload server is running on port 35729
+2024-09-02 15:01:18 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:01:18 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:01:18 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:01:18 - Started PhysiokalendarApplication in 4.854 seconds (process running for 22188.192)
+2024-09-02 15:01:18 - Condition evaluation unchanged
+2024-09-02 15:01:19 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:01:19 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:01:20 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:01:20 - HikariPool-10 - Shutdown initiated...
+2024-09-02 15:01:20 - HikariPool-10 - Shutdown completed.
+2024-09-02 15:01:20 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:01:20 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:01:21 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:01:21 - Finished Spring Data repository scanning in 42 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:01:21 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:01:21 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:01:21 - Starting service [Tomcat]
+2024-09-02 15:01:21 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:01:21 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:01:21 - Root WebApplicationContext: initialization completed in 877 ms
+2024-09-02 15:01:21 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:01:21 - HHH000026: Second-level cache disabled
+2024-09-02 15:01:21 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:01:21 - HikariPool-11 - Starting...
+2024-09-02 15:01:21 - HikariPool-11 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63f788c2
+2024-09-02 15:01:21 - HikariPool-11 - Start completed.
+2024-09-02 15:01:21 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:01:21 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:01:21 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:01:22 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:01:22 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:01:23 - LiveReload server is running on port 35729
+2024-09-02 15:01:23 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:01:23 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:01:23 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:01:23 - Started PhysiokalendarApplication in 2.852 seconds (process running for 22193.088)
+2024-09-02 15:01:23 - Condition evaluation unchanged
+2024-09-02 15:01:27 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-02 15:01:27 - Initializing Servlet 'dispatcherServlet'
+2024-09-02 15:01:27 - Completed initialization in 2 ms
+2024-09-02 15:05:31 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:05:31 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:05:36 - The executor associated with thread pool [http-nio-8080] has not fully shutdown. Some application threads may still be running.
+2024-09-02 15:05:36 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:05:36 - HikariPool-11 - Shutdown initiated...
+2024-09-02 15:05:37 - HikariPool-11 - Shutdown completed.
+2024-09-02 15:05:39 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:05:39 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:05:40 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:05:40 - Finished Spring Data repository scanning in 158 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:05:41 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:05:41 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:05:41 - Starting service [Tomcat]
+2024-09-02 15:05:41 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:05:41 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:05:41 - Root WebApplicationContext: initialization completed in 1387 ms
+2024-09-02 15:05:41 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:05:41 - HHH000026: Second-level cache disabled
+2024-09-02 15:05:41 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:05:41 - HikariPool-12 - Starting...
+2024-09-02 15:05:41 - HikariPool-12 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15975c64
+2024-09-02 15:05:41 - HikariPool-12 - Start completed.
+2024-09-02 15:05:41 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:05:41 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:05:41 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:05:42 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:05:42 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:05:43 - LiveReload server is running on port 35729
+2024-09-02 15:05:43 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:05:43 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:05:43 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:05:43 - Started PhysiokalendarApplication in 3.734 seconds (process running for 22453.103)
+2024-09-02 15:05:43 - Condition evaluation unchanged
+2024-09-02 15:05:44 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:05:44 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:05:45 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:05:45 - HikariPool-12 - Shutdown initiated...
+2024-09-02 15:05:45 - HikariPool-12 - Shutdown completed.
+2024-09-02 15:05:45 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:05:45 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:05:46 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:05:46 - Finished Spring Data repository scanning in 79 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:05:46 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:05:46 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:05:46 - Starting service [Tomcat]
+2024-09-02 15:05:46 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:05:46 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:05:46 - Root WebApplicationContext: initialization completed in 1201 ms
+2024-09-02 15:05:46 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:05:46 - HHH000026: Second-level cache disabled
+2024-09-02 15:05:46 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:05:46 - HikariPool-13 - Starting...
+2024-09-02 15:05:47 - HikariPool-13 - Added connection com.mysql.cj.jdbc.ConnectionImpl@dfd7ecd
+2024-09-02 15:05:47 - HikariPool-13 - Start completed.
+2024-09-02 15:05:47 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:05:47 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:05:47 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:05:47 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:05:48 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:05:48 - LiveReload server is running on port 35729
+2024-09-02 15:05:48 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:05:48 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:05:48 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:05:48 - Started PhysiokalendarApplication in 3.483 seconds (process running for 22458.461)
+2024-09-02 15:05:48 - Condition evaluation unchanged
+2024-09-02 15:05:50 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:05:50 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:05:51 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:05:51 - HikariPool-13 - Shutdown initiated...
+2024-09-02 15:05:51 - HikariPool-13 - Shutdown completed.
+2024-09-02 15:05:51 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:05:51 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:05:52 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:05:52 - Finished Spring Data repository scanning in 41 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:05:52 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:05:52 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:05:52 - Starting service [Tomcat]
+2024-09-02 15:05:52 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:05:52 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:05:52 - Root WebApplicationContext: initialization completed in 1001 ms
+2024-09-02 15:05:52 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:05:52 - HHH000026: Second-level cache disabled
+2024-09-02 15:05:52 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:05:52 - HikariPool-14 - Starting...
+2024-09-02 15:05:53 - HikariPool-14 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1746525a
+2024-09-02 15:05:53 - HikariPool-14 - Start completed.
+2024-09-02 15:05:53 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:05:53 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:05:53 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:05:53 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:05:54 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:05:55 - LiveReload server is running on port 35729
+2024-09-02 15:05:55 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:05:55 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:05:55 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:05:55 - Started PhysiokalendarApplication in 3.521 seconds (process running for 22464.737)
+2024-09-02 15:05:55 - Condition evaluation unchanged
+2024-09-02 15:06:02 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-02 15:06:02 - Initializing Servlet 'dispatcherServlet'
+2024-09-02 15:06:02 - Completed initialization in 1 ms
+2024-09-02 15:06:42 - Resolved [org.springframework.web.context.request.async.AsyncRequestNotUsableException: ServletOutputStream failed to flush: java.nio.channels.ClosedChannelException]
+2024-09-02 15:06:45 - Resolved [org.springframework.web.context.request.async.AsyncRequestNotUsableException: ServletOutputStream failed to flush: java.nio.channels.ClosedChannelException]
+2024-09-02 15:06:56 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:06:56 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:06:57 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:06:57 - HikariPool-14 - Shutdown initiated...
+2024-09-02 15:06:58 - HikariPool-14 - Shutdown completed.
+2024-09-02 15:06:58 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:06:58 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:06:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:06:59 - Finished Spring Data repository scanning in 40 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:06:59 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:06:59 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:06:59 - Starting service [Tomcat]
+2024-09-02 15:06:59 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:06:59 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:06:59 - Root WebApplicationContext: initialization completed in 1413 ms
+2024-09-02 15:06:59 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:06:59 - HHH000026: Second-level cache disabled
+2024-09-02 15:06:59 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:06:59 - HikariPool-15 - Starting...
+2024-09-02 15:07:00 - HikariPool-15 - Added connection com.mysql.cj.jdbc.ConnectionImpl@754b7187
+2024-09-02 15:07:00 - HikariPool-15 - Start completed.
+2024-09-02 15:07:00 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:07:00 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:07:00 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:07:01 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:01 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:07:02 - LiveReload server is running on port 35729
+2024-09-02 15:07:02 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:07:02 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:02 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:07:02 - Started PhysiokalendarApplication in 4.434 seconds (process running for 22532.283)
+2024-09-02 15:07:02 - Condition evaluation unchanged
+2024-09-02 15:07:04 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:07:04 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:05 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:05 - HikariPool-15 - Shutdown initiated...
+2024-09-02 15:07:05 - HikariPool-15 - Shutdown completed.
+2024-09-02 15:07:05 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:07:05 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:07:06 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:07:06 - Finished Spring Data repository scanning in 100 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:07:06 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:07:06 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:06 - Starting service [Tomcat]
+2024-09-02 15:07:06 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:07:06 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:07:06 - Root WebApplicationContext: initialization completed in 1106 ms
+2024-09-02 15:07:06 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:07:06 - HHH000026: Second-level cache disabled
+2024-09-02 15:07:06 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:07:06 - HikariPool-16 - Starting...
+2024-09-02 15:07:07 - HikariPool-16 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5dcae18b
+2024-09-02 15:07:07 - HikariPool-16 - Start completed.
+2024-09-02 15:07:07 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:07:07 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:07:07 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:07:08 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:08 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:07:09 - LiveReload server is running on port 35729
+2024-09-02 15:07:09 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:07:09 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:09 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:07:09 - Started PhysiokalendarApplication in 4.145 seconds (process running for 22539.289)
+2024-09-02 15:07:09 - Condition evaluation unchanged
+2024-09-02 15:07:11 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:07:11 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:11 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:11 - HikariPool-16 - Shutdown initiated...
+2024-09-02 15:07:11 - HikariPool-16 - Shutdown completed.
+2024-09-02 15:07:11 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:07:11 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:07:12 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:07:12 - Finished Spring Data repository scanning in 179 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:07:12 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:07:12 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:12 - Starting service [Tomcat]
+2024-09-02 15:07:12 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:07:12 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:07:12 - Root WebApplicationContext: initialization completed in 1253 ms
+2024-09-02 15:07:13 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:07:13 - HHH000026: Second-level cache disabled
+2024-09-02 15:07:13 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:07:13 - HikariPool-17 - Starting...
+2024-09-02 15:07:13 - HikariPool-17 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d93a776
+2024-09-02 15:07:13 - HikariPool-17 - Start completed.
+2024-09-02 15:07:13 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:07:13 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:07:13 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:07:14 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:15 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:07:15 - LiveReload server is running on port 35729
+2024-09-02 15:07:15 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:07:15 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:15 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:07:15 - Started PhysiokalendarApplication in 4.222 seconds (process running for 22545.427)
+2024-09-02 15:07:15 - Condition evaluation unchanged
+2024-09-02 15:07:17 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:07:17 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:17 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:17 - HikariPool-17 - Shutdown initiated...
+2024-09-02 15:07:17 - HikariPool-17 - Shutdown completed.
+2024-09-02 15:07:17 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:07:17 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:07:18 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:07:18 - Finished Spring Data repository scanning in 85 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:07:19 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:07:19 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:19 - Starting service [Tomcat]
+2024-09-02 15:07:19 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:07:19 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:07:19 - Root WebApplicationContext: initialization completed in 1461 ms
+2024-09-02 15:07:19 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:07:19 - HHH000026: Second-level cache disabled
+2024-09-02 15:07:19 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:07:19 - HikariPool-18 - Starting...
+2024-09-02 15:07:19 - HikariPool-18 - Added connection com.mysql.cj.jdbc.ConnectionImpl@74d0c564
+2024-09-02 15:07:19 - HikariPool-18 - Start completed.
+2024-09-02 15:07:19 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:07:19 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:07:20 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:07:20 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:21 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:07:21 - LiveReload server is running on port 35729
+2024-09-02 15:07:21 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:07:21 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:21 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:07:21 - Started PhysiokalendarApplication in 4.198 seconds (process running for 22551.484)
+2024-09-02 15:07:21 - Condition evaluation unchanged
+2024-09-02 15:07:23 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:07:23 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:23 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:23 - HikariPool-18 - Shutdown initiated...
+2024-09-02 15:07:23 - HikariPool-18 - Shutdown completed.
+2024-09-02 15:07:23 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:07:23 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:07:24 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:07:24 - Finished Spring Data repository scanning in 68 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:07:25 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:07:25 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:25 - Starting service [Tomcat]
+2024-09-02 15:07:25 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:07:25 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:07:25 - Root WebApplicationContext: initialization completed in 1202 ms
+2024-09-02 15:07:25 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:07:25 - HHH000026: Second-level cache disabled
+2024-09-02 15:07:25 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:07:25 - HikariPool-19 - Starting...
+2024-09-02 15:07:25 - HikariPool-19 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3083c80a
+2024-09-02 15:07:25 - HikariPool-19 - Start completed.
+2024-09-02 15:07:25 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:07:25 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:07:25 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:07:26 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:26 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:07:27 - LiveReload server is running on port 35729
+2024-09-02 15:07:27 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:07:27 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:27 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:07:27 - Started PhysiokalendarApplication in 3.944 seconds (process running for 22557.483)
+2024-09-02 15:07:27 - Condition evaluation unchanged
+2024-09-02 15:07:29 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:07:29 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:29 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:29 - HikariPool-19 - Shutdown initiated...
+2024-09-02 15:07:29 - HikariPool-19 - Shutdown completed.
+2024-09-02 15:07:29 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:07:29 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:07:30 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:07:30 - Finished Spring Data repository scanning in 33 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:07:30 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:07:30 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:30 - Starting service [Tomcat]
+2024-09-02 15:07:30 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:07:30 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:07:30 - Root WebApplicationContext: initialization completed in 845 ms
+2024-09-02 15:07:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:07:30 - HHH000026: Second-level cache disabled
+2024-09-02 15:07:30 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:07:30 - HikariPool-20 - Starting...
+2024-09-02 15:07:30 - HikariPool-20 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8d763e1
+2024-09-02 15:07:30 - HikariPool-20 - Start completed.
+2024-09-02 15:07:30 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:07:30 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:07:31 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:07:31 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:07:32 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:07:32 - LiveReload server is running on port 35729
+2024-09-02 15:07:32 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:07:33 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:07:33 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:07:33 - Started PhysiokalendarApplication in 3.379 seconds (process running for 22562.691)
+2024-09-02 15:07:33 - Condition evaluation unchanged
+2024-09-02 15:07:36 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-02 15:07:36 - Initializing Servlet 'dispatcherServlet'
+2024-09-02 15:07:36 - Completed initialization in 2 ms
+2024-09-02 15:17:15 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:17:15 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:15 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:15 - HikariPool-20 - Shutdown initiated...
+2024-09-02 15:17:15 - HikariPool-20 - Shutdown completed.
+2024-09-02 15:17:15 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:17:15 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:17:17 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:17:17 - Finished Spring Data repository scanning in 90 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:17:17 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:17:17 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:17 - Starting service [Tomcat]
+2024-09-02 15:17:17 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:17:17 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:17:17 - Root WebApplicationContext: initialization completed in 1325 ms
+2024-09-02 15:17:17 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:17:17 - HHH000026: Second-level cache disabled
+2024-09-02 15:17:17 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:17:17 - HikariPool-21 - Starting...
+2024-09-02 15:17:17 - HikariPool-21 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4b8844a1
+2024-09-02 15:17:17 - HikariPool-21 - Start completed.
+2024-09-02 15:17:17 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:17:17 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:17:17 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:17:19 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:19 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:17:20 - LiveReload server is running on port 35729
+2024-09-02 15:17:20 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:17:20 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:20 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:17:20 - Started PhysiokalendarApplication in 5.101 seconds (process running for 23150.539)
+2024-09-02 15:17:20 - Condition evaluation unchanged
+2024-09-02 15:17:22 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:17:22 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:22 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:22 - HikariPool-21 - Shutdown initiated...
+2024-09-02 15:17:22 - HikariPool-21 - Shutdown completed.
+2024-09-02 15:17:23 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:17:23 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:17:24 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:17:24 - Finished Spring Data repository scanning in 138 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:17:24 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:17:24 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:24 - Starting service [Tomcat]
+2024-09-02 15:17:24 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:17:24 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:17:24 - Root WebApplicationContext: initialization completed in 1546 ms
+2024-09-02 15:17:24 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:17:24 - HHH000026: Second-level cache disabled
+2024-09-02 15:17:24 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:17:24 - HikariPool-22 - Starting...
+2024-09-02 15:17:25 - HikariPool-22 - Added connection com.mysql.cj.jdbc.ConnectionImpl@21a81b31
+2024-09-02 15:17:25 - HikariPool-22 - Start completed.
+2024-09-02 15:17:25 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:17:25 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:17:25 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:17:25 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:26 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:17:27 - LiveReload server is running on port 35729
+2024-09-02 15:17:27 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:17:27 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:27 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:17:27 - Started PhysiokalendarApplication in 4.984 seconds (process running for 23157.56)
+2024-09-02 15:17:27 - Condition evaluation unchanged
+2024-09-02 15:17:32 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:17:32 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:32 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:32 - HikariPool-22 - Shutdown initiated...
+2024-09-02 15:17:32 - HikariPool-22 - Shutdown completed.
+2024-09-02 15:17:33 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:17:33 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:17:35 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:17:35 - Finished Spring Data repository scanning in 53 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:17:35 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:17:35 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:35 - Starting service [Tomcat]
+2024-09-02 15:17:35 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:17:35 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:17:35 - Root WebApplicationContext: initialization completed in 1920 ms
+2024-09-02 15:17:35 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:17:35 - HHH000026: Second-level cache disabled
+2024-09-02 15:17:35 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:17:35 - HikariPool-23 - Starting...
+2024-09-02 15:17:35 - HikariPool-23 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5561ad58
+2024-09-02 15:17:35 - HikariPool-23 - Start completed.
+2024-09-02 15:17:35 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:17:35 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:17:35 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:17:37 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:38 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:17:39 - LiveReload server is running on port 35729
+2024-09-02 15:17:39 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:17:39 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:39 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:17:39 - Started PhysiokalendarApplication in 6.237 seconds (process running for 23169.122)
+2024-09-02 15:17:39 - Condition evaluation unchanged
+2024-09-02 15:17:40 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:17:40 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:41 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:41 - HikariPool-23 - Shutdown initiated...
+2024-09-02 15:17:41 - HikariPool-23 - Shutdown completed.
+2024-09-02 15:17:41 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:17:41 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:17:42 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:17:42 - Finished Spring Data repository scanning in 202 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:17:43 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:17:43 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:43 - Starting service [Tomcat]
+2024-09-02 15:17:43 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:17:43 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:17:43 - Root WebApplicationContext: initialization completed in 1396 ms
+2024-09-02 15:17:43 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:17:43 - HHH000026: Second-level cache disabled
+2024-09-02 15:17:43 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:17:43 - HikariPool-24 - Starting...
+2024-09-02 15:17:43 - HikariPool-24 - Added connection com.mysql.cj.jdbc.ConnectionImpl@76be3dfd
+2024-09-02 15:17:43 - HikariPool-24 - Start completed.
+2024-09-02 15:17:43 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:17:43 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:17:43 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:17:44 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:44 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:17:45 - LiveReload server is running on port 35729
+2024-09-02 15:17:45 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:17:45 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:45 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:17:45 - Started PhysiokalendarApplication in 3.787 seconds (process running for 23175.11)
+2024-09-02 15:17:45 - Condition evaluation unchanged
+2024-09-02 15:17:47 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:17:47 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:48 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:48 - HikariPool-24 - Shutdown initiated...
+2024-09-02 15:17:48 - HikariPool-24 - Shutdown completed.
+2024-09-02 15:17:48 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:17:48 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:17:49 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:17:49 - Finished Spring Data repository scanning in 68 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:17:50 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:17:50 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:50 - Starting service [Tomcat]
+2024-09-02 15:17:50 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:17:50 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:17:50 - Root WebApplicationContext: initialization completed in 1183 ms
+2024-09-02 15:17:50 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:17:50 - HHH000026: Second-level cache disabled
+2024-09-02 15:17:50 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:17:50 - HikariPool-25 - Starting...
+2024-09-02 15:17:50 - HikariPool-25 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ef060ca
+2024-09-02 15:17:50 - HikariPool-25 - Start completed.
+2024-09-02 15:17:50 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:17:50 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:17:50 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:17:50 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:51 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:17:51 - LiveReload server is running on port 35729
+2024-09-02 15:17:51 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:17:51 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:51 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:17:51 - Started PhysiokalendarApplication in 3.176 seconds (process running for 23181.561)
+2024-09-02 15:17:51 - Condition evaluation unchanged
+2024-09-02 15:17:53 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:17:53 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:53 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:53 - HikariPool-25 - Shutdown initiated...
+2024-09-02 15:17:54 - HikariPool-25 - Shutdown completed.
+2024-09-02 15:17:54 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:17:54 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:17:55 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:17:55 - Finished Spring Data repository scanning in 51 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:17:55 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:17:55 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:55 - Starting service [Tomcat]
+2024-09-02 15:17:55 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:17:55 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:17:55 - Root WebApplicationContext: initialization completed in 1113 ms
+2024-09-02 15:17:55 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:17:55 - HHH000026: Second-level cache disabled
+2024-09-02 15:17:55 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:17:55 - HikariPool-26 - Starting...
+2024-09-02 15:17:56 - HikariPool-26 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66104060
+2024-09-02 15:17:56 - HikariPool-26 - Start completed.
+2024-09-02 15:17:56 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:17:56 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:17:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:17:56 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:56 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:17:57 - LiveReload server is running on port 35729
+2024-09-02 15:17:57 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:17:57 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:57 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:17:57 - Started PhysiokalendarApplication in 3.104 seconds (process running for 23187.137)
+2024-09-02 15:17:57 - Condition evaluation unchanged
+2024-09-02 15:17:58 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:17:58 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:58 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:17:58 - HikariPool-26 - Shutdown initiated...
+2024-09-02 15:17:59 - HikariPool-26 - Shutdown completed.
+2024-09-02 15:17:59 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:17:59 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:17:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:17:59 - Finished Spring Data repository scanning in 74 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:17:59 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:17:59 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:17:59 - Starting service [Tomcat]
+2024-09-02 15:17:59 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:17:59 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:17:59 - Root WebApplicationContext: initialization completed in 615 ms
+2024-09-02 15:17:59 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:17:59 - HHH000026: Second-level cache disabled
+2024-09-02 15:17:59 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:17:59 - HikariPool-27 - Starting...
+2024-09-02 15:18:00 - HikariPool-27 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e8a12f7
+2024-09-02 15:18:00 - HikariPool-27 - Start completed.
+2024-09-02 15:18:00 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:18:00 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:18:00 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:18:00 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:18:00 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:18:01 - LiveReload server is running on port 35729
+2024-09-02 15:18:01 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:18:01 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:18:01 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:18:01 - Started PhysiokalendarApplication in 2.539 seconds (process running for 23191.389)
+2024-09-02 15:18:01 - Condition evaluation unchanged
+2024-09-02 15:18:12 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-02 15:18:12 - Initializing Servlet 'dispatcherServlet'
+2024-09-02 15:18:12 - Completed initialization in 1 ms
+2024-09-02 15:19:13 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:19:13 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:19:13 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:19:13 - HikariPool-27 - Shutdown initiated...
+2024-09-02 15:19:13 - HikariPool-27 - Shutdown completed.
+2024-09-02 15:19:13 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:19:13 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:19:14 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:19:14 - Finished Spring Data repository scanning in 51 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:19:14 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:19:14 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:19:14 - Starting service [Tomcat]
+2024-09-02 15:19:14 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:19:14 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:19:14 - Root WebApplicationContext: initialization completed in 833 ms
+2024-09-02 15:19:15 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:19:15 - HHH000026: Second-level cache disabled
+2024-09-02 15:19:15 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:19:15 - HikariPool-28 - Starting...
+2024-09-02 15:19:15 - HikariPool-28 - Added connection com.mysql.cj.jdbc.ConnectionImpl@289c8ed8
+2024-09-02 15:19:15 - HikariPool-28 - Start completed.
+2024-09-02 15:19:15 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:19:15 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:19:15 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:19:15 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:19:15 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:19:16 - LiveReload server is running on port 35729
+2024-09-02 15:19:16 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:19:16 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:19:16 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:19:16 - Started PhysiokalendarApplication in 2.534 seconds (process running for 23266.013)
+2024-09-02 15:19:16 - Condition evaluation unchanged
+2024-09-02 15:19:23 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:19:23 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:19:24 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:19:24 - HikariPool-28 - Shutdown initiated...
+2024-09-02 15:19:24 - HikariPool-28 - Shutdown completed.
+2024-09-02 15:19:24 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:19:24 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:19:25 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:19:25 - Finished Spring Data repository scanning in 45 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:19:25 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:19:25 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:19:25 - Starting service [Tomcat]
+2024-09-02 15:19:25 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:19:25 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:19:25 - Root WebApplicationContext: initialization completed in 720 ms
+2024-09-02 15:19:25 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:19:25 - HHH000026: Second-level cache disabled
+2024-09-02 15:19:25 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:19:25 - HikariPool-29 - Starting...
+2024-09-02 15:19:25 - HikariPool-29 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66601933
+2024-09-02 15:19:25 - HikariPool-29 - Start completed.
+2024-09-02 15:19:25 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:19:25 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:19:26 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:19:26 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:19:26 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:19:27 - LiveReload server is running on port 35729
+2024-09-02 15:19:27 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:19:27 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:19:27 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:19:27 - Started PhysiokalendarApplication in 2.835 seconds (process running for 23277.031)
+2024-09-02 15:19:27 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-02 15:19:27 - Initializing Servlet 'dispatcherServlet'
+2024-09-02 15:19:27 - Condition evaluation unchanged
+2024-09-02 15:19:27 - Completed initialization in 2 ms
+2024-09-02 15:21:10 - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-09-02 15:21:10 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:21:15 - The executor associated with thread pool [http-nio-8080] has not fully shutdown. Some application threads may still be running.
+2024-09-02 15:21:15 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:21:15 - HikariPool-29 - Shutdown initiated...
+2024-09-02 15:21:15 - HikariPool-29 - Shutdown completed.
+2024-09-02 15:21:17 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:21:17 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:21:18 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:21:18 - Finished Spring Data repository scanning in 111 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:21:18 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:21:18 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:21:18 - Starting service [Tomcat]
+2024-09-02 15:21:18 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:21:18 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:21:18 - Root WebApplicationContext: initialization completed in 1030 ms
+2024-09-02 15:21:19 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:21:19 - HHH000026: Second-level cache disabled
+2024-09-02 15:21:19 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:21:19 - HikariPool-30 - Starting...
+2024-09-02 15:21:19 - HikariPool-30 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6494a426
+2024-09-02 15:21:19 - HikariPool-30 - Start completed.
+2024-09-02 15:21:19 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:21:19 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:21:19 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:21:20 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:21:20 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:21:21 - LiveReload server is running on port 35729
+2024-09-02 15:21:21 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:21:21 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:21:21 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:21:21 - Started PhysiokalendarApplication in 3.375 seconds (process running for 23390.761)
+2024-09-02 15:21:21 - Condition evaluation unchanged
+2024-09-02 15:21:24 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-02 15:21:24 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:21:24 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:21:24 - HikariPool-30 - Shutdown initiated...
+2024-09-02 15:21:25 - HikariPool-30 - Shutdown completed.
+2024-09-02 15:21:25 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 31504 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-02 15:21:25 - No active profile set, falling back to 1 default profile: "default"
+2024-09-02 15:21:25 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 15:21:25 - Finished Spring Data repository scanning in 22 ms. Found 7 JPA repository interfaces.
+2024-09-02 15:21:25 - Tomcat initialized with port 8080 (http)
+2024-09-02 15:21:25 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:21:25 - Starting service [Tomcat]
+2024-09-02 15:21:25 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-02 15:21:25 - Initializing Spring embedded WebApplicationContext
+2024-09-02 15:21:25 - Root WebApplicationContext: initialization completed in 388 ms
+2024-09-02 15:21:25 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 15:21:25 - HHH000026: Second-level cache disabled
+2024-09-02 15:21:25 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 15:21:25 - HikariPool-31 - Starting...
+2024-09-02 15:21:25 - HikariPool-31 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a61107a
+2024-09-02 15:21:25 - HikariPool-31 - Start completed.
+2024-09-02 15:21:25 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-02 15:21:25 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-02 15:21:25 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 15:21:26 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 15:21:26 - Resolved [org.springframework.web.context.request.async.AsyncRequestNotUsableException: ServletOutputStream failed to flush: java.nio.channels.ClosedChannelException]
+2024-09-02 15:21:26 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 15:21:27 - LiveReload server is running on port 35729
+2024-09-02 15:21:27 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-02 15:21:27 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 15:21:27 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-02 15:21:27 - Started PhysiokalendarApplication in 2.166 seconds (process running for 23397.023)
+2024-09-02 15:21:27 - Condition evaluation unchanged

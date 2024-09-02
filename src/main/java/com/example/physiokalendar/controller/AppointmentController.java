@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,6 +51,29 @@ public class AppointmentController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Fehler beim Erstellen des Termins.");
         }
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateAppointment(@PathVariable Long id, @RequestBody JSONAppointmentDTO appointmentDTO) {
+        try {
+            // Überprüfe, ob der Termin existiert
+            if (!appointmentService.getAppointmentById(id).isPresent()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Termin nicht gefunden.");
+            }
+
+            // Check for conflicts
+            if (appointmentService.checkForConflicts(appointmentService.convertDTOToEntity(appointmentDTO))) {
+                return ResponseEntity.status(HttpStatus.CONFLICT)
+                        .body("Konflikt mit einem bestehenden Termin für den Therapeuten.");
+            }
+
+            // Aktualisiere den Termin
+            appointmentService.saveAppointment(appointmentDTO);
+            return ResponseEntity.status(HttpStatus.OK).body("Termin erfolgreich aktualisiert.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Fehler beim Aktualisieren des Termins.");
+        }
+    }
+
 
     @DeleteMapping("/{id}")
     public void deleteAppointment(@PathVariable Long id) {
