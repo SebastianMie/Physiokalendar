@@ -1,3 +1,4 @@
+C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\config\SecurityConfig.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\controller\AbsenceController.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\controller\AppointmentController.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\controller\AppointmentSeriesController.java
@@ -6,11 +7,13 @@ C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\exam
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\controller\HomeController.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\controller\PatientController.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\controller\TherapistController.java
+C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\controller\UserController.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\dto\JSONAbsenceDTO.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\dto\JSONAbsenceExceptionDTO.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\dto\JSONAppointmentDTO.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\dto\JSONAppointmentSeriesDTO.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\dto\JSONCancellationDTO.java
+C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\dto\JSONLoginDTO.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\dto\JSONPatientDTO.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\dto\JSONTherapistDTO.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\entity\Absence.java
@@ -20,6 +23,7 @@ C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\exam
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\entity\Cancellation.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\entity\Patient.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\entity\Therapist.java
+C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\entity\User.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\PhysiokalendarApplication.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\repository\AbsenceExceptionRepository.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\repository\AbsenceRepository.java
@@ -28,6 +32,7 @@ C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\exam
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\repository\CancellationRepository.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\repository\PatientRepository.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\repository\TherapistRepository.java
+C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\repository\UserRepository.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\service\AbsenceExceptionService.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\service\AbsenceService.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\service\AppointmentSeriesService.java
@@ -35,4 +40,5 @@ C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\exam
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\service\CancellationService.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\service\PatientService.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\service\TherapistService.java
+C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\service\UserService.java
 C:\Users\sebas\Documents\Projects\Software\Physiokalendar\src\main\java\com\example\physiokalendar\WebConfig.java
