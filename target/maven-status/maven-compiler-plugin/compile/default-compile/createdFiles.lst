@@ -29,9 +29,9 @@ com\example\physiokalendar\entity\Appointment.class
 com\example\physiokalendar\controller\ExceptionController.class
 com\example\physiokalendar\PhysiokalendarApplication.class
 com\example\physiokalendar\service\AppointmentSeriesService.class
-com\example\physiokalendar\config\JwtUtil.class
 com\example\physiokalendar\repository\AppointmentSeriesRepository.class
 com\example\physiokalendar\service\AbsenceService.class
+com\example\physiokalendar\config\JwtService.class
 com\example\physiokalendar\dto\JSONAppointmentDTO.class
 com\example\physiokalendar\service\PatientService.class
 com\example\physiokalendar\service\AppointmentService.class

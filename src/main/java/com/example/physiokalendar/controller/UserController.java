@@ -1,15 +1,21 @@
 package com.example.physiokalendar.controller;
 
-import com.example.physiokalendar.entity.User;
-import com.example.physiokalendar.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.physiokalendar.config.JwtService;
 import com.example.physiokalendar.dto.JSONLoginDTO;
+import com.example.physiokalendar.dto.JSONUserDTO;
+import com.example.physiokalendar.entity.User;
+import com.example.physiokalendar.service.UserService;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -19,41 +25,51 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private JwtService jwtUtil;
+    private JwtService jwtService;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody JSONLoginDTO loginDTO) {
-        boolean isAuthenticated = userService.authenticateUser(loginDTO);
-        if (isAuthenticated) {
-            String token = jwtUtil.generateToken(loginDTO.getUsername());
+        UserDetails userDetails = userService.authenticateUser(loginDTO.getUsername(), loginDTO.getPassword());
+        if (userDetails != null) {
+            String token = jwtService.generateToken(userDetails);
             LoginResponse loginResponse = new LoginResponse(token);
             return ResponseEntity.status(HttpStatus.OK).body(loginResponse);
         } else {
-            return ResponseEntity.status(401).body("Invalid credentials");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody JSONLoginDTO loginDTO) {
-        User user = userService.registerUser(loginDTO);
+    public ResponseEntity<User> register(@RequestBody JSONLoginDTO registerDTO) {
+        User user = userService.registerUser(registerDTO.getUsername(), registerDTO.getPassword());
+        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<?> getUserDetails(@RequestHeader("Authorization") String authHeader) {
+        String token = authHeader.replace("Bearer ", "");
+        String username = jwtService.extractUsername(token);
+        UserDetails user = userService.getUserDetails(username);
+        JSONUserDTO userDTO = new JSONUserDTO();
+        userDTO.setUsername(user.getUsername());
         return ResponseEntity.ok(user);
     }
 
     public class LoginResponse {
-
         private String token;
-    
+
         public LoginResponse(String token) {
             this.token = token;
         }
-    
+
         public String getToken() {
             return token;
         }
-    
+
         public void setToken(String token) {
             this.token = token;
         }
     }
-    
+
 }
+

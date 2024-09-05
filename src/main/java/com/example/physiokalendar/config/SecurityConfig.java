@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -21,13 +23,27 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+            .cors(withDefaults()) // CORS Konfiguration aktivieren
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/api/auth/**").permitAll() // Erlaubt Zugriff auf Authentifizierungsendpunkte
+                .requestMatchers("/api/auth/**").permitAll() // Authentifizierungsendpunkte ohne Authentifizierung zugänglich machen
                 .anyRequest().authenticated() // Alle anderen Anfragen erfordern Authentifizierung
             )
-            .formLogin(withDefaults()) // Falls du eine benutzerdefinierte Login-Seite verwenden möchtest
-            .csrf(csrf -> csrf.disable()); // Falls du CSRF-Schutz deaktivieren möchtest (nicht empfohlen für Produktionsumgebungen)
-        
+            .csrf(csrf -> csrf.disable()); // CSRF Schutz deaktivieren, wenn nicht benötigt
+
         return http.build();
+    }
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                .allowedOrigins("http://localhost:5173")
+                .allowedMethods("*")
+                .allowedHeaders("*")
+                .allowCredentials(true);
+            }
+        };
     }
 }
