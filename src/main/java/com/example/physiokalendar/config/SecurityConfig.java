@@ -23,12 +23,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .cors(withDefaults()) // CORS Konfiguration aktivieren
+            .cors(withDefaults())
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/api/auth/**").permitAll() // Authentifizierungsendpunkte ohne Authentifizierung zugänglich machen
-                .anyRequest().authenticated() // Alle anderen Anfragen erfordern Authentifizierung
-            )
-            .csrf(csrf -> csrf.disable()); // CSRF Schutz deaktivieren, wenn nicht benötigt
+                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/**").permitAll() // Sicherstellen, dass dies hier erlaubt ist
+                .anyRequest().authenticated()
+            );
 
         return http.build();
     }
@@ -37,12 +38,14 @@ public class SecurityConfig {
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                .allowedOrigins("http://localhost:5173")
-                .allowedMethods("*")
-                .allowedHeaders("*")
-                .allowCredentials(true);
+            public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
+                if (registry != null) {
+                    registry.addMapping("/**")
+                    .allowedOrigins("http://localhost:5173")
+                    .allowedMethods("*")
+                    .allowedHeaders("*")
+                    .allowCredentials(true);
+                }
             }
         };
     }

@@ -28335,3 +28335,1146 @@ Caused by: java.lang.Error: Unresolved compilation problem:
 2024-09-06 00:00:53 - Tomcat started on port 8080 (http) with context path '/'
 2024-09-06 00:00:53 - Started PhysiokalendarApplication in 3.282 seconds (process running for 705.523)
 2024-09-06 00:00:53 - Condition evaluation unchanged
+2024-09-06 00:01:04 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-06 00:01:04 - Initializing Servlet 'dispatcherServlet'
+2024-09-06 00:01:04 - Completed initialization in 2 ms
+2024-09-06 00:01:04 - Securing GET /api/appointments
+2024-09-06 00:01:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 00:01:04 - Saved request http://localhost:8080/api/appointments?continue to session
+2024-09-06 00:01:04 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 00:01:04 - Securing GET /error
+2024-09-06 00:01:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 00:01:04 - Saved request http://localhost:8080/error?continue to session
+2024-09-06 00:01:04 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 00:01:19 - Securing POST /api/auth/login
+2024-09-06 00:01:19 - Secured POST /api/auth/login
+2024-09-06 00:01:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 00:01:20 - Securing GET /api/auth/user
+2024-09-06 00:01:20 - Secured GET /api/auth/user
+2024-09-06 00:01:26 - Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Invalid property 'authorities' of bean class [com.example.physiokalendar.entity.User]: Could not find field for property during fallback access]
+2024-09-06 00:01:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 00:01:26 - Securing GET /error
+2024-09-06 00:01:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 00:01:26 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 16:59:18 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 82384 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 16:59:18 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 16:59:19 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-06 16:59:19 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-06 16:59:24 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 16:59:24 - Finished Spring Data repository scanning in 398 ms. Found 8 JPA repository interfaces.
+2024-09-06 16:59:29 - Tomcat initialized with port 8080 (http)
+2024-09-06 16:59:29 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 16:59:29 - Starting service [Tomcat]
+2024-09-06 16:59:29 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 16:59:29 - Initializing Spring embedded WebApplicationContext
+2024-09-06 16:59:29 - Root WebApplicationContext: initialization completed in 10613 ms
+2024-09-06 16:59:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 16:59:32 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-06 16:59:32 - HHH000026: Second-level cache disabled
+2024-09-06 16:59:34 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 16:59:34 - HikariPool-1 - Starting...
+2024-09-06 16:59:35 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@262941c4
+2024-09-06 16:59:35 - HikariPool-1 - Start completed.
+2024-09-06 16:59:35 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 16:59:35 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 16:59:39 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 16:59:39 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 16:59:44 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 16:59:44 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 16:59:46 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 16:59:47 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 16:59:50 - LiveReload server is running on port 35729
+2024-09-06 16:59:50 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 16:59:50 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 16:59:50 - Started PhysiokalendarApplication in 34.207 seconds (process running for 38.155)
+2024-09-06 17:00:44 - Restarting due to 2 class path changes (0 additions, 1 deletion, 1 modification)
+2024-09-06 17:00:44 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:00:44 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:00:45 - HikariPool-1 - Shutdown initiated...
+2024-09-06 17:00:45 - HikariPool-1 - Shutdown completed.
+2024-09-06 17:00:45 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 82384 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:00:45 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:00:47 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:00:47 - Finished Spring Data repository scanning in 181 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:00:48 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:00:48 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:00:48 - Starting service [Tomcat]
+2024-09-06 17:00:48 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:00:48 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:00:48 - Root WebApplicationContext: initialization completed in 3143 ms
+2024-09-06 17:00:48 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:00:48 - HHH000026: Second-level cache disabled
+2024-09-06 17:00:48 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:00:48 - HikariPool-2 - Starting...
+2024-09-06 17:00:49 - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37f8a9fd
+2024-09-06 17:00:49 - HikariPool-2 - Start completed.
+2024-09-06 17:00:49 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:00:49 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:00:49 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:00:50 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:00:50 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'securityConfig' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\config\SecurityConfig.class]: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+2024-09-06 17:00:50 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:00:50 - HikariPool-2 - Shutdown initiated...
+2024-09-06 17:00:50 - HikariPool-2 - Shutdown completed.
+2024-09-06 17:00:50 - Stopping service [Tomcat]
+2024-09-06 17:00:50 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-06 17:00:50 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'securityConfig' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\config\SecurityConfig.class]: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.physiokalendar.PhysiokalendarApplication.main(PhysiokalendarApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:94)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1331)
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Codeium cannot be resolved to a type
+	Syntax error on tokens, ( expected instead
+	Syntax error on token "b06", delete this token
+	Syntax error on token "b48", delete this token
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error, insert ")" to complete Expression
+	Syntax error, insert "AssignmentOperator Expression" to complete Assignment
+	Syntax error, insert ";" to complete Statement
+	Syntax error, insert "}" to complete MethodBody
+	Syntax error, insert "}" to complete ClassBody
+
+	at com.example.physiokalendar.config.SecurityConfig.<init>(SecurityConfig.java:36)
+	at com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0.<init>(<generated>)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195)
+	... 24 common frames omitted
+2024-09-06 17:00:59 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 82384 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:00:59 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:01:01 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:01:01 - Finished Spring Data repository scanning in 118 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:01:02 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:01:02 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:01:02 - Starting service [Tomcat]
+2024-09-06 17:01:02 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:01:02 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:01:02 - Root WebApplicationContext: initialization completed in 2889 ms
+2024-09-06 17:01:03 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:01:03 - HHH000026: Second-level cache disabled
+2024-09-06 17:01:03 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:01:03 - HikariPool-3 - Starting...
+2024-09-06 17:01:03 - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@75b7095b
+2024-09-06 17:01:03 - HikariPool-3 - Start completed.
+2024-09-06 17:01:03 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:01:03 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:01:04 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:01:04 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:01:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 17:01:05 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 17:01:06 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 17:01:06 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 17:01:07 - LiveReload server is running on port 35729
+2024-09-06 17:01:07 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:01:07 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 17:01:07 - Started PhysiokalendarApplication in 8.239 seconds (process running for 115.229)
+2024-09-06 17:01:07 - Condition evaluation unchanged
+2024-09-06 17:04:28 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-06 17:04:28 - Initializing Servlet 'dispatcherServlet'
+2024-09-06 17:04:28 - Completed initialization in 7 ms
+2024-09-06 17:04:29 - Securing OPTIONS /api/auth/login
+2024-09-06 17:04:29 - Securing POST /api/auth/login
+2024-09-06 17:04:29 - Secured POST /api/auth/login
+2024-09-06 17:04:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:04:30 - Securing OPTIONS /api/auth/user
+2024-09-06 17:04:30 - Securing GET /api/auth/user
+2024-09-06 17:04:30 - Secured GET /api/auth/user
+2024-09-06 17:04:47 - Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Invalid property 'authorities' of bean class [com.example.physiokalendar.entity.User]: Could not find field for property during fallback access]
+2024-09-06 17:04:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:04:47 - Securing GET /error
+2024-09-06 17:04:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:04:47 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:08:01 - Restarting due to 2 class path changes (0 additions, 1 deletion, 1 modification)
+2024-09-06 17:08:01 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:08:02 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:08:02 - HikariPool-3 - Shutdown initiated...
+2024-09-06 17:08:02 - HikariPool-3 - Shutdown completed.
+2024-09-06 17:08:02 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 82384 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:08:02 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:08:04 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:08:04 - Finished Spring Data repository scanning in 115 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:08:05 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:08:05 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:08:05 - Starting service [Tomcat]
+2024-09-06 17:08:05 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:08:05 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:08:05 - Root WebApplicationContext: initialization completed in 2492 ms
+2024-09-06 17:08:05 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:08:05 - HHH000026: Second-level cache disabled
+2024-09-06 17:08:05 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:08:05 - HikariPool-4 - Starting...
+2024-09-06 17:08:05 - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@195ab2b3
+2024-09-06 17:08:05 - HikariPool-4 - Start completed.
+2024-09-06 17:08:05 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:08:05 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:08:06 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:08:06 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:08:06 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'securityConfig' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\config\SecurityConfig.class]: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+2024-09-06 17:08:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:08:06 - HikariPool-4 - Shutdown initiated...
+2024-09-06 17:08:06 - HikariPool-4 - Shutdown completed.
+2024-09-06 17:08:06 - Stopping service [Tomcat]
+2024-09-06 17:08:06 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-06 17:08:06 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'securityConfig' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\config\SecurityConfig.class]: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.physiokalendar.PhysiokalendarApplication.main(PhysiokalendarApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:94)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1331)
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Syntax error on token ".", invalid (
+	Syntax error, insert "}" to complete ClassBody
+
+	at com.example.physiokalendar.config.SecurityConfig.<init>(SecurityConfig.java:14)
+	at com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0.<init>(<generated>)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195)
+	... 24 common frames omitted
+2024-09-06 17:08:14 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 82384 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:08:14 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:08:16 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:08:16 - Finished Spring Data repository scanning in 75 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:08:16 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:08:16 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:08:16 - Starting service [Tomcat]
+2024-09-06 17:08:16 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:08:16 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:08:16 - Root WebApplicationContext: initialization completed in 2099 ms
+2024-09-06 17:08:17 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:08:17 - HHH000026: Second-level cache disabled
+2024-09-06 17:08:17 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:08:17 - HikariPool-5 - Starting...
+2024-09-06 17:08:17 - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@76336bd
+2024-09-06 17:08:17 - HikariPool-5 - Start completed.
+2024-09-06 17:08:17 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:08:17 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:08:17 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:08:18 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:08:19 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 17:08:19 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 17:08:19 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 17:08:20 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 17:08:20 - LiveReload server is running on port 35729
+2024-09-06 17:08:20 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:08:21 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 17:08:21 - Started PhysiokalendarApplication in 6.702 seconds (process running for 548.582)
+2024-09-06 17:08:21 - Condition evaluation unchanged
+2024-09-06 17:09:06 - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-09-06 17:09:06 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:09:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:09:06 - HikariPool-5 - Shutdown initiated...
+2024-09-06 17:09:07 - HikariPool-5 - Shutdown completed.
+2024-09-06 17:09:08 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 82384 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:09:08 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:09:09 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:09:10 - Finished Spring Data repository scanning in 222 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:09:10 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:09:10 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:09:10 - Starting service [Tomcat]
+2024-09-06 17:09:10 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:09:11 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:09:11 - Root WebApplicationContext: initialization completed in 2918 ms
+2024-09-06 17:09:11 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:09:11 - HHH000026: Second-level cache disabled
+2024-09-06 17:09:11 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:09:11 - HikariPool-6 - Starting...
+2024-09-06 17:09:11 - HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c811158
+2024-09-06 17:09:11 - HikariPool-6 - Start completed.
+2024-09-06 17:09:11 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:09:11 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:09:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:09:12 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:09:13 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\controller\UserController.class]: Failed to instantiate [com.example.physiokalendar.controller.UserController]: Constructor threw exception
+2024-09-06 17:09:13 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:09:13 - HikariPool-6 - Shutdown initiated...
+2024-09-06 17:09:13 - HikariPool-6 - Shutdown completed.
+2024-09-06 17:09:13 - Stopping service [Tomcat]
+2024-09-06 17:09:13 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-06 17:09:13 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\controller\UserController.class]: Failed to instantiate [com.example.physiokalendar.controller.UserController]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.physiokalendar.PhysiokalendarApplication.main(PhysiokalendarApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.physiokalendar.controller.UserController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:94)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1331)
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Duplicate method login(JSONLoginDTO) in type UserController
+	Syntax error, insert "}" to complete MethodBody
+	Duplicate method login(JSONLoginDTO) in type UserController
+	Syntax error, insert "}" to complete ClassBody
+
+	at com.example.physiokalendar.controller.UserController.<init>(UserController.java:20)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195)
+	... 24 common frames omitted
+2024-09-06 17:09:49 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 82384 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:09:49 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:09:51 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:09:51 - Finished Spring Data repository scanning in 39 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:09:52 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:09:52 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:09:52 - Starting service [Tomcat]
+2024-09-06 17:09:52 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:09:52 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:09:52 - Root WebApplicationContext: initialization completed in 2292 ms
+2024-09-06 17:09:52 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:09:52 - HHH000026: Second-level cache disabled
+2024-09-06 17:09:52 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:09:52 - HikariPool-7 - Starting...
+2024-09-06 17:09:52 - HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@13b48ff5
+2024-09-06 17:09:52 - HikariPool-7 - Start completed.
+2024-09-06 17:09:52 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:09:52 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:09:53 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:09:53 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:09:54 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 17:09:54 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 17:09:54 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 17:09:54 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 17:09:55 - LiveReload server is running on port 35729
+2024-09-06 17:09:55 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:09:55 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 17:09:55 - Started PhysiokalendarApplication in 5.75 seconds (process running for 643.146)
+2024-09-06 17:09:55 - Condition evaluation unchanged
+2024-09-06 17:10:13 - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-09-06 17:10:13 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:10:14 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:10:14 - HikariPool-7 - Shutdown initiated...
+2024-09-06 17:10:14 - HikariPool-7 - Shutdown completed.
+2024-09-06 17:10:15 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 82384 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:10:15 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:10:16 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:10:16 - Finished Spring Data repository scanning in 112 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:10:17 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:10:17 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:10:17 - Starting service [Tomcat]
+2024-09-06 17:10:17 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:10:17 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:10:17 - Root WebApplicationContext: initialization completed in 1833 ms
+2024-09-06 17:10:17 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:10:17 - HHH000026: Second-level cache disabled
+2024-09-06 17:10:17 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:10:17 - HikariPool-8 - Starting...
+2024-09-06 17:10:17 - HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a2b7e56
+2024-09-06 17:10:17 - HikariPool-8 - Start completed.
+2024-09-06 17:10:17 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:10:17 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:10:17 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:10:18 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:10:19 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 17:10:19 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 17:10:20 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 17:10:20 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 17:10:21 - LiveReload server is running on port 35729
+2024-09-06 17:10:21 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:10:21 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 17:10:21 - Started PhysiokalendarApplication in 6.344 seconds (process running for 668.883)
+2024-09-06 17:10:21 - Condition evaluation unchanged
+2024-09-06 17:12:01 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:12:01 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:12:02 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-06 17:12:02 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-06 17:12:06 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:12:06 - Finished Spring Data repository scanning in 339 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:12:10 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:12:11 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:12:11 - Starting service [Tomcat]
+2024-09-06 17:12:11 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:12:11 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:12:11 - Root WebApplicationContext: initialization completed in 9228 ms
+2024-09-06 17:12:12 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:12:12 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-06 17:12:13 - HHH000026: Second-level cache disabled
+2024-09-06 17:12:14 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:12:15 - HikariPool-1 - Starting...
+2024-09-06 17:12:16 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f17807b
+2024-09-06 17:12:16 - HikariPool-1 - Start completed.
+2024-09-06 17:12:17 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:12:17 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:12:21 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:12:22 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:12:25 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 17:12:26 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 17:12:30 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 17:12:30 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 17:12:34 - LiveReload server is running on port 35729
+2024-09-06 17:12:35 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:12:35 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 17:12:35 - Started PhysiokalendarApplication in 36.458 seconds (process running for 39.212)
+2024-09-06 17:14:46 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-06 17:14:46 - Initializing Servlet 'dispatcherServlet'
+2024-09-06 17:14:46 - Completed initialization in 1 ms
+2024-09-06 17:14:46 - Securing OPTIONS /api/auth/login
+2024-09-06 17:14:46 - Securing POST /api/auth/login
+2024-09-06 17:14:46 - Secured POST /api/auth/login
+2024-09-06 17:14:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:14:47 - Securing GET /api/auth/user
+2024-09-06 17:14:47 - Secured GET /api/auth/user
+2024-09-06 17:14:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:14:47 - Securing OPTIONS /api/therapists
+2024-09-06 17:14:47 - Securing GET /api/therapists
+2024-09-06 17:14:47 - Securing OPTIONS /api/appointments
+2024-09-06 17:14:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:14:47 - Securing GET /api/appointments
+2024-09-06 17:14:47 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:14:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:14:47 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:14:47 - Securing GET /error
+2024-09-06 17:14:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:14:47 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:14:47 - Securing GET /error
+2024-09-06 17:14:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:14:47 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:19 - Securing GET /api/therapists
+2024-09-06 17:26:19 - Securing GET /api/appointments
+2024-09-06 17:26:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:19 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:19 - Securing GET /error
+2024-09-06 17:26:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:19 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:19 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:19 - Securing GET /error
+2024-09-06 17:26:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:19 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:19 - Securing GET /api/appointments
+2024-09-06 17:26:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:19 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:19 - Securing GET /api/therapists
+2024-09-06 17:26:19 - Securing GET /error
+2024-09-06 17:26:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:19 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:19 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:19 - Securing GET /error
+2024-09-06 17:26:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:19 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:31 - Securing POST /api/auth/login
+2024-09-06 17:26:31 - Secured POST /api/auth/login
+2024-09-06 17:26:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:31 - Securing GET /api/auth/user
+2024-09-06 17:26:31 - Secured GET /api/auth/user
+2024-09-06 17:26:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:32 - Securing GET /api/therapists
+2024-09-06 17:26:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:32 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:32 - Securing GET /error
+2024-09-06 17:26:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:32 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:32 - Securing GET /api/appointments
+2024-09-06 17:26:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:32 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:26:32 - Securing GET /error
+2024-09-06 17:26:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:26:32 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:28:43 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-06 17:28:43 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:28:43 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:28:43 - HikariPool-1 - Shutdown initiated...
+2024-09-06 17:28:44 - HikariPool-1 - Shutdown completed.
+2024-09-06 17:28:45 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:28:45 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:28:47 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:28:47 - Finished Spring Data repository scanning in 196 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:28:48 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:28:48 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:28:48 - Starting service [Tomcat]
+2024-09-06 17:28:48 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:28:48 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:28:48 - Root WebApplicationContext: initialization completed in 3016 ms
+2024-09-06 17:28:48 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:28:48 - HHH000026: Second-level cache disabled
+2024-09-06 17:28:48 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:28:48 - HikariPool-2 - Starting...
+2024-09-06 17:28:49 - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@682401ff
+2024-09-06 17:28:49 - HikariPool-2 - Start completed.
+2024-09-06 17:28:49 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:28:49 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:28:49 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:28:50 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:28:51 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'therapistController' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\controller\TherapistController.class]: Failed to instantiate [com.example.physiokalendar.controller.TherapistController]: Constructor threw exception
+2024-09-06 17:28:51 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:28:51 - HikariPool-2 - Shutdown initiated...
+2024-09-06 17:28:51 - HikariPool-2 - Shutdown completed.
+2024-09-06 17:28:51 - Stopping service [Tomcat]
+2024-09-06 17:28:51 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-06 17:28:51 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'therapistController' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\controller\TherapistController.class]: Failed to instantiate [com.example.physiokalendar.controller.TherapistController]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:306)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.physiokalendar.PhysiokalendarApplication.main(PhysiokalendarApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.physiokalendar.controller.TherapistController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:315)
+	... 24 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Syntax error, insert "}" to complete ClassBody
+
+	at com.example.physiokalendar.controller.TherapistController.<init>(TherapistController.java:20)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:208)
+	... 26 common frames omitted
+2024-09-06 17:28:53 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:28:53 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:28:55 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:28:55 - Finished Spring Data repository scanning in 118 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:28:55 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:28:55 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:28:55 - Starting service [Tomcat]
+2024-09-06 17:28:55 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:28:55 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:28:55 - Root WebApplicationContext: initialization completed in 2570 ms
+2024-09-06 17:28:56 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:28:56 - HHH000026: Second-level cache disabled
+2024-09-06 17:28:56 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:28:56 - HikariPool-3 - Starting...
+2024-09-06 17:28:57 - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@13ae2c17
+2024-09-06 17:28:57 - HikariPool-3 - Start completed.
+2024-09-06 17:28:57 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:28:57 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:28:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:28:58 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:28:59 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'therapistController' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\controller\TherapistController.class]: Failed to instantiate [com.example.physiokalendar.controller.TherapistController]: Constructor threw exception
+2024-09-06 17:28:59 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:28:59 - HikariPool-3 - Shutdown initiated...
+2024-09-06 17:28:59 - HikariPool-3 - Shutdown completed.
+2024-09-06 17:28:59 - Stopping service [Tomcat]
+2024-09-06 17:28:59 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-06 17:28:59 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'therapistController' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\controller\TherapistController.class]: Failed to instantiate [com.example.physiokalendar.controller.TherapistController]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:306)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.physiokalendar.PhysiokalendarApplication.main(PhysiokalendarApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.physiokalendar.controller.TherapistController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:315)
+	... 24 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Syntax error, insert "}" to complete ClassBody
+
+	at com.example.physiokalendar.controller.TherapistController.<init>(TherapistController.java:20)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:208)
+	... 26 common frames omitted
+2024-09-06 17:29:00 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:29:00 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:29:02 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:29:03 - Finished Spring Data repository scanning in 1125 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:29:04 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:29:04 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:29:04 - Starting service [Tomcat]
+2024-09-06 17:29:04 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:29:04 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:29:04 - Root WebApplicationContext: initialization completed in 3568 ms
+2024-09-06 17:29:04 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:29:04 - HHH000026: Second-level cache disabled
+2024-09-06 17:29:04 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:29:04 - HikariPool-4 - Starting...
+2024-09-06 17:29:04 - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4b8a9ca
+2024-09-06 17:29:04 - HikariPool-4 - Start completed.
+2024-09-06 17:29:04 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:29:04 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:29:05 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:29:05 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:29:06 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 17:29:06 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 17:29:06 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 17:29:06 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 17:29:07 - LiveReload server is running on port 35729
+2024-09-06 17:29:07 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:29:07 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 17:29:07 - Started PhysiokalendarApplication in 6.67 seconds (process running for 1031.076)
+2024-09-06 17:29:07 - Condition evaluation unchanged
+2024-09-06 17:31:06 - Restarting due to 2 class path changes (0 additions, 1 deletion, 1 modification)
+2024-09-06 17:31:06 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:31:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:31:06 - HikariPool-4 - Shutdown initiated...
+2024-09-06 17:31:06 - HikariPool-4 - Shutdown completed.
+2024-09-06 17:31:07 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:31:07 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:31:08 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:31:08 - Finished Spring Data repository scanning in 116 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:31:09 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:31:09 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:31:09 - Starting service [Tomcat]
+2024-09-06 17:31:09 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:31:09 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:31:09 - Root WebApplicationContext: initialization completed in 2289 ms
+2024-09-06 17:31:09 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:31:09 - HHH000026: Second-level cache disabled
+2024-09-06 17:31:09 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:31:09 - HikariPool-5 - Starting...
+2024-09-06 17:31:10 - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5a22c13
+2024-09-06 17:31:10 - HikariPool-5 - Start completed.
+2024-09-06 17:31:10 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:31:10 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:31:10 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:31:10 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:31:11 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'securityConfig' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\config\SecurityConfig.class]: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+2024-09-06 17:31:11 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:31:11 - HikariPool-5 - Shutdown initiated...
+2024-09-06 17:31:11 - HikariPool-5 - Shutdown completed.
+2024-09-06 17:31:11 - Stopping service [Tomcat]
+2024-09-06 17:31:11 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-06 17:31:11 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'securityConfig' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\config\SecurityConfig.class]: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.physiokalendar.PhysiokalendarApplication.main(PhysiokalendarApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:94)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1331)
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on tokens, delete these tokens
+	The annotation @Override is disallowed for this location
+	Syntax error on tokens, ( expected instead
+	Illegal modifier for the class SecurityConfig; only public, abstract & final are permitted
+	The method SecurityConfig in type SecurityConfig can only set one of public / protected / private
+	Syntax error on token "c", delete this token
+	Syntax error on token "c", delete this token
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error, insert ")" to complete Expression
+	Syntax error, insert "AssignmentOperator Expression" to complete Assignment
+	Syntax error, insert ";" to complete Statement
+	Syntax error, insert "}" to complete MethodBody
+
+	at com.example.physiokalendar.config.SecurityConfig.<init>(SecurityConfig.java:1)
+	at com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0.<init>(<generated>)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195)
+	... 24 common frames omitted
+2024-09-06 17:31:30 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:31:30 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:31:31 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:31:31 - Finished Spring Data repository scanning in 89 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:31:31 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:31:31 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:31:31 - Starting service [Tomcat]
+2024-09-06 17:31:31 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:31:31 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:31:31 - Root WebApplicationContext: initialization completed in 1667 ms
+2024-09-06 17:31:32 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:31:32 - HHH000026: Second-level cache disabled
+2024-09-06 17:31:32 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:31:32 - HikariPool-6 - Starting...
+2024-09-06 17:31:32 - HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51a39789
+2024-09-06 17:31:32 - HikariPool-6 - Start completed.
+2024-09-06 17:31:32 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:31:32 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:31:32 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:31:32 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:31:33 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'userService': Error creating bean with name 'userService': Unsatisfied dependency expressed through field 'passwordEncoder': No qualifying bean of type 'org.springframework.security.crypto.password.PasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2024-09-06 17:31:33 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:31:33 - HikariPool-6 - Shutdown initiated...
+2024-09-06 17:31:33 - HikariPool-6 - Shutdown completed.
+2024-09-06 17:31:33 - Stopping service [Tomcat]
+2024-09-06 17:31:33 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-06 17:31:33 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field passwordEncoder in com.example.physiokalendar.service.UserService required a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' in your configuration.
+
+2024-09-06 17:33:04 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:33:04 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:33:05 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:33:05 - Finished Spring Data repository scanning in 112 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:33:06 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:33:06 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:33:06 - Starting service [Tomcat]
+2024-09-06 17:33:06 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:33:06 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:33:06 - Root WebApplicationContext: initialization completed in 1799 ms
+2024-09-06 17:33:06 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:33:06 - HHH000026: Second-level cache disabled
+2024-09-06 17:33:06 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:33:06 - HikariPool-7 - Starting...
+2024-09-06 17:33:06 - HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@253f46c6
+2024-09-06 17:33:06 - HikariPool-7 - Start completed.
+2024-09-06 17:33:06 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:33:06 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:33:07 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:33:07 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:33:07 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'securityConfig' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\config\SecurityConfig.class]: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+2024-09-06 17:33:07 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:33:07 - HikariPool-7 - Shutdown initiated...
+2024-09-06 17:33:07 - HikariPool-7 - Shutdown completed.
+2024-09-06 17:33:07 - Stopping service [Tomcat]
+2024-09-06 17:33:07 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-06 17:33:07 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'securityConfig' defined in file [C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes\com\example\physiokalendar\config\SecurityConfig.class]: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.physiokalendar.PhysiokalendarApplication.main(PhysiokalendarApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:94)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1331)
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on tokens, delete these tokens
+	The annotation @Override is disallowed for this location
+	Syntax error on tokens, ( expected instead
+	Illegal modifier for the class SecurityConfig; only public, abstract & final are permitted
+	The method SecurityConfig in type SecurityConfig can only set one of public / protected / private
+	Syntax error on token "c", delete this token
+	Syntax error on token "c", delete this token
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error, insert ")" to complete Expression
+	Syntax error, insert "AssignmentOperator Expression" to complete Assignment
+	Syntax error, insert ";" to complete Statement
+	Syntax error, insert "}" to complete MethodBody
+
+	at com.example.physiokalendar.config.SecurityConfig.<init>(SecurityConfig.java:1)
+	at com.example.physiokalendar.config.SecurityConfig$$SpringCGLIB$$0.<init>(<generated>)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195)
+	... 24 common frames omitted
+2024-09-06 17:33:09 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:33:09 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:33:10 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:33:10 - Finished Spring Data repository scanning in 45 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:33:10 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:33:10 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:33:10 - Starting service [Tomcat]
+2024-09-06 17:33:10 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:33:10 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:33:10 - Root WebApplicationContext: initialization completed in 1350 ms
+2024-09-06 17:33:11 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:33:11 - HHH000026: Second-level cache disabled
+2024-09-06 17:33:11 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:33:11 - HikariPool-8 - Starting...
+2024-09-06 17:33:11 - HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5acccbfb
+2024-09-06 17:33:11 - HikariPool-8 - Start completed.
+2024-09-06 17:33:11 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:33:11 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:33:11 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:33:11 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:33:12 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 17:33:12 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 17:33:12 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 17:33:13 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 17:33:13 - LiveReload server is running on port 35729
+2024-09-06 17:33:13 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:33:13 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 17:33:13 - Started PhysiokalendarApplication in 4.251 seconds (process running for 1277.455)
+2024-09-06 17:33:13 - Condition evaluation unchanged
+2024-09-06 17:33:41 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-06 17:33:41 - Initializing Servlet 'dispatcherServlet'
+2024-09-06 17:33:41 - Completed initialization in 2 ms
+2024-09-06 17:33:41 - Securing POST /api/auth/login
+2024-09-06 17:33:41 - Secured POST /api/auth/login
+2024-09-06 17:33:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:33:42 - Securing GET /api/auth/user
+2024-09-06 17:33:42 - Secured GET /api/auth/user
+2024-09-06 17:33:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:33:42 - Securing GET /api/therapists
+2024-09-06 17:33:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:33:42 - Securing GET /api/appointments
+2024-09-06 17:33:42 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:33:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:33:42 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:33:42 - Securing GET /error
+2024-09-06 17:33:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:33:42 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:33:42 - Securing GET /error
+2024-09-06 17:33:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:33:42 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:40:39 - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-09-06 17:40:39 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:40:39 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:40:39 - HikariPool-8 - Shutdown initiated...
+2024-09-06 17:40:39 - HikariPool-8 - Shutdown completed.
+2024-09-06 17:40:40 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:40:40 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:40:41 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:40:41 - Finished Spring Data repository scanning in 106 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:40:42 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:40:42 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:40:42 - Starting service [Tomcat]
+2024-09-06 17:40:42 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:40:42 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:40:42 - Root WebApplicationContext: initialization completed in 2091 ms
+2024-09-06 17:40:42 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:40:42 - HHH000026: Second-level cache disabled
+2024-09-06 17:40:42 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:40:42 - HikariPool-9 - Starting...
+2024-09-06 17:40:42 - HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@217677f0
+2024-09-06 17:40:42 - HikariPool-9 - Start completed.
+2024-09-06 17:40:42 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:40:42 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:40:43 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:40:43 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:40:44 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 17:40:44 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 17:41:11 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 17:42:06 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 17:42:06 - LiveReload server is running on port 35729
+2024-09-06 17:42:06 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:42:06 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 17:42:06 - Started PhysiokalendarApplication in 86.627 seconds (process running for 1810.552)
+2024-09-06 17:42:06 - Condition evaluation unchanged
+2024-09-06 17:42:21 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-06 17:42:21 - Initializing Servlet 'dispatcherServlet'
+2024-09-06 17:42:21 - Completed initialization in 1 ms
+2024-09-06 17:42:21 - Securing GET /api/therapists
+2024-09-06 17:42:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:42:21 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:42:21 - Securing GET /error
+2024-09-06 17:42:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:42:21 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:42:35 - Securing POST /api/auth/login
+2024-09-06 17:42:35 - Secured POST /api/auth/login
+2024-09-06 17:42:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:42:35 - Securing OPTIONS /api/auth/user
+2024-09-06 17:42:35 - Securing GET /api/auth/user
+2024-09-06 17:42:35 - Secured GET /api/auth/user
+2024-09-06 17:42:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:42:36 - Securing GET /api/therapists
+2024-09-06 17:42:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:42:36 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:42:36 - Securing GET /error
+2024-09-06 17:42:36 - Securing GET /api/appointments
+2024-09-06 17:42:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:42:36 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:42:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:42:36 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:42:36 - Securing GET /error
+2024-09-06 17:42:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:42:36 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:42:50 - Securing GET /api/therapists
+2024-09-06 17:42:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:42:50 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:42:50 - Securing GET /error
+2024-09-06 17:42:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:42:50 - Pre-authenticated entry point called. Rejecting access
+2024-09-06 17:43:32 - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-09-06 17:43:32 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:43:33 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:43:33 - HikariPool-9 - Shutdown initiated...
+2024-09-06 17:43:33 - HikariPool-9 - Shutdown completed.
+2024-09-06 17:43:34 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:43:34 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:43:35 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:43:35 - Finished Spring Data repository scanning in 70 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:43:35 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:43:35 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:43:35 - Starting service [Tomcat]
+2024-09-06 17:43:35 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:43:35 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:43:35 - Root WebApplicationContext: initialization completed in 1342 ms
+2024-09-06 17:43:35 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:43:35 - HHH000026: Second-level cache disabled
+2024-09-06 17:43:35 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:43:35 - HikariPool-10 - Starting...
+2024-09-06 17:43:35 - HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a9e1db1
+2024-09-06 17:43:35 - HikariPool-10 - Start completed.
+2024-09-06 17:43:35 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:43:35 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:43:36 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:43:36 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:43:36 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 17:43:36 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 17:43:41 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 17:44:08 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 17:44:19 - LiveReload server is running on port 35729
+2024-09-06 17:44:19 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:44:19 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 17:44:19 - Started PhysiokalendarApplication in 45.655 seconds (process running for 1943.353)
+2024-09-06 17:44:19 - Condition evaluation unchanged
+2024-09-06 17:44:32 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-06 17:44:32 - Initializing Servlet 'dispatcherServlet'
+2024-09-06 17:44:32 - Completed initialization in 2 ms
+2024-09-06 17:44:32 - Securing GET /api/therapists
+2024-09-06 17:44:32 - Secured GET /api/therapists
+2024-09-06 17:44:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:45:06 - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-09-06 17:45:06 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:45:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:45:06 - HikariPool-10 - Shutdown initiated...
+2024-09-06 17:45:07 - HikariPool-10 - Shutdown completed.
+2024-09-06 17:45:07 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 81252 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-06 17:45:07 - No active profile set, falling back to 1 default profile: "default"
+2024-09-06 17:45:08 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-06 17:45:08 - Finished Spring Data repository scanning in 39 ms. Found 8 JPA repository interfaces.
+2024-09-06 17:45:08 - Tomcat initialized with port 8080 (http)
+2024-09-06 17:45:08 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:45:08 - Starting service [Tomcat]
+2024-09-06 17:45:08 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-06 17:45:08 - Initializing Spring embedded WebApplicationContext
+2024-09-06 17:45:08 - Root WebApplicationContext: initialization completed in 1312 ms
+2024-09-06 17:45:09 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-06 17:45:09 - HHH000026: Second-level cache disabled
+2024-09-06 17:45:09 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-06 17:45:09 - HikariPool-11 - Starting...
+2024-09-06 17:45:09 - HikariPool-11 - Added connection com.mysql.cj.jdbc.ConnectionImpl@631675c5
+2024-09-06 17:45:09 - HikariPool-11 - Start completed.
+2024-09-06 17:45:09 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-06 17:45:09 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-06 17:45:09 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-06 17:45:09 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-06 17:45:10 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-06 17:45:10 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-06 17:45:21 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-06 17:45:21 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-06 17:45:22 - LiveReload server is running on port 35729
+2024-09-06 17:45:22 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-06 17:45:22 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-06 17:45:22 - Started PhysiokalendarApplication in 15.008 seconds (process running for 2006.208)
+2024-09-06 17:45:22 - Condition evaluation unchanged
+2024-09-06 17:45:48 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-06 17:45:48 - Initializing Servlet 'dispatcherServlet'
+2024-09-06 17:45:48 - Completed initialization in 2 ms
+2024-09-06 17:45:48 - Securing OPTIONS /api/auth/login
+2024-09-06 17:45:48 - Securing POST /api/auth/login
+2024-09-06 17:45:48 - Secured POST /api/auth/login
+2024-09-06 17:45:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:45:48 - Securing GET /api/auth/user
+2024-09-06 17:45:48 - Secured GET /api/auth/user
+2024-09-06 17:45:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:45:48 - Securing OPTIONS /api/therapists
+2024-09-06 17:45:48 - Securing OPTIONS /api/appointments
+2024-09-06 17:45:48 - Securing GET /api/therapists
+2024-09-06 17:45:48 - Secured GET /api/therapists
+2024-09-06 17:45:48 - Securing GET /api/appointments
+2024-09-06 17:45:48 - Secured GET /api/appointments
+2024-09-06 17:45:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:45:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:46:08 - Securing GET /api/patients
+2024-09-06 17:46:08 - Secured GET /api/patients
+2024-09-06 17:46:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:46:44 - Securing POST /api/auth/login
+2024-09-06 17:46:44 - Secured POST /api/auth/login
+2024-09-06 17:46:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:46:44 - Securing GET /api/auth/user
+2024-09-06 17:46:44 - Secured GET /api/auth/user
+2024-09-06 17:46:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:46:44 - Securing GET /api/therapists
+2024-09-06 17:46:44 - Secured GET /api/therapists
+2024-09-06 17:46:44 - Securing GET /api/appointments
+2024-09-06 17:46:44 - Secured GET /api/appointments
+2024-09-06 17:46:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:46:44 - Set SecurityContextHolder to anonymous SecurityContext

@@ -28,14 +28,14 @@ public class UserController {
     private JwtService jwtService;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody JSONLoginDTO loginDTO) {
+    public ResponseEntity<LoginResponse> login(@RequestBody JSONLoginDTO loginDTO) {
         UserDetails userDetails = userService.authenticateUser(loginDTO.getUsername(), loginDTO.getPassword());
         if (userDetails != null) {
             String token = jwtService.generateToken(userDetails);
             LoginResponse loginResponse = new LoginResponse(token);
-            return ResponseEntity.status(HttpStatus.OK).body(loginResponse);
+            return ResponseEntity.ok(loginResponse);
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResponse("Invalid credentials"));
         }
     }
 
@@ -46,16 +46,16 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public ResponseEntity<?> getUserDetails(@RequestHeader("Authorization") String authHeader) {
+    public ResponseEntity<JSONUserDTO> getUserDetails(@RequestHeader("Authorization") String authHeader) {
         String token = authHeader.replace("Bearer ", "");
         String username = jwtService.extractUsername(token);
         UserDetails user = userService.getUserDetails(username);
         JSONUserDTO userDTO = new JSONUserDTO();
         userDTO.setUsername(user.getUsername());
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(userDTO);
     }
 
-    public class LoginResponse {
+    public static class LoginResponse {
         private String token;
 
         public LoginResponse(String token) {
