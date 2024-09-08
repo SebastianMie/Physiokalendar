@@ -29478,3 +29478,1852 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 2024-09-06 17:46:44 - Secured GET /api/appointments
 2024-09-06 17:46:44 - Set SecurityContextHolder to anonymous SecurityContext
 2024-09-06 17:46:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:52:32 - Securing GET /api/appointments
+2024-09-06 17:52:32 - Secured GET /api/appointments
+2024-09-06 17:52:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:52:33 - Securing GET /api/appointments
+2024-09-06 17:52:33 - Secured GET /api/appointments
+2024-09-06 17:52:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:52:33 - Securing GET /api/appointments
+2024-09-06 17:52:33 - Secured GET /api/appointments
+2024-09-06 17:52:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:52:43 - Securing GET /api/appointments
+2024-09-06 17:52:43 - Secured GET /api/appointments
+2024-09-06 17:52:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:52:44 - Securing GET /api/appointments
+2024-09-06 17:52:44 - Secured GET /api/appointments
+2024-09-06 17:52:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 17:52:46 - Securing GET /api/appointments
+2024-09-06 17:52:46 - Secured GET /api/appointments
+2024-09-06 17:52:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:08:06 - Securing GET /api/patients
+2024-09-06 18:08:06 - Secured GET /api/patients
+2024-09-06 18:08:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:08:12 - Securing GET /api/appointmentseries
+2024-09-06 18:08:12 - Secured GET /api/appointmentseries
+2024-09-06 18:08:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:09:22 - Securing GET /api/therapists
+2024-09-06 18:09:22 - Secured GET /api/therapists
+2024-09-06 18:09:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:09:35 - Securing GET /api/appointmentseries
+2024-09-06 18:09:35 - Secured GET /api/appointmentseries
+2024-09-06 18:09:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:09:35 - Securing GET /api/therapists/3/absences
+2024-09-06 18:09:35 - Secured GET /api/therapists/3/absences
+2024-09-06 18:09:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:10:44 - Securing GET /api/patients
+2024-09-06 18:10:44 - Secured GET /api/patients
+2024-09-06 18:10:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:10:47 - Securing GET /api/appointmentseries
+2024-09-06 18:10:47 - Secured GET /api/appointmentseries
+2024-09-06 18:10:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:10:52 - Securing GET /api/appointmentseries
+2024-09-06 18:10:52 - Secured GET /api/appointmentseries
+2024-09-06 18:10:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:18:17 - Securing OPTIONS /api/auth/login
+2024-09-06 18:18:17 - Securing POST /api/auth/login
+2024-09-06 18:18:17 - Secured POST /api/auth/login
+2024-09-06 18:18:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:18:18 - Securing OPTIONS /api/auth/user
+2024-09-06 18:18:18 - Securing GET /api/auth/user
+2024-09-06 18:18:18 - Secured GET /api/auth/user
+2024-09-06 18:18:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:18:18 - Securing OPTIONS /api/therapists
+2024-09-06 18:18:18 - Securing OPTIONS /api/appointments
+2024-09-06 18:18:18 - Securing GET /api/appointments
+2024-09-06 18:18:18 - Secured GET /api/appointments
+2024-09-06 18:18:18 - Securing GET /api/therapists
+2024-09-06 18:18:18 - Secured GET /api/therapists
+2024-09-06 18:18:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:18:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:18:29 - Securing GET /api/patients
+2024-09-06 18:18:29 - Secured GET /api/patients
+2024-09-06 18:18:29 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:25:50 - Securing GET /api/patients
+2024-09-06 18:25:50 - Secured GET /api/patients
+2024-09-06 18:25:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:25:58 - Securing GET /api/patients
+2024-09-06 18:25:58 - Secured GET /api/patients
+2024-09-06 18:25:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:26:43 - Securing GET /api/patients
+2024-09-06 18:26:43 - Secured GET /api/patients
+2024-09-06 18:26:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:26:51 - Securing GET /api/patients
+2024-09-06 18:26:51 - Secured GET /api/patients
+2024-09-06 18:26:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:26:53 - Securing GET /api/patients
+2024-09-06 18:26:53 - Secured GET /api/patients
+2024-09-06 18:26:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:26:55 - Securing GET /api/patients
+2024-09-06 18:26:55 - Secured GET /api/patients
+2024-09-06 18:26:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:26:56 - Securing GET /api/patients
+2024-09-06 18:26:56 - Secured GET /api/patients
+2024-09-06 18:26:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:27:08 - Securing GET /api/patients
+2024-09-06 18:27:08 - Secured GET /api/patients
+2024-09-06 18:27:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:27:11 - Securing GET /api/patients
+2024-09-06 18:27:11 - Secured GET /api/patients
+2024-09-06 18:27:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:27:52 - Securing GET /api/therapists
+2024-09-06 18:27:52 - Secured GET /api/therapists
+2024-09-06 18:27:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:29:15 - Securing GET /api/therapists
+2024-09-06 18:29:15 - Secured GET /api/therapists
+2024-09-06 18:29:15 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:29:29 - Securing GET /api/patients
+2024-09-06 18:29:29 - Secured GET /api/patients
+2024-09-06 18:29:29 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:29:51 - Securing GET /api/appointments
+2024-09-06 18:29:51 - Secured GET /api/appointments
+2024-09-06 18:29:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:29:52 - Securing GET /api/appointments
+2024-09-06 18:29:52 - Secured GET /api/appointments
+2024-09-06 18:29:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:29:52 - Securing GET /api/appointments
+2024-09-06 18:29:52 - Secured GET /api/appointments
+2024-09-06 18:29:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:29:52 - Securing GET /api/appointments
+2024-09-06 18:29:52 - Secured GET /api/appointments
+2024-09-06 18:29:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:32:39 - Securing POST /api/auth/login
+2024-09-06 18:32:39 - Secured POST /api/auth/login
+2024-09-06 18:32:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:32:39 - Securing GET /api/auth/user
+2024-09-06 18:32:39 - Secured GET /api/auth/user
+2024-09-06 18:32:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:32:39 - Securing GET /api/appointments
+2024-09-06 18:32:39 - Securing GET /api/therapists
+2024-09-06 18:32:39 - Secured GET /api/appointments
+2024-09-06 18:32:39 - Secured GET /api/therapists
+2024-09-06 18:32:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:32:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:32:52 - Securing GET /api/appointments
+2024-09-06 18:32:52 - Secured GET /api/appointments
+2024-09-06 18:32:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:32:53 - Securing GET /api/appointments
+2024-09-06 18:32:53 - Secured GET /api/appointments
+2024-09-06 18:32:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:32:54 - Securing GET /api/appointments
+2024-09-06 18:32:54 - Secured GET /api/appointments
+2024-09-06 18:32:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:32:54 - Securing GET /api/appointments
+2024-09-06 18:32:54 - Secured GET /api/appointments
+2024-09-06 18:32:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:33:08 - Securing GET /api/patients
+2024-09-06 18:33:08 - Secured GET /api/patients
+2024-09-06 18:33:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:33:17 - Securing OPTIONS /api/appointments/64
+2024-09-06 18:33:18 - Securing PUT /api/appointments/64
+2024-09-06 18:33:18 - Secured PUT /api/appointments/64
+2024-09-06 18:33:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:33:18 - Securing GET /api/appointments
+2024-09-06 18:33:18 - Securing GET /api/appointments
+2024-09-06 18:33:18 - Secured GET /api/appointments
+2024-09-06 18:33:18 - Secured GET /api/appointments
+2024-09-06 18:33:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:33:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:33:23 - Securing GET /api/patients
+2024-09-06 18:33:23 - Secured GET /api/patients
+2024-09-06 18:33:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:37:28 - Securing POST /api/auth/login
+2024-09-06 18:37:28 - Secured POST /api/auth/login
+2024-09-06 18:37:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:37:28 - Securing GET /api/auth/user
+2024-09-06 18:37:28 - Secured GET /api/auth/user
+2024-09-06 18:37:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:37:28 - Securing GET /api/therapists
+2024-09-06 18:37:28 - Securing GET /api/appointments
+2024-09-06 18:37:28 - Secured GET /api/therapists
+2024-09-06 18:37:28 - Secured GET /api/appointments
+2024-09-06 18:37:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:37:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:37:34 - Securing GET /api/patients
+2024-09-06 18:37:34 - Secured GET /api/patients
+2024-09-06 18:37:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:40:17 - Securing GET /api/appointments
+2024-09-06 18:40:17 - Secured GET /api/appointments
+2024-09-06 18:40:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:40:18 - Securing GET /api/appointments
+2024-09-06 18:40:18 - Secured GET /api/appointments
+2024-09-06 18:40:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:40:19 - Securing GET /api/appointments
+2024-09-06 18:40:19 - Secured GET /api/appointments
+2024-09-06 18:40:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:40:20 - Securing GET /api/appointments
+2024-09-06 18:40:20 - Secured GET /api/appointments
+2024-09-06 18:40:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:40:32 - Securing GET /api/patients
+2024-09-06 18:40:32 - Secured GET /api/patients
+2024-09-06 18:40:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:40:44 - Securing PUT /api/appointments/64
+2024-09-06 18:40:44 - Secured PUT /api/appointments/64
+2024-09-06 18:40:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:40:44 - Securing GET /api/appointments
+2024-09-06 18:40:44 - Securing GET /api/appointments
+2024-09-06 18:40:44 - Secured GET /api/appointments
+2024-09-06 18:40:44 - Secured GET /api/appointments
+2024-09-06 18:40:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:40:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:40:51 - Securing GET /api/patients
+2024-09-06 18:40:51 - Secured GET /api/patients
+2024-09-06 18:40:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:41:35 - Securing OPTIONS /api/appointments
+2024-09-06 18:41:35 - Securing POST /api/appointments
+2024-09-06 18:41:35 - Secured POST /api/appointments
+2024-09-06 18:41:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:41:36 - Securing OPTIONS /api/appointments?date=2024-09-06T16%3A40%3A50.990Z
+2024-09-06 18:41:36 - Securing GET /api/appointments?date=2024-09-06T16%3A40%3A50.990Z
+2024-09-06 18:41:36 - Securing GET /api/appointments
+2024-09-06 18:41:36 - Secured GET /api/appointments
+2024-09-06 18:41:36 - Secured GET /api/appointments?date=2024-09-06T16%3A40%3A50.990Z
+2024-09-06 18:41:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:41:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:41:42 - Securing GET /api/patients
+2024-09-06 18:41:42 - Secured GET /api/patients
+2024-09-06 18:41:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:41:50 - Securing OPTIONS /api/appointments/75
+2024-09-06 18:41:50 - Securing PUT /api/appointments/75
+2024-09-06 18:41:50 - Secured PUT /api/appointments/75
+2024-09-06 18:41:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:41:51 - Securing GET /api/appointments
+2024-09-06 18:41:51 - Securing GET /api/appointments
+2024-09-06 18:41:51 - Secured GET /api/appointments
+2024-09-06 18:41:51 - Secured GET /api/appointments
+2024-09-06 18:41:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:41:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:42:38 - Securing GET /api/patients
+2024-09-06 18:42:38 - Secured GET /api/patients
+2024-09-06 18:42:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:42:39 - Securing OPTIONS /api/appointments/75
+2024-09-06 18:42:39 - Securing DELETE /api/appointments/75
+2024-09-06 18:42:39 - Secured DELETE /api/appointments/75
+2024-09-06 18:42:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:42:39 - Securing GET /api/appointments
+2024-09-06 18:42:39 - Secured GET /api/appointments
+2024-09-06 18:42:39 - Securing GET /api/appointments
+2024-09-06 18:42:39 - Secured GET /api/appointments
+2024-09-06 18:42:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:42:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:42:46 - Securing GET /api/patients
+2024-09-06 18:42:46 - Secured GET /api/patients
+2024-09-06 18:42:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:43:27 - Securing OPTIONS /api/appointmentseries
+2024-09-06 18:43:27 - Securing POST /api/appointmentseries
+2024-09-06 18:43:27 - Secured POST /api/appointmentseries
+2024-09-06 18:43:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:43:28 - Securing GET /api/appointmentseries
+2024-09-06 18:43:28 - Secured GET /api/appointmentseries
+2024-09-06 18:43:28 - Securing GET /api/appointments
+2024-09-06 18:43:28 - Secured GET /api/appointments
+2024-09-06 18:43:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:43:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:43:35 - Securing GET /api/patients
+2024-09-06 18:43:35 - Secured GET /api/patients
+2024-09-06 18:43:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:44:44 - Securing GET /api/therapists
+2024-09-06 18:44:44 - Secured GET /api/therapists
+2024-09-06 18:44:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:44:50 - Securing GET /api/appointmentseries
+2024-09-06 18:44:50 - Secured GET /api/appointmentseries
+2024-09-06 18:44:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:44:51 - Securing GET /api/therapists/1/absences
+2024-09-06 18:44:51 - Secured GET /api/therapists/1/absences
+2024-09-06 18:44:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:48:10 - Securing POST /api/auth/login
+2024-09-06 18:48:10 - Secured POST /api/auth/login
+2024-09-06 18:48:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:48:10 - Securing GET /api/auth/user
+2024-09-06 18:48:10 - Secured GET /api/auth/user
+2024-09-06 18:48:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:48:10 - Securing GET /api/therapists
+2024-09-06 18:48:10 - Secured GET /api/therapists
+2024-09-06 18:48:10 - Securing GET /api/appointments
+2024-09-06 18:48:10 - Secured GET /api/appointments
+2024-09-06 18:48:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:48:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:49:08 - Securing GET /api/patients
+2024-09-06 18:49:08 - Secured GET /api/patients
+2024-09-06 18:49:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:49:28 - Securing GET /api/appointmentseries
+2024-09-06 18:49:28 - Secured GET /api/appointmentseries
+2024-09-06 18:49:29 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:50:52 - Securing GET /api/appointments
+2024-09-06 18:50:52 - Secured GET /api/appointments
+2024-09-06 18:50:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:51:02 - Securing GET /api/appointments
+2024-09-06 18:51:02 - Secured GET /api/appointments
+2024-09-06 18:51:02 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 18:51:30 - Securing GET /api/appointments
+2024-09-06 18:51:30 - Secured GET /api/appointments
+2024-09-06 18:51:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:05:14 - Securing OPTIONS /api/therapists
+2024-09-06 19:05:14 - Securing GET /api/therapists
+2024-09-06 19:05:14 - Secured GET /api/therapists
+2024-09-06 19:05:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:05:22 - Securing GET /api/therapists
+2024-09-06 19:05:22 - Secured GET /api/therapists
+2024-09-06 19:05:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:05:31 - Securing GET /api/appointmentseries
+2024-09-06 19:05:31 - Secured GET /api/appointmentseries
+2024-09-06 19:05:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:05:32 - Securing GET /api/therapists/1/absences
+2024-09-06 19:05:32 - Secured GET /api/therapists/1/absences
+2024-09-06 19:05:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:06:39 - Securing GET /api/patients
+2024-09-06 19:06:39 - Secured GET /api/patients
+2024-09-06 19:06:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:06:40 - Securing GET /api/appointmentseries
+2024-09-06 19:06:40 - Secured GET /api/appointmentseries
+2024-09-06 19:06:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:09:08 - Securing GET /api/appointments
+2024-09-06 19:09:08 - Secured GET /api/appointments
+2024-09-06 19:09:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:09:31 - Securing GET /api/appointments
+2024-09-06 19:09:31 - Secured GET /api/appointments
+2024-09-06 19:09:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:11:25 - Securing GET /api/patients
+2024-09-06 19:11:25 - Secured GET /api/patients
+2024-09-06 19:11:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:11:27 - Securing GET /api/appointmentseries
+2024-09-06 19:11:27 - Secured GET /api/appointmentseries
+2024-09-06 19:11:27 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:15:39 - Securing GET /api/therapists
+2024-09-06 19:15:39 - Secured GET /api/therapists
+2024-09-06 19:15:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:15:42 - Securing GET /api/appointmentseries
+2024-09-06 19:15:42 - Secured GET /api/appointmentseries
+2024-09-06 19:15:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:15:42 - Securing GET /api/therapists/1/absences
+2024-09-06 19:15:42 - Secured GET /api/therapists/1/absences
+2024-09-06 19:15:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:17:28 - Securing GET /api/patients
+2024-09-06 19:17:28 - Secured GET /api/patients
+2024-09-06 19:17:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:17:35 - Securing GET /api/appointmentseries
+2024-09-06 19:17:35 - Secured GET /api/appointmentseries
+2024-09-06 19:17:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:18:54 - Securing OPTIONS /api/appointments
+2024-09-06 19:18:54 - Securing GET /api/appointments
+2024-09-06 19:18:54 - Secured GET /api/appointments
+2024-09-06 19:18:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-06 19:19:15 - Securing GET /api/appointments
+2024-09-06 19:19:15 - Secured GET /api/appointments
+2024-09-06 19:19:15 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 13:28:57 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 59220 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-08 13:28:57 - No active profile set, falling back to 1 default profile: "default"
+2024-09-08 13:28:57 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-08 13:28:57 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-08 13:28:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-08 13:28:59 - Finished Spring Data repository scanning in 106 ms. Found 8 JPA repository interfaces.
+2024-09-08 13:29:01 - Tomcat initialized with port 8080 (http)
+2024-09-08 13:29:01 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-08 13:29:01 - Starting service [Tomcat]
+2024-09-08 13:29:01 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08 13:29:01 - Initializing Spring embedded WebApplicationContext
+2024-09-08 13:29:01 - Root WebApplicationContext: initialization completed in 3872 ms
+2024-09-08 13:29:01 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-08 13:29:02 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 13:29:02 - HHH000026: Second-level cache disabled
+2024-09-08 13:29:02 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-08 13:29:02 - HikariPool-1 - Starting...
+2024-09-08 13:29:03 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a38a2f
+2024-09-08 13:29:03 - HikariPool-1 - Start completed.
+2024-09-08 13:29:03 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-08 13:29:03 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-08 13:29:05 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 13:29:05 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 13:29:06 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-08 13:29:06 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-08 13:29:07 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-08 13:29:07 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-08 13:29:08 - LiveReload server is running on port 35729
+2024-09-08 13:29:08 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-08 13:29:08 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-08 13:29:08 - Started PhysiokalendarApplication in 12.278 seconds (process running for 13.228)
+2024-09-08 13:29:08 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-08 13:29:08 - Initializing Servlet 'dispatcherServlet'
+2024-09-08 13:29:08 - Completed initialization in 1 ms
+2024-09-08 13:55:30 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m26s991ms17µs799ns).
+2024-09-08 13:55:49 - Securing OPTIONS /api/auth/login
+2024-09-08 13:55:49 - Securing POST /api/auth/login
+2024-09-08 13:55:49 - Secured POST /api/auth/login
+2024-09-08 13:55:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 13:55:50 - Securing OPTIONS /api/auth/user
+2024-09-08 13:55:50 - Securing GET /api/auth/user
+2024-09-08 13:55:50 - Secured GET /api/auth/user
+2024-09-08 13:55:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 13:55:50 - Securing OPTIONS /api/appointments
+2024-09-08 13:55:50 - Securing OPTIONS /api/therapists
+2024-09-08 13:55:50 - Securing GET /api/therapists
+2024-09-08 13:55:50 - Securing GET /api/appointments
+2024-09-08 13:55:50 - Secured GET /api/therapists
+2024-09-08 13:55:50 - Secured GET /api/appointments
+2024-09-08 13:55:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 13:55:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:26:06 - Securing OPTIONS /api/auth/login
+2024-09-08 14:26:06 - Securing POST /api/auth/login
+2024-09-08 14:26:06 - Secured POST /api/auth/login
+2024-09-08 14:26:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:26:06 - Securing OPTIONS /api/auth/user
+2024-09-08 14:26:06 - Securing GET /api/auth/user
+2024-09-08 14:26:06 - Secured GET /api/auth/user
+2024-09-08 14:26:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:26:06 - Securing OPTIONS /api/therapists
+2024-09-08 14:26:06 - Securing OPTIONS /api/appointments
+2024-09-08 14:26:06 - Securing GET /api/therapists
+2024-09-08 14:26:06 - Secured GET /api/therapists
+2024-09-08 14:26:06 - Securing GET /api/appointments
+2024-09-08 14:26:06 - Secured GET /api/appointments
+2024-09-08 14:26:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:26:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:34:44 - Securing GET /api/auth/user
+2024-09-08 14:34:44 - Securing GET /api/therapists
+2024-09-08 14:34:44 - Securing GET /api/appointments
+2024-09-08 14:34:44 - Secured GET /api/therapists
+2024-09-08 14:34:44 - Secured GET /api/auth/user
+2024-09-08 14:34:44 - Secured GET /api/appointments
+2024-09-08 14:34:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:34:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:34:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:34:48 - Securing GET /api/therapists
+2024-09-08 14:34:48 - Securing GET /api/auth/user
+2024-09-08 14:34:48 - Secured GET /api/therapists
+2024-09-08 14:34:48 - Securing GET /api/appointments
+2024-09-08 14:34:48 - Secured GET /api/auth/user
+2024-09-08 14:34:48 - Secured GET /api/appointments
+2024-09-08 14:34:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:34:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:34:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:35:11 - Securing POST /api/auth/login
+2024-09-08 14:35:11 - Secured POST /api/auth/login
+2024-09-08 14:35:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:35:12 - Securing GET /api/auth/user
+2024-09-08 14:35:12 - Secured GET /api/auth/user
+2024-09-08 14:35:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:35:12 - Securing GET /api/therapists
+2024-09-08 14:35:12 - Secured GET /api/therapists
+2024-09-08 14:35:12 - Securing GET /api/appointments
+2024-09-08 14:35:12 - Secured GET /api/appointments
+2024-09-08 14:35:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:35:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:48:57 - Securing POST /api/auth/login
+2024-09-08 14:48:57 - Secured POST /api/auth/login
+2024-09-08 14:48:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:48:57 - Securing GET /api/auth/user
+2024-09-08 14:48:57 - Secured GET /api/auth/user
+2024-09-08 14:48:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:48:57 - Securing GET /api/therapists
+2024-09-08 14:48:57 - Securing GET /api/appointments
+2024-09-08 14:48:57 - Secured GET /api/therapists
+2024-09-08 14:48:57 - Secured GET /api/appointments
+2024-09-08 14:48:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:48:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:50:43 - Securing POST /api/auth/login
+2024-09-08 14:50:43 - Secured POST /api/auth/login
+2024-09-08 14:50:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:50:43 - Securing GET /api/auth/user
+2024-09-08 14:50:43 - Secured GET /api/auth/user
+2024-09-08 14:50:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:50:43 - Securing GET /api/therapists
+2024-09-08 14:50:43 - Securing GET /api/appointments
+2024-09-08 14:50:43 - Secured GET /api/therapists
+2024-09-08 14:50:43 - Secured GET /api/appointments
+2024-09-08 14:50:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 14:50:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:12:35 - Securing OPTIONS /api/appointments
+2024-09-08 15:12:35 - Securing GET /api/appointments
+2024-09-08 15:12:35 - Secured GET /api/appointments
+2024-09-08 15:12:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:12:36 - Securing GET /api/appointments
+2024-09-08 15:12:36 - Secured GET /api/appointments
+2024-09-08 15:12:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:12:36 - Securing GET /api/appointments
+2024-09-08 15:12:36 - Secured GET /api/appointments
+2024-09-08 15:12:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:12:37 - Securing GET /api/appointments
+2024-09-08 15:12:37 - Secured GET /api/appointments
+2024-09-08 15:12:37 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:12:37 - Securing GET /api/appointments
+2024-09-08 15:12:37 - Secured GET /api/appointments
+2024-09-08 15:12:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:12:38 - Securing GET /api/appointments
+2024-09-08 15:12:38 - Secured GET /api/appointments
+2024-09-08 15:12:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:33:57 - Securing GET /api/appointments
+2024-09-08 15:33:57 - Secured GET /api/appointments
+2024-09-08 15:33:57 - Securing OPTIONS /api/therapists
+2024-09-08 15:33:57 - Securing GET /api/therapists
+2024-09-08 15:33:57 - Secured GET /api/therapists
+2024-09-08 15:33:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:33:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:33:59 - Securing GET /api/therapists
+2024-09-08 15:33:59 - Secured GET /api/therapists
+2024-09-08 15:33:59 - Securing GET /api/appointments
+2024-09-08 15:33:59 - Secured GET /api/appointments
+2024-09-08 15:33:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:00 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:02 - Securing GET /api/appointments
+2024-09-08 15:34:02 - Securing GET /api/therapists
+2024-09-08 15:34:02 - Secured GET /api/appointments
+2024-09-08 15:34:02 - Secured GET /api/therapists
+2024-09-08 15:34:02 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:02 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:04 - Securing GET /api/therapists
+2024-09-08 15:34:04 - Securing GET /api/appointments
+2024-09-08 15:34:04 - Secured GET /api/therapists
+2024-09-08 15:34:04 - Secured GET /api/appointments
+2024-09-08 15:34:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:11 - Securing GET /api/therapists
+2024-09-08 15:34:11 - Secured GET /api/therapists
+2024-09-08 15:34:11 - Securing GET /api/appointments
+2024-09-08 15:34:11 - Secured GET /api/appointments
+2024-09-08 15:34:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:20 - Securing GET /api/appointments
+2024-09-08 15:34:20 - Secured GET /api/appointments
+2024-09-08 15:34:20 - Securing GET /api/therapists
+2024-09-08 15:34:20 - Secured GET /api/therapists
+2024-09-08 15:34:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:23 - Securing GET /api/appointments
+2024-09-08 15:34:23 - Secured GET /api/appointments
+2024-09-08 15:34:23 - Securing GET /api/therapists
+2024-09-08 15:34:23 - Secured GET /api/therapists
+2024-09-08 15:34:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:31 - Securing GET /api/therapists
+2024-09-08 15:34:31 - Securing GET /api/appointments
+2024-09-08 15:34:31 - Secured GET /api/appointments
+2024-09-08 15:34:31 - Secured GET /api/therapists
+2024-09-08 15:34:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:53 - Securing GET /api/therapists
+2024-09-08 15:34:53 - Secured GET /api/therapists
+2024-09-08 15:34:53 - Securing GET /api/appointments
+2024-09-08 15:34:53 - Secured GET /api/appointments
+2024-09-08 15:34:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:34:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:00 - Securing GET /api/appointments
+2024-09-08 15:35:00 - Secured GET /api/appointments
+2024-09-08 15:35:00 - Securing GET /api/therapists
+2024-09-08 15:35:00 - Secured GET /api/therapists
+2024-09-08 15:35:00 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:00 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:06 - Securing GET /api/therapists
+2024-09-08 15:35:06 - Securing GET /api/appointments
+2024-09-08 15:35:06 - Secured GET /api/appointments
+2024-09-08 15:35:06 - Secured GET /api/therapists
+2024-09-08 15:35:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:12 - Securing GET /api/therapists
+2024-09-08 15:35:12 - Secured GET /api/therapists
+2024-09-08 15:35:12 - Securing GET /api/appointments
+2024-09-08 15:35:12 - Secured GET /api/appointments
+2024-09-08 15:35:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:34 - Securing GET /api/appointments
+2024-09-08 15:35:34 - Secured GET /api/appointments
+2024-09-08 15:35:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:34 - Securing GET /api/appointments
+2024-09-08 15:35:34 - Secured GET /api/appointments
+2024-09-08 15:35:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:35 - Securing GET /api/appointments
+2024-09-08 15:35:35 - Secured GET /api/appointments
+2024-09-08 15:35:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:36 - Securing GET /api/appointments
+2024-09-08 15:35:36 - Secured GET /api/appointments
+2024-09-08 15:35:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:36 - Securing GET /api/appointments
+2024-09-08 15:35:36 - Secured GET /api/appointments
+2024-09-08 15:35:37 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:38 - Securing GET /api/appointments
+2024-09-08 15:35:38 - Secured GET /api/appointments
+2024-09-08 15:35:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:38 - Securing GET /api/appointments
+2024-09-08 15:35:38 - Secured GET /api/appointments
+2024-09-08 15:35:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:41 - Securing GET /api/appointments
+2024-09-08 15:35:41 - Secured GET /api/appointments
+2024-09-08 15:35:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:41 - Securing GET /api/appointments
+2024-09-08 15:35:41 - Secured GET /api/appointments
+2024-09-08 15:35:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:41 - Securing GET /api/appointments
+2024-09-08 15:35:41 - Secured GET /api/appointments
+2024-09-08 15:35:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:43 - Securing GET /api/appointments
+2024-09-08 15:35:43 - Secured GET /api/appointments
+2024-09-08 15:35:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:43 - Securing GET /api/appointments
+2024-09-08 15:35:43 - Secured GET /api/appointments
+2024-09-08 15:35:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:43 - Securing GET /api/appointments
+2024-09-08 15:35:43 - Secured GET /api/appointments
+2024-09-08 15:35:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:44 - Securing GET /api/appointments
+2024-09-08 15:35:44 - Secured GET /api/appointments
+2024-09-08 15:35:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:46 - Securing GET /api/appointments
+2024-09-08 15:35:46 - Secured GET /api/appointments
+2024-09-08 15:35:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:47 - Securing GET /api/appointments
+2024-09-08 15:35:47 - Secured GET /api/appointments
+2024-09-08 15:35:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:49 - Securing OPTIONS /api/auth/user
+2024-09-08 15:35:49 - Securing GET /api/appointments
+2024-09-08 15:35:49 - Securing GET /api/therapists
+2024-09-08 15:35:49 - Secured GET /api/therapists
+2024-09-08 15:35:49 - Secured GET /api/appointments
+2024-09-08 15:35:49 - Securing GET /api/auth/user
+2024-09-08 15:35:49 - Secured GET /api/auth/user
+2024-09-08 15:35:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:35:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:37:44 - Securing GET /api/therapists
+2024-09-08 15:37:44 - Securing GET /api/auth/user
+2024-09-08 15:37:44 - Secured GET /api/therapists
+2024-09-08 15:37:44 - Secured GET /api/auth/user
+2024-09-08 15:37:44 - Securing GET /api/appointments
+2024-09-08 15:37:44 - Secured GET /api/appointments
+2024-09-08 15:37:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:37:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:37:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:37:45 - Securing GET /api/appointments
+2024-09-08 15:37:45 - Secured GET /api/appointments
+2024-09-08 15:37:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:37:46 - Securing GET /api/appointments
+2024-09-08 15:37:46 - Secured GET /api/appointments
+2024-09-08 15:37:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:37:47 - Securing GET /api/appointments
+2024-09-08 15:37:47 - Secured GET /api/appointments
+2024-09-08 15:37:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:37:47 - Securing GET /api/appointments
+2024-09-08 15:37:47 - Secured GET /api/appointments
+2024-09-08 15:37:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:37:48 - Securing GET /api/appointments
+2024-09-08 15:37:48 - Secured GET /api/appointments
+2024-09-08 15:37:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:37:48 - Securing GET /api/appointments
+2024-09-08 15:37:48 - Secured GET /api/appointments
+2024-09-08 15:37:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:39:35 - Securing GET /api/appointments
+2024-09-08 15:39:35 - Securing GET /api/therapists
+2024-09-08 15:39:35 - Secured GET /api/appointments
+2024-09-08 15:39:35 - Secured GET /api/therapists
+2024-09-08 15:39:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:39:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:40:50 - Securing GET /api/auth/user
+2024-09-08 15:40:50 - Secured GET /api/auth/user
+2024-09-08 15:40:50 - Securing GET /api/therapists
+2024-09-08 15:40:50 - Securing GET /api/appointments
+2024-09-08 15:40:50 - Secured GET /api/appointments
+2024-09-08 15:40:50 - Secured GET /api/therapists
+2024-09-08 15:40:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:40:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:40:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:41:29 - Securing GET /api/patients
+2024-09-08 15:41:29 - Secured GET /api/patients
+2024-09-08 15:41:29 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:42:42 - Securing OPTIONS /api/appointments
+2024-09-08 15:42:42 - Securing GET /api/therapists
+2024-09-08 15:42:42 - Secured GET /api/therapists
+2024-09-08 15:42:42 - Securing GET /api/appointments
+2024-09-08 15:42:42 - Secured GET /api/appointments
+2024-09-08 15:42:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:42:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:42:50 - Securing GET /api/appointments
+2024-09-08 15:42:50 - Secured GET /api/appointments
+2024-09-08 15:42:50 - Securing GET /api/therapists
+2024-09-08 15:42:50 - Secured GET /api/therapists
+2024-09-08 15:42:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:42:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:42:58 - Securing GET /api/auth/user
+2024-09-08 15:42:58 - Securing GET /api/therapists
+2024-09-08 15:42:58 - Secured GET /api/therapists
+2024-09-08 15:42:58 - Secured GET /api/auth/user
+2024-09-08 15:42:58 - Securing GET /api/appointments
+2024-09-08 15:42:58 - Secured GET /api/appointments
+2024-09-08 15:42:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:42:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:42:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:43:06 - Securing GET /api/appointments
+2024-09-08 15:43:06 - Secured GET /api/appointments
+2024-09-08 15:43:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:43:09 - Securing GET /api/appointments
+2024-09-08 15:43:09 - Secured GET /api/appointments
+2024-09-08 15:43:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:43:11 - Securing GET /api/patients
+2024-09-08 15:43:11 - Secured GET /api/patients
+2024-09-08 15:43:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:45:39 - Securing GET /api/auth/user
+2024-09-08 15:45:39 - Securing GET /api/therapists
+2024-09-08 15:45:39 - Secured GET /api/auth/user
+2024-09-08 15:45:39 - Secured GET /api/therapists
+2024-09-08 15:45:39 - Securing GET /api/appointments
+2024-09-08 15:45:39 - Secured GET /api/appointments
+2024-09-08 15:45:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:45:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:45:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:49:18 - Securing GET /api/auth/user
+2024-09-08 15:49:18 - Secured GET /api/auth/user
+2024-09-08 15:49:18 - Securing GET /api/therapists
+2024-09-08 15:49:18 - Secured GET /api/therapists
+2024-09-08 15:49:18 - Securing GET /api/appointments
+2024-09-08 15:49:18 - Secured GET /api/appointments
+2024-09-08 15:49:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:49:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:49:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:49:24 - Securing GET /api/appointments
+2024-09-08 15:49:24 - Secured GET /api/appointments
+2024-09-08 15:49:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:49:27 - Securing GET /api/patients
+2024-09-08 15:49:27 - Secured GET /api/patients
+2024-09-08 15:49:27 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:51:40 - Securing GET /api/patients
+2024-09-08 15:51:40 - Secured GET /api/patients
+2024-09-08 15:51:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:51:42 - Securing GET /api/patients
+2024-09-08 15:51:42 - Secured GET /api/patients
+2024-09-08 15:51:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:51:44 - Securing GET /api/patients
+2024-09-08 15:51:44 - Secured GET /api/patients
+2024-09-08 15:51:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:51:50 - Securing GET /api/patients
+2024-09-08 15:51:50 - Secured GET /api/patients
+2024-09-08 15:51:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:51:56 - Securing GET /api/patients
+2024-09-08 15:51:56 - Secured GET /api/patients
+2024-09-08 15:51:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:51:57 - Securing GET /api/patients
+2024-09-08 15:51:57 - Secured GET /api/patients
+2024-09-08 15:51:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:52:27 - Securing GET /api/auth/user
+2024-09-08 15:52:27 - Secured GET /api/auth/user
+2024-09-08 15:52:27 - Securing GET /api/therapists
+2024-09-08 15:52:27 - Secured GET /api/therapists
+2024-09-08 15:52:27 - Securing GET /api/appointments
+2024-09-08 15:52:27 - Secured GET /api/appointments
+2024-09-08 15:52:27 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:52:27 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:52:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:52:30 - Securing GET /api/patients
+2024-09-08 15:52:30 - Secured GET /api/patients
+2024-09-08 15:52:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:52:36 - Securing OPTIONS /api/appointments
+2024-09-08 15:52:36 - Securing POST /api/appointments
+2024-09-08 15:52:36 - Secured POST /api/appointments
+2024-09-08 15:52:37 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:52:37 - Securing OPTIONS /api/appointments?date=2024-09-08T13%3A52%3A30.078Z
+2024-09-08 15:52:37 - Securing GET /api/appointments?date=2024-09-08T13%3A52%3A30.078Z
+2024-09-08 15:52:37 - Secured GET /api/appointments?date=2024-09-08T13%3A52%3A30.078Z
+2024-09-08 15:52:37 - Securing GET /api/appointments
+2024-09-08 15:52:37 - Secured GET /api/appointments
+2024-09-08 15:52:37 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:52:37 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:52:41 - Securing GET /api/patients
+2024-09-08 15:52:41 - Secured GET /api/patients
+2024-09-08 15:52:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:54:07 - Securing GET /api/patients
+2024-09-08 15:54:07 - Secured GET /api/patients
+2024-09-08 15:54:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:54:11 - Securing GET /api/auth/user
+2024-09-08 15:54:11 - Secured GET /api/auth/user
+2024-09-08 15:54:11 - Securing GET /api/appointments
+2024-09-08 15:54:11 - Secured GET /api/appointments
+2024-09-08 15:54:11 - Securing GET /api/therapists
+2024-09-08 15:54:11 - Secured GET /api/therapists
+2024-09-08 15:54:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:54:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:54:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 15:54:13 - Securing GET /api/patients
+2024-09-08 15:54:13 - Secured GET /api/patients
+2024-09-08 15:54:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:01:19 - Securing GET /api/auth/user
+2024-09-08 16:01:19 - Secured GET /api/auth/user
+2024-09-08 16:01:19 - Securing GET /api/therapists
+2024-09-08 16:01:19 - Secured GET /api/therapists
+2024-09-08 16:01:19 - Securing GET /api/appointments
+2024-09-08 16:01:19 - Secured GET /api/appointments
+2024-09-08 16:01:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:01:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:01:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:01:22 - Securing GET /api/patients
+2024-09-08 16:01:22 - Secured GET /api/patients
+2024-09-08 16:01:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:02:16 - Securing GET /api/patients
+2024-09-08 16:02:16 - Secured GET /api/patients
+2024-09-08 16:02:16 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:02:20 - Securing GET /api/patients
+2024-09-08 16:02:20 - Secured GET /api/patients
+2024-09-08 16:02:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:02:56 - Securing GET /api/patients
+2024-09-08 16:02:56 - Secured GET /api/patients
+2024-09-08 16:02:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:03:08 - Securing GET /api/patients
+2024-09-08 16:03:08 - Secured GET /api/patients
+2024-09-08 16:03:08 - Securing GET /api/patients
+2024-09-08 16:03:08 - Secured GET /api/patients
+2024-09-08 16:03:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:03:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:03:10 - Securing GET /api/patients
+2024-09-08 16:03:10 - Secured GET /api/patients
+2024-09-08 16:03:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:03:10 - Securing GET /api/auth/user
+2024-09-08 16:03:10 - Securing GET /api/appointments
+2024-09-08 16:03:10 - Secured GET /api/appointments
+2024-09-08 16:03:10 - Secured GET /api/auth/user
+2024-09-08 16:03:10 - Securing GET /api/therapists
+2024-09-08 16:03:10 - Secured GET /api/therapists
+2024-09-08 16:03:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:03:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:03:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:03:13 - Securing GET /api/patients
+2024-09-08 16:03:13 - Secured GET /api/patients
+2024-09-08 16:03:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:04:56 - Securing GET /api/patients
+2024-09-08 16:04:56 - Secured GET /api/patients
+2024-09-08 16:04:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:04:56 - Securing GET /api/auth/user
+2024-09-08 16:04:56 - Secured GET /api/auth/user
+2024-09-08 16:04:56 - Securing OPTIONS /api/therapists
+2024-09-08 16:04:56 - Securing GET /api/appointments
+2024-09-08 16:04:56 - Secured GET /api/appointments
+2024-09-08 16:04:56 - Securing GET /api/therapists
+2024-09-08 16:04:56 - Secured GET /api/therapists
+2024-09-08 16:04:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:04:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:04:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:04:59 - Securing GET /api/patients
+2024-09-08 16:04:59 - Secured GET /api/patients
+2024-09-08 16:04:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:05:48 - Securing GET /api/patients
+2024-09-08 16:05:48 - Secured GET /api/patients
+2024-09-08 16:05:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:05:48 - Securing GET /api/auth/user
+2024-09-08 16:05:48 - Secured GET /api/auth/user
+2024-09-08 16:05:48 - Securing GET /api/therapists
+2024-09-08 16:05:48 - Secured GET /api/therapists
+2024-09-08 16:05:48 - Securing GET /api/appointments
+2024-09-08 16:05:48 - Secured GET /api/appointments
+2024-09-08 16:05:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:05:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:05:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:06:03 - Securing GET /api/patients
+2024-09-08 16:06:03 - Secured GET /api/patients
+2024-09-08 16:06:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:11:30 - Securing GET /api/patients
+2024-09-08 16:11:30 - Secured GET /api/patients
+2024-09-08 16:11:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:11:30 - Securing OPTIONS /api/auth/user
+2024-09-08 16:11:30 - Securing GET /api/therapists
+2024-09-08 16:11:30 - Securing GET /api/appointments
+2024-09-08 16:11:30 - Secured GET /api/therapists
+2024-09-08 16:11:30 - Secured GET /api/appointments
+2024-09-08 16:11:30 - Securing GET /api/auth/user
+2024-09-08 16:11:30 - Secured GET /api/auth/user
+2024-09-08 16:11:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:11:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:11:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:11:32 - Securing GET /api/patients
+2024-09-08 16:11:32 - Secured GET /api/patients
+2024-09-08 16:11:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:14:11 - Securing OPTIONS /api/appointmentseries
+2024-09-08 16:14:11 - Securing POST /api/appointmentseries
+2024-09-08 16:14:11 - Secured POST /api/appointmentseries
+2024-09-08 16:14:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:14:11 - Securing GET /api/appointments
+2024-09-08 16:14:11 - Secured GET /api/appointments
+2024-09-08 16:14:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:16:53 - Securing GET /api/patients
+2024-09-08 16:16:53 - Secured GET /api/patients
+2024-09-08 16:16:53 - Securing GET /api/appointments
+2024-09-08 16:16:53 - Securing GET /api/therapists
+2024-09-08 16:16:53 - Secured GET /api/appointments
+2024-09-08 16:16:53 - Securing GET /api/auth/user
+2024-09-08 16:16:53 - Secured GET /api/auth/user
+2024-09-08 16:16:53 - Secured GET /api/therapists
+2024-09-08 16:16:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:16:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:16:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:16:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:09 - Securing POST /api/appointments
+2024-09-08 16:17:09 - Secured POST /api/appointments
+2024-09-08 16:17:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:09 - Securing GET /api/appointments
+2024-09-08 16:17:09 - Secured GET /api/appointments
+2024-09-08 16:17:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:28 - Securing GET /api/patients
+2024-09-08 16:17:28 - Securing GET /api/therapists
+2024-09-08 16:17:28 - Secured GET /api/patients
+2024-09-08 16:17:28 - Secured GET /api/therapists
+2024-09-08 16:17:28 - Securing GET /api/appointments
+2024-09-08 16:17:28 - Securing GET /api/auth/user
+2024-09-08 16:17:28 - Secured GET /api/appointments
+2024-09-08 16:17:28 - Secured GET /api/auth/user
+2024-09-08 16:17:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:33 - Securing POST /api/appointments
+2024-09-08 16:17:33 - Secured POST /api/appointments
+2024-09-08 16:17:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:33 - Securing GET /api/appointments
+2024-09-08 16:17:33 - Secured GET /api/appointments
+2024-09-08 16:17:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:59 - Securing OPTIONS /api/auth/login
+2024-09-08 16:17:59 - Securing POST /api/auth/login
+2024-09-08 16:17:59 - Secured POST /api/auth/login
+2024-09-08 16:17:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:59 - Securing GET /api/auth/user
+2024-09-08 16:17:59 - Secured GET /api/auth/user
+2024-09-08 16:17:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:59 - Securing GET /api/patients
+2024-09-08 16:17:59 - Secured GET /api/patients
+2024-09-08 16:17:59 - Securing GET /api/appointments
+2024-09-08 16:17:59 - Securing GET /api/therapists
+2024-09-08 16:17:59 - Secured GET /api/therapists
+2024-09-08 16:17:59 - Secured GET /api/appointments
+2024-09-08 16:17:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:17:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:18:04 - Securing GET /api/therapists
+2024-09-08 16:18:04 - Secured GET /api/therapists
+2024-09-08 16:18:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:18:21 - Securing POST /api/appointments
+2024-09-08 16:18:21 - Secured POST /api/appointments
+2024-09-08 16:18:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:18:21 - Securing GET /api/appointments
+2024-09-08 16:18:21 - Secured GET /api/appointments
+2024-09-08 16:18:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:19:10 - Securing GET /api/patients
+2024-09-08 16:19:10 - Secured GET /api/patients
+2024-09-08 16:19:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:24:44 - Securing GET /api/patients
+2024-09-08 16:24:44 - Secured GET /api/patients
+2024-09-08 16:24:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:24:44 - Securing OPTIONS /api/appointments
+2024-09-08 16:24:44 - Securing GET /api/appointments
+2024-09-08 16:24:44 - Secured GET /api/appointments
+2024-09-08 16:24:44 - Securing GET /api/therapists
+2024-09-08 16:24:44 - Securing GET /api/auth/user
+2024-09-08 16:24:44 - Secured GET /api/auth/user
+2024-09-08 16:24:44 - Secured GET /api/therapists
+2024-09-08 16:24:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:24:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:24:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:24:58 - Securing GET /api/patients
+2024-09-08 16:24:58 - Secured GET /api/patients
+2024-09-08 16:24:58 - Securing GET /api/therapists
+2024-09-08 16:24:58 - Securing GET /api/appointments
+2024-09-08 16:24:58 - Secured GET /api/appointments
+2024-09-08 16:24:58 - Secured GET /api/therapists
+2024-09-08 16:24:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:24:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:24:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:25:00 - Securing GET /api/patients
+2024-09-08 16:25:00 - Secured GET /api/patients
+2024-09-08 16:25:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:26:13 - Securing GET /api/patients
+2024-09-08 16:26:13 - Secured GET /api/patients
+2024-09-08 16:26:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:26:14 - Securing GET /api/auth/user
+2024-09-08 16:26:14 - Securing GET /api/therapists
+2024-09-08 16:26:14 - Secured GET /api/therapists
+2024-09-08 16:26:14 - Secured GET /api/auth/user
+2024-09-08 16:26:14 - Securing GET /api/appointments
+2024-09-08 16:26:14 - Secured GET /api/appointments
+2024-09-08 16:26:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:26:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:26:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:26:15 - Securing GET /api/patients
+2024-09-08 16:26:15 - Secured GET /api/patients
+2024-09-08 16:26:15 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:26:30 - Securing GET /api/patients
+2024-09-08 16:26:30 - Secured GET /api/patients
+2024-09-08 16:26:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:26:30 - Securing GET /api/auth/user
+2024-09-08 16:26:30 - Secured GET /api/auth/user
+2024-09-08 16:26:30 - Securing GET /api/therapists
+2024-09-08 16:26:30 - Secured GET /api/therapists
+2024-09-08 16:26:30 - Securing GET /api/appointments
+2024-09-08 16:26:30 - Secured GET /api/appointments
+2024-09-08 16:26:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:26:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:26:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:26:32 - Securing GET /api/patients
+2024-09-08 16:26:32 - Secured GET /api/patients
+2024-09-08 16:26:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:27:06 - Securing GET /api/patients
+2024-09-08 16:27:06 - Secured GET /api/patients
+2024-09-08 16:27:06 - Securing GET /api/therapists
+2024-09-08 16:27:06 - Securing GET /api/appointments
+2024-09-08 16:27:06 - Secured GET /api/therapists
+2024-09-08 16:27:06 - Secured GET /api/appointments
+2024-09-08 16:27:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:27:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:27:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:27:10 - Securing GET /api/patients
+2024-09-08 16:27:10 - Secured GET /api/patients
+2024-09-08 16:27:10 - Securing GET /api/therapists
+2024-09-08 16:27:10 - Securing GET /api/appointments
+2024-09-08 16:27:10 - Secured GET /api/therapists
+2024-09-08 16:27:10 - Secured GET /api/appointments
+2024-09-08 16:27:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:27:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:27:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:27:12 - Securing GET /api/patients
+2024-09-08 16:27:12 - Secured GET /api/patients
+2024-09-08 16:27:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:33:50 - Securing GET /api/patients
+2024-09-08 16:33:50 - Secured GET /api/patients
+2024-09-08 16:33:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:33:50 - Securing GET /api/auth/user
+2024-09-08 16:33:50 - Securing GET /api/therapists
+2024-09-08 16:33:50 - Securing GET /api/appointments
+2024-09-08 16:33:50 - Secured GET /api/auth/user
+2024-09-08 16:33:50 - Secured GET /api/appointments
+2024-09-08 16:33:50 - Secured GET /api/therapists
+2024-09-08 16:33:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:33:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:33:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:33:53 - Securing GET /api/patients
+2024-09-08 16:33:53 - Secured GET /api/patients
+2024-09-08 16:33:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:02 - Securing GET /api/patients
+2024-09-08 16:34:02 - Secured GET /api/patients
+2024-09-08 16:34:02 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:02 - Securing GET /api/auth/user
+2024-09-08 16:34:02 - Securing GET /api/therapists
+2024-09-08 16:34:02 - Securing GET /api/appointments
+2024-09-08 16:34:02 - Secured GET /api/auth/user
+2024-09-08 16:34:02 - Secured GET /api/appointments
+2024-09-08 16:34:02 - Secured GET /api/therapists
+2024-09-08 16:34:02 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:04 - Securing GET /api/appointments
+2024-09-08 16:34:04 - Secured GET /api/appointments
+2024-09-08 16:34:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:05 - Securing GET /api/appointments
+2024-09-08 16:34:05 - Secured GET /api/appointments
+2024-09-08 16:34:05 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:05 - Securing GET /api/appointments
+2024-09-08 16:34:05 - Secured GET /api/appointments
+2024-09-08 16:34:05 - Securing GET /api/appointments
+2024-09-08 16:34:05 - Secured GET /api/appointments
+2024-09-08 16:34:05 - Securing GET /api/appointments
+2024-09-08 16:34:05 - Secured GET /api/appointments
+2024-09-08 16:34:05 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:06 - Securing GET /api/appointments
+2024-09-08 16:34:06 - Secured GET /api/appointments
+2024-09-08 16:34:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:34:08 - Securing GET /api/patients
+2024-09-08 16:34:08 - Secured GET /api/patients
+2024-09-08 16:34:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:36:08 - Securing GET /api/patients
+2024-09-08 16:36:08 - Secured GET /api/patients
+2024-09-08 16:36:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:36:10 - Securing GET /api/patients
+2024-09-08 16:36:10 - Secured GET /api/patients
+2024-09-08 16:36:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:36:12 - Securing GET /api/patients
+2024-09-08 16:36:12 - Secured GET /api/patients
+2024-09-08 16:36:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:36:15 - Securing GET /api/patients
+2024-09-08 16:36:15 - Secured GET /api/patients
+2024-09-08 16:36:15 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:36:36 - Securing GET /api/patients
+2024-09-08 16:36:36 - Secured GET /api/patients
+2024-09-08 16:36:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:36:41 - Securing GET /api/patients
+2024-09-08 16:36:41 - Secured GET /api/patients
+2024-09-08 16:36:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:36:43 - Securing GET /api/patients
+2024-09-08 16:36:43 - Secured GET /api/patients
+2024-09-08 16:36:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:37:00 - Securing GET /api/patients
+2024-09-08 16:37:00 - Secured GET /api/patients
+2024-09-08 16:37:00 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:37:05 - Securing GET /api/patients
+2024-09-08 16:37:05 - Secured GET /api/patients
+2024-09-08 16:37:05 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:37:07 - Securing GET /api/patients
+2024-09-08 16:37:07 - Secured GET /api/patients
+2024-09-08 16:37:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:37:11 - Securing GET /api/patients
+2024-09-08 16:37:11 - Secured GET /api/patients
+2024-09-08 16:37:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:38:17 - Securing GET /api/patients
+2024-09-08 16:38:17 - Secured GET /api/patients
+2024-09-08 16:38:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:44:59 - Securing GET /api/patients
+2024-09-08 16:44:59 - Secured GET /api/patients
+2024-09-08 16:44:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:44:59 - Securing OPTIONS /api/therapists
+2024-09-08 16:44:59 - Securing OPTIONS /api/auth/user
+2024-09-08 16:44:59 - Securing GET /api/appointments
+2024-09-08 16:44:59 - Secured GET /api/appointments
+2024-09-08 16:44:59 - Securing GET /api/auth/user
+2024-09-08 16:44:59 - Securing GET /api/therapists
+2024-09-08 16:44:59 - Secured GET /api/auth/user
+2024-09-08 16:44:59 - Secured GET /api/therapists
+2024-09-08 16:44:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:44:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:44:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:45:38 - Securing GET /api/patients
+2024-09-08 16:45:38 - Secured GET /api/patients
+2024-09-08 16:45:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:45:39 - Securing GET /api/auth/user
+2024-09-08 16:45:39 - Secured GET /api/auth/user
+2024-09-08 16:45:39 - Securing GET /api/therapists
+2024-09-08 16:45:39 - Secured GET /api/therapists
+2024-09-08 16:45:39 - Securing GET /api/appointments
+2024-09-08 16:45:39 - Secured GET /api/appointments
+2024-09-08 16:45:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:45:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:45:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:45:42 - Securing GET /api/appointments
+2024-09-08 16:45:42 - Secured GET /api/appointments
+2024-09-08 16:45:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:45:45 - Securing GET /api/patients
+2024-09-08 16:45:45 - Secured GET /api/patients
+2024-09-08 16:45:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:45:45 - Securing GET /api/appointmentseries
+2024-09-08 16:45:45 - Secured GET /api/appointmentseries
+2024-09-08 16:45:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:47:45 - Securing GET /api/patients
+2024-09-08 16:47:45 - Secured GET /api/patients
+2024-09-08 16:47:45 - Securing GET /api/therapists
+2024-09-08 16:47:45 - Securing GET /api/appointments
+2024-09-08 16:47:45 - Secured GET /api/therapists
+2024-09-08 16:47:45 - Secured GET /api/appointments
+2024-09-08 16:47:45 - Securing GET /api/auth/user
+2024-09-08 16:47:45 - Secured GET /api/auth/user
+2024-09-08 16:47:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:47:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:47:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:47:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:47:47 - Securing GET /api/patients
+2024-09-08 16:47:47 - Secured GET /api/patients
+2024-09-08 16:47:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:47:47 - Securing GET /api/appointmentseries
+2024-09-08 16:47:47 - Secured GET /api/appointmentseries
+2024-09-08 16:47:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:47:52 - Securing GET /api/appointments
+2024-09-08 16:47:52 - Secured GET /api/appointments
+2024-09-08 16:47:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:48:35 - Securing GET /api/patients
+2024-09-08 16:48:35 - Secured GET /api/patients
+2024-09-08 16:48:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:48:35 - Securing GET /api/appointmentseries
+2024-09-08 16:48:35 - Secured GET /api/appointmentseries
+2024-09-08 16:48:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:48:38 - Securing GET /api/patients
+2024-09-08 16:48:38 - Secured GET /api/patients
+2024-09-08 16:48:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:48:38 - Securing GET /api/appointmentseries
+2024-09-08 16:48:38 - Secured GET /api/appointmentseries
+2024-09-08 16:48:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:48:39 - Securing GET /api/patients
+2024-09-08 16:48:39 - Secured GET /api/patients
+2024-09-08 16:48:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:48:40 - Securing GET /api/appointmentseries
+2024-09-08 16:48:40 - Secured GET /api/appointmentseries
+2024-09-08 16:48:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:48:45 - Securing GET /api/patients
+2024-09-08 16:48:45 - Secured GET /api/patients
+2024-09-08 16:48:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:48:45 - Securing GET /api/appointmentseries
+2024-09-08 16:48:45 - Secured GET /api/appointmentseries
+2024-09-08 16:48:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:48:51 - Securing GET /api/patients
+2024-09-08 16:48:51 - Secured GET /api/patients
+2024-09-08 16:48:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 16:48:51 - Securing GET /api/appointmentseries
+2024-09-08 16:48:51 - Secured GET /api/appointmentseries
+2024-09-08 16:48:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 18:36:43 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50m14s368ms53µs900ns).
+2024-09-08 18:37:53 - Securing GET /api/patients
+2024-09-08 18:37:53 - Secured GET /api/patients
+2024-09-08 18:37:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 18:37:53 - Securing OPTIONS /api/auth/user
+2024-09-08 18:37:53 - Securing OPTIONS /api/therapists
+2024-09-08 18:37:53 - Securing OPTIONS /api/appointments
+2024-09-08 18:37:53 - Securing GET /api/auth/user
+2024-09-08 18:37:53 - Secured GET /api/auth/user
+2024-09-08 18:37:53 - Securing GET /api/therapists
+2024-09-08 18:37:53 - Secured GET /api/therapists
+2024-09-08 18:37:53 - Securing GET /api/appointments
+2024-09-08 18:37:53 - Secured GET /api/appointments
+2024-09-08 18:37:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 18:37:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 18:37:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:03:13 - Securing GET /api/patients
+2024-09-08 19:03:13 - Secured GET /api/patients
+2024-09-08 19:03:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:03:13 - Securing GET /api/appointmentseries
+2024-09-08 19:03:13 - Secured GET /api/appointmentseries
+2024-09-08 19:03:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:03:33 - Securing GET /api/patients
+2024-09-08 19:03:33 - Secured GET /api/patients
+2024-09-08 19:03:33 - Securing GET /api/therapists
+2024-09-08 19:03:33 - Securing GET /api/appointments
+2024-09-08 19:03:33 - Secured GET /api/therapists
+2024-09-08 19:03:33 - Secured GET /api/appointments
+2024-09-08 19:03:33 - Securing GET /api/auth/user
+2024-09-08 19:03:33 - Secured GET /api/auth/user
+2024-09-08 19:03:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:03:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:03:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:03:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:03:34 - Securing GET /api/patients
+2024-09-08 19:03:34 - Secured GET /api/patients
+2024-09-08 19:03:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:03:35 - Securing GET /api/appointmentseries
+2024-09-08 19:03:35 - Secured GET /api/appointmentseries
+2024-09-08 19:03:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:04:30 - Securing GET /api/patients
+2024-09-08 19:04:30 - Secured GET /api/patients
+2024-09-08 19:04:30 - Securing GET /api/appointments
+2024-09-08 19:04:30 - Securing GET /api/therapists
+2024-09-08 19:04:30 - Secured GET /api/appointments
+2024-09-08 19:04:30 - Secured GET /api/therapists
+2024-09-08 19:04:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:04:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:04:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:04:53 - Securing GET /api/patients
+2024-09-08 19:04:53 - Secured GET /api/patients
+2024-09-08 19:04:53 - Securing GET /api/therapists
+2024-09-08 19:04:53 - Secured GET /api/therapists
+2024-09-08 19:04:53 - Securing GET /api/appointments
+2024-09-08 19:04:53 - Secured GET /api/appointments
+2024-09-08 19:04:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:04:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:04:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:05:12 - Securing GET /api/appointments
+2024-09-08 19:05:12 - Secured GET /api/appointments
+2024-09-08 19:05:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:05:12 - Securing GET /api/appointments
+2024-09-08 19:05:12 - Secured GET /api/appointments
+2024-09-08 19:05:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:05:13 - Securing GET /api/appointments
+2024-09-08 19:05:13 - Secured GET /api/appointments
+2024-09-08 19:05:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:05:13 - Securing GET /api/appointments
+2024-09-08 19:05:13 - Secured GET /api/appointments
+2024-09-08 19:05:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:05:13 - Securing GET /api/appointments
+2024-09-08 19:05:13 - Secured GET /api/appointments
+2024-09-08 19:05:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:05:14 - Securing GET /api/appointments
+2024-09-08 19:05:14 - Secured GET /api/appointments
+2024-09-08 19:05:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:05:16 - Securing GET /api/patients
+2024-09-08 19:05:16 - Secured GET /api/patients
+2024-09-08 19:05:16 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:05:16 - Securing GET /api/appointmentseries
+2024-09-08 19:05:16 - Secured GET /api/appointmentseries
+2024-09-08 19:05:16 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 19:46:11 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m20s237ms833µs600ns).
+2024-09-08 20:30:11 - Securing GET /api/patients
+2024-09-08 20:30:11 - Secured GET /api/patients
+2024-09-08 20:30:12 - Securing OPTIONS /api/appointments
+2024-09-08 20:30:12 - Securing OPTIONS /api/therapists
+2024-09-08 20:30:12 - Securing OPTIONS /api/auth/user
+2024-09-08 20:30:12 - Securing GET /api/therapists
+2024-09-08 20:30:12 - Secured GET /api/therapists
+2024-09-08 20:30:12 - Securing GET /api/appointments
+2024-09-08 20:30:12 - Secured GET /api/appointments
+2024-09-08 20:30:12 - Securing GET /api/auth/user
+2024-09-08 20:30:12 - Secured GET /api/auth/user
+2024-09-08 20:30:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:30:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:30:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:30:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:30:16 - Securing GET /api/patients
+2024-09-08 20:30:16 - Secured GET /api/patients
+2024-09-08 20:30:16 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:30:16 - Securing GET /api/appointmentseries
+2024-09-08 20:30:16 - Secured GET /api/appointmentseries
+2024-09-08 20:30:16 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:31:34 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-08 20:31:35 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:31:35 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:31:35 - HikariPool-1 - Shutdown initiated...
+2024-09-08 20:31:35 - HikariPool-1 - Shutdown completed.
+2024-09-08 20:31:36 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 59220 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-08 20:31:36 - No active profile set, falling back to 1 default profile: "default"
+2024-09-08 20:31:40 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-08 20:31:40 - Finished Spring Data repository scanning in 363 ms. Found 8 JPA repository interfaces.
+2024-09-08 20:31:42 - Tomcat initialized with port 8080 (http)
+2024-09-08 20:31:42 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:31:42 - Starting service [Tomcat]
+2024-09-08 20:31:42 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08 20:31:42 - Initializing Spring embedded WebApplicationContext
+2024-09-08 20:31:42 - Root WebApplicationContext: initialization completed in 6399 ms
+2024-09-08 20:31:43 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-08 20:31:43 - HHH000026: Second-level cache disabled
+2024-09-08 20:31:43 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-08 20:31:43 - HikariPool-2 - Starting...
+2024-09-08 20:31:43 - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@153c8654
+2024-09-08 20:31:43 - HikariPool-2 - Start completed.
+2024-09-08 20:31:43 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-08 20:31:43 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-08 20:31:45 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 20:31:46 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:31:48 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-08 20:31:48 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-08 20:31:49 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-08 20:31:50 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-08 20:31:51 - LiveReload server is running on port 35729
+2024-09-08 20:31:51 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:31:51 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-08 20:31:51 - Started PhysiokalendarApplication in 15.23 seconds (process running for 25376.992)
+2024-09-08 20:31:51 - Condition evaluation unchanged
+2024-09-08 20:31:52 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-08 20:31:52 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:31:52 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:31:52 - HikariPool-2 - Shutdown initiated...
+2024-09-08 20:31:52 - HikariPool-2 - Shutdown completed.
+2024-09-08 20:31:52 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 59220 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-08 20:31:52 - No active profile set, falling back to 1 default profile: "default"
+2024-09-08 20:31:53 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-08 20:31:54 - Finished Spring Data repository scanning in 141 ms. Found 8 JPA repository interfaces.
+2024-09-08 20:31:54 - Tomcat initialized with port 8080 (http)
+2024-09-08 20:31:54 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:31:54 - Starting service [Tomcat]
+2024-09-08 20:31:54 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08 20:31:54 - Initializing Spring embedded WebApplicationContext
+2024-09-08 20:31:54 - Root WebApplicationContext: initialization completed in 1598 ms
+2024-09-08 20:31:54 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-08 20:31:54 - HHH000026: Second-level cache disabled
+2024-09-08 20:31:54 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-08 20:31:54 - HikariPool-3 - Starting...
+2024-09-08 20:31:55 - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@33f2c56a
+2024-09-08 20:31:55 - HikariPool-3 - Start completed.
+2024-09-08 20:31:55 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-08 20:31:55 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-08 20:31:55 - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.example.physiokalendar.entity.Appointment' due to: null
+2024-09-08 20:31:55 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.example.physiokalendar.entity.Appointment' due to: null
+2024-09-08 20:31:55 - HikariPool-3 - Shutdown initiated...
+2024-09-08 20:31:55 - HikariPool-3 - Shutdown completed.
+2024-09-08 20:31:55 - Stopping service [Tomcat]
+2024-09-08 20:31:55 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-08 20:31:56 - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.example.physiokalendar.entity.Appointment' due to: null
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.physiokalendar.PhysiokalendarApplication.main(PhysiokalendarApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.example.physiokalendar.entity.Appointment' due to: null
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 20 common frames omitted
+Caused by: org.hibernate.InstantiationException: Could not instantiate entity 'com.example.physiokalendar.entity.Appointment' due to: null
+	at org.hibernate.metamodel.internal.EntityInstantiatorPojoStandard.instantiate(EntityInstantiatorPojoStandard.java:100)
+	at org.hibernate.persister.entity.AbstractEntityPersister.lambda$prepareMappingModel$15(AbstractEntityPersister.java:5160)
+	at org.hibernate.internal.util.LazyValue.getValue(LazyValue.java:30)
+	at org.hibernate.engine.internal.UnsavedValueFactory.getUnsavedIdentifierValue(UnsavedValueFactory.java:45)
+	at org.hibernate.metamodel.mapping.internal.BasicEntityIdentifierMappingImpl.<init>(BasicEntityIdentifierMappingImpl.java:119)
+	at org.hibernate.persister.entity.AbstractEntityPersister.generateIdentifierMapping(AbstractEntityPersister.java:5526)
+	at org.hibernate.persister.entity.AbstractEntityPersister.lambda$prepareMappingModel$16(AbstractEntityPersister.java:5165)
+	at org.hibernate.metamodel.mapping.internal.MappingModelCreationProcess.processSubPart(MappingModelCreationProcess.java:163)
+	at org.hibernate.persister.entity.AbstractEntityPersister.prepareMappingModel(AbstractEntityPersister.java:5163)
+	at org.hibernate.persister.entity.AbstractEntityPersister.prepareMappingModel(AbstractEntityPersister.java:5009)
+	at org.hibernate.metamodel.mapping.internal.MappingModelCreationProcess.execute(MappingModelCreationProcess.java:84)
+	at org.hibernate.metamodel.mapping.internal.MappingModelCreationProcess.process(MappingModelCreationProcess.java:42)
+	at org.hibernate.metamodel.model.domain.internal.MappingMetamodelImpl.finishInitialization(MappingMetamodelImpl.java:199)
+	at org.hibernate.internal.SessionFactoryImpl.initializeMappingModel(SessionFactoryImpl.java:371)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:300)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 24 common frames omitted
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.hibernate.metamodel.internal.EntityInstantiatorPojoStandard.instantiate(EntityInstantiatorPojoStandard.java:97)
+	... 43 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error on token "priv", invalid Modifiers
+
+	at com.example.physiokalendar.entity.Appointment.<init>(Appointment.java:16)
+	... 49 common frames omitted
+2024-09-08 20:32:06 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 59220 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-08 20:32:06 - No active profile set, falling back to 1 default profile: "default"
+2024-09-08 20:32:08 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-08 20:32:08 - Finished Spring Data repository scanning in 579 ms. Found 8 JPA repository interfaces.
+2024-09-08 20:32:09 - Tomcat initialized with port 8080 (http)
+2024-09-08 20:32:09 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:32:09 - Starting service [Tomcat]
+2024-09-08 20:32:09 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08 20:32:09 - Initializing Spring embedded WebApplicationContext
+2024-09-08 20:32:09 - Root WebApplicationContext: initialization completed in 3073 ms
+2024-09-08 20:32:10 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-08 20:32:10 - HHH000026: Second-level cache disabled
+2024-09-08 20:32:10 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-08 20:32:10 - HikariPool-4 - Starting...
+2024-09-08 20:32:10 - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@33d3551c
+2024-09-08 20:32:10 - HikariPool-4 - Start completed.
+2024-09-08 20:32:10 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-08 20:32:10 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-08 20:32:10 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 20:32:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:32:15 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-08 20:32:15 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-08 20:32:15 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-08 20:32:15 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-08 20:32:16 - LiveReload server is running on port 35729
+2024-09-08 20:32:16 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:32:16 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-08 20:32:16 - Started PhysiokalendarApplication in 10.46 seconds (process running for 25402.542)
+2024-09-08 20:32:16 - Condition evaluation unchanged
+2024-09-08 20:32:20 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-08 20:32:20 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:32:21 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:32:21 - HikariPool-4 - Shutdown initiated...
+2024-09-08 20:32:21 - HikariPool-4 - Shutdown completed.
+2024-09-08 20:32:21 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 59220 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-08 20:32:21 - No active profile set, falling back to 1 default profile: "default"
+2024-09-08 20:32:24 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-08 20:32:24 - Finished Spring Data repository scanning in 127 ms. Found 8 JPA repository interfaces.
+2024-09-08 20:32:24 - Tomcat initialized with port 8080 (http)
+2024-09-08 20:32:24 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:32:24 - Starting service [Tomcat]
+2024-09-08 20:32:24 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08 20:32:24 - Initializing Spring embedded WebApplicationContext
+2024-09-08 20:32:24 - Root WebApplicationContext: initialization completed in 2799 ms
+2024-09-08 20:32:25 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-08 20:32:25 - HHH000026: Second-level cache disabled
+2024-09-08 20:32:25 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-08 20:32:25 - HikariPool-5 - Starting...
+2024-09-08 20:32:25 - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@583fa977
+2024-09-08 20:32:25 - HikariPool-5 - Start completed.
+2024-09-08 20:32:25 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-08 20:32:25 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-08 20:32:26 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 20:32:28 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:32:28 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-08 20:32:28 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-08 20:32:29 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-08 20:32:29 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-08 20:32:29 - LiveReload server is running on port 35729
+2024-09-08 20:32:29 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:32:29 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-08 20:32:29 - Started PhysiokalendarApplication in 8.147 seconds (process running for 25415.848)
+2024-09-08 20:32:30 - Condition evaluation unchanged
+2024-09-08 20:33:24 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-08 20:33:24 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:33:25 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:33:25 - HikariPool-5 - Shutdown initiated...
+2024-09-08 20:33:25 - HikariPool-5 - Shutdown completed.
+2024-09-08 20:33:26 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 59220 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-08 20:33:26 - No active profile set, falling back to 1 default profile: "default"
+2024-09-08 20:33:29 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-08 20:33:30 - Finished Spring Data repository scanning in 589 ms. Found 8 JPA repository interfaces.
+2024-09-08 20:33:30 - Tomcat initialized with port 8080 (http)
+2024-09-08 20:33:30 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:33:30 - Starting service [Tomcat]
+2024-09-08 20:33:30 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08 20:33:31 - Initializing Spring embedded WebApplicationContext
+2024-09-08 20:33:31 - Root WebApplicationContext: initialization completed in 4709 ms
+2024-09-08 20:33:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-08 20:33:31 - HHH000026: Second-level cache disabled
+2024-09-08 20:33:31 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-08 20:33:31 - HikariPool-6 - Starting...
+2024-09-08 20:33:31 - HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@dc1c7ff
+2024-09-08 20:33:31 - HikariPool-6 - Start completed.
+2024-09-08 20:33:31 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-08 20:33:31 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-08 20:33:32 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 20:33:32 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:33:33 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-08 20:33:33 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-08 20:33:34 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-08 20:33:34 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-08 20:33:35 - LiveReload server is running on port 35729
+2024-09-08 20:33:35 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:33:35 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-08 20:33:35 - Started PhysiokalendarApplication in 9.611 seconds (process running for 25481.206)
+2024-09-08 20:33:35 - Condition evaluation unchanged
+2024-09-08 20:33:39 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-08 20:33:39 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:33:40 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:33:40 - HikariPool-6 - Shutdown initiated...
+2024-09-08 20:33:40 - HikariPool-6 - Shutdown completed.
+2024-09-08 20:33:40 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 59220 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-08 20:33:40 - No active profile set, falling back to 1 default profile: "default"
+2024-09-08 20:33:41 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-08 20:33:41 - Finished Spring Data repository scanning in 58 ms. Found 8 JPA repository interfaces.
+2024-09-08 20:33:41 - Tomcat initialized with port 8080 (http)
+2024-09-08 20:33:41 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:33:41 - Starting service [Tomcat]
+2024-09-08 20:33:41 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08 20:33:41 - Initializing Spring embedded WebApplicationContext
+2024-09-08 20:33:41 - Root WebApplicationContext: initialization completed in 1174 ms
+2024-09-08 20:33:41 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-08 20:33:41 - HHH000026: Second-level cache disabled
+2024-09-08 20:33:41 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-08 20:33:41 - HikariPool-7 - Starting...
+2024-09-08 20:33:41 - HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@668dae1
+2024-09-08 20:33:41 - HikariPool-7 - Start completed.
+2024-09-08 20:33:41 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-08 20:33:41 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-08 20:33:42 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 20:33:42 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:33:43 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-08 20:33:43 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-08 20:33:43 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-08 20:33:43 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-08 20:33:44 - LiveReload server is running on port 35729
+2024-09-08 20:33:44 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:33:44 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-08 20:33:44 - Started PhysiokalendarApplication in 4.106 seconds (process running for 25490.258)
+2024-09-08 20:33:44 - Condition evaluation unchanged
+2024-09-08 20:34:39 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 57264 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-08 20:34:39 - No active profile set, falling back to 1 default profile: "default"
+2024-09-08 20:34:39 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-08 20:34:39 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-08 20:34:44 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-08 20:34:45 - Finished Spring Data repository scanning in 444 ms. Found 8 JPA repository interfaces.
+2024-09-08 20:34:49 - Tomcat initialized with port 8080 (http)
+2024-09-08 20:34:49 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:34:49 - Starting service [Tomcat]
+2024-09-08 20:34:49 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08 20:34:49 - Initializing Spring embedded WebApplicationContext
+2024-09-08 20:34:49 - Root WebApplicationContext: initialization completed in 9460 ms
+2024-09-08 20:34:50 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-08 20:34:50 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 20:34:50 - HHH000026: Second-level cache disabled
+2024-09-08 20:34:52 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-08 20:34:52 - HikariPool-1 - Starting...
+2024-09-08 20:34:53 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@24acfc16
+2024-09-08 20:34:53 - HikariPool-1 - Start completed.
+2024-09-08 20:34:53 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-08 20:34:53 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-08 20:34:57 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 20:34:58 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:35:02 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-08 20:35:02 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-08 20:35:04 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-08 20:35:04 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-08 20:35:05 - LiveReload server is running on port 35729
+2024-09-08 20:35:06 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:35:06 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-08 20:35:06 - Started PhysiokalendarApplication in 28.58 seconds (process running for 30.442)
+2024-09-08 20:35:25 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-08 20:35:25 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:35:26 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:35:26 - HikariPool-1 - Shutdown initiated...
+2024-09-08 20:35:26 - HikariPool-1 - Shutdown completed.
+2024-09-08 20:35:26 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 57264 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-08 20:35:26 - No active profile set, falling back to 1 default profile: "default"
+2024-09-08 20:35:28 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-08 20:35:28 - Finished Spring Data repository scanning in 126 ms. Found 8 JPA repository interfaces.
+2024-09-08 20:35:29 - Tomcat initialized with port 8080 (http)
+2024-09-08 20:35:29 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:35:29 - Starting service [Tomcat]
+2024-09-08 20:35:29 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08 20:35:29 - Initializing Spring embedded WebApplicationContext
+2024-09-08 20:35:29 - Root WebApplicationContext: initialization completed in 2815 ms
+2024-09-08 20:35:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-08 20:35:30 - HHH000026: Second-level cache disabled
+2024-09-08 20:35:30 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-08 20:35:30 - HikariPool-2 - Starting...
+2024-09-08 20:35:30 - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@10a4546a
+2024-09-08 20:35:30 - HikariPool-2 - Start completed.
+2024-09-08 20:35:30 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-08 20:35:30 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-08 20:35:31 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 20:35:32 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:35:33 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-08 20:35:33 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-08 20:35:34 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-08 20:35:34 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-08 20:35:34 - LiveReload server is running on port 35729
+2024-09-08 20:35:35 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:35:35 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-08 20:35:35 - Started PhysiokalendarApplication in 8.324 seconds (process running for 59.168)
+2024-09-08 20:35:35 - Condition evaluation unchanged
+2024-09-08 20:35:36 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-09-08 20:35:36 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:35:36 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:35:36 - HikariPool-2 - Shutdown initiated...
+2024-09-08 20:35:36 - HikariPool-2 - Shutdown completed.
+2024-09-08 20:35:36 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 57264 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-09-08 20:35:36 - No active profile set, falling back to 1 default profile: "default"
+2024-09-08 20:35:38 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-08 20:35:38 - Finished Spring Data repository scanning in 62 ms. Found 8 JPA repository interfaces.
+2024-09-08 20:35:38 - Tomcat initialized with port 8080 (http)
+2024-09-08 20:35:38 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:35:38 - Starting service [Tomcat]
+2024-09-08 20:35:38 - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-08 20:35:38 - Initializing Spring embedded WebApplicationContext
+2024-09-08 20:35:38 - Root WebApplicationContext: initialization completed in 1954 ms
+2024-09-08 20:35:39 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-08 20:35:39 - HHH000026: Second-level cache disabled
+2024-09-08 20:35:39 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-08 20:35:39 - HikariPool-3 - Starting...
+2024-09-08 20:35:39 - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@395742aa
+2024-09-08 20:35:39 - HikariPool-3 - Start completed.
+2024-09-08 20:35:39 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-08 20:35:39 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-08 20:35:39 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 20:35:39 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-08 20:35:40 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-08 20:35:40 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-09-08 20:35:41 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-08 20:35:41 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-09-08 20:35:41 - LiveReload server is running on port 35729
+2024-09-08 20:35:41 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-08 20:35:41 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-08 20:35:41 - Started PhysiokalendarApplication in 4.684 seconds (process running for 65.633)
+2024-09-08 20:35:41 - Condition evaluation unchanged
+2024-09-08 20:36:19 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-08 20:36:19 - Initializing Servlet 'dispatcherServlet'
+2024-09-08 20:36:19 - Completed initialization in 4 ms
+2024-09-08 20:36:19 - Securing GET /api/patients
+2024-09-08 20:36:19 - Securing GET /api/therapists
+2024-09-08 20:36:19 - Securing GET /api/patients
+2024-09-08 20:36:19 - Securing GET /api/appointments
+2024-09-08 20:36:19 - Secured GET /api/patients
+2024-09-08 20:36:19 - Secured GET /api/therapists
+2024-09-08 20:36:19 - Secured GET /api/appointments
+2024-09-08 20:36:19 - Secured GET /api/patients
+2024-09-08 20:36:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:25 - Securing GET /api/patients
+2024-09-08 20:36:25 - Secured GET /api/patients
+2024-09-08 20:36:25 - Securing GET /api/patients
+2024-09-08 20:36:25 - Securing GET /api/patients
+2024-09-08 20:36:25 - Secured GET /api/patients
+2024-09-08 20:36:25 - Secured GET /api/patients
+2024-09-08 20:36:25 - Securing GET /api/appointments
+2024-09-08 20:36:25 - Secured GET /api/appointments
+2024-09-08 20:36:25 - Securing GET /api/therapists
+2024-09-08 20:36:25 - Secured GET /api/therapists
+2024-09-08 20:36:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:31 - Securing GET /api/patients
+2024-09-08 20:36:31 - Secured GET /api/patients
+2024-09-08 20:36:31 - Securing GET /api/patients
+2024-09-08 20:36:31 - Securing GET /api/patients
+2024-09-08 20:36:31 - Securing GET /api/patients
+2024-09-08 20:36:31 - Secured GET /api/patients
+2024-09-08 20:36:31 - Secured GET /api/patients
+2024-09-08 20:36:31 - Secured GET /api/patients
+2024-09-08 20:36:31 - Securing GET /api/appointments
+2024-09-08 20:36:31 - Secured GET /api/appointments
+2024-09-08 20:36:31 - Securing GET /api/therapists
+2024-09-08 20:36:31 - Secured GET /api/therapists
+2024-09-08 20:36:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:33 - Securing GET /api/patients
+2024-09-08 20:36:33 - Securing GET /api/patients
+2024-09-08 20:36:33 - Securing GET /api/patients
+2024-09-08 20:36:33 - Securing GET /api/patients
+2024-09-08 20:36:33 - Securing GET /api/patients
+2024-09-08 20:36:33 - Secured GET /api/patients
+2024-09-08 20:36:33 - Secured GET /api/patients
+2024-09-08 20:36:33 - Secured GET /api/patients
+2024-09-08 20:36:33 - Secured GET /api/patients
+2024-09-08 20:36:33 - Secured GET /api/patients
+2024-09-08 20:36:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:33 - Securing GET /api/therapists
+2024-09-08 20:36:33 - Securing GET /api/appointments
+2024-09-08 20:36:33 - Secured GET /api/therapists
+2024-09-08 20:36:33 - Secured GET /api/appointments
+2024-09-08 20:36:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:35 - Securing GET /api/patients
+2024-09-08 20:36:35 - Secured GET /api/patients
+2024-09-08 20:36:35 - Securing GET /api/patients
+2024-09-08 20:36:35 - Securing GET /api/patients
+2024-09-08 20:36:35 - Secured GET /api/patients
+2024-09-08 20:36:35 - Secured GET /api/patients
+2024-09-08 20:36:35 - Securing GET /api/patients
+2024-09-08 20:36:35 - Securing GET /api/patients
+2024-09-08 20:36:35 - Securing GET /api/patients
+2024-09-08 20:36:35 - Secured GET /api/patients
+2024-09-08 20:36:35 - Secured GET /api/patients
+2024-09-08 20:36:35 - Secured GET /api/patients
+2024-09-08 20:36:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:35 - Securing GET /api/therapists
+2024-09-08 20:36:35 - Secured GET /api/therapists
+2024-09-08 20:36:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:35 - Securing GET /api/appointments
+2024-09-08 20:36:35 - Secured GET /api/appointments
+2024-09-08 20:36:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:52 - Securing GET /api/patients
+2024-09-08 20:36:52 - Securing GET /api/patients
+2024-09-08 20:36:52 - Secured GET /api/patients
+2024-09-08 20:36:52 - Securing GET /api/patients
+2024-09-08 20:36:52 - Securing GET /api/patients
+2024-09-08 20:36:52 - Securing GET /api/patients
+2024-09-08 20:36:52 - Securing GET /api/patients
+2024-09-08 20:36:52 - Secured GET /api/patients
+2024-09-08 20:36:52 - Secured GET /api/patients
+2024-09-08 20:36:52 - Secured GET /api/patients
+2024-09-08 20:36:52 - Secured GET /api/patients
+2024-09-08 20:36:52 - Secured GET /api/patients
+2024-09-08 20:36:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:52 - Securing GET /api/patients
+2024-09-08 20:36:52 - Secured GET /api/patients
+2024-09-08 20:36:52 - Securing GET /api/therapists
+2024-09-08 20:36:52 - Securing GET /api/appointments
+2024-09-08 20:36:52 - Secured GET /api/appointments
+2024-09-08 20:36:52 - Secured GET /api/therapists
+2024-09-08 20:36:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:54 - Securing GET /api/patients
+2024-09-08 20:36:54 - Securing GET /api/patients
+2024-09-08 20:36:54 - Secured GET /api/patients
+2024-09-08 20:36:54 - Secured GET /api/patients
+2024-09-08 20:36:54 - Securing GET /api/patients
+2024-09-08 20:36:54 - Secured GET /api/patients
+2024-09-08 20:36:54 - Securing GET /api/patients
+2024-09-08 20:36:54 - Secured GET /api/patients
+2024-09-08 20:36:54 - Securing GET /api/patients
+2024-09-08 20:36:54 - Securing GET /api/patients
+2024-09-08 20:36:54 - Secured GET /api/patients
+2024-09-08 20:36:54 - Secured GET /api/patients
+2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:55 - Securing GET /api/patients
+2024-09-08 20:36:55 - Secured GET /api/patients
+2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:55 - Securing GET /api/therapists
+2024-09-08 20:36:55 - Secured GET /api/therapists
+2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:55 - Securing GET /api/appointments
+2024-09-08 20:36:55 - Securing GET /api/patients
+2024-09-08 20:36:55 - Secured GET /api/patients
+2024-09-08 20:36:55 - Secured GET /api/appointments
+2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext

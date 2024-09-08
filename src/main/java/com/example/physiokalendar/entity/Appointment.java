@@ -44,6 +44,9 @@ public class Appointment {
     @Column(name = "created_by_series_appointment")
     private Boolean createdBySeriesAppointment;
 
+    @Column(name = "appointment_series_id")
+    private Long appointmentSeriesId;
+
     @Column(name = "is_hotair")
     private Boolean isHotair;
 

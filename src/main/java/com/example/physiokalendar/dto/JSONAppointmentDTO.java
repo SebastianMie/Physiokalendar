@@ -24,4 +24,5 @@ public class JSONAppointmentDTO {
     private Boolean isUltrasonic;
     private Boolean isElectric;
     private Boolean createdBySeriesAppointment;
+    private Long appointmentSeriesId;
 }

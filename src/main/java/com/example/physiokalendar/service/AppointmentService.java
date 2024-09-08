@@ -106,6 +106,7 @@ public class AppointmentService {
         appointment.setDate(dto.getDate());
         appointment.setComment(dto.getComment());
         appointment.setCreatedBySeriesAppointment(dto.getCreatedBySeriesAppointment());
+        appointment.setAppointmentSeriesId(dto.getAppointmentSeriesId());
         appointment.setStartTime(dto.getStartTime());
         appointment.setEndTime(dto.getEndTime());
         appointment.setIsElectric(dto.getIsElectric());
