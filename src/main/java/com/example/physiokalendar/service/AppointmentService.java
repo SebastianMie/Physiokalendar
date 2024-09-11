@@ -11,8 +11,11 @@ import com.example.physiokalendar.repository.TherapistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.example.physiokalendar.repository.PatientRepository;
@@ -71,6 +74,39 @@ public class AppointmentService {
 
     public void deleteAppointment(Long id) {
         appointmentRepository.deleteById(id);
+    }
+
+    public List<Appointment> getAppointmentsWithConflicts() {
+        List<Appointment> allAppointments = this.getAllAppointments();
+        List<Appointment> conflictingAppointments = new ArrayList<>();
+        Set<Long> addedAppointments = new HashSet<>();
+    
+        for (Appointment currentAppointment : allAppointments) {
+            if (addedAppointments.contains(currentAppointment.getId())) {
+                // Überspringe dieses Appointment, wenn es bereits als konfliktbehaftet markiert wurde
+                continue;
+            }
+            for (Appointment compareAppointment : allAppointments) {
+                if (!currentAppointment.getId().equals(compareAppointment.getId()) &&
+                    this.checkForConflicts(currentAppointment, compareAppointment)) {
+    
+                    // Füge nur das erste gefundene konfliktbehaftete Appointment hinzu
+                    conflictingAppointments.add(currentAppointment);
+                    // Markiere beide Termine als bearbeitet
+                    addedAppointments.add(currentAppointment.getId());
+                    addedAppointments.add(compareAppointment.getId());
+                    break;
+                }
+            }
+        }
+        return conflictingAppointments;
+    }
+
+    private boolean checkForConflicts(Appointment app1, Appointment app2) {
+        return app1.getTherapist().getId().equals(app2.getTherapist().getId()) &&
+               app1.getDate().equals(app2.getDate()) &&
+               app1.getStartTime().before(app2.getEndTime()) &&
+               app1.getEndTime().after(app2.getStartTime());
     }
 
     public boolean checkForConflicts(Appointment newAppointment) {

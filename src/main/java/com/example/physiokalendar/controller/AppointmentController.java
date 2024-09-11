@@ -37,14 +37,22 @@ public class AppointmentController {
         return appointmentService.getAppointmentById(id);
     }
 
+    @GetMapping("/conflicts")
+    public ResponseEntity<List<Appointment>> getAppointmentConflicts() {
+        try {
+            List<Appointment> conflicts = appointmentService.getAppointmentsWithConflicts();
+            if (conflicts.isEmpty()) {
+                return ResponseEntity.noContent().build(); // Keine Konflikte gefunden
+            }
+            return ResponseEntity.status(HttpStatus.OK).body(conflicts); 
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
     @PostMapping
     public ResponseEntity<String> createOrUpdateAppointment(@RequestBody JSONAppointmentDTO appointmentDTO) {
         try {
-            if (appointmentService.checkForConflicts(appointmentService.convertDTOToEntity(appointmentDTO))) {
-                return ResponseEntity.status(HttpStatus.CONFLICT)
-                        .body("Konflikt mit einem bestehenden Termin für den Therapeuten.");
-            }
-
             appointmentService.saveAppointment(appointmentDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body("Termin erfolgreich erstellt.");
         } catch (Exception e) {
