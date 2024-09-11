@@ -31327,3 +31327,1511 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
 2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
 2024-09-08 20:36:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:45 - Securing GET /api/patients
+2024-09-08 20:39:45 - Secured GET /api/patients
+2024-09-08 20:39:45 - Securing GET /api/patients
+2024-09-08 20:39:45 - Securing GET /api/patients
+2024-09-08 20:39:45 - Secured GET /api/patients
+2024-09-08 20:39:45 - Secured GET /api/patients
+2024-09-08 20:39:45 - Securing GET /api/patients
+2024-09-08 20:39:45 - Securing GET /api/patients
+2024-09-08 20:39:45 - Securing GET /api/patients
+2024-09-08 20:39:45 - Secured GET /api/patients
+2024-09-08 20:39:45 - Secured GET /api/patients
+2024-09-08 20:39:45 - Secured GET /api/patients
+2024-09-08 20:39:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:45 - Securing GET /api/patients
+2024-09-08 20:39:45 - Secured GET /api/patients
+2024-09-08 20:39:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:49 - Securing GET /api/patients
+2024-09-08 20:39:49 - Securing GET /api/patients
+2024-09-08 20:39:49 - Secured GET /api/patients
+2024-09-08 20:39:49 - Secured GET /api/patients
+2024-09-08 20:39:49 - Securing GET /api/patients
+2024-09-08 20:39:49 - Securing GET /api/patients
+2024-09-08 20:39:49 - Secured GET /api/patients
+2024-09-08 20:39:49 - Secured GET /api/patients
+2024-09-08 20:39:49 - Securing GET /api/patients
+2024-09-08 20:39:49 - Securing GET /api/patients
+2024-09-08 20:39:49 - Secured GET /api/patients
+2024-09-08 20:39:49 - Secured GET /api/patients
+2024-09-08 20:39:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:49 - Securing GET /api/patients
+2024-09-08 20:39:49 - Secured GET /api/patients
+2024-09-08 20:39:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:39:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:40:30 - Securing GET /api/patients
+2024-09-08 20:40:30 - Secured GET /api/patients
+2024-09-08 20:40:31 - Securing GET /api/auth/user
+2024-09-08 20:40:31 - Securing GET /api/appointments
+2024-09-08 20:40:31 - Secured GET /api/auth/user
+2024-09-08 20:40:31 - Secured GET /api/appointments
+2024-09-08 20:40:31 - Securing GET /api/therapists
+2024-09-08 20:40:31 - Secured GET /api/therapists
+2024-09-08 20:40:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:40:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:40:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:40:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:01 - Securing GET /api/patients
+2024-09-08 20:45:01 - Secured GET /api/patients
+2024-09-08 20:45:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:01 - Securing GET /api/auth/user
+2024-09-08 20:45:01 - Secured GET /api/auth/user
+2024-09-08 20:45:01 - Securing GET /api/therapists
+2024-09-08 20:45:01 - Securing GET /api/appointments
+2024-09-08 20:45:01 - Secured GET /api/therapists
+2024-09-08 20:45:01 - Secured GET /api/appointments
+2024-09-08 20:45:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:03 - Securing GET /api/appointments
+2024-09-08 20:45:03 - Secured GET /api/appointments
+2024-09-08 20:45:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:04 - Securing GET /api/appointments
+2024-09-08 20:45:04 - Secured GET /api/appointments
+2024-09-08 20:45:05 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:05 - Securing GET /api/appointments
+2024-09-08 20:45:05 - Secured GET /api/appointments
+2024-09-08 20:45:05 - Securing GET /api/appointments
+2024-09-08 20:45:05 - Secured GET /api/appointments
+2024-09-08 20:45:05 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:05 - Securing GET /api/appointments
+2024-09-08 20:45:05 - Secured GET /api/appointments
+2024-09-08 20:45:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:06 - Securing GET /api/appointments
+2024-09-08 20:45:06 - Secured GET /api/appointments
+2024-09-08 20:45:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:08 - Securing GET /api/patients
+2024-09-08 20:45:08 - Secured GET /api/patients
+2024-09-08 20:45:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:45:08 - Securing GET /api/appointmentseries
+2024-09-08 20:45:08 - Secured GET /api/appointmentseries
+2024-09-08 20:45:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:59:37 - Securing GET /api/patients
+2024-09-08 20:59:37 - Secured GET /api/patients
+2024-09-08 20:59:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 20:59:43 - Securing GET /api/patients
+2024-09-08 20:59:43 - Secured GET /api/patients
+2024-09-08 20:59:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:00:30 - Securing GET /api/patients
+2024-09-08 21:00:30 - Secured GET /api/patients
+2024-09-08 21:00:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:00:45 - Securing GET /api/patients
+2024-09-08 21:00:45 - Secured GET /api/patients
+2024-09-08 21:00:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:02:40 - Securing GET /api/patients
+2024-09-08 21:02:40 - Secured GET /api/patients
+2024-09-08 21:02:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:02:42 - Securing GET /api/patients
+2024-09-08 21:02:42 - Secured GET /api/patients
+2024-09-08 21:02:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:02:47 - Securing GET /api/patients
+2024-09-08 21:02:47 - Secured GET /api/patients
+2024-09-08 21:02:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:02:52 - Securing GET /api/patients
+2024-09-08 21:02:52 - Secured GET /api/patients
+2024-09-08 21:02:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:02:54 - Securing GET /api/patients
+2024-09-08 21:02:54 - Secured GET /api/patients
+2024-09-08 21:02:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:02:58 - Securing GET /api/patients
+2024-09-08 21:02:58 - Secured GET /api/patients
+2024-09-08 21:02:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:03:05 - Securing GET /api/patients
+2024-09-08 21:03:05 - Secured GET /api/patients
+2024-09-08 21:03:05 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:03:08 - Securing GET /api/patients
+2024-09-08 21:03:08 - Secured GET /api/patients
+2024-09-08 21:03:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:06:21 - Securing GET /api/patients
+2024-09-08 21:06:21 - Secured GET /api/patients
+2024-09-08 21:06:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:16:22 - Securing GET /api/patients
+2024-09-08 21:16:22 - Secured GET /api/patients
+2024-09-08 21:16:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:16:50 - Securing GET /api/patients
+2024-09-08 21:16:50 - Secured GET /api/patients
+2024-09-08 21:16:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:16:52 - Securing GET /api/patients
+2024-09-08 21:16:52 - Secured GET /api/patients
+2024-09-08 21:16:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:16:53 - Securing GET /api/patients
+2024-09-08 21:16:53 - Secured GET /api/patients
+2024-09-08 21:16:53 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:16:54 - Securing GET /api/patients
+2024-09-08 21:16:54 - Secured GET /api/patients
+2024-09-08 21:16:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:17:04 - Securing GET /api/patients
+2024-09-08 21:17:04 - Secured GET /api/patients
+2024-09-08 21:17:05 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:18:54 - Securing GET /api/patients
+2024-09-08 21:18:54 - Secured GET /api/patients
+2024-09-08 21:18:54 - Securing OPTIONS /api/appointments
+2024-09-08 21:18:54 - Securing OPTIONS /api/auth/user
+2024-09-08 21:18:54 - Securing OPTIONS /api/therapists
+2024-09-08 21:18:54 - Securing GET /api/auth/user
+2024-09-08 21:18:54 - Secured GET /api/auth/user
+2024-09-08 21:18:54 - Securing GET /api/appointments
+2024-09-08 21:18:54 - Secured GET /api/appointments
+2024-09-08 21:18:54 - Securing GET /api/therapists
+2024-09-08 21:18:54 - Secured GET /api/therapists
+2024-09-08 21:18:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:18:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:18:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:18:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:18:59 - Securing GET /api/appointments
+2024-09-08 21:18:59 - Secured GET /api/appointments
+2024-09-08 21:18:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:18:59 - Securing GET /api/appointments
+2024-09-08 21:18:59 - Secured GET /api/appointments
+2024-09-08 21:18:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:18:59 - Securing GET /api/appointments
+2024-09-08 21:18:59 - Secured GET /api/appointments
+2024-09-08 21:19:00 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:19:00 - Securing GET /api/appointments
+2024-09-08 21:19:00 - Secured GET /api/appointments
+2024-09-08 21:19:00 - Securing GET /api/appointments
+2024-09-08 21:19:00 - Secured GET /api/appointments
+2024-09-08 21:19:01 - Securing GET /api/appointments
+2024-09-08 21:19:01 - Secured GET /api/appointments
+2024-09-08 21:19:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:19:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:19:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:19:03 - Securing GET /api/patients
+2024-09-08 21:19:03 - Securing GET /api/patients
+2024-09-08 21:19:03 - Secured GET /api/patients
+2024-09-08 21:19:03 - Secured GET /api/patients
+2024-09-08 21:19:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:19:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:19:03 - Securing GET /api/appointmentseries
+2024-09-08 21:19:03 - Secured GET /api/appointmentseries
+2024-09-08 21:19:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:22:36 - Securing GET /api/patients
+2024-09-08 21:22:36 - Secured GET /api/patients
+2024-09-08 21:22:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:29:55 - Securing OPTIONS /api/appointments/66
+2024-09-08 21:29:55 - Securing PUT /api/appointments/66
+2024-09-08 21:29:55 - Secured PUT /api/appointments/66
+2024-09-08 21:29:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:29:56 - Securing GET /api/appointments
+2024-09-08 21:29:56 - Securing GET /api/appointments
+2024-09-08 21:29:56 - Secured GET /api/appointments
+2024-09-08 21:29:56 - Secured GET /api/appointments
+2024-09-08 21:29:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:29:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:30:04 - Securing GET /api/patients
+2024-09-08 21:30:04 - Secured GET /api/patients
+2024-09-08 21:30:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:14 - Securing GET /api/patients
+2024-09-08 21:37:14 - Secured GET /api/patients
+2024-09-08 21:37:14 - Securing GET /api/therapists
+2024-09-08 21:37:14 - Secured GET /api/therapists
+2024-09-08 21:37:14 - Securing GET /api/appointments
+2024-09-08 21:37:14 - Secured GET /api/appointments
+2024-09-08 21:37:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:15 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:19 - Securing GET /api/patients
+2024-09-08 21:37:19 - Secured GET /api/patients
+2024-09-08 21:37:19 - Securing GET /api/appointments
+2024-09-08 21:37:19 - Securing GET /api/therapists
+2024-09-08 21:37:19 - Secured GET /api/appointments
+2024-09-08 21:37:19 - Secured GET /api/therapists
+2024-09-08 21:37:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:28 - Securing GET /api/patients
+2024-09-08 21:37:28 - Secured GET /api/patients
+2024-09-08 21:37:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:28 - Securing GET /api/appointments
+2024-09-08 21:37:28 - Secured GET /api/appointments
+2024-09-08 21:37:28 - Securing GET /api/therapists
+2024-09-08 21:37:28 - Secured GET /api/therapists
+2024-09-08 21:37:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:31 - Securing GET /api/patients
+2024-09-08 21:37:31 - Secured GET /api/patients
+2024-09-08 21:37:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:31 - Securing GET /api/therapists
+2024-09-08 21:37:31 - Secured GET /api/therapists
+2024-09-08 21:37:31 - Securing GET /api/appointments
+2024-09-08 21:37:31 - Secured GET /api/appointments
+2024-09-08 21:37:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:32 - Securing GET /api/patients
+2024-09-08 21:37:32 - Secured GET /api/patients
+2024-09-08 21:37:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:32 - Securing GET /api/therapists
+2024-09-08 21:37:32 - Securing GET /api/appointments
+2024-09-08 21:37:32 - Secured GET /api/therapists
+2024-09-08 21:37:32 - Secured GET /api/appointments
+2024-09-08 21:37:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:55 - Securing GET /api/patients
+2024-09-08 21:37:55 - Secured GET /api/patients
+2024-09-08 21:37:55 - Securing GET /api/appointments
+2024-09-08 21:37:55 - Secured GET /api/appointments
+2024-09-08 21:37:55 - Securing GET /api/therapists
+2024-09-08 21:37:55 - Secured GET /api/therapists
+2024-09-08 21:37:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:37:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:01 - Securing GET /api/patients
+2024-09-08 21:38:01 - Secured GET /api/patients
+2024-09-08 21:38:01 - Securing GET /api/therapists
+2024-09-08 21:38:01 - Secured GET /api/therapists
+2024-09-08 21:38:01 - Securing GET /api/appointments
+2024-09-08 21:38:01 - Secured GET /api/appointments
+2024-09-08 21:38:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:02 - Securing GET /api/patients
+2024-09-08 21:38:02 - Secured GET /api/patients
+2024-09-08 21:38:02 - Securing GET /api/therapists
+2024-09-08 21:38:02 - Secured GET /api/therapists
+2024-09-08 21:38:02 - Securing GET /api/appointments
+2024-09-08 21:38:02 - Secured GET /api/appointments
+2024-09-08 21:38:02 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:12 - Securing GET /api/patients
+2024-09-08 21:38:12 - Secured GET /api/patients
+2024-09-08 21:38:12 - Securing GET /api/therapists
+2024-09-08 21:38:12 - Secured GET /api/therapists
+2024-09-08 21:38:12 - Securing GET /api/appointments
+2024-09-08 21:38:12 - Secured GET /api/appointments
+2024-09-08 21:38:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:30 - Securing GET /api/patients
+2024-09-08 21:38:30 - Secured GET /api/patients
+2024-09-08 21:38:30 - Securing GET /api/therapists
+2024-09-08 21:38:30 - Secured GET /api/therapists
+2024-09-08 21:38:30 - Securing GET /api/appointments
+2024-09-08 21:38:30 - Secured GET /api/appointments
+2024-09-08 21:38:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:42 - Securing GET /api/patients
+2024-09-08 21:38:42 - Secured GET /api/patients
+2024-09-08 21:38:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:42 - Securing GET /api/therapists
+2024-09-08 21:38:42 - Securing GET /api/appointments
+2024-09-08 21:38:42 - Secured GET /api/therapists
+2024-09-08 21:38:42 - Secured GET /api/appointments
+2024-09-08 21:38:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:45 - Securing GET /api/patients
+2024-09-08 21:38:45 - Secured GET /api/patients
+2024-09-08 21:38:45 - Securing GET /api/appointments
+2024-09-08 21:38:45 - Secured GET /api/appointments
+2024-09-08 21:38:45 - Securing GET /api/therapists
+2024-09-08 21:38:45 - Secured GET /api/therapists
+2024-09-08 21:38:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:55 - Securing GET /api/patients
+2024-09-08 21:38:55 - Secured GET /api/patients
+2024-09-08 21:38:55 - Securing GET /api/therapists
+2024-09-08 21:38:55 - Secured GET /api/therapists
+2024-09-08 21:38:55 - Securing GET /api/appointments
+2024-09-08 21:38:55 - Secured GET /api/appointments
+2024-09-08 21:38:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:59 - Securing GET /api/patients
+2024-09-08 21:38:59 - Secured GET /api/patients
+2024-09-08 21:38:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:59 - Securing GET /api/therapists
+2024-09-08 21:38:59 - Securing GET /api/appointments
+2024-09-08 21:38:59 - Secured GET /api/therapists
+2024-09-08 21:38:59 - Secured GET /api/appointments
+2024-09-08 21:38:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:38:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:04 - Securing GET /api/patients
+2024-09-08 21:39:04 - Secured GET /api/patients
+2024-09-08 21:39:04 - Securing GET /api/therapists
+2024-09-08 21:39:04 - Secured GET /api/therapists
+2024-09-08 21:39:04 - Securing GET /api/appointments
+2024-09-08 21:39:04 - Secured GET /api/appointments
+2024-09-08 21:39:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:06 - Securing GET /api/patients
+2024-09-08 21:39:06 - Secured GET /api/patients
+2024-09-08 21:39:06 - Securing GET /api/therapists
+2024-09-08 21:39:06 - Securing GET /api/appointments
+2024-09-08 21:39:06 - Secured GET /api/therapists
+2024-09-08 21:39:06 - Secured GET /api/appointments
+2024-09-08 21:39:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:10 - Securing GET /api/patients
+2024-09-08 21:39:10 - Secured GET /api/patients
+2024-09-08 21:39:10 - Securing GET /api/appointments
+2024-09-08 21:39:10 - Secured GET /api/appointments
+2024-09-08 21:39:10 - Securing GET /api/therapists
+2024-09-08 21:39:10 - Secured GET /api/therapists
+2024-09-08 21:39:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:12 - Securing GET /api/patients
+2024-09-08 21:39:12 - Secured GET /api/patients
+2024-09-08 21:39:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:12 - Securing GET /api/therapists
+2024-09-08 21:39:12 - Secured GET /api/therapists
+2024-09-08 21:39:12 - Securing GET /api/appointments
+2024-09-08 21:39:12 - Secured GET /api/appointments
+2024-09-08 21:39:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:14 - Securing GET /api/patients
+2024-09-08 21:39:14 - Secured GET /api/patients
+2024-09-08 21:39:14 - Securing GET /api/therapists
+2024-09-08 21:39:14 - Secured GET /api/therapists
+2024-09-08 21:39:14 - Securing GET /api/appointments
+2024-09-08 21:39:14 - Secured GET /api/appointments
+2024-09-08 21:39:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:16 - Securing GET /api/patients
+2024-09-08 21:39:16 - Secured GET /api/patients
+2024-09-08 21:39:16 - Securing GET /api/therapists
+2024-09-08 21:39:16 - Secured GET /api/therapists
+2024-09-08 21:39:16 - Securing GET /api/appointments
+2024-09-08 21:39:16 - Secured GET /api/appointments
+2024-09-08 21:39:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:21 - Securing GET /api/patients
+2024-09-08 21:39:21 - Secured GET /api/patients
+2024-09-08 21:39:21 - Securing GET /api/therapists
+2024-09-08 21:39:21 - Securing GET /api/appointments
+2024-09-08 21:39:21 - Secured GET /api/therapists
+2024-09-08 21:39:21 - Secured GET /api/appointments
+2024-09-08 21:39:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:26 - Securing GET /api/patients
+2024-09-08 21:39:26 - Secured GET /api/patients
+2024-09-08 21:39:26 - Securing GET /api/appointments
+2024-09-08 21:39:26 - Secured GET /api/appointments
+2024-09-08 21:39:26 - Securing GET /api/therapists
+2024-09-08 21:39:26 - Secured GET /api/therapists
+2024-09-08 21:39:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:27 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:27 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:29 - Securing GET /api/therapists
+2024-09-08 21:39:29 - Secured GET /api/therapists
+2024-09-08 21:39:29 - Securing GET /api/patients
+2024-09-08 21:39:29 - Secured GET /api/patients
+2024-09-08 21:39:29 - Securing GET /api/appointments
+2024-09-08 21:39:29 - Secured GET /api/appointments
+2024-09-08 21:39:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:36 - Securing GET /api/patients
+2024-09-08 21:39:36 - Secured GET /api/patients
+2024-09-08 21:39:36 - Securing GET /api/appointments
+2024-09-08 21:39:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:36 - Secured GET /api/appointments
+2024-09-08 21:39:36 - Securing GET /api/therapists
+2024-09-08 21:39:36 - Secured GET /api/therapists
+2024-09-08 21:39:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:37 - Securing GET /api/patients
+2024-09-08 21:39:37 - Secured GET /api/patients
+2024-09-08 21:39:37 - Securing GET /api/therapists
+2024-09-08 21:39:37 - Securing GET /api/appointments
+2024-09-08 21:39:37 - Secured GET /api/appointments
+2024-09-08 21:39:37 - Secured GET /api/therapists
+2024-09-08 21:39:37 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:37 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:49 - Securing GET /api/patients
+2024-09-08 21:39:49 - Secured GET /api/patients
+2024-09-08 21:39:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:49 - Securing GET /api/therapists
+2024-09-08 21:39:49 - Secured GET /api/therapists
+2024-09-08 21:39:49 - Securing GET /api/appointments
+2024-09-08 21:39:49 - Secured GET /api/appointments
+2024-09-08 21:39:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:50 - Securing GET /api/patients
+2024-09-08 21:39:50 - Secured GET /api/patients
+2024-09-08 21:39:50 - Securing GET /api/therapists
+2024-09-08 21:39:50 - Secured GET /api/therapists
+2024-09-08 21:39:50 - Securing GET /api/appointments
+2024-09-08 21:39:50 - Secured GET /api/appointments
+2024-09-08 21:39:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:55 - Securing GET /api/patients
+2024-09-08 21:39:55 - Secured GET /api/patients
+2024-09-08 21:39:55 - Securing GET /api/therapists
+2024-09-08 21:39:55 - Securing GET /api/appointments
+2024-09-08 21:39:55 - Secured GET /api/appointments
+2024-09-08 21:39:55 - Secured GET /api/therapists
+2024-09-08 21:39:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:57 - Securing GET /api/patients
+2024-09-08 21:39:57 - Secured GET /api/patients
+2024-09-08 21:39:57 - Securing GET /api/appointments
+2024-09-08 21:39:57 - Securing GET /api/therapists
+2024-09-08 21:39:57 - Secured GET /api/therapists
+2024-09-08 21:39:57 - Secured GET /api/appointments
+2024-09-08 21:39:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:39:59 - Securing GET /api/patients
+2024-09-08 21:39:59 - Secured GET /api/patients
+2024-09-08 21:39:59 - Securing GET /api/therapists
+2024-09-08 21:39:59 - Secured GET /api/therapists
+2024-09-08 21:39:59 - Securing GET /api/appointments
+2024-09-08 21:39:59 - Secured GET /api/appointments
+2024-09-08 21:40:00 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:00 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:03 - Securing GET /api/patients
+2024-09-08 21:40:03 - Secured GET /api/patients
+2024-09-08 21:40:03 - Securing GET /api/patients
+2024-09-08 21:40:03 - Secured GET /api/patients
+2024-09-08 21:40:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:03 - Securing GET /api/appointmentseries
+2024-09-08 21:40:03 - Secured GET /api/appointmentseries
+2024-09-08 21:40:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:05 - Securing OPTIONS /api/appointments/90
+2024-09-08 21:40:05 - Securing PUT /api/appointments/90
+2024-09-08 21:40:06 - Secured PUT /api/appointments/90
+2024-09-08 21:40:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:06 - Securing GET /api/appointments
+2024-09-08 21:40:06 - Secured GET /api/appointments
+2024-09-08 21:40:06 - Securing GET /api/appointments
+2024-09-08 21:40:06 - Secured GET /api/appointments
+2024-09-08 21:40:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:10 - Securing GET /api/patients
+2024-09-08 21:40:10 - Secured GET /api/patients
+2024-09-08 21:40:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:18 - Securing PUT /api/appointments/90
+2024-09-08 21:40:18 - Secured PUT /api/appointments/90
+2024-09-08 21:40:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:18 - Securing GET /api/appointments
+2024-09-08 21:40:18 - Securing GET /api/appointments
+2024-09-08 21:40:18 - Secured GET /api/appointments
+2024-09-08 21:40:18 - Secured GET /api/appointments
+2024-09-08 21:40:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:21 - Securing GET /api/patients
+2024-09-08 21:40:21 - Secured GET /api/patients
+2024-09-08 21:40:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:23 - Securing PUT /api/appointments/90
+2024-09-08 21:40:23 - Secured PUT /api/appointments/90
+2024-09-08 21:40:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:23 - Securing GET /api/appointments
+2024-09-08 21:40:23 - Securing GET /api/appointments
+2024-09-08 21:40:23 - Secured GET /api/appointments
+2024-09-08 21:40:23 - Secured GET /api/appointments
+2024-09-08 21:40:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:40:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:42:07 - Securing GET /api/therapists
+2024-09-08 21:42:07 - Secured GET /api/therapists
+2024-09-08 21:42:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:42:09 - Securing GET /api/appointmentseries
+2024-09-08 21:42:09 - Secured GET /api/appointmentseries
+2024-09-08 21:42:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:42:09 - Securing GET /api/therapists/1/absences
+2024-09-08 21:42:09 - Secured GET /api/therapists/1/absences
+2024-09-08 21:42:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:13 - Securing GET /api/patients
+2024-09-08 21:55:13 - Secured GET /api/patients
+2024-09-08 21:55:13 - Securing OPTIONS /api/therapists
+2024-09-08 21:55:13 - Securing OPTIONS /api/auth/user
+2024-09-08 21:55:13 - Securing OPTIONS /api/appointments
+2024-09-08 21:55:13 - Securing GET /api/auth/user
+2024-09-08 21:55:13 - Securing GET /api/therapists
+2024-09-08 21:55:13 - Secured GET /api/auth/user
+2024-09-08 21:55:13 - Secured GET /api/therapists
+2024-09-08 21:55:13 - Securing GET /api/appointments
+2024-09-08 21:55:13 - Secured GET /api/appointments
+2024-09-08 21:55:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:15 - Securing GET /api/patients
+2024-09-08 21:55:15 - Securing GET /api/patients
+2024-09-08 21:55:15 - Secured GET /api/patients
+2024-09-08 21:55:15 - Secured GET /api/patients
+2024-09-08 21:55:15 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:15 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:15 - Securing GET /api/appointmentseries
+2024-09-08 21:55:15 - Secured GET /api/appointmentseries
+2024-09-08 21:55:15 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:22 - Securing GET /api/therapists
+2024-09-08 21:55:22 - Secured GET /api/therapists
+2024-09-08 21:55:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:24 - Securing GET /api/appointmentseries
+2024-09-08 21:55:24 - Secured GET /api/appointmentseries
+2024-09-08 21:55:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:25 - Securing GET /api/therapists/1/absences
+2024-09-08 21:55:25 - Secured GET /api/therapists/1/absences
+2024-09-08 21:55:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:55 - Securing GET /api/patients
+2024-09-08 21:55:55 - Secured GET /api/patients
+2024-09-08 21:55:55 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:56 - Securing GET /api/therapists
+2024-09-08 21:55:56 - Secured GET /api/therapists
+2024-09-08 21:55:56 - Securing GET /api/appointments
+2024-09-08 21:55:56 - Secured GET /api/appointments
+2024-09-08 21:55:56 - Securing GET /api/auth/user
+2024-09-08 21:55:56 - Secured GET /api/auth/user
+2024-09-08 21:55:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:55:59 - Securing GET /api/therapists
+2024-09-08 21:55:59 - Secured GET /api/therapists
+2024-09-08 21:55:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:56:01 - Securing GET /api/appointmentseries
+2024-09-08 21:56:01 - Secured GET /api/appointmentseries
+2024-09-08 21:56:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 21:56:01 - Securing GET /api/therapists/1/absences
+2024-09-08 21:56:01 - Secured GET /api/therapists/1/absences
+2024-09-08 21:56:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:06:09 - Securing GET /api/appointmentseries
+2024-09-08 22:06:09 - Secured GET /api/appointmentseries
+2024-09-08 22:06:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:06:10 - Securing GET /api/therapists/1/absences
+2024-09-08 22:06:10 - Secured GET /api/therapists/1/absences
+2024-09-08 22:06:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:23:59 - Securing GET /api/patients
+2024-09-08 22:23:59 - Secured GET /api/patients
+2024-09-08 22:23:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:23:59 - Securing GET /api/auth/user
+2024-09-08 22:23:59 - Securing GET /api/therapists
+2024-09-08 22:23:59 - Secured GET /api/auth/user
+2024-09-08 22:23:59 - Secured GET /api/therapists
+2024-09-08 22:23:59 - Securing GET /api/appointments
+2024-09-08 22:23:59 - Secured GET /api/appointments
+2024-09-08 22:23:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:23:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:00 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:03 - Securing GET /api/patients
+2024-09-08 22:24:03 - Securing GET /api/patients
+2024-09-08 22:24:03 - Secured GET /api/patients
+2024-09-08 22:24:03 - Secured GET /api/patients
+2024-09-08 22:24:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:03 - Securing GET /api/appointmentseries
+2024-09-08 22:24:03 - Secured GET /api/appointmentseries
+2024-09-08 22:24:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:07 - Securing GET /api/appointments
+2024-09-08 22:24:07 - Secured GET /api/appointments
+2024-09-08 22:24:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:07 - Securing GET /api/appointments
+2024-09-08 22:24:07 - Secured GET /api/appointments
+2024-09-08 22:24:07 - Securing GET /api/appointments
+2024-09-08 22:24:07 - Secured GET /api/appointments
+2024-09-08 22:24:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:07 - Securing GET /api/appointments
+2024-09-08 22:24:07 - Secured GET /api/appointments
+2024-09-08 22:24:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:08 - Securing GET /api/appointments
+2024-09-08 22:24:08 - Secured GET /api/appointments
+2024-09-08 22:24:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:08 - Securing GET /api/appointments
+2024-09-08 22:24:08 - Secured GET /api/appointments
+2024-09-08 22:24:08 - Securing GET /api/appointments
+2024-09-08 22:24:08 - Secured GET /api/appointments
+2024-09-08 22:24:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:08 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:09 - Securing GET /api/appointments
+2024-09-08 22:24:09 - Secured GET /api/appointments
+2024-09-08 22:24:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:09 - Securing GET /api/appointments
+2024-09-08 22:24:09 - Secured GET /api/appointments
+2024-09-08 22:24:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:10 - Securing GET /api/appointments
+2024-09-08 22:24:10 - Secured GET /api/appointments
+2024-09-08 22:24:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:10 - Securing GET /api/appointments
+2024-09-08 22:24:10 - Secured GET /api/appointments
+2024-09-08 22:24:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:11 - Securing GET /api/appointments
+2024-09-08 22:24:11 - Secured GET /api/appointments
+2024-09-08 22:24:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:12 - Securing GET /api/appointments
+2024-09-08 22:24:12 - Secured GET /api/appointments
+2024-09-08 22:24:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:13 - Securing GET /api/appointments
+2024-09-08 22:24:13 - Secured GET /api/appointments
+2024-09-08 22:24:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:17 - Securing GET /api/appointments
+2024-09-08 22:24:17 - Secured GET /api/appointments
+2024-09-08 22:24:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:18 - Securing GET /api/appointments
+2024-09-08 22:24:18 - Secured GET /api/appointments
+2024-09-08 22:24:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:18 - Securing GET /api/appointments
+2024-09-08 22:24:18 - Secured GET /api/appointments
+2024-09-08 22:24:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:19 - Securing GET /api/appointments
+2024-09-08 22:24:19 - Secured GET /api/appointments
+2024-09-08 22:24:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:19 - Securing GET /api/appointments
+2024-09-08 22:24:19 - Secured GET /api/appointments
+2024-09-08 22:24:19 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:20 - Securing GET /api/appointments
+2024-09-08 22:24:20 - Secured GET /api/appointments
+2024-09-08 22:24:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:21 - Securing GET /api/appointments
+2024-09-08 22:24:21 - Secured GET /api/appointments
+2024-09-08 22:24:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:21 - Securing GET /api/appointments
+2024-09-08 22:24:21 - Secured GET /api/appointments
+2024-09-08 22:24:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:21 - Securing GET /api/appointments
+2024-09-08 22:24:21 - Secured GET /api/appointments
+2024-09-08 22:24:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:21 - Securing GET /api/appointments
+2024-09-08 22:24:21 - Secured GET /api/appointments
+2024-09-08 22:24:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:22 - Securing GET /api/appointments
+2024-09-08 22:24:22 - Secured GET /api/appointments
+2024-09-08 22:24:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:22 - Securing GET /api/appointments
+2024-09-08 22:24:22 - Secured GET /api/appointments
+2024-09-08 22:24:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:22 - Securing GET /api/appointments
+2024-09-08 22:24:22 - Secured GET /api/appointments
+2024-09-08 22:24:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:22 - Securing GET /api/appointments
+2024-09-08 22:24:22 - Secured GET /api/appointments
+2024-09-08 22:24:22 - Securing GET /api/appointments
+2024-09-08 22:24:22 - Secured GET /api/appointments
+2024-09-08 22:24:22 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:23 - Securing GET /api/appointments
+2024-09-08 22:24:23 - Secured GET /api/appointments
+2024-09-08 22:24:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:23 - Securing GET /api/appointments
+2024-09-08 22:24:23 - Secured GET /api/appointments
+2024-09-08 22:24:23 - Securing GET /api/appointments
+2024-09-08 22:24:23 - Secured GET /api/appointments
+2024-09-08 22:24:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:30 - Securing GET /api/appointments
+2024-09-08 22:24:30 - Secured GET /api/appointments
+2024-09-08 22:24:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:32 - Securing GET /api/patients
+2024-09-08 22:24:32 - Secured GET /api/patients
+2024-09-08 22:24:32 - Securing GET /api/auth/user
+2024-09-08 22:24:32 - Securing GET /api/therapists
+2024-09-08 22:24:32 - Securing GET /api/appointments
+2024-09-08 22:24:32 - Secured GET /api/auth/user
+2024-09-08 22:24:32 - Secured GET /api/therapists
+2024-09-08 22:24:32 - Secured GET /api/appointments
+2024-09-08 22:24:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:34 - Securing GET /api/appointments
+2024-09-08 22:24:34 - Secured GET /api/appointments
+2024-09-08 22:24:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:46 - Securing GET /api/appointments
+2024-09-08 22:24:46 - Secured GET /api/appointments
+2024-09-08 22:24:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:47 - Securing GET /api/appointments
+2024-09-08 22:24:47 - Secured GET /api/appointments
+2024-09-08 22:24:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:47 - Securing GET /api/appointments
+2024-09-08 22:24:47 - Secured GET /api/appointments
+2024-09-08 22:24:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:48 - Securing GET /api/appointments
+2024-09-08 22:24:48 - Secured GET /api/appointments
+2024-09-08 22:24:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:48 - Securing GET /api/appointments
+2024-09-08 22:24:48 - Secured GET /api/appointments
+2024-09-08 22:24:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:49 - Securing GET /api/appointments
+2024-09-08 22:24:49 - Secured GET /api/appointments
+2024-09-08 22:24:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:50 - Securing GET /api/appointments
+2024-09-08 22:24:50 - Secured GET /api/appointments
+2024-09-08 22:24:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:52 - Securing GET /api/patients
+2024-09-08 22:24:52 - Securing GET /api/patients
+2024-09-08 22:24:52 - Secured GET /api/patients
+2024-09-08 22:24:52 - Secured GET /api/patients
+2024-09-08 22:24:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:52 - Securing GET /api/appointmentseries
+2024-09-08 22:24:52 - Secured GET /api/appointmentseries
+2024-09-08 22:24:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:56 - Securing OPTIONS /api/appointments/70
+2024-09-08 22:24:56 - Securing PUT /api/appointments/70
+2024-09-08 22:24:56 - Secured PUT /api/appointments/70
+2024-09-08 22:24:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:57 - Securing GET /api/appointments
+2024-09-08 22:24:57 - Securing GET /api/appointments
+2024-09-08 22:24:57 - Secured GET /api/appointments
+2024-09-08 22:24:57 - Secured GET /api/appointments
+2024-09-08 22:24:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:24:58 - Securing GET /api/appointments
+2024-09-08 22:24:58 - Secured GET /api/appointments
+2024-09-08 22:24:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:15 - Securing GET /api/patients
+2024-09-08 22:25:15 - Secured GET /api/patients
+2024-09-08 22:25:15 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:18 - Securing GET /api/patients
+2024-09-08 22:25:18 - Secured GET /api/patients
+2024-09-08 22:25:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:21 - Securing GET /api/patients
+2024-09-08 22:25:21 - Secured GET /api/patients
+2024-09-08 22:25:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:31 - Securing GET /api/patients
+2024-09-08 22:25:31 - Secured GET /api/patients
+2024-09-08 22:25:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:36 - Securing GET /api/patients
+2024-09-08 22:25:36 - Secured GET /api/patients
+2024-09-08 22:25:37 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:40 - Securing PUT /api/appointments/70
+2024-09-08 22:25:40 - Secured PUT /api/appointments/70
+2024-09-08 22:25:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:40 - Securing OPTIONS /api/appointments
+2024-09-08 22:25:40 - Securing OPTIONS /api/appointments
+2024-09-08 22:25:40 - Securing GET /api/appointments
+2024-09-08 22:25:40 - Securing GET /api/appointments
+2024-09-08 22:25:40 - Secured GET /api/appointments
+2024-09-08 22:25:40 - Secured GET /api/appointments
+2024-09-08 22:25:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:45 - Securing GET /api/patients
+2024-09-08 22:25:45 - Secured GET /api/patients
+2024-09-08 22:25:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:56 - Securing GET /api/patients
+2024-09-08 22:25:56 - Secured GET /api/patients
+2024-09-08 22:25:56 - Securing OPTIONS /api/auth/user
+2024-09-08 22:25:56 - Securing OPTIONS /api/therapists
+2024-09-08 22:25:56 - Securing GET /api/appointments
+2024-09-08 22:25:56 - Secured GET /api/appointments
+2024-09-08 22:25:56 - Securing GET /api/auth/user
+2024-09-08 22:25:56 - Secured GET /api/auth/user
+2024-09-08 22:25:56 - Securing GET /api/therapists
+2024-09-08 22:25:56 - Secured GET /api/therapists
+2024-09-08 22:25:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:25:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:26:05 - Securing GET /api/patients
+2024-09-08 22:26:05 - Securing GET /api/patients
+2024-09-08 22:26:05 - Secured GET /api/patients
+2024-09-08 22:26:05 - Secured GET /api/patients
+2024-09-08 22:26:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:26:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:26:06 - Securing GET /api/appointmentseries
+2024-09-08 22:26:06 - Secured GET /api/appointmentseries
+2024-09-08 22:26:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:26:56 - Securing GET /api/therapists
+2024-09-08 22:26:56 - Secured GET /api/therapists
+2024-09-08 22:26:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:26:57 - Securing GET /api/appointmentseries
+2024-09-08 22:26:57 - Secured GET /api/appointmentseries
+2024-09-08 22:26:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:26:57 - Securing GET /api/therapists/1/absences
+2024-09-08 22:26:57 - Secured GET /api/therapists/1/absences
+2024-09-08 22:26:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:30:45 - Securing GET /api/appointmentseries
+2024-09-08 22:30:45 - Secured GET /api/appointmentseries
+2024-09-08 22:30:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:30:45 - Securing GET /api/therapists/1/absences
+2024-09-08 22:30:45 - Secured GET /api/therapists/1/absences
+2024-09-08 22:30:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:31:02 - Securing GET /api/appointmentseries
+2024-09-08 22:31:02 - Secured GET /api/appointmentseries
+2024-09-08 22:31:02 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:31:02 - Securing GET /api/therapists/1/absences
+2024-09-08 22:31:02 - Secured GET /api/therapists/1/absences
+2024-09-08 22:31:02 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:31:54 - Securing GET /api/appointmentseries
+2024-09-08 22:31:54 - Secured GET /api/appointmentseries
+2024-09-08 22:31:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:31:54 - Securing GET /api/therapists/1/absences
+2024-09-08 22:31:54 - Secured GET /api/therapists/1/absences
+2024-09-08 22:31:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:31:55 - Securing GET /api/appointmentseries
+2024-09-08 22:31:55 - Secured GET /api/appointmentseries
+2024-09-08 22:31:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:31:57 - Securing GET /api/therapists/1/absences
+2024-09-08 22:31:57 - Secured GET /api/therapists/1/absences
+2024-09-08 22:31:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:02 - Securing GET /api/appointmentseries
+2024-09-08 22:32:02 - Secured GET /api/appointmentseries
+2024-09-08 22:32:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:03 - Securing GET /api/therapists/1/absences
+2024-09-08 22:32:03 - Secured GET /api/therapists/1/absences
+2024-09-08 22:32:03 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:03 - Securing GET /api/appointmentseries
+2024-09-08 22:32:03 - Secured GET /api/appointmentseries
+2024-09-08 22:32:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:04 - Securing GET /api/therapists/1/absences
+2024-09-08 22:32:04 - Secured GET /api/therapists/1/absences
+2024-09-08 22:32:04 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:08 - Securing GET /api/appointmentseries
+2024-09-08 22:32:08 - Secured GET /api/appointmentseries
+2024-09-08 22:32:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:09 - Securing GET /api/therapists/1/absences
+2024-09-08 22:32:09 - Secured GET /api/therapists/1/absences
+2024-09-08 22:32:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:15 - Securing GET /api/appointmentseries
+2024-09-08 22:32:15 - Secured GET /api/appointmentseries
+2024-09-08 22:32:16 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:16 - Securing GET /api/therapists/1/absences
+2024-09-08 22:32:16 - Secured GET /api/therapists/1/absences
+2024-09-08 22:32:16 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:49 - Securing GET /api/patients
+2024-09-08 22:32:49 - Secured GET /api/patients
+2024-09-08 22:32:49 - Securing GET /api/auth/user
+2024-09-08 22:32:49 - Securing GET /api/therapists
+2024-09-08 22:32:49 - Securing GET /api/appointments
+2024-09-08 22:32:49 - Secured GET /api/auth/user
+2024-09-08 22:32:49 - Secured GET /api/therapists
+2024-09-08 22:32:49 - Secured GET /api/appointments
+2024-09-08 22:32:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:32:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:33:44 - Securing GET /api/therapists
+2024-09-08 22:33:44 - Secured GET /api/therapists
+2024-09-08 22:33:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:33:46 - Securing GET /api/appointmentseries
+2024-09-08 22:33:46 - Secured GET /api/appointmentseries
+2024-09-08 22:33:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:33:46 - Securing GET /api/therapists/1/absences
+2024-09-08 22:33:46 - Secured GET /api/therapists/1/absences
+2024-09-08 22:33:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:34:45 - Securing GET /api/patients
+2024-09-08 22:34:45 - Secured GET /api/patients
+2024-09-08 22:34:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:34:46 - Securing GET /api/auth/user
+2024-09-08 22:34:46 - Secured GET /api/auth/user
+2024-09-08 22:34:46 - Securing GET /api/therapists
+2024-09-08 22:34:46 - Secured GET /api/therapists
+2024-09-08 22:34:46 - Securing GET /api/appointments
+2024-09-08 22:34:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:34:46 - Secured GET /api/appointments
+2024-09-08 22:34:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:34:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:34:49 - Securing GET /api/therapists
+2024-09-08 22:34:49 - Secured GET /api/therapists
+2024-09-08 22:34:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:34:51 - Securing GET /api/appointmentseries
+2024-09-08 22:34:51 - Secured GET /api/appointmentseries
+2024-09-08 22:34:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:34:51 - Securing GET /api/therapists/1/absences
+2024-09-08 22:34:51 - Secured GET /api/therapists/1/absences
+2024-09-08 22:34:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:17 - Securing GET /api/patients
+2024-09-08 22:37:17 - Secured GET /api/patients
+2024-09-08 22:37:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:17 - Securing GET /api/auth/user
+2024-09-08 22:37:17 - Secured GET /api/auth/user
+2024-09-08 22:37:17 - Securing GET /api/therapists
+2024-09-08 22:37:17 - Secured GET /api/therapists
+2024-09-08 22:37:17 - Securing GET /api/appointments
+2024-09-08 22:37:17 - Secured GET /api/appointments
+2024-09-08 22:37:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:19 - Securing GET /api/therapists
+2024-09-08 22:37:19 - Secured GET /api/therapists
+2024-09-08 22:37:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:21 - Securing GET /api/appointmentseries
+2024-09-08 22:37:21 - Secured GET /api/appointmentseries
+2024-09-08 22:37:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:21 - Securing GET /api/therapists/1/absences
+2024-09-08 22:37:21 - Secured GET /api/therapists/1/absences
+2024-09-08 22:37:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:39 - Securing GET /api/patients
+2024-09-08 22:37:39 - Secured GET /api/patients
+2024-09-08 22:37:39 - Securing GET /api/patients
+2024-09-08 22:37:39 - Secured GET /api/patients
+2024-09-08 22:37:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:39 - Securing GET /api/appointmentseries
+2024-09-08 22:37:39 - Secured GET /api/appointmentseries
+2024-09-08 22:37:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:51 - Securing GET /api/patients
+2024-09-08 22:37:51 - Secured GET /api/patients
+2024-09-08 22:37:51 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:37:58 - Securing GET /api/patients
+2024-09-08 22:37:58 - Secured GET /api/patients
+2024-09-08 22:37:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:38:05 - Securing GET /api/patients
+2024-09-08 22:38:05 - Secured GET /api/patients
+2024-09-08 22:38:05 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:39:41 - Securing GET /api/patients
+2024-09-08 22:39:41 - Secured GET /api/patients
+2024-09-08 22:39:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:39:56 - Securing GET /api/patients
+2024-09-08 22:39:56 - Secured GET /api/patients
+2024-09-08 22:39:56 - Securing GET /api/auth/user
+2024-09-08 22:39:56 - Securing GET /api/therapists
+2024-09-08 22:39:56 - Securing GET /api/appointments
+2024-09-08 22:39:56 - Secured GET /api/auth/user
+2024-09-08 22:39:56 - Secured GET /api/therapists
+2024-09-08 22:39:56 - Secured GET /api/appointments
+2024-09-08 22:39:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:39:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:39:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:39:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:39:59 - Securing GET /api/therapists
+2024-09-08 22:39:59 - Secured GET /api/therapists
+2024-09-08 22:39:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:40:01 - Securing GET /api/appointmentseries
+2024-09-08 22:40:01 - Secured GET /api/appointmentseries
+2024-09-08 22:40:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:40:01 - Securing GET /api/therapists/1/absences
+2024-09-08 22:40:01 - Secured GET /api/therapists/1/absences
+2024-09-08 22:40:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:25 - Securing GET /api/patients
+2024-09-08 22:43:25 - Secured GET /api/patients
+2024-09-08 22:43:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:25 - Securing GET /api/auth/user
+2024-09-08 22:43:25 - Secured GET /api/auth/user
+2024-09-08 22:43:25 - Securing GET /api/therapists
+2024-09-08 22:43:25 - Secured GET /api/therapists
+2024-09-08 22:43:25 - Securing GET /api/appointments
+2024-09-08 22:43:25 - Secured GET /api/appointments
+2024-09-08 22:43:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:28 - Securing GET /api/therapists
+2024-09-08 22:43:28 - Secured GET /api/therapists
+2024-09-08 22:43:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:30 - Securing GET /api/appointmentseries
+2024-09-08 22:43:30 - Secured GET /api/appointmentseries
+2024-09-08 22:43:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:30 - Securing GET /api/therapists/2/absences
+2024-09-08 22:43:30 - Secured GET /api/therapists/2/absences
+2024-09-08 22:43:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:37 - Securing GET /api/appointmentseries
+2024-09-08 22:43:37 - Secured GET /api/appointmentseries
+2024-09-08 22:43:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:38 - Securing GET /api/therapists/1/absences
+2024-09-08 22:43:38 - Secured GET /api/therapists/1/absences
+2024-09-08 22:43:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:56 - Securing GET /api/patients
+2024-09-08 22:43:56 - Secured GET /api/patients
+2024-09-08 22:43:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:56 - Securing GET /api/auth/user
+2024-09-08 22:43:56 - Secured GET /api/auth/user
+2024-09-08 22:43:56 - Securing GET /api/appointments
+2024-09-08 22:43:56 - Secured GET /api/appointments
+2024-09-08 22:43:56 - Securing GET /api/therapists
+2024-09-08 22:43:56 - Secured GET /api/therapists
+2024-09-08 22:43:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:56 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:43:59 - Securing GET /api/therapists
+2024-09-08 22:43:59 - Secured GET /api/therapists
+2024-09-08 22:43:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:44:00 - Securing GET /api/appointmentseries
+2024-09-08 22:44:00 - Secured GET /api/appointmentseries
+2024-09-08 22:44:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:44:01 - Securing GET /api/therapists/1/absences
+2024-09-08 22:44:01 - Secured GET /api/therapists/1/absences
+2024-09-08 22:44:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:44:20 - Securing GET /api/patients
+2024-09-08 22:44:20 - Securing GET /api/patients
+2024-09-08 22:44:20 - Secured GET /api/patients
+2024-09-08 22:44:20 - Secured GET /api/patients
+2024-09-08 22:44:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:44:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:44:20 - Securing GET /api/appointmentseries
+2024-09-08 22:44:20 - Secured GET /api/appointmentseries
+2024-09-08 22:44:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:44:24 - Securing GET /api/patients
+2024-09-08 22:44:24 - Secured GET /api/patients
+2024-09-08 22:44:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:44:42 - Securing GET /api/patients
+2024-09-08 22:44:42 - Secured GET /api/patients
+2024-09-08 22:44:42 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:50:34 - Securing GET /api/appointmentseries
+2024-09-08 22:50:34 - Secured GET /api/appointmentseries
+2024-09-08 22:50:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:50:35 - Securing GET /api/appointmentseries
+2024-09-08 22:50:35 - Secured GET /api/appointmentseries
+2024-09-08 22:50:35 - Securing GET /api/therapists/1/absences
+2024-09-08 22:50:35 - Secured GET /api/therapists/1/absences
+2024-09-08 22:50:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:50:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:50:36 - Securing GET /api/therapists/1/absences
+2024-09-08 22:50:36 - Secured GET /api/therapists/1/absences
+2024-09-08 22:50:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:50:36 - Securing GET /api/appointmentseries
+2024-09-08 22:50:36 - Secured GET /api/appointmentseries
+2024-09-08 22:50:38 - Securing GET /api/appointmentseries
+2024-09-08 22:50:38 - Secured GET /api/appointmentseries
+2024-09-08 22:50:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:50:38 - Securing GET /api/therapists/1/absences
+2024-09-08 22:50:38 - Secured GET /api/therapists/1/absences
+2024-09-08 22:50:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:50:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:50:38 - Securing GET /api/therapists/1/absences
+2024-09-08 22:50:38 - Secured GET /api/therapists/1/absences
+2024-09-08 22:50:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:51:13 - Securing GET /api/appointmentseries
+2024-09-08 22:51:13 - Secured GET /api/appointmentseries
+2024-09-08 22:51:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:51:14 - Securing GET /api/therapists/1/absences
+2024-09-08 22:51:14 - Secured GET /api/therapists/1/absences
+2024-09-08 22:51:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:51:16 - Securing GET /api/appointmentseries
+2024-09-08 22:51:16 - Secured GET /api/appointmentseries
+2024-09-08 22:51:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:51:17 - Securing GET /api/therapists/1/absences
+2024-09-08 22:51:17 - Secured GET /api/therapists/1/absences
+2024-09-08 22:51:17 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:51:19 - Securing GET /api/appointmentseries
+2024-09-08 22:51:19 - Secured GET /api/appointmentseries
+2024-09-08 22:51:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:51:20 - Securing GET /api/therapists/1/absences
+2024-09-08 22:51:20 - Secured GET /api/therapists/1/absences
+2024-09-08 22:51:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:52:34 - Securing GET /api/patients
+2024-09-08 22:52:34 - Securing GET /api/patients
+2024-09-08 22:52:34 - Secured GET /api/patients
+2024-09-08 22:52:34 - Secured GET /api/patients
+2024-09-08 22:52:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:52:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:52:34 - Securing GET /api/appointmentseries
+2024-09-08 22:52:34 - Secured GET /api/appointmentseries
+2024-09-08 22:52:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:52:38 - Securing GET /api/patients
+2024-09-08 22:52:38 - Secured GET /api/patients
+2024-09-08 22:52:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:52:43 - Securing GET /api/patients
+2024-09-08 22:52:43 - Secured GET /api/patients
+2024-09-08 22:52:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:53:57 - Securing GET /api/patients
+2024-09-08 22:53:57 - Secured GET /api/patients
+2024-09-08 22:53:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:34 - Securing GET /api/appointmentseries
+2024-09-08 22:58:34 - Secured GET /api/appointmentseries
+2024-09-08 22:58:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:34 - Securing GET /api/therapists/1/absences
+2024-09-08 22:58:34 - Secured GET /api/therapists/1/absences
+2024-09-08 22:58:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:35 - Securing GET /api/appointmentseries
+2024-09-08 22:58:35 - Secured GET /api/appointmentseries
+2024-09-08 22:58:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:35 - Securing GET /api/therapists/1/absences
+2024-09-08 22:58:35 - Secured GET /api/therapists/1/absences
+2024-09-08 22:58:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:38 - Securing GET /api/appointmentseries
+2024-09-08 22:58:38 - Secured GET /api/appointmentseries
+2024-09-08 22:58:38 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:38 - Securing GET /api/therapists/1/absences
+2024-09-08 22:58:38 - Secured GET /api/therapists/1/absences
+2024-09-08 22:58:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:41 - Securing GET /api/appointmentseries
+2024-09-08 22:58:41 - Secured GET /api/appointmentseries
+2024-09-08 22:58:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:41 - Securing GET /api/therapists/1/absences
+2024-09-08 22:58:41 - Secured GET /api/therapists/1/absences
+2024-09-08 22:58:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:44 - Securing GET /api/patients
+2024-09-08 22:58:44 - Secured GET /api/patients
+2024-09-08 22:58:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:45 - Securing OPTIONS /api/auth/user
+2024-09-08 22:58:45 - Securing OPTIONS /api/appointments
+2024-09-08 22:58:45 - Securing OPTIONS /api/therapists
+2024-09-08 22:58:45 - Securing GET /api/auth/user
+2024-09-08 22:58:45 - Securing GET /api/appointments
+2024-09-08 22:58:45 - Secured GET /api/appointments
+2024-09-08 22:58:45 - Secured GET /api/auth/user
+2024-09-08 22:58:45 - Securing GET /api/therapists
+2024-09-08 22:58:45 - Secured GET /api/therapists
+2024-09-08 22:58:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:47 - Securing GET /api/therapists
+2024-09-08 22:58:47 - Secured GET /api/therapists
+2024-09-08 22:58:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:49 - Securing GET /api/appointmentseries
+2024-09-08 22:58:49 - Secured GET /api/appointmentseries
+2024-09-08 22:58:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:49 - Securing GET /api/therapists/1/absences
+2024-09-08 22:58:49 - Secured GET /api/therapists/1/absences
+2024-09-08 22:58:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:52 - Securing GET /api/patients
+2024-09-08 22:58:52 - Securing GET /api/patients
+2024-09-08 22:58:52 - Secured GET /api/patients
+2024-09-08 22:58:52 - Secured GET /api/patients
+2024-09-08 22:58:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:52 - Securing GET /api/appointmentseries
+2024-09-08 22:58:52 - Secured GET /api/appointmentseries
+2024-09-08 22:58:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:58:57 - Securing GET /api/patients
+2024-09-08 22:58:57 - Secured GET /api/patients
+2024-09-08 22:58:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 22:59:07 - Securing GET /api/patients
+2024-09-08 22:59:07 - Secured GET /api/patients
+2024-09-08 22:59:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:01:11 - Securing GET /api/patients
+2024-09-08 23:01:11 - Secured GET /api/patients
+2024-09-08 23:01:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:02:49 - Securing GET /api/appointmentseries
+2024-09-08 23:02:49 - Secured GET /api/appointmentseries
+2024-09-08 23:02:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:02:49 - Securing GET /api/therapists/1/absences
+2024-09-08 23:02:49 - Secured GET /api/therapists/1/absences
+2024-09-08 23:02:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:07:48 - Securing GET /api/patients
+2024-09-08 23:07:48 - Secured GET /api/patients
+2024-09-08 23:07:48 - Securing GET /api/patients
+2024-09-08 23:07:48 - Secured GET /api/patients
+2024-09-08 23:07:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:07:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:07:49 - Securing GET /api/appointmentseries
+2024-09-08 23:07:49 - Secured GET /api/appointmentseries
+2024-09-08 23:07:49 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:07:52 - Securing GET /api/patients
+2024-09-08 23:07:52 - Secured GET /api/patients
+2024-09-08 23:07:52 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:07:58 - Securing GET /api/patients
+2024-09-08 23:07:58 - Secured GET /api/patients
+2024-09-08 23:07:58 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:08:01 - Securing GET /api/patients
+2024-09-08 23:08:01 - Secured GET /api/patients
+2024-09-08 23:08:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:08:07 - Securing GET /api/appointmentseries
+2024-09-08 23:08:07 - Secured GET /api/appointmentseries
+2024-09-08 23:08:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:08:07 - Securing GET /api/therapists/1/absences
+2024-09-08 23:08:07 - Secured GET /api/therapists/1/absences
+2024-09-08 23:08:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:08:09 - Securing GET /api/patients
+2024-09-08 23:08:09 - Securing GET /api/patients
+2024-09-08 23:08:09 - Secured GET /api/patients
+2024-09-08 23:08:09 - Secured GET /api/patients
+2024-09-08 23:08:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:08:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:08:09 - Securing GET /api/appointmentseries
+2024-09-08 23:08:09 - Secured GET /api/appointmentseries
+2024-09-08 23:08:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:08:15 - Securing GET /api/patients
+2024-09-08 23:08:15 - Secured GET /api/patients
+2024-09-08 23:08:15 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:09:07 - Securing GET /api/patients
+2024-09-08 23:09:07 - Secured GET /api/patients
+2024-09-08 23:09:07 - Securing GET /api/therapists
+2024-09-08 23:09:07 - Secured GET /api/therapists
+2024-09-08 23:09:07 - Securing GET /api/appointments
+2024-09-08 23:09:07 - Secured GET /api/appointments
+2024-09-08 23:09:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:09:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:09:07 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:10:43 - Securing GET /api/patients
+2024-09-08 23:10:43 - Secured GET /api/patients
+2024-09-08 23:10:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:10:43 - Securing GET /api/auth/user
+2024-09-08 23:10:43 - Secured GET /api/auth/user
+2024-09-08 23:10:43 - Securing GET /api/therapists
+2024-09-08 23:10:43 - Secured GET /api/therapists
+2024-09-08 23:10:43 - Securing GET /api/appointments
+2024-09-08 23:10:43 - Secured GET /api/appointments
+2024-09-08 23:10:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:10:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:10:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:11:35 - Securing GET /api/therapists
+2024-09-08 23:11:35 - Secured GET /api/therapists
+2024-09-08 23:11:35 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:11:37 - Securing GET /api/appointmentseries
+2024-09-08 23:11:37 - Secured GET /api/appointmentseries
+2024-09-08 23:11:37 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:11:37 - Securing GET /api/therapists/1/absences
+2024-09-08 23:11:37 - Secured GET /api/therapists/1/absences
+2024-09-08 23:11:37 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:11:41 - Securing GET /api/patients
+2024-09-08 23:11:41 - Securing GET /api/patients
+2024-09-08 23:11:41 - Secured GET /api/patients
+2024-09-08 23:11:41 - Secured GET /api/patients
+2024-09-08 23:11:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:11:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:11:41 - Securing GET /api/appointmentseries
+2024-09-08 23:11:41 - Secured GET /api/appointmentseries
+2024-09-08 23:11:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:11:45 - Securing GET /api/patients
+2024-09-08 23:11:45 - Secured GET /api/patients
+2024-09-08 23:11:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:13:32 - Securing GET /api/appointmentseries
+2024-09-08 23:13:32 - Secured GET /api/appointmentseries
+2024-09-08 23:13:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:13:32 - Securing GET /api/therapists/1/absences
+2024-09-08 23:13:32 - Secured GET /api/therapists/1/absences
+2024-09-08 23:13:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:13 - Securing GET /api/appointmentseries
+2024-09-08 23:15:13 - Secured GET /api/appointmentseries
+2024-09-08 23:15:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:13 - Securing GET /api/therapists/1/absences
+2024-09-08 23:15:13 - Secured GET /api/therapists/1/absences
+2024-09-08 23:15:13 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:43 - Securing GET /api/patients
+2024-09-08 23:15:43 - Secured GET /api/patients
+2024-09-08 23:15:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:43 - Securing GET /api/auth/user
+2024-09-08 23:15:43 - Securing GET /api/appointments
+2024-09-08 23:15:43 - Secured GET /api/auth/user
+2024-09-08 23:15:43 - Secured GET /api/appointments
+2024-09-08 23:15:43 - Securing GET /api/therapists
+2024-09-08 23:15:43 - Secured GET /api/therapists
+2024-09-08 23:15:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:43 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:45 - Securing GET /api/therapists
+2024-09-08 23:15:45 - Secured GET /api/therapists
+2024-09-08 23:15:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:46 - Securing GET /api/appointmentseries
+2024-09-08 23:15:46 - Secured GET /api/appointmentseries
+2024-09-08 23:15:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:46 - Securing GET /api/therapists/1/absences
+2024-09-08 23:15:46 - Secured GET /api/therapists/1/absences
+2024-09-08 23:15:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:48 - Securing GET /api/patients
+2024-09-08 23:15:48 - Securing GET /api/patients
+2024-09-08 23:15:48 - Secured GET /api/patients
+2024-09-08 23:15:48 - Secured GET /api/patients
+2024-09-08 23:15:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:48 - Securing GET /api/appointmentseries
+2024-09-08 23:15:48 - Secured GET /api/appointmentseries
+2024-09-08 23:15:48 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:15:50 - Securing GET /api/patients
+2024-09-08 23:15:50 - Secured GET /api/patients
+2024-09-08 23:15:50 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:22 - Securing GET /api/patients
+2024-09-08 23:18:22 - Secured GET /api/patients
+2024-09-08 23:18:22 - Securing GET /api/patients
+2024-09-08 23:18:22 - Secured GET /api/patients
+2024-09-08 23:18:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:23 - Securing GET /api/appointmentseries
+2024-09-08 23:18:23 - Secured GET /api/appointmentseries
+2024-09-08 23:18:23 - Securing GET /api/appointmentseries
+2024-09-08 23:18:23 - Secured GET /api/appointmentseries
+2024-09-08 23:18:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:27 - Securing GET /api/patients
+2024-09-08 23:18:27 - Secured GET /api/patients
+2024-09-08 23:18:28 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:30 - Securing GET /api/patients
+2024-09-08 23:18:30 - Secured GET /api/patients
+2024-09-08 23:18:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:36 - Securing GET /api/patients
+2024-09-08 23:18:36 - Secured GET /api/patients
+2024-09-08 23:18:36 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:41 - Securing GET /api/patients
+2024-09-08 23:18:41 - Secured GET /api/patients
+2024-09-08 23:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:57 - Securing GET /api/patients
+2024-09-08 23:18:57 - Securing GET /api/patients
+2024-09-08 23:18:57 - Secured GET /api/patients
+2024-09-08 23:18:57 - Secured GET /api/patients
+2024-09-08 23:18:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:18:57 - Securing GET /api/appointmentseries
+2024-09-08 23:18:57 - Secured GET /api/appointmentseries
+2024-09-08 23:18:57 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:01 - Securing GET /api/patients
+2024-09-08 23:19:01 - Securing GET /api/patients
+2024-09-08 23:19:01 - Secured GET /api/patients
+2024-09-08 23:19:01 - Secured GET /api/patients
+2024-09-08 23:19:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:01 - Securing GET /api/appointmentseries
+2024-09-08 23:19:01 - Secured GET /api/appointmentseries
+2024-09-08 23:19:01 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:06 - Securing GET /api/patients
+2024-09-08 23:19:06 - Secured GET /api/patients
+2024-09-08 23:19:06 - Securing GET /api/patients
+2024-09-08 23:19:06 - Secured GET /api/patients
+2024-09-08 23:19:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:06 - Securing GET /api/appointmentseries
+2024-09-08 23:19:06 - Secured GET /api/appointmentseries
+2024-09-08 23:19:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:09 - Securing GET /api/patients
+2024-09-08 23:19:09 - Secured GET /api/patients
+2024-09-08 23:19:09 - Securing GET /api/patients
+2024-09-08 23:19:09 - Secured GET /api/patients
+2024-09-08 23:19:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:09 - Securing GET /api/appointmentseries
+2024-09-08 23:19:09 - Secured GET /api/appointmentseries
+2024-09-08 23:19:09 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:14 - Securing GET /api/patients
+2024-09-08 23:19:14 - Secured GET /api/patients
+2024-09-08 23:19:14 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:17 - Securing GET /api/patients
+2024-09-08 23:19:17 - Secured GET /api/patients
+2024-09-08 23:19:18 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:19:59 - Securing GET /api/patients
+2024-09-08 23:19:59 - Secured GET /api/patients
+2024-09-08 23:19:59 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:20:46 - Securing GET /api/patients
+2024-09-08 23:20:46 - Secured GET /api/patients
+2024-09-08 23:20:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:20:47 - Securing GET /api/appointmentseries
+2024-09-08 23:20:47 - Secured GET /api/appointmentseries
+2024-09-08 23:20:47 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:21 - Securing GET /api/patients
+2024-09-08 23:22:21 - Securing GET /api/patients
+2024-09-08 23:22:21 - Secured GET /api/patients
+2024-09-08 23:22:21 - Secured GET /api/patients
+2024-09-08 23:22:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:21 - Securing GET /api/appointmentseries
+2024-09-08 23:22:21 - Secured GET /api/appointmentseries
+2024-09-08 23:22:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:24 - Securing OPTIONS /api/appointments/64
+2024-09-08 23:22:24 - Securing PUT /api/appointments/64
+2024-09-08 23:22:24 - Secured PUT /api/appointments/64
+2024-09-08 23:22:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:24 - Securing GET /api/appointments
+2024-09-08 23:22:24 - Securing GET /api/appointments
+2024-09-08 23:22:24 - Secured GET /api/appointments
+2024-09-08 23:22:24 - Secured GET /api/appointments
+2024-09-08 23:22:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:27 - Securing GET /api/patients
+2024-09-08 23:22:27 - Secured GET /api/patients
+2024-09-08 23:22:27 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:29 - Securing OPTIONS /api/appointments/66
+2024-09-08 23:22:29 - Securing PUT /api/appointments/66
+2024-09-08 23:22:29 - Secured PUT /api/appointments/66
+2024-09-08 23:22:29 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:29 - Securing GET /api/appointments
+2024-09-08 23:22:29 - Securing GET /api/appointments
+2024-09-08 23:22:29 - Secured GET /api/appointments
+2024-09-08 23:22:29 - Secured GET /api/appointments
+2024-09-08 23:22:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:32 - Securing GET /api/patients
+2024-09-08 23:22:32 - Secured GET /api/patients
+2024-09-08 23:22:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:34 - Securing PUT /api/appointments/66
+2024-09-08 23:22:34 - Secured PUT /api/appointments/66
+2024-09-08 23:22:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:34 - Securing GET /api/appointments
+2024-09-08 23:22:34 - Securing GET /api/appointments
+2024-09-08 23:22:34 - Secured GET /api/appointments
+2024-09-08 23:22:34 - Secured GET /api/appointments
+2024-09-08 23:22:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:39 - Securing GET /api/patients
+2024-09-08 23:22:39 - Secured GET /api/patients
+2024-09-08 23:22:39 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:44 - Securing OPTIONS /api/appointments/83
+2024-09-08 23:22:44 - Securing PUT /api/appointments/83
+2024-09-08 23:22:44 - Secured PUT /api/appointments/83
+2024-09-08 23:22:44 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:45 - Securing GET /api/appointments
+2024-09-08 23:22:45 - Securing GET /api/appointments
+2024-09-08 23:22:45 - Secured GET /api/appointments
+2024-09-08 23:22:45 - Secured GET /api/appointments
+2024-09-08 23:22:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:45 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:22:46 - Securing GET /api/patients
+2024-09-08 23:22:46 - Secured GET /api/patients
+2024-09-08 23:22:46 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:06 - Securing GET /api/patients
+2024-09-08 23:23:06 - Secured GET /api/patients
+2024-09-08 23:23:06 - Securing GET /api/auth/user
+2024-09-08 23:23:06 - Securing GET /api/therapists
+2024-09-08 23:23:06 - Securing GET /api/appointments
+2024-09-08 23:23:06 - Secured GET /api/auth/user
+2024-09-08 23:23:06 - Secured GET /api/therapists
+2024-09-08 23:23:06 - Secured GET /api/appointments
+2024-09-08 23:23:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:06 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:20 - Securing OPTIONS /api/auth/login
+2024-09-08 23:23:20 - Securing POST /api/auth/login
+2024-09-08 23:23:20 - Secured POST /api/auth/login
+2024-09-08 23:23:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:20 - Securing GET /api/auth/user
+2024-09-08 23:23:20 - Secured GET /api/auth/user
+2024-09-08 23:23:20 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:21 - Securing GET /api/patients
+2024-09-08 23:23:21 - Secured GET /api/patients
+2024-09-08 23:23:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:21 - Securing GET /api/therapists
+2024-09-08 23:23:21 - Secured GET /api/therapists
+2024-09-08 23:23:21 - Securing GET /api/appointments
+2024-09-08 23:23:21 - Secured GET /api/appointments
+2024-09-08 23:23:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:21 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:25 - Securing GET /api/appointments
+2024-09-08 23:23:25 - Secured GET /api/appointments
+2024-09-08 23:23:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:25 - Securing GET /api/appointments
+2024-09-08 23:23:25 - Secured GET /api/appointments
+2024-09-08 23:23:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:25 - Securing GET /api/appointments
+2024-09-08 23:23:25 - Secured GET /api/appointments
+2024-09-08 23:23:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:25 - Securing GET /api/appointments
+2024-09-08 23:23:25 - Secured GET /api/appointments
+2024-09-08 23:23:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:26 - Securing GET /api/appointments
+2024-09-08 23:23:26 - Secured GET /api/appointments
+2024-09-08 23:23:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:26 - Securing GET /api/appointments
+2024-09-08 23:23:26 - Secured GET /api/appointments
+2024-09-08 23:23:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:26 - Securing GET /api/appointments
+2024-09-08 23:23:26 - Secured GET /api/appointments
+2024-09-08 23:23:27 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:29 - Securing GET /api/appointments
+2024-09-08 23:23:29 - Secured GET /api/appointments
+2024-09-08 23:23:29 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:30 - Securing GET /api/appointments
+2024-09-08 23:23:30 - Secured GET /api/appointments
+2024-09-08 23:23:30 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:31 - Securing GET /api/appointments
+2024-09-08 23:23:31 - Secured GET /api/appointments
+2024-09-08 23:23:31 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:32 - Securing GET /api/appointments
+2024-09-08 23:23:32 - Secured GET /api/appointments
+2024-09-08 23:23:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:32 - Securing GET /api/appointments
+2024-09-08 23:23:32 - Secured GET /api/appointments
+2024-09-08 23:23:32 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:33 - Securing GET /api/appointments
+2024-09-08 23:23:33 - Secured GET /api/appointments
+2024-09-08 23:23:33 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:34 - Securing GET /api/appointments
+2024-09-08 23:23:34 - Secured GET /api/appointments
+2024-09-08 23:23:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:34 - Securing GET /api/appointments
+2024-09-08 23:23:34 - Secured GET /api/appointments
+2024-09-08 23:23:34 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-08 23:23:35 - Securing GET /api/appointments
+2024-09-08 23:23:35 - Secured GET /api/appointments
+2024-09-08 23:23:35 - Set SecurityContextHolder to anonymous SecurityContext
