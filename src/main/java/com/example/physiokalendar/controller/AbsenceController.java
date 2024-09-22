@@ -33,6 +33,11 @@ public class AbsenceController {
         return absenceService.getAbsenceById(id);
     }
 
+    @GetMapping("/therapist/{id}")
+    public List<Absence> getAbsenceByTherapistId(@PathVariable Long id) {
+        return absenceService.getAbsencesByTherapistId(id);
+    }
+
     @PostMapping
     public Absence createOrUpdateAbsence(@RequestBody JSONAbsenceDTO absence) {
         return absenceService.saveAbsence(absence);

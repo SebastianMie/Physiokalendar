@@ -2,7 +2,6 @@ package com.example.physiokalendar.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,12 @@ public class AbsenceService {
         return absenceRepository.findById(id);
     }
 
+    public List<Absence> getAbsencesByTherapistId(Long therapistId) {
+        return absenceRepository.findByTherapistId(therapistId);
+    }
+
     public Absence saveAbsence(JSONAbsenceDTO absence) {
+        //absence.setId(null);
         return absenceRepository.save(convertDTOToEntity(absence));
     }
 
@@ -32,20 +36,23 @@ public class AbsenceService {
         absenceRepository.deleteById(id);
     }
 
-    public static Absence convertDTOToEntity(JSONAbsenceDTO dto) {
+    public Absence convertDTOToEntity(JSONAbsenceDTO dto) {
         Absence absence = new Absence();
         absence.setId(dto.getId());
+        
+        absence.setTherapistId(dto.getTherapistId());
+        
         absence.setDate(dto.getDate());
         absence.setWeekday(dto.getWeekday());
-        absence.setStartTime(dto.getDate());
-        absence.setEndTime(dto.getDate());
-        // Weitere Felder falls nötig
+        absence.setStartTime(dto.getStartTime());
+        absence.setEndTime(dto.getEndTime());
         return absence;
     }
 
     public static JSONAbsenceDTO convertEntityToDTO(Absence absence) {
         JSONAbsenceDTO dto = new JSONAbsenceDTO();
         dto.setId(absence.getId());
+        dto.setTherapistId(absence.getTherapistId());
         dto.setDate(absence.getDate());
         dto.setWeekday(dto.getWeekday());
         dto.setStartTime(dto.getDate());

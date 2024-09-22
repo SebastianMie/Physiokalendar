@@ -33,10 +33,10 @@ public class AppointmentService {
     private PatientRepository patientRepository;
 
     @Autowired
-    private PatientService patientService;  // Autowired PatientService
+    private PatientService patientService;
 
     @Autowired
-    private TherapistService therapistService;  // Autowired TherapistService
+    private TherapistService therapistService;
 
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();

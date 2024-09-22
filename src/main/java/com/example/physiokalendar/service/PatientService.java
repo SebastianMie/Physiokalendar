@@ -28,6 +28,7 @@ public class PatientService {
 
     public Patient createPatient(JSONPatientDTO dto) {
         Patient patient = convertDTOToEntity(dto);
+        patient.setId(null);
         return patientRepository.save(patient);
     }
 

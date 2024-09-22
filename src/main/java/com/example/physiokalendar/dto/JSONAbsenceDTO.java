@@ -19,6 +19,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class JSONAbsenceDTO {
     private Long id;
+    private Long therapistId;
     private Date date;
     private String weekday;
     private Date startTime;

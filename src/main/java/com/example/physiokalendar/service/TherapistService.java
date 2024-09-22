@@ -5,15 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.physiokalendar.dto.JSONAbsenceDTO;
-import com.example.physiokalendar.dto.JSONAbsenceExceptionDTO;
 import com.example.physiokalendar.dto.JSONTherapistDTO;
-import com.example.physiokalendar.entity.Absence;
-import com.example.physiokalendar.entity.AbsenceException;
 import com.example.physiokalendar.entity.Therapist;
-import com.example.physiokalendar.repository.AbsenceExceptionRepository;
-import com.example.physiokalendar.repository.AbsenceRepository;
 import com.example.physiokalendar.repository.TherapistRepository;
 
 @Service
@@ -21,12 +14,6 @@ public class TherapistService {
 
     @Autowired
     private TherapistRepository therapistRepository;
-
-    @Autowired
-    private AbsenceRepository absenceRepository;
-
-    @Autowired
-    private AbsenceExceptionRepository exceptionRepository;
 
     public List<JSONTherapistDTO> getAllTherapists() {
         return therapistRepository.findAll().stream()
@@ -59,32 +46,6 @@ public class TherapistService {
 
     public void deleteTherapist(Long id) {
         therapistRepository.deleteById(id);
-    }
-
-    public List<JSONAbsenceDTO> getAllAbsences() {
-        return absenceRepository.findAll().stream()
-                .map(AbsenceService::convertEntityToDTO)
-                .collect(Collectors.toList());
-    }
-
-    public Therapist addAbsence(Long therapistId, JSONAbsenceDTO absenceDTO) {
-        Therapist therapist = therapistRepository.findById(therapistId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));
-        Absence absence = AbsenceService.convertDTOToEntity(absenceDTO);
-        absence.setTherapist(therapist);
-        absenceRepository.save(absence);
-        therapist.getAbsences().add(absence);
-        return therapistRepository.save(therapist);
-    }
-
-    public Therapist addAbsenceException(Long therapistId, JSONAbsenceExceptionDTO exceptionDTO) {
-        Therapist therapist = therapistRepository.findById(therapistId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));
-        AbsenceException exception = AbsenceExceptionService.convertDTOToEntity(exceptionDTO);
-        exception.setTherapist(therapist);
-        exceptionRepository.save(exception);
-        therapist.getExceptions().add(exception);
-        return therapistRepository.save(therapist);
     }
 
     public JSONTherapistDTO convertEntityToDTO(Therapist therapist) {
