@@ -1,4 +1,3 @@
-// AppointmentService.java
 package com.example.physiokalendar.service;
 
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
@@ -11,12 +10,18 @@ import com.example.physiokalendar.repository.TherapistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import java.time.ZoneId;
+import java.util.Date;
 
 import com.example.physiokalendar.repository.PatientRepository;
 
@@ -101,6 +106,61 @@ public class AppointmentService {
         }
         return conflictingAppointments;
     }
+
+
+    public List<Appointment> findAvailableAppointments(Long therapistId, Long patientId, int timeOfDayId, Integer duration) {
+    List<Appointment> availableAppointments = new ArrayList<>();
+
+    // Datum von heute als Date-Objekt
+    Date today = new Date();
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTime(today);
+
+    LocalTime startTime = TimeOfDayService.getStartTime(timeOfDayId);
+    LocalTime endTime = TimeOfDayService.getEndTime(timeOfDayId);
+    //ZoneId systemTimeZone = ZoneId.systemDefault(); // System-Zeitzone
+
+    while (startTime.plusMinutes(duration).isBefore(endTime)) {
+        calendar.set(Calendar.HOUR_OF_DAY, startTime.getHour());
+        calendar.set(Calendar.MINUTE, startTime.getMinute());
+        Date startDateTime = calendar.getTime();
+
+        calendar.add(Calendar.MINUTE, duration);
+        Date endDateTime = calendar.getTime();
+
+        if (isSlotAvailable(therapistId, startDateTime, endDateTime)) {
+            Appointment potentialAppointment = new Appointment();
+            potentialAppointment.setTherapist(therapistRepository.findById(therapistId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID")));
+
+            potentialAppointment.setPatient(patientRepository.findById(patientId)  
+                .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID")));
+            potentialAppointment.setStartTime(startDateTime);
+            potentialAppointment.setEndTime(endDateTime);
+            potentialAppointment.setDate(today); // Das Datum ohne Zeitkomponente
+
+            availableAppointments.add(potentialAppointment);
+        }
+
+        startTime = startTime.plusMinutes(duration); // Update startTime für den nächsten Durchlauf
+    }
+
+    return availableAppointments;
+}
+
+    
+    private boolean isSlotAvailable(Long therapistId, Date startDateTime, Date endDateTime) {
+        // Prüfen, ob der Slot Überschneidungen mit bestehenden Terminen hat
+        LocalDate date = startDateTime.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return appointmentRepository.findAllByTherapistIdAndDate(therapistId, Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant())).stream()
+            .noneMatch(appointment ->
+                startDateTime.before(appointment.getEndTime()) && 
+                endDateTime.after(appointment.getStartTime())
+            );
+    }
+    
+    
+
 
     private boolean checkForConflicts(Appointment app1, Appointment app2) {
         return app1.getTherapist().getId().equals(app2.getTherapist().getId()) &&

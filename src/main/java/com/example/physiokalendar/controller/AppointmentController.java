@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
@@ -50,6 +51,24 @@ public class AppointmentController {
         }
     }
 
+     @GetMapping("/available")
+     public ResponseEntity<List<Appointment>> findAvailableAppointments(
+        @RequestParam Long therapistId,
+        @RequestParam Long patientId,
+        @RequestParam Integer timeOfDayId,
+        @RequestParam Integer duration) {
+
+        try {
+            List<Appointment> appointments = appointmentService.findAvailableAppointments(therapistId, patientId, timeOfDayId, duration);
+            if (appointments.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }
+            return ResponseEntity.status(HttpStatus.OK).body(appointments);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
     @PostMapping
     public ResponseEntity<String> createOrUpdateAppointment(@RequestBody JSONAppointmentDTO appointmentDTO) {
         try {
@@ -81,7 +100,6 @@ public class AppointmentController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Fehler beim Aktualisieren des Termins.");
         }
     }
-
 
     @DeleteMapping("/{id}")
     public void deleteAppointment(@PathVariable Long id) {
