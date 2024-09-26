@@ -1,6 +1,7 @@
 package com.example.physiokalendar.service;
 
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
+import com.example.physiokalendar.entity.Absence;
 import com.example.physiokalendar.entity.Appointment;
 import com.example.physiokalendar.entity.Patient;
 import com.example.physiokalendar.entity.Therapist;
@@ -42,6 +43,9 @@ public class AppointmentService {
 
     @Autowired
     private TherapistService therapistService;
+
+    @Autowired
+    private AbsenceService absenceService;
 
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
@@ -109,45 +113,106 @@ public class AppointmentService {
 
 
     public List<Appointment> findAvailableAppointments(Long therapistId, Long patientId, int timeOfDayId, Integer duration) {
-    List<Appointment> availableAppointments = new ArrayList<>();
+        List<Appointment> availableAppointments = new ArrayList<>();
+        List<Absence> absences = absenceService.getAbsencesByTherapistId(therapistId);
 
-    // Datum von heute als Date-Objekt
-    Date today = new Date();
-    Calendar calendar = Calendar.getInstance();
-    calendar.setTime(today);
+        // Datum von heute als Date-Objekt
+        Date today = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(today);
 
-    LocalTime startTime = TimeOfDayService.getStartTime(timeOfDayId);
-    LocalTime endTime = TimeOfDayService.getEndTime(timeOfDayId);
-    //ZoneId systemTimeZone = ZoneId.systemDefault(); // System-Zeitzone
+        LocalTime startTime = TimeOfDayService.getStartTime(timeOfDayId);
+        LocalTime endTime = TimeOfDayService.getEndTime(timeOfDayId);
+        //ZoneId systemTimeZone = ZoneId.systemDefault(); // System-Zeitzone
 
-    while (startTime.plusMinutes(duration).isBefore(endTime)) {
-        calendar.set(Calendar.HOUR_OF_DAY, startTime.getHour());
-        calendar.set(Calendar.MINUTE, startTime.getMinute());
-        Date startDateTime = calendar.getTime();
+        while (startTime.plusMinutes(duration).isBefore(endTime)) {
+            calendar.set(Calendar.HOUR_OF_DAY, startTime.getHour());
+            calendar.set(Calendar.MINUTE, startTime.getMinute());
+            Date startDateTime = calendar.getTime();
 
-        calendar.add(Calendar.MINUTE, duration);
-        Date endDateTime = calendar.getTime();
+            calendar.add(Calendar.MINUTE, duration);
+            Date endDateTime = calendar.getTime();
 
-        if (isSlotAvailable(therapistId, startDateTime, endDateTime)) {
-            Appointment potentialAppointment = new Appointment();
-            potentialAppointment.setTherapist(therapistRepository.findById(therapistId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID")));
+            if (isSlotAvailable(therapistId, startDateTime, endDateTime) && !isTherapistAbsent(absences, startDateTime, endDateTime)) {
+                Appointment potentialAppointment = new Appointment();
+                potentialAppointment.setTherapist(therapistRepository.findById(therapistId)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID")));
 
-            potentialAppointment.setPatient(patientRepository.findById(patientId)  
-                .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID")));
-            potentialAppointment.setStartTime(startDateTime);
-            potentialAppointment.setEndTime(endDateTime);
-            potentialAppointment.setDate(today); // Das Datum ohne Zeitkomponente
+                potentialAppointment.setPatient(patientRepository.findById(patientId)  
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID")));
+                potentialAppointment.setStartTime(startDateTime);
+                potentialAppointment.setEndTime(endDateTime);
+                potentialAppointment.setIsElectric(false);
+                potentialAppointment.setIsHotair(false);
+                potentialAppointment.setIsUltrasonic(false);
+                potentialAppointment.setDate(today); // Das Datum ohne Zeitkomponente
 
-            availableAppointments.add(potentialAppointment);
+                availableAppointments.add(potentialAppointment);
+            }
+
+            startTime = startTime.plusMinutes(duration); // Update startTime für den nächsten Durchlauf
         }
 
-        startTime = startTime.plusMinutes(duration); // Update startTime für den nächsten Durchlauf
+        return availableAppointments;
     }
 
-    return availableAppointments;
-}
-
+    private boolean isTherapistAbsent(List<Absence> absences, Date startDateTime, Date endDateTime) {
+        for (Absence absence : absences) {
+            if (absence.getDate() != null) {
+                Date absenceStart = absence.getStartTime();
+                Date absenceEnd = absence.getEndTime();
+                if (!absenceStart.after(endDateTime) && !absenceEnd.before(startDateTime)) {
+                    return true; // Überlappung gefunden
+                }
+            } else if (!absence.getWeekday().isEmpty() && matchesWeeklyAbsence(absence, startDateTime, endDateTime)) {
+                return true; // Überlappung mit wöchentlicher Abwesenheit gefunden
+            }
+        }
+        return false;
+    }
+    
+    private boolean matchesWeeklyAbsence(Absence absence, Date start, Date end) {
+        Calendar calStart = Calendar.getInstance();
+        calStart.setTime(start);
+        int startDayOfWeek = calStart.get(Calendar.DAY_OF_WEEK);
+    
+        Calendar calEnd = Calendar.getInstance();
+        calEnd.setTime(end);
+        int endDayOfWeek = calEnd.get(Calendar.DAY_OF_WEEK);
+    
+        int absenceDayOfWeek = convertWeekdayStringToIndex(absence.getWeekday());
+        return absenceDayOfWeek == startDayOfWeek || absenceDayOfWeek == endDayOfWeek;
+    }
+    
+    private int convertWeekdayStringToIndex(String weekday) {
+        switch (weekday) {
+            case "Sonntag" -> {
+                return Calendar.SUNDAY;
+            }
+            case "Montag" -> {
+                return Calendar.MONDAY;
+            }
+            case "Dienstag" -> {
+                return Calendar.TUESDAY;
+            }
+            case "Mittwoch" -> {
+                return Calendar.WEDNESDAY;
+            }
+            case "Donnerstag" -> {
+                return Calendar.THURSDAY;
+            }
+            case "Freitag" -> {
+                return Calendar.FRIDAY;
+            }
+            case "Samstag" -> {
+                return Calendar.SATURDAY;
+            }
+            default -> throw new IllegalArgumentException("Unbekannter Wochentag: " + weekday); // Fehler werfen bei ungültigem Wochentag
+        }
+    }
+    
+    
+    
     
     private boolean isSlotAvailable(Long therapistId, Date startDateTime, Date endDateTime) {
         // Prüfen, ob der Slot Überschneidungen mit bestehenden Terminen hat
@@ -158,9 +223,6 @@ public class AppointmentService {
                 endDateTime.after(appointment.getStartTime())
             );
     }
-    
-    
-
 
     private boolean checkForConflicts(Appointment app1, Appointment app2) {
         return app1.getTherapist().getId().equals(app2.getTherapist().getId()) &&

@@ -8,6 +8,7 @@ public class TimeOfDayService {
     private static final Map<Integer, TimeRange> timeOfDayMap = new HashMap<>();
 
     static {
+        timeOfDayMap.put(6, new TimeRange(LocalTime.of(7, 0), LocalTime.of(20, 0)));  // Morgen
         timeOfDayMap.put(1, new TimeRange(LocalTime.of(7, 0), LocalTime.of(10, 0)));  // Morgen
         timeOfDayMap.put(2, new TimeRange(LocalTime.of(10, 0), LocalTime.of(12, 0))); // Spätvormittag
         timeOfDayMap.put(3, new TimeRange(LocalTime.of(12, 0), LocalTime.of(15, 0))); // Mittag
