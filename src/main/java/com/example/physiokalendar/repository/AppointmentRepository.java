@@ -2,6 +2,7 @@ package com.example.physiokalendar.repository;
 
 import java.util.Date;
 import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,9 +12,16 @@ import com.example.physiokalendar.entity.Appointment;
 
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
-    // List<Appointment> findAllByTherapistIdAndDate(Long therapistId, LocalDate date);
-
-     @Query("SELECT a FROM Appointment a WHERE a.therapist.id = :therapistId AND a.date = :date")
+    @Query("SELECT a FROM Appointment a WHERE a.therapist.id = :therapistId AND a.date = :date")
     List<Appointment> findAllByTherapistIdAndDate(@Param("therapistId") Long therapistId, @Param("date") Date date);
 
+    @Query("SELECT a FROM Appointment a WHERE DATE(a.date) = DATE(:date)")
+    List<Appointment> findByDate(@Param("date") Date date);
+
+    List<Appointment> findByTherapistIdAndDate(Long therapistId, Date date);
+    List<Appointment> findByPatientIdAndDate(Long patientId, Date date);
+    List<Appointment> findByTherapistIdAndPatientIdAndDate(Long therapistId, Long patientId, Date date);
+    List<Appointment> findByTherapistIdAndPatientId(Long therapistId, Long patientId);
+    List<Appointment> findByTherapistId(Long therapistId);
+    List<Appointment> findByPatientId(Long patientId);
 }

@@ -8,4 +8,6 @@ import com.example.physiokalendar.entity.Therapist;
 
 @Repository
 public interface TherapistRepository extends JpaRepository<Therapist, Long> {
+
+    Therapist findByFirstName(String firstName);
 }

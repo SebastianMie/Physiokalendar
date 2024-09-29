@@ -55,6 +55,32 @@ public class AppointmentService {
         return appointmentRepository.findById(id);
     }
 
+    public List<Appointment> getAppointmentsForDate(Date date) {
+        return appointmentRepository.findByDate(date);
+    }
+
+    public List<Appointment> getAppointmentsByCriteria(Long therapistId, Long patientId, Date date) {
+        if (therapistId != null && patientId != null && date != null) {
+            return appointmentRepository.findByTherapistIdAndPatientIdAndDate(therapistId, patientId, date);
+        } else if (therapistId != null && date != null) {
+            return appointmentRepository.findByTherapistIdAndDate(therapistId, date);
+        } else if (patientId != null && date != null) {
+            return appointmentRepository.findByPatientIdAndDate(patientId, date);
+        } else if (date != null) {
+            return appointmentRepository.findByDate(date);
+        } else if (therapistId != null && patientId != null) {
+            return appointmentRepository.findByTherapistIdAndPatientId(therapistId, patientId);
+        } else if (therapistId != null) {
+            return appointmentRepository.findByTherapistId(therapistId);
+        } else if (patientId != null) {
+            return appointmentRepository.findByPatientId(patientId);
+        } else {
+            return appointmentRepository.findAll(); // No filters applied, return all appointments
+        }
+    }
+    
+    
+
     public Appointment saveAppointment(JSONAppointmentDTO appointmentDTO) {
         // Mapping DTO to Entity
         Long therapistId = appointmentDTO.getTherapist().getId();
@@ -210,9 +236,6 @@ public class AppointmentService {
             default -> throw new IllegalArgumentException("Unbekannter Wochentag: " + weekday); // Fehler werfen bei ungültigem Wochentag
         }
     }
-    
-    
-    
     
     private boolean isSlotAvailable(Long therapistId, Date startDateTime, Date endDateTime) {
         // Prüfen, ob der Slot Überschneidungen mit bestehenden Terminen hat

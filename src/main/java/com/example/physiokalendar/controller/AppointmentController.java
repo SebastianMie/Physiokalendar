@@ -1,6 +1,9 @@
 // AppointmentController.java
 package com.example.physiokalendar.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,14 +31,52 @@ public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;
 
+
     @GetMapping
-    public List<Appointment> getAllAppointments() {
-        return appointmentService.getAllAppointments();
+    public ResponseEntity<List<Appointment>> getAppointments(
+        @RequestParam(required = false) Long therapistId,
+        @RequestParam(required = false) Long patientId,
+        @RequestParam(required = false) String date
+    ) {
+        try {
+            Date parsedDate = null;
+            // Parse the date only if it's provided
+            if (date != null) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                parsedDate = dateFormat.parse(date);
+            }
+
+            // Call the service method with the optional parameters
+            List<Appointment> appointments = appointmentService.getAppointmentsByCriteria(therapistId, patientId, parsedDate);
+
+            if (appointments.isEmpty()) {
+                return ResponseEntity.noContent().build(); // No appointments found, return 204 No Content
+            } else {
+                return ResponseEntity.ok(appointments); // Return the found appointments
+            }
+        } catch (ParseException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); // Return 500 on date parsing error
+        }
     }
+
 
     @GetMapping("/{id}")
     public Optional<Appointment> getAppointmentById(@PathVariable Long id) {
         return appointmentService.getAppointmentById(id);
+    }
+
+    @GetMapping("/date")
+    public ResponseEntity<List<Appointment>> getAppointmentsForDate(@RequestParam String date) {
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            // Hier rufst du die Termine für das gegebene Datum aus dem Service ab
+            List<Appointment> appointments = appointmentService.getAppointmentsForDate(dateFormat.parse(date));            if (appointments.isEmpty()) {
+                return ResponseEntity.noContent().build(); // Leere Antwort, wenn keine Termine gefunden wurden
+            }
+            return ResponseEntity.ok(appointments); // Rückgabe der Liste der Termine
+        } catch (ParseException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); // Bei Fehlern wird ein interner Server-Fehler gesendet
+        }
     }
 
     @GetMapping("/conflicts")
