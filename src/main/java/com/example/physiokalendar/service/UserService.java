@@ -34,16 +34,25 @@ public class UserService implements UserDetailsService {
         return null;
     }
 
-    public User registerUser(String username, String password) {
+    public User registerUser(String username, String password, Long therapistId) {
         User user = new User();
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
+        user.setTherapistId(therapistId);
+        return userRepository.save(user);
+    }
+
+    public User registerUser(User user) {
         return userRepository.save(user);
     }
 
     public UserDetails getUserDetails(String username) {
         return userRepository.findByUsername(username)
                 .orElse(null);
+    }
+
+    public User getUserByTherapistId(Long therapistId) {
+        return userRepository.findByTherapistId(therapistId);
     }
 
     public JSONUserDTO convertToUserDTO(User user) {
