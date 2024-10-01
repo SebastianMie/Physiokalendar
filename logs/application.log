@@ -24938,3 +24938,1768 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.security.core
 2024-09-30 14:23:44 - Securing GET /api/appointments/conflicts
 2024-09-30 14:23:44 - Secured GET /api/appointments/conflicts
 2024-09-30 14:23:54 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:40 - Securing OPTIONS /api/auth/user
+2024-09-30 15:18:40 - Securing GET /api/auth/user
+2024-09-30 15:18:40 - Secured GET /api/auth/user
+2024-09-30 15:18:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:40 - Securing GET /api/patients
+2024-09-30 15:18:40 - Secured GET /api/patients
+2024-09-30 15:18:40 - Securing OPTIONS /api/therapists
+2024-09-30 15:18:40 - Securing OPTIONS /api/therapists
+2024-09-30 15:18:40 - Securing GET /api/therapists
+2024-09-30 15:18:40 - Secured GET /api/therapists
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/therapists
+2024-09-30 15:18:41 - Secured GET /api/therapists
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/1
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/1
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/1
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/2
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/2
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/2
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/3
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/3
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/3
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/4
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/4
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/4
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/1
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/1
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/5
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/5
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/5
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/2
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/2
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/6
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/6
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/6
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/3
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/3
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/7
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/7
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/7
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/4
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/4
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/8
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/8
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/8
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/5
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/5
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/9
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/9
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/9
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/6
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/6
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/10
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/10
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/10
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/7
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/7
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/8
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/8
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/11
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/11
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/11
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/12
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/9
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/9
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/12
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/12
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/10
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/10
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/13
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/13
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/13
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/11
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/11
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/14
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/14
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/14
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/12
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/12
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/15
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/15
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/15
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/13
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/13
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/16
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/16
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/14
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/16
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/14
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/15
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/15
+2024-09-30 15:18:41 - Securing OPTIONS /api/auth/user/therapist/17
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/17
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/17
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/16
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/16
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/appointments?date=2024-09-30
+2024-09-30 15:18:41 - Securing GET /api/appointments?date=2024-09-30
+2024-09-30 15:18:41 - Secured GET /api/appointments?date=2024-09-30
+2024-09-30 15:18:41 - Securing GET /api/auth/user/therapist/17
+2024-09-30 15:18:41 - Secured GET /api/auth/user/therapist/17
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/appointments?date=2024-09-30
+2024-09-30 15:18:41 - Secured GET /api/appointments?date=2024-09-30
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/1
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/1
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/1
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/1
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/1
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/2
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/2
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/2
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/2
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/2
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/3
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/3
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/3
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/3
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/3
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/4
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/4
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/4
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/4
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/4
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/5
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/5
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/5
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/5
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/5
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/6
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/6
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/6
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/6
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/6
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/7
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/7
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/7
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/7
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/7
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/10
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/10
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/10
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/10
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/10
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/11
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/11
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/11
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/11
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/11
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/13
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/13
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/13
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/13
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/13
+2024-09-30 15:18:41 - Securing OPTIONS /api/absences/therapist/14
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/14
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/14
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:41 - Securing GET /api/absences/therapist/14
+2024-09-30 15:18:41 - Secured GET /api/absences/therapist/14
+2024-09-30 15:18:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 15:18:55 - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=42m12s649ms7µs700ns).
+2024-09-30 16:46:23 - Securing OPTIONS /api/auth/user
+2024-09-30 16:46:23 - Securing GET /api/auth/user
+2024-09-30 16:46:23 - Secured GET /api/auth/user
+2024-09-30 16:46:23 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing GET /api/patients
+2024-09-30 16:46:24 - Secured GET /api/patients
+2024-09-30 16:46:24 - Securing OPTIONS /api/therapists
+2024-09-30 16:46:24 - Securing OPTIONS /api/therapists
+2024-09-30 16:46:24 - Securing GET /api/therapists
+2024-09-30 16:46:24 - Secured GET /api/therapists
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing GET /api/therapists
+2024-09-30 16:46:24 - Secured GET /api/therapists
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing OPTIONS /api/auth/user/therapist/1
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/1
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/1
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing OPTIONS /api/auth/user/therapist/2
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/1
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/1
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/2
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/2
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/2
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/2
+2024-09-30 16:46:24 - Securing OPTIONS /api/auth/user/therapist/3
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/3
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/3
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/3
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/3
+2024-09-30 16:46:24 - Securing OPTIONS /api/auth/user/therapist/4
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/4
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/4
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/4
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/4
+2024-09-30 16:46:24 - Securing OPTIONS /api/auth/user/therapist/5
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/5
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/5
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/5
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/5
+2024-09-30 16:46:24 - Securing OPTIONS /api/auth/user/therapist/6
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/6
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/6
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/6
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/6
+2024-09-30 16:46:24 - Securing OPTIONS /api/auth/user/therapist/7
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/7
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/7
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/7
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/7
+2024-09-30 16:46:24 - Securing OPTIONS /api/auth/user/therapist/8
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/8
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/8
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing OPTIONS /api/auth/user/therapist/9
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/8
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/8
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/9
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/9
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Securing OPTIONS /api/auth/user/therapist/10
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/9
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/9
+2024-09-30 16:46:24 - Securing GET /api/auth/user/therapist/10
+2024-09-30 16:46:24 - Secured GET /api/auth/user/therapist/10
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:24 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/10
+2024-09-30 16:46:25 - Securing OPTIONS /api/auth/user/therapist/11
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/11
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/10
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/11
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/auth/user/therapist/12
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/12
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/12
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/11
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/11
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/auth/user/therapist/13
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/12
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/12
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/13
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/13
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/auth/user/therapist/14
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/14
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/14
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/13
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/13
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/auth/user/therapist/15
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/15
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/15
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/14
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/14
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/auth/user/therapist/16
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/15
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/15
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/16
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/16
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/16
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/16
+2024-09-30 16:46:25 - Securing OPTIONS /api/auth/user/therapist/17
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/17
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/17
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing GET /api/auth/user/therapist/17
+2024-09-30 16:46:25 - Secured GET /api/auth/user/therapist/17
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/appointments?date=2024-09-30
+2024-09-30 16:46:25 - Securing GET /api/appointments?date=2024-09-30
+2024-09-30 16:46:25 - Secured GET /api/appointments?date=2024-09-30
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing GET /api/appointments?date=2024-09-30
+2024-09-30 16:46:25 - Secured GET /api/appointments?date=2024-09-30
+2024-09-30 16:46:25 - Securing OPTIONS /api/absences/therapist/1
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/1
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/1
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/absences/therapist/2
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/2
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/2
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/1
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/1
+2024-09-30 16:46:25 - Securing OPTIONS /api/absences/therapist/3
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/3
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/3
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/2
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/2
+2024-09-30 16:46:25 - Securing OPTIONS /api/absences/therapist/4
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/4
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/4
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/absences/therapist/5
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/3
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/3
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/5
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/5
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/4
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/4
+2024-09-30 16:46:25 - Securing OPTIONS /api/absences/therapist/6
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/6
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/6
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/5
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/5
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/absences/therapist/7
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/7
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/7
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/6
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/6
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/absences/therapist/10
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/7
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/7
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/10
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/10
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/absences/therapist/11
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/11
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/11
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/10
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/10
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:25 - Securing OPTIONS /api/absences/therapist/13
+2024-09-30 16:46:25 - Securing GET /api/absences/therapist/13
+2024-09-30 16:46:25 - Secured GET /api/absences/therapist/13
+2024-09-30 16:46:25 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:26 - Securing GET /api/absences/therapist/11
+2024-09-30 16:46:26 - Secured GET /api/absences/therapist/11
+2024-09-30 16:46:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:26 - Securing OPTIONS /api/absences/therapist/14
+2024-09-30 16:46:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:26 - Securing GET /api/absences/therapist/14
+2024-09-30 16:46:26 - Secured GET /api/absences/therapist/14
+2024-09-30 16:46:26 - Securing GET /api/absences/therapist/13
+2024-09-30 16:46:26 - Secured GET /api/absences/therapist/13
+2024-09-30 16:46:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 16:46:26 - Securing GET /api/absences/therapist/14
+2024-09-30 16:46:26 - Secured GET /api/absences/therapist/14
+2024-09-30 16:46:26 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:10 - Securing OPTIONS /api/auth/user
+2024-09-30 20:56:10 - Securing GET /api/auth/user
+2024-09-30 20:56:10 - Secured GET /api/auth/user
+2024-09-30 20:56:10 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing GET /api/patients
+2024-09-30 20:56:11 - Secured GET /api/patients
+2024-09-30 20:56:11 - Securing OPTIONS /api/therapists
+2024-09-30 20:56:11 - Securing OPTIONS /api/therapists
+2024-09-30 20:56:11 - Securing GET /api/therapists
+2024-09-30 20:56:11 - Secured GET /api/therapists
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing GET /api/therapists
+2024-09-30 20:56:11 - Secured GET /api/therapists
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/1
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/1
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/1
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/2
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/2
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/2
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/3
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/3
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/3
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/1
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/1
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/4
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/2
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/2
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/4
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/4
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/5
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/3
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/3
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/5
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/5
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/4
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/4
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/6
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/6
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/6
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/5
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/5
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/7
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/7
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/6
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/7
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/6
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/8
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/7
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/7
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/8
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/8
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/9
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/8
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/8
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/9
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/9
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/10
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/9
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/10
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/10
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/9
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/11
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/10
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/10
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/11
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/11
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/12
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/11
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/11
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/12
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/12
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/13
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/12
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/12
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/13
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/13
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/14
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/13
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/13
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/14
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/14
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Securing OPTIONS /api/auth/user/therapist/15
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/14
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/14
+2024-09-30 20:56:11 - Securing GET /api/auth/user/therapist/15
+2024-09-30 20:56:11 - Secured GET /api/auth/user/therapist/15
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:11 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/auth/user/therapist/15
+2024-09-30 20:56:12 - Secured GET /api/auth/user/therapist/15
+2024-09-30 20:56:12 - Securing OPTIONS /api/auth/user/therapist/16
+2024-09-30 20:56:12 - Securing GET /api/auth/user/therapist/16
+2024-09-30 20:56:12 - Secured GET /api/auth/user/therapist/16
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/auth/user/therapist/16
+2024-09-30 20:56:12 - Secured GET /api/auth/user/therapist/16
+2024-09-30 20:56:12 - Securing OPTIONS /api/auth/user/therapist/17
+2024-09-30 20:56:12 - Securing GET /api/auth/user/therapist/17
+2024-09-30 20:56:12 - Secured GET /api/auth/user/therapist/17
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/auth/user/therapist/17
+2024-09-30 20:56:12 - Secured GET /api/auth/user/therapist/17
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing OPTIONS /api/appointments?date=2024-09-30
+2024-09-30 20:56:12 - Securing GET /api/appointments?date=2024-09-30
+2024-09-30 20:56:12 - Secured GET /api/appointments?date=2024-09-30
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/appointments?date=2024-09-30
+2024-09-30 20:56:12 - Secured GET /api/appointments?date=2024-09-30
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/1
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/1
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/1
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/2
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/2
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/2
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/1
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/1
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/3
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/3
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/3
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/2
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/2
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/4
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/4
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/4
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/3
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/3
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/4
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/4
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/5
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/5
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/5
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/5
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/5
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/6
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/6
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/6
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/6
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/6
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/7
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/7
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/7
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/7
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/7
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/10
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/10
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/10
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/10
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/10
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/11
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/11
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/11
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/11
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/11
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/13
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/13
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/13
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/13
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/13
+2024-09-30 20:56:12 - Securing OPTIONS /api/absences/therapist/14
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/14
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/14
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:12 - Securing GET /api/absences/therapist/14
+2024-09-30 20:56:12 - Secured GET /api/absences/therapist/14
+2024-09-30 20:56:12 - Set SecurityContextHolder to anonymous SecurityContext
+2024-09-30 20:56:19 - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=3h16m21s107ms854µs).
+2024-10-01 21:51:34 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 15456 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 21:51:34 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 21:51:34 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-01 21:51:34 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-01 21:51:37 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 21:51:37 - Finished Spring Data repository scanning in 202 ms. Found 8 JPA repository interfaces.
+2024-10-01 21:51:40 - Tomcat initialized with port 8080 (http)
+2024-10-01 21:51:40 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:51:40 - Starting service [Tomcat]
+2024-10-01 21:51:40 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 21:51:40 - Initializing Spring embedded WebApplicationContext
+2024-10-01 21:51:40 - Root WebApplicationContext: initialization completed in 6492 ms
+2024-10-01 21:51:43 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 21:51:43 - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-01 21:51:43 - HHH000026: Second-level cache disabled
+2024-10-01 21:51:44 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 21:51:44 - HikariPool-1 - Starting...
+2024-10-01 21:51:45 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c6a1b1e
+2024-10-01 21:51:45 - HikariPool-1 - Start completed.
+2024-10-01 21:51:45 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 21:51:45 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 21:51:49 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 21:51:49 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 21:51:51 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-01 21:51:53 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 21:51:53 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 21:51:55 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 21:51:56 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 21:51:57 - LiveReload server is running on port 35729
+2024-10-01 21:51:58 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:51:58 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 21:51:58 - Started PhysiokalendarApplication in 24.839 seconds (process running for 25.734)
+2024-10-01 21:51:58 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-01 21:51:58 - Initializing Servlet 'dispatcherServlet'
+2024-10-01 21:51:58 - Completed initialization in 4 ms
+2024-10-01 21:52:04 - Securing POST /api/dataimport/import?filePath=src/main/java/com/example/physiokalendar/dataimport/backup.json
+2024-10-01 21:52:04 - Secured POST /api/dataimport/import?filePath=src/main/java/com/example/physiokalendar/dataimport/backup.json
+2024-10-01 21:52:40 - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-01 21:56:00 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 21:56:00 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:56:00 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 21:56:00 - HikariPool-1 - Shutdown initiated...
+2024-10-01 21:56:00 - HikariPool-1 - Shutdown completed.
+2024-10-01 21:56:00 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 15456 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 21:56:00 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 21:56:01 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 21:56:01 - Finished Spring Data repository scanning in 147 ms. Found 8 JPA repository interfaces.
+2024-10-01 21:56:02 - Tomcat initialized with port 8080 (http)
+2024-10-01 21:56:02 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:56:02 - Starting service [Tomcat]
+2024-10-01 21:56:02 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 21:56:02 - Initializing Spring embedded WebApplicationContext
+2024-10-01 21:56:02 - Root WebApplicationContext: initialization completed in 2215 ms
+2024-10-01 21:56:03 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 21:56:03 - HHH000026: Second-level cache disabled
+2024-10-01 21:56:03 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 21:56:03 - HikariPool-2 - Starting...
+2024-10-01 21:56:03 - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a54bd22
+2024-10-01 21:56:03 - HikariPool-2 - Start completed.
+2024-10-01 21:56:03 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 21:56:03 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 21:56:03 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 21:56:04 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 21:56:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 21:56:05 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 21:56:06 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 21:56:06 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 21:56:07 - LiveReload server is running on port 35729
+2024-10-01 21:56:07 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:56:07 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 21:56:07 - Started PhysiokalendarApplication in 6.801 seconds (process running for 274.501)
+2024-10-01 21:56:07 - Condition evaluation unchanged
+2024-10-01 21:56:10 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 21:56:10 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:56:11 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 21:56:11 - HikariPool-2 - Shutdown initiated...
+2024-10-01 21:56:11 - HikariPool-2 - Shutdown completed.
+2024-10-01 21:56:11 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 15456 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 21:56:11 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 21:56:13 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 21:56:13 - Finished Spring Data repository scanning in 107 ms. Found 8 JPA repository interfaces.
+2024-10-01 21:56:14 - Tomcat initialized with port 8080 (http)
+2024-10-01 21:56:14 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:56:14 - Starting service [Tomcat]
+2024-10-01 21:56:14 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 21:56:14 - Initializing Spring embedded WebApplicationContext
+2024-10-01 21:56:14 - Root WebApplicationContext: initialization completed in 2791 ms
+2024-10-01 21:56:15 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 21:56:15 - HHH000026: Second-level cache disabled
+2024-10-01 21:56:15 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 21:56:15 - HikariPool-3 - Starting...
+2024-10-01 21:56:15 - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b1ec87e
+2024-10-01 21:56:15 - HikariPool-3 - Start completed.
+2024-10-01 21:56:15 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 21:56:15 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 21:56:15 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 21:56:15 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 21:56:16 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 21:56:16 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 21:56:17 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 21:56:17 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 21:56:18 - LiveReload server is running on port 35729
+2024-10-01 21:56:18 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:56:18 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 21:56:18 - Started PhysiokalendarApplication in 6.442 seconds (process running for 285.503)
+2024-10-01 21:56:18 - Condition evaluation unchanged
+2024-10-01 21:57:12 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 21:57:12 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:57:12 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 21:57:12 - HikariPool-3 - Shutdown initiated...
+2024-10-01 21:57:12 - HikariPool-3 - Shutdown completed.
+2024-10-01 21:57:12 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 15456 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 21:57:12 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 21:57:14 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 21:57:14 - Finished Spring Data repository scanning in 35 ms. Found 8 JPA repository interfaces.
+2024-10-01 21:57:14 - Tomcat initialized with port 8080 (http)
+2024-10-01 21:57:14 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:57:14 - Starting service [Tomcat]
+2024-10-01 21:57:14 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 21:57:14 - Initializing Spring embedded WebApplicationContext
+2024-10-01 21:57:14 - Root WebApplicationContext: initialization completed in 1319 ms
+2024-10-01 21:57:14 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 21:57:14 - HHH000026: Second-level cache disabled
+2024-10-01 21:57:14 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 21:57:14 - HikariPool-4 - Starting...
+2024-10-01 21:57:14 - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@289f554f
+2024-10-01 21:57:14 - HikariPool-4 - Start completed.
+2024-10-01 21:57:14 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 21:57:14 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 21:57:14 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 21:57:15 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 21:57:16 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 21:57:16 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 21:57:16 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 21:57:16 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 21:57:16 - LiveReload server is running on port 35729
+2024-10-01 21:57:16 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 21:57:16 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 21:57:16 - Started PhysiokalendarApplication in 4.113 seconds (process running for 344.305)
+2024-10-01 21:57:16 - Condition evaluation unchanged
+2024-10-01 21:57:56 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-01 21:57:56 - Initializing Servlet 'dispatcherServlet'
+2024-10-01 21:57:56 - Completed initialization in 1 ms
+2024-10-01 21:57:56 - Securing POST /api/dataimport/import?filePath=src/main/java/com/example/physiokalendar/dataimport/backup.json
+2024-10-01 21:57:56 - Secured POST /api/dataimport/import?filePath=src/main/java/com/example/physiokalendar/dataimport/backup.json
+2024-10-01 22:51:36 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 22:51:36 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 22:51:36 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-01 22:51:36 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-01 22:51:38 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 22:51:38 - Finished Spring Data repository scanning in 140 ms. Found 8 JPA repository interfaces.
+2024-10-01 22:51:39 - Tomcat initialized with port 8080 (http)
+2024-10-01 22:51:39 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 22:51:39 - Starting service [Tomcat]
+2024-10-01 22:51:39 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 22:51:40 - Initializing Spring embedded WebApplicationContext
+2024-10-01 22:51:40 - Root WebApplicationContext: initialization completed in 3530 ms
+2024-10-01 22:51:40 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 22:51:40 - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-01 22:51:40 - HHH000026: Second-level cache disabled
+2024-10-01 22:51:41 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 22:51:41 - HikariPool-1 - Starting...
+2024-10-01 22:51:42 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ff57476
+2024-10-01 22:51:42 - HikariPool-1 - Start completed.
+2024-10-01 22:51:42 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 22:51:42 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 22:51:43 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 22:51:43 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 22:51:44 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-01 22:51:45 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 22:51:45 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 22:51:46 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 22:51:46 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 22:51:46 - LiveReload server is running on port 35729
+2024-10-01 22:51:47 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 22:51:47 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 22:51:47 - Started PhysiokalendarApplication in 11.523 seconds (process running for 12.445)
+2024-10-01 22:51:47 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-01 22:51:47 - Initializing Servlet 'dispatcherServlet'
+2024-10-01 22:51:47 - Completed initialization in 1 ms
+2024-10-01 22:53:25 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 22:53:25 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 22:53:25 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 22:53:25 - HikariPool-1 - Shutdown initiated...
+2024-10-01 22:53:25 - HikariPool-1 - Shutdown completed.
+2024-10-01 22:53:25 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 22:53:25 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 22:53:25 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 22:53:25 - Finished Spring Data repository scanning in 38 ms. Found 8 JPA repository interfaces.
+2024-10-01 22:53:26 - Tomcat initialized with port 8080 (http)
+2024-10-01 22:53:26 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 22:53:26 - Starting service [Tomcat]
+2024-10-01 22:53:26 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 22:53:26 - Initializing Spring embedded WebApplicationContext
+2024-10-01 22:53:26 - Root WebApplicationContext: initialization completed in 854 ms
+2024-10-01 22:53:26 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 22:53:26 - HHH000026: Second-level cache disabled
+2024-10-01 22:53:26 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 22:53:26 - HikariPool-2 - Starting...
+2024-10-01 22:53:26 - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@138b2be8
+2024-10-01 22:53:26 - HikariPool-2 - Start completed.
+2024-10-01 22:53:26 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 22:53:26 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 22:53:26 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 22:53:26 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 22:53:27 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 22:53:27 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 22:53:27 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 22:53:27 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 22:53:27 - LiveReload server is running on port 35729
+2024-10-01 22:53:27 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 22:53:27 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 22:53:27 - Started PhysiokalendarApplication in 2.505 seconds (process running for 113.104)
+2024-10-01 22:53:27 - Condition evaluation unchanged
+2024-10-01 22:54:06 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-01 22:54:06 - Initializing Servlet 'dispatcherServlet'
+2024-10-01 22:54:06 - Completed initialization in 1 ms
+2024-10-01 22:54:06 - Securing POST /api/dataimport/import?filePath=src/main/java/com/example/physiokalendar/dataimport/backup.json
+2024-10-01 22:54:06 - Secured POST /api/dataimport/import?filePath=src/main/java/com/example/physiokalendar/dataimport/backup.json
+2024-10-01 23:26:04 - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=8m38s465ms842µs600ns).
+2024-10-01 23:26:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-01 23:26:41 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalStateException: Appointment conflicts with an existing appointment.] with root cause
+java.lang.IllegalStateException: Appointment conflicts with an existing appointment.
+	at com.example.physiokalendar.service.AppointmentSeriesService.createAppointmentsFromSeries(AppointmentSeriesService.java:116)
+	at jdk.internal.reflect.GeneratedMethodAccessor113.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:716)
+	at com.example.physiokalendar.service.AppointmentSeriesService$$SpringCGLIB$$0.createAppointmentsFromSeries(<generated>)
+	at com.example.physiokalendar.dataimport.DataImportService.importSeriesAppointments(DataImportService.java:198)
+	at com.example.physiokalendar.dataimport.DataImportService.importData(DataImportService.java:81)
+	at com.example.physiokalendar.controller.DataImportController.importData(DataImportController.java:20)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:113)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-10-01 23:26:41 - Securing POST /error?filePath=src/main/java/com/example/physiokalendar/dataimport/backup.json
+2024-10-01 23:26:41 - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-01 23:26:41 - Saved request http://localhost:8080/error?filePath=src/main/java/com/example/physiokalendar/dataimport/backup.json&continue to session
+2024-10-01 23:26:41 - Pre-authenticated entry point called. Rejecting access
+2024-10-01 23:26:44 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:26:44 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:26:44 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:26:44 - HikariPool-2 - Shutdown initiated...
+2024-10-01 23:26:44 - HikariPool-2 - Shutdown completed.
+2024-10-01 23:26:44 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:26:44 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:26:44 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:26:44 - Finished Spring Data repository scanning in 38 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:26:45 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:26:45 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:26:45 - Starting service [Tomcat]
+2024-10-01 23:26:45 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:26:45 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:26:45 - Root WebApplicationContext: initialization completed in 855 ms
+2024-10-01 23:26:45 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:26:45 - HHH000026: Second-level cache disabled
+2024-10-01 23:26:45 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:26:45 - HikariPool-3 - Starting...
+2024-10-01 23:26:45 - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d129005
+2024-10-01 23:26:45 - HikariPool-3 - Start completed.
+2024-10-01 23:26:45 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:26:45 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:26:45 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:26:45 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:26:46 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:26:46 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:26:46 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:26:46 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:26:46 - LiveReload server is running on port 35729
+2024-10-01 23:26:46 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:26:46 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:26:46 - Started PhysiokalendarApplication in 2.27 seconds (process running for 2111.91)
+2024-10-01 23:26:46 - Condition evaluation unchanged
+2024-10-01 23:36:40 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:36:40 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:40 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:40 - HikariPool-3 - Shutdown initiated...
+2024-10-01 23:36:40 - HikariPool-3 - Shutdown completed.
+2024-10-01 23:36:40 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:36:40 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:36:41 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:36:41 - Finished Spring Data repository scanning in 51 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:36:41 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:36:41 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:41 - Starting service [Tomcat]
+2024-10-01 23:36:41 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:36:41 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:36:41 - Root WebApplicationContext: initialization completed in 1103 ms
+2024-10-01 23:36:41 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:36:41 - HHH000026: Second-level cache disabled
+2024-10-01 23:36:41 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:36:41 - HikariPool-4 - Starting...
+2024-10-01 23:36:41 - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@116c5db1
+2024-10-01 23:36:41 - HikariPool-4 - Start completed.
+2024-10-01 23:36:41 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:36:41 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:36:42 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:36:42 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:42 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:36:42 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:36:43 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:36:43 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:36:43 - LiveReload server is running on port 35729
+2024-10-01 23:36:43 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:43 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:36:43 - Started PhysiokalendarApplication in 3.121 seconds (process running for 2709.06)
+2024-10-01 23:36:43 - Condition evaluation unchanged
+2024-10-01 23:36:45 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:36:45 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:45 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:45 - HikariPool-4 - Shutdown initiated...
+2024-10-01 23:36:45 - HikariPool-4 - Shutdown completed.
+2024-10-01 23:36:45 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:36:45 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:36:45 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:36:45 - Finished Spring Data repository scanning in 40 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:36:46 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:36:46 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:46 - Starting service [Tomcat]
+2024-10-01 23:36:46 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:36:46 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:36:46 - Root WebApplicationContext: initialization completed in 737 ms
+2024-10-01 23:36:46 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:36:46 - HHH000026: Second-level cache disabled
+2024-10-01 23:36:46 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:36:46 - HikariPool-5 - Starting...
+2024-10-01 23:36:46 - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7fd1ba39
+2024-10-01 23:36:46 - HikariPool-5 - Start completed.
+2024-10-01 23:36:46 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:36:46 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:36:46 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:36:46 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:46 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:36:46 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:36:47 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:36:47 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:36:47 - LiveReload server is running on port 35729
+2024-10-01 23:36:47 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:47 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:36:47 - Started PhysiokalendarApplication in 1.977 seconds (process running for 2712.605)
+2024-10-01 23:36:47 - Condition evaluation unchanged
+2024-10-01 23:36:48 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:36:48 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:48 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:48 - HikariPool-5 - Shutdown initiated...
+2024-10-01 23:36:48 - HikariPool-5 - Shutdown completed.
+2024-10-01 23:36:48 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:36:48 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:36:49 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:36:49 - Finished Spring Data repository scanning in 90 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:36:49 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:36:49 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:49 - Starting service [Tomcat]
+2024-10-01 23:36:49 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:36:50 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:36:50 - Root WebApplicationContext: initialization completed in 1147 ms
+2024-10-01 23:36:50 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:36:50 - HHH000026: Second-level cache disabled
+2024-10-01 23:36:50 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:36:50 - HikariPool-6 - Starting...
+2024-10-01 23:36:50 - HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e83c31b
+2024-10-01 23:36:50 - HikariPool-6 - Start completed.
+2024-10-01 23:36:50 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:36:50 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:36:50 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:36:50 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:50 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:36:50 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:36:50 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:36:50 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:36:51 - LiveReload server is running on port 35729
+2024-10-01 23:36:51 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:51 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:36:51 - Started PhysiokalendarApplication in 2.255 seconds (process running for 2716.43)
+2024-10-01 23:36:51 - Condition evaluation unchanged
+2024-10-01 23:36:52 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:36:52 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:52 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:52 - HikariPool-6 - Shutdown initiated...
+2024-10-01 23:36:52 - HikariPool-6 - Shutdown completed.
+2024-10-01 23:36:52 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:36:52 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:36:53 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:36:53 - Finished Spring Data repository scanning in 29 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:36:53 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:36:53 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:53 - Starting service [Tomcat]
+2024-10-01 23:36:53 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:36:53 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:36:53 - Root WebApplicationContext: initialization completed in 440 ms
+2024-10-01 23:36:53 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:36:53 - HHH000026: Second-level cache disabled
+2024-10-01 23:36:53 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:36:53 - HikariPool-7 - Starting...
+2024-10-01 23:36:53 - HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@57a8a772
+2024-10-01 23:36:53 - HikariPool-7 - Start completed.
+2024-10-01 23:36:53 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:36:53 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:36:53 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:36:53 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:53 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:36:53 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:36:54 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:36:54 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:36:54 - LiveReload server is running on port 35729
+2024-10-01 23:36:54 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:54 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:36:54 - Started PhysiokalendarApplication in 1.945 seconds (process running for 2719.999)
+2024-10-01 23:36:54 - Condition evaluation unchanged
+2024-10-01 23:36:56 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:36:56 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:56 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:56 - HikariPool-7 - Shutdown initiated...
+2024-10-01 23:36:56 - HikariPool-7 - Shutdown completed.
+2024-10-01 23:36:56 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:36:56 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:36:56 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:36:56 - Finished Spring Data repository scanning in 19 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:36:56 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:36:56 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:56 - Starting service [Tomcat]
+2024-10-01 23:36:56 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:36:56 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:36:56 - Root WebApplicationContext: initialization completed in 741 ms
+2024-10-01 23:36:57 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:36:57 - HHH000026: Second-level cache disabled
+2024-10-01 23:36:57 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:36:57 - HikariPool-8 - Starting...
+2024-10-01 23:36:57 - HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@106c694e
+2024-10-01 23:36:57 - HikariPool-8 - Start completed.
+2024-10-01 23:36:57 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:36:57 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:36:57 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:36:57 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:57 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:36:57 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:36:57 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:36:57 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:36:58 - LiveReload server is running on port 35729
+2024-10-01 23:36:58 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:58 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:36:58 - Started PhysiokalendarApplication in 1.827 seconds (process running for 2723.398)
+2024-10-01 23:36:58 - Condition evaluation unchanged
+2024-10-01 23:36:59 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:36:59 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:36:59 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:36:59 - HikariPool-8 - Shutdown initiated...
+2024-10-01 23:36:59 - HikariPool-8 - Shutdown completed.
+2024-10-01 23:36:59 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:36:59 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:36:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:37:00 - Finished Spring Data repository scanning in 34 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:37:00 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:37:00 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:37:00 - Starting service [Tomcat]
+2024-10-01 23:37:00 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:37:00 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:37:00 - Root WebApplicationContext: initialization completed in 695 ms
+2024-10-01 23:37:00 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:37:00 - HHH000026: Second-level cache disabled
+2024-10-01 23:37:00 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:37:00 - HikariPool-9 - Starting...
+2024-10-01 23:37:00 - HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b2d69cb
+2024-10-01 23:37:00 - HikariPool-9 - Start completed.
+2024-10-01 23:37:00 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:37:00 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:37:00 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:37:00 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:37:01 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:37:01 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:37:01 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:37:01 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:37:01 - LiveReload server is running on port 35729
+2024-10-01 23:37:01 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:37:01 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:37:01 - Started PhysiokalendarApplication in 2.178 seconds (process running for 2727.152)
+2024-10-01 23:37:01 - Condition evaluation unchanged
+2024-10-01 23:37:03 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:37:03 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:37:03 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:37:03 - HikariPool-9 - Shutdown initiated...
+2024-10-01 23:37:03 - HikariPool-9 - Shutdown completed.
+2024-10-01 23:37:03 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:37:03 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:37:04 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:37:04 - Finished Spring Data repository scanning in 38 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:37:04 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:37:04 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:37:04 - Starting service [Tomcat]
+2024-10-01 23:37:04 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:37:04 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:37:04 - Root WebApplicationContext: initialization completed in 768 ms
+2024-10-01 23:37:04 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:37:04 - HHH000026: Second-level cache disabled
+2024-10-01 23:37:04 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:37:04 - HikariPool-10 - Starting...
+2024-10-01 23:37:04 - HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a04029d
+2024-10-01 23:37:04 - HikariPool-10 - Start completed.
+2024-10-01 23:37:04 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:37:04 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:37:04 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:37:04 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:37:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:37:05 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:37:05 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:37:05 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:37:05 - LiveReload server is running on port 35729
+2024-10-01 23:37:05 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:37:05 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:37:05 - Started PhysiokalendarApplication in 2.22 seconds (process running for 2731.027)
+2024-10-01 23:37:05 - Condition evaluation unchanged
+2024-10-01 23:37:07 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:37:07 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:37:07 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:37:07 - HikariPool-10 - Shutdown initiated...
+2024-10-01 23:37:07 - HikariPool-10 - Shutdown completed.
+2024-10-01 23:37:07 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:37:07 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:37:08 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:37:08 - Finished Spring Data repository scanning in 42 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:37:08 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:37:08 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:37:08 - Starting service [Tomcat]
+2024-10-01 23:37:08 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:37:08 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:37:08 - Root WebApplicationContext: initialization completed in 864 ms
+2024-10-01 23:37:08 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:37:08 - HHH000026: Second-level cache disabled
+2024-10-01 23:37:08 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:37:08 - HikariPool-11 - Starting...
+2024-10-01 23:37:08 - HikariPool-11 - Added connection com.mysql.cj.jdbc.ConnectionImpl@614c7fe
+2024-10-01 23:37:08 - HikariPool-11 - Start completed.
+2024-10-01 23:37:08 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:37:08 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:37:08 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:37:08 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:37:09 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:37:09 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:37:09 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:37:09 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:37:09 - LiveReload server is running on port 35729
+2024-10-01 23:37:09 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:37:09 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:37:09 - Started PhysiokalendarApplication in 2.082 seconds (process running for 2735.071)
+2024-10-01 23:37:09 - Condition evaluation unchanged
+2024-10-01 23:38:02 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:38:02 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:02 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:38:02 - HikariPool-11 - Shutdown initiated...
+2024-10-01 23:38:02 - HikariPool-11 - Shutdown completed.
+2024-10-01 23:38:02 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:38:02 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:38:03 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:38:03 - Finished Spring Data repository scanning in 32 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:38:03 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:38:03 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:03 - Starting service [Tomcat]
+2024-10-01 23:38:03 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:38:03 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:38:03 - Root WebApplicationContext: initialization completed in 773 ms
+2024-10-01 23:38:03 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:38:03 - HHH000026: Second-level cache disabled
+2024-10-01 23:38:03 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:38:03 - HikariPool-12 - Starting...
+2024-10-01 23:38:03 - HikariPool-12 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42b90e61
+2024-10-01 23:38:03 - HikariPool-12 - Start completed.
+2024-10-01 23:38:03 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:38:03 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:38:03 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:38:04 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:38:04 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:38:04 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:38:04 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:38:04 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:38:04 - LiveReload server is running on port 35729
+2024-10-01 23:38:04 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:04 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:38:04 - Started PhysiokalendarApplication in 2.249 seconds (process running for 2790.322)
+2024-10-01 23:38:04 - Condition evaluation unchanged
+2024-10-01 23:38:06 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:38:06 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:38:06 - HikariPool-12 - Shutdown initiated...
+2024-10-01 23:38:06 - HikariPool-12 - Shutdown completed.
+2024-10-01 23:38:06 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:38:06 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:38:06 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:38:06 - Finished Spring Data repository scanning in 26 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:38:07 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:38:07 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:07 - Starting service [Tomcat]
+2024-10-01 23:38:07 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:38:07 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:38:07 - Root WebApplicationContext: initialization completed in 678 ms
+2024-10-01 23:38:07 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:38:07 - HHH000026: Second-level cache disabled
+2024-10-01 23:38:07 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:38:07 - HikariPool-13 - Starting...
+2024-10-01 23:38:07 - HikariPool-13 - Added connection com.mysql.cj.jdbc.ConnectionImpl@170c6c68
+2024-10-01 23:38:07 - HikariPool-13 - Start completed.
+2024-10-01 23:38:07 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:38:07 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:38:07 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:38:07 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:38:08 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:38:08 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:38:08 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:38:08 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:38:08 - LiveReload server is running on port 35729
+2024-10-01 23:38:08 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:08 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:38:08 - Started PhysiokalendarApplication in 1.959 seconds (process running for 2793.85)
+2024-10-01 23:38:08 - Condition evaluation unchanged
+2024-10-01 23:38:10 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:38:10 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:10 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:38:10 - HikariPool-13 - Shutdown initiated...
+2024-10-01 23:38:10 - HikariPool-13 - Shutdown completed.
+2024-10-01 23:38:10 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:38:10 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:38:10 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:38:10 - Finished Spring Data repository scanning in 30 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:38:11 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:38:11 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:11 - Starting service [Tomcat]
+2024-10-01 23:38:11 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:38:11 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:38:11 - Root WebApplicationContext: initialization completed in 637 ms
+2024-10-01 23:38:11 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:38:11 - HHH000026: Second-level cache disabled
+2024-10-01 23:38:11 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:38:11 - HikariPool-14 - Starting...
+2024-10-01 23:38:11 - HikariPool-14 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64b97239
+2024-10-01 23:38:11 - HikariPool-14 - Start completed.
+2024-10-01 23:38:11 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:38:11 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:38:11 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:38:11 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:38:12 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:38:12 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:38:12 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:38:12 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:38:12 - LiveReload server is running on port 35729
+2024-10-01 23:38:12 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:12 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:38:12 - Started PhysiokalendarApplication in 2.124 seconds (process running for 2798.018)
+2024-10-01 23:38:12 - Condition evaluation unchanged
+2024-10-01 23:38:14 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:38:14 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:14 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:38:14 - HikariPool-14 - Shutdown initiated...
+2024-10-01 23:38:14 - HikariPool-14 - Shutdown completed.
+2024-10-01 23:38:14 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:38:14 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:38:14 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:38:14 - Finished Spring Data repository scanning in 30 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:38:14 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:38:14 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:14 - Starting service [Tomcat]
+2024-10-01 23:38:14 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:38:14 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:38:14 - Root WebApplicationContext: initialization completed in 557 ms
+2024-10-01 23:38:15 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:38:15 - HHH000026: Second-level cache disabled
+2024-10-01 23:38:15 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:38:15 - HikariPool-15 - Starting...
+2024-10-01 23:38:15 - HikariPool-15 - Added connection com.mysql.cj.jdbc.ConnectionImpl@77f9dccf
+2024-10-01 23:38:15 - HikariPool-15 - Start completed.
+2024-10-01 23:38:15 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:38:15 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:38:15 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:38:15 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:38:15 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:38:15 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:38:15 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:38:15 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:38:15 - LiveReload server is running on port 35729
+2024-10-01 23:38:16 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:38:16 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:38:16 - Started PhysiokalendarApplication in 1.751 seconds (process running for 2801.384)
+2024-10-01 23:38:16 - Condition evaluation unchanged
+2024-10-01 23:39:22 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:39:22 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:23 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:39:23 - HikariPool-15 - Shutdown initiated...
+2024-10-01 23:39:23 - HikariPool-15 - Shutdown completed.
+2024-10-01 23:39:23 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:39:23 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:39:23 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:39:23 - Finished Spring Data repository scanning in 17 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:39:23 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:39:23 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:23 - Starting service [Tomcat]
+2024-10-01 23:39:23 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:39:23 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:39:23 - Root WebApplicationContext: initialization completed in 375 ms
+2024-10-01 23:39:23 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:39:23 - HHH000026: Second-level cache disabled
+2024-10-01 23:39:23 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:39:23 - HikariPool-16 - Starting...
+2024-10-01 23:39:23 - HikariPool-16 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4041af1c
+2024-10-01 23:39:23 - HikariPool-16 - Start completed.
+2024-10-01 23:39:23 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:39:23 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:39:23 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:39:23 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:39:23 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:39:24 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:39:24 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:39:24 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:39:24 - LiveReload server is running on port 35729
+2024-10-01 23:39:24 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:24 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:39:24 - Started PhysiokalendarApplication in 1.31 seconds (process running for 2869.798)
+2024-10-01 23:39:24 - Condition evaluation unchanged
+2024-10-01 23:39:27 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:39:27 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:27 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:39:27 - HikariPool-16 - Shutdown initiated...
+2024-10-01 23:39:28 - HikariPool-16 - Shutdown completed.
+2024-10-01 23:39:28 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:39:28 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:39:28 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:39:28 - Finished Spring Data repository scanning in 30 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:39:28 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:39:28 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:28 - Starting service [Tomcat]
+2024-10-01 23:39:28 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:39:28 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:39:28 - Root WebApplicationContext: initialization completed in 492 ms
+2024-10-01 23:39:28 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:39:28 - HHH000026: Second-level cache disabled
+2024-10-01 23:39:28 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:39:28 - HikariPool-17 - Starting...
+2024-10-01 23:39:28 - HikariPool-17 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e30b460
+2024-10-01 23:39:28 - HikariPool-17 - Start completed.
+2024-10-01 23:39:28 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:39:28 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:39:28 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:39:28 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:39:29 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:39:29 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:39:29 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:39:29 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:39:29 - LiveReload server is running on port 35729
+2024-10-01 23:39:29 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:29 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:39:29 - Started PhysiokalendarApplication in 1.452 seconds (process running for 2874.93)
+2024-10-01 23:39:29 - Condition evaluation unchanged
+2024-10-01 23:39:45 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:39:45 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:45 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:39:45 - HikariPool-17 - Shutdown initiated...
+2024-10-01 23:39:45 - HikariPool-17 - Shutdown completed.
+2024-10-01 23:39:45 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:39:45 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:39:45 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:39:45 - Finished Spring Data repository scanning in 34 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:39:45 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:39:45 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:45 - Starting service [Tomcat]
+2024-10-01 23:39:45 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:39:45 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:39:45 - Root WebApplicationContext: initialization completed in 474 ms
+2024-10-01 23:39:45 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:39:45 - HHH000026: Second-level cache disabled
+2024-10-01 23:39:45 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:39:45 - HikariPool-18 - Starting...
+2024-10-01 23:39:45 - HikariPool-18 - Added connection com.mysql.cj.jdbc.ConnectionImpl@741de3d
+2024-10-01 23:39:45 - HikariPool-18 - Start completed.
+2024-10-01 23:39:45 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:39:45 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:39:45 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:39:45 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:39:46 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:39:46 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:39:46 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:39:46 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:39:46 - LiveReload server is running on port 35729
+2024-10-01 23:39:46 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:46 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:39:46 - Started PhysiokalendarApplication in 1.209 seconds (process running for 2891.784)
+2024-10-01 23:39:46 - Condition evaluation unchanged
+2024-10-01 23:39:50 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:39:50 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:50 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:39:50 - HikariPool-18 - Shutdown initiated...
+2024-10-01 23:39:50 - HikariPool-18 - Shutdown completed.
+2024-10-01 23:39:51 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:39:51 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:39:51 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:39:51 - Finished Spring Data repository scanning in 20 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:39:51 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:39:51 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:51 - Starting service [Tomcat]
+2024-10-01 23:39:51 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:39:51 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:39:51 - Root WebApplicationContext: initialization completed in 318 ms
+2024-10-01 23:39:51 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:39:51 - HHH000026: Second-level cache disabled
+2024-10-01 23:39:51 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:39:51 - HikariPool-19 - Starting...
+2024-10-01 23:39:51 - HikariPool-19 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fa1ef50
+2024-10-01 23:39:51 - HikariPool-19 - Start completed.
+2024-10-01 23:39:51 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:39:51 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:39:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:39:51 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:39:51 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:39:51 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:39:51 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:39:51 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:39:52 - LiveReload server is running on port 35729
+2024-10-01 23:39:52 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:52 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:39:52 - Started PhysiokalendarApplication in 1.087 seconds (process running for 2897.473)
+2024-10-01 23:39:52 - Condition evaluation unchanged
+2024-10-01 23:39:57 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:39:57 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:57 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:39:57 - HikariPool-19 - Shutdown initiated...
+2024-10-01 23:39:57 - HikariPool-19 - Shutdown completed.
+2024-10-01 23:39:57 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:39:57 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:39:58 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:39:58 - Finished Spring Data repository scanning in 22 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:39:58 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:39:58 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:58 - Starting service [Tomcat]
+2024-10-01 23:39:58 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:39:58 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:39:58 - Root WebApplicationContext: initialization completed in 415 ms
+2024-10-01 23:39:58 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:39:58 - HHH000026: Second-level cache disabled
+2024-10-01 23:39:58 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:39:58 - HikariPool-20 - Starting...
+2024-10-01 23:39:58 - HikariPool-20 - Added connection com.mysql.cj.jdbc.ConnectionImpl@118e0a33
+2024-10-01 23:39:58 - HikariPool-20 - Start completed.
+2024-10-01 23:39:58 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:39:58 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:39:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:39:58 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:39:58 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:39:58 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:39:58 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:39:58 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:39:59 - LiveReload server is running on port 35729
+2024-10-01 23:39:59 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:39:59 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:39:59 - Started PhysiokalendarApplication in 1.444 seconds (process running for 2904.547)
+2024-10-01 23:39:59 - Condition evaluation unchanged
+2024-10-01 23:40:03 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:40:03 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:03 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:40:03 - HikariPool-20 - Shutdown initiated...
+2024-10-01 23:40:03 - HikariPool-20 - Shutdown completed.
+2024-10-01 23:40:03 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:40:03 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:40:03 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:40:03 - Finished Spring Data repository scanning in 25 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:40:04 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:40:04 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:04 - Starting service [Tomcat]
+2024-10-01 23:40:04 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:40:04 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:40:04 - Root WebApplicationContext: initialization completed in 333 ms
+2024-10-01 23:40:04 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:40:04 - HHH000026: Second-level cache disabled
+2024-10-01 23:40:04 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:40:04 - HikariPool-21 - Starting...
+2024-10-01 23:40:04 - HikariPool-21 - Added connection com.mysql.cj.jdbc.ConnectionImpl@12077d5
+2024-10-01 23:40:04 - HikariPool-21 - Start completed.
+2024-10-01 23:40:04 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:40:04 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:40:04 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:40:04 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:40:04 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:40:04 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:40:05 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:40:05 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:40:05 - LiveReload server is running on port 35729
+2024-10-01 23:40:05 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:05 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:40:05 - Started PhysiokalendarApplication in 1.64 seconds (process running for 2910.752)
+2024-10-01 23:40:05 - Condition evaluation unchanged
+2024-10-01 23:40:07 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:40:07 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:07 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:40:07 - HikariPool-21 - Shutdown initiated...
+2024-10-01 23:40:07 - HikariPool-21 - Shutdown completed.
+2024-10-01 23:40:08 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:40:08 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:40:08 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:40:08 - Finished Spring Data repository scanning in 26 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:40:08 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:40:08 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:08 - Starting service [Tomcat]
+2024-10-01 23:40:08 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:40:08 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:40:08 - Root WebApplicationContext: initialization completed in 476 ms
+2024-10-01 23:40:08 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:40:08 - HHH000026: Second-level cache disabled
+2024-10-01 23:40:08 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:40:08 - HikariPool-22 - Starting...
+2024-10-01 23:40:08 - HikariPool-22 - Added connection com.mysql.cj.jdbc.ConnectionImpl@41943da4
+2024-10-01 23:40:08 - HikariPool-22 - Start completed.
+2024-10-01 23:40:08 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:40:08 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:40:08 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:40:08 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:40:09 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:40:09 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:40:09 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:40:09 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:40:09 - LiveReload server is running on port 35729
+2024-10-01 23:40:09 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:09 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:40:09 - Started PhysiokalendarApplication in 1.505 seconds (process running for 2914.87)
+2024-10-01 23:40:09 - Condition evaluation unchanged
+2024-10-01 23:40:11 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:40:11 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:11 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:40:11 - HikariPool-22 - Shutdown initiated...
+2024-10-01 23:40:11 - HikariPool-22 - Shutdown completed.
+2024-10-01 23:40:12 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:40:12 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:40:12 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:40:12 - Finished Spring Data repository scanning in 39 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:40:12 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:40:12 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:12 - Starting service [Tomcat]
+2024-10-01 23:40:12 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:40:12 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:40:12 - Root WebApplicationContext: initialization completed in 537 ms
+2024-10-01 23:40:12 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:40:12 - HHH000026: Second-level cache disabled
+2024-10-01 23:40:12 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:40:12 - HikariPool-23 - Starting...
+2024-10-01 23:40:12 - HikariPool-23 - Added connection com.mysql.cj.jdbc.ConnectionImpl@283b1fb8
+2024-10-01 23:40:12 - HikariPool-23 - Start completed.
+2024-10-01 23:40:12 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:40:12 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:40:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:40:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:40:13 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:40:13 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:40:13 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:40:13 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:40:13 - LiveReload server is running on port 35729
+2024-10-01 23:40:13 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:13 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:40:13 - Started PhysiokalendarApplication in 1.903 seconds (process running for 2919.359)
+2024-10-01 23:40:13 - Condition evaluation unchanged
+2024-10-01 23:40:15 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-01 23:40:15 - Stopping ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:15 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:40:15 - HikariPool-23 - Shutdown initiated...
+2024-10-01 23:40:15 - HikariPool-23 - Shutdown completed.
+2024-10-01 23:40:15 - Starting PhysiokalendarApplication using Java 17.0.11 with PID 20068 (C:\Users\sebas\Documents\Projects\Software\Physiokalendar\target\classes started by sebas in C:\Users\sebas\Documents\Projects\Software\Physiokalendar)
+2024-10-01 23:40:15 - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 23:40:15 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-01 23:40:15 - Finished Spring Data repository scanning in 12 ms. Found 8 JPA repository interfaces.
+2024-10-01 23:40:15 - Tomcat initialized with port 8080 (http)
+2024-10-01 23:40:15 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:15 - Starting service [Tomcat]
+2024-10-01 23:40:15 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-01 23:40:15 - Initializing Spring embedded WebApplicationContext
+2024-10-01 23:40:15 - Root WebApplicationContext: initialization completed in 255 ms
+2024-10-01 23:40:15 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-01 23:40:15 - HHH000026: Second-level cache disabled
+2024-10-01 23:40:15 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-01 23:40:15 - HikariPool-24 - Starting...
+2024-10-01 23:40:15 - HikariPool-24 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4321974f
+2024-10-01 23:40:15 - HikariPool-24 - Start completed.
+2024-10-01 23:40:15 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-01 23:40:15 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-10-01 23:40:15 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-01 23:40:16 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-01 23:40:16 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-01 23:40:16 - Global AuthenticationManager configured with UserDetailsService bean with name userService
+2024-10-01 23:40:16 - Exposing 1 endpoint beneath base path '/actuator'
+2024-10-01 23:40:16 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-01 23:40:16 - LiveReload server is running on port 35729
+2024-10-01 23:40:16 - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-01 23:40:16 - Tomcat started on port 8080 (http) with context path '/'
+2024-10-01 23:40:16 - Started PhysiokalendarApplication in 1.032 seconds (process running for 2921.95)
+2024-10-01 23:40:16 - Condition evaluation unchanged

@@ -78,7 +78,7 @@ public class AppointmentSeriesService {
         return savedSeries;
     }
 
-    private void createAppointmentsFromSeries(AppointmentSeries series, Date startDate, Date endDate, int weeklyFrequency) {
+    public void createAppointmentsFromSeries(AppointmentSeries series, Date startDate, Date endDate, int weeklyFrequency) {
         Therapist therapist = series.getTherapist();
 
         // Erstellen des Kalenders für die Datumsmathematik
