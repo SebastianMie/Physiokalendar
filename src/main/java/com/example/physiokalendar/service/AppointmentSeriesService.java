@@ -80,78 +80,90 @@ public class AppointmentSeriesService {
 
     public void createAppointmentsFromSeries(AppointmentSeries series, Date startDate, Date endDate, int weeklyFrequency) {
         Therapist therapist = series.getTherapist();
-
+    
         // Erstellen des Kalenders für die Datumsmathematik
         Calendar startCalendar = Calendar.getInstance();
         startCalendar.setTime(startDate);
+        startCalendar.set(Calendar.HOUR_OF_DAY, 0);
+        startCalendar.set(Calendar.MINUTE, 0);
+        startCalendar.set(Calendar.SECOND, 0);
+        startCalendar.set(Calendar.MILLISECOND, 0);
         
         Calendar endCalendar = Calendar.getInstance();
         endCalendar.setTime(endDate);
-
+    
+        Calendar startTimeCalendar = Calendar.getInstance();
+        startTimeCalendar.setTime(series.getStartTime());
+    
         Calendar endTimeCalendar = Calendar.getInstance();
         endTimeCalendar.setTime(series.getEndTime());
-
+    
         // Iterieren durch die Wochen, um die Einzeltermine zu erstellen
         while (startCalendar.before(endCalendar) || startCalendar.equals(endCalendar)) {
             // Erstellen des Einzeltermins
             Appointment appointment = new Appointment();
             appointment.setTherapist(therapist);
             appointment.setPatient(series.getPatient());
-            Date startTime = startCalendar.getTime();
-            Calendar endCalendarAppointment = (Calendar) startCalendar.clone();
-            endCalendarAppointment.set(Calendar.HOUR_OF_DAY, endTimeCalendar.get(Calendar.HOUR_OF_DAY));
-            endCalendarAppointment.set(Calendar.MINUTE, endTimeCalendar.get(Calendar.MINUTE));
-            endCalendarAppointment.set(Calendar.SECOND, endTimeCalendar.get(Calendar.SECOND));
-            Date endTime = endCalendarAppointment.getTime();
-            appointment.setDate(startTime);
-            appointment.setStartTime(startTime);
-            appointment.setEndTime(endTime);
+            
+            // Kombiniere Datum mit Start- und Endzeit
+            Calendar startTimeForAppointment = (Calendar) startCalendar.clone();
+            startTimeForAppointment.set(Calendar.HOUR_OF_DAY, startTimeCalendar.get(Calendar.HOUR_OF_DAY));
+            startTimeForAppointment.set(Calendar.MINUTE, startTimeCalendar.get(Calendar.MINUTE));
+            startTimeForAppointment.set(Calendar.SECOND, startTimeCalendar.get(Calendar.SECOND));
+    
+            Calendar endTimeForAppointment = (Calendar) startCalendar.clone();
+            endTimeForAppointment.set(Calendar.HOUR_OF_DAY, endTimeCalendar.get(Calendar.HOUR_OF_DAY));
+            endTimeForAppointment.set(Calendar.MINUTE, endTimeCalendar.get(Calendar.MINUTE));
+            endTimeForAppointment.set(Calendar.SECOND, endTimeCalendar.get(Calendar.SECOND));
+    
+            appointment.setAppointmentSeriesId(series.getId());
+            appointment.setDate(startCalendar.getTime());
+            appointment.setStartTime(startTimeForAppointment.getTime());
+            appointment.setEndTime(endTimeForAppointment.getTime());
             appointment.setCreatedBySeriesAppointment(true);
             appointment.setIsElectric(false);
             appointment.setIsHotair(false);
             appointment.setIsUltrasonic(false);
-            appointment.setComment("generiert aus SerienTermin id "+ series.getId());
-            // Überprüfen auf Konflikte
-            if (checkForConflicts(appointment)) {
-                throw new IllegalStateException("Appointment conflicts with an existing appointment.");
-            }
-
+            appointment.setComment("generiert aus SerienTermin id " + series.getId());
+    
+            // Überprüfen auf Konflikte (eventuell ergänzen)
+            
             // Speichern des Einzeltermins
             appointmentRepository.save(appointment);
-
+    
             // Nächster Termin basierend auf der wöchentlichen Frequenz
             startCalendar.add(Calendar.WEEK_OF_YEAR, weeklyFrequency);
         }
-    }
+    }    
 
-    private boolean checkForConflicts(Appointment newAppointment) {
-        // Filterlogik für Konflikte, z.B. Termine des heutigen Tages
-        Calendar todayCalendar = Calendar.getInstance();
-        todayCalendar.set(Calendar.HOUR_OF_DAY, 0);
-        todayCalendar.set(Calendar.MINUTE, 0);
-        todayCalendar.set(Calendar.SECOND, 0);
-        todayCalendar.set(Calendar.MILLISECOND, 0);
-        Date today = todayCalendar.getTime();
+    // private boolean checkForConflicts(Appointment newAppointment) {
+    //     // Filterlogik für Konflikte, z.B. Termine des heutigen Tages
+    //     Calendar todayCalendar = Calendar.getInstance();
+    //     todayCalendar.set(Calendar.HOUR_OF_DAY, 0);
+    //     todayCalendar.set(Calendar.MINUTE, 0);
+    //     todayCalendar.set(Calendar.SECOND, 0);
+    //     todayCalendar.set(Calendar.MILLISECOND, 0);
+    //     Date today = todayCalendar.getTime();
 
-        List<Appointment> appointments = appointmentRepository.findAll().stream()
-                .filter(a -> isSameDay(a.getStartTime(), today) && a.getTherapist().getId().equals(newAppointment.getTherapist().getId()))
-                .collect(Collectors.toList());
+    //     List<Appointment> appointments = appointmentRepository.findAll().stream()
+    //             .filter(a -> isSameDay(a.getStartTime(), today) && a.getTherapist().getId().equals(newAppointment.getTherapist().getId()))
+    //             .collect(Collectors.toList());
 
-        return appointments.stream().anyMatch(existingAppointment -> isOverlapping(existingAppointment, newAppointment));
-    }
+    //     return appointments.stream().anyMatch(existingAppointment -> isOverlapping(existingAppointment, newAppointment));
+    // }
 
-    private boolean isOverlapping(Appointment a, Appointment b) {
-        return a.getEndTime().after(b.getStartTime()) && b.getEndTime().after(a.getStartTime());
-    }
+    // private boolean isOverlapping(Appointment a, Appointment b) {
+    //     return a.getEndTime().after(b.getStartTime()) && b.getEndTime().after(a.getStartTime());
+    // }
 
-    private boolean isSameDay(Date d1, Date d2) {
-        Calendar cal1 = Calendar.getInstance();
-        cal1.setTime(d1);
-        Calendar cal2 = Calendar.getInstance();
-        cal2.setTime(d2);
-        return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
-               cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR);
-    }
+    // private boolean isSameDay(Date d1, Date d2) {
+    //     Calendar cal1 = Calendar.getInstance();
+    //     cal1.setTime(d1);
+    //     Calendar cal2 = Calendar.getInstance();
+    //     cal2.setTime(d2);
+    //     return cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+    //            cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR);
+    // }
 
     @Transactional
     public AppointmentSeries addCancellations(Long appointmentSeriesId, List<JSONCancellationDTO> cancellationDTOs) {

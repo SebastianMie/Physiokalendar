@@ -1,9 +1,11 @@
 package com.example.physiokalendar.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.physiokalendar.dto.JSONAbsenceDTO;
@@ -25,8 +28,9 @@ public class AbsenceController {
     private AbsenceService absenceService;
 
     @GetMapping
-    public List<Absence> getAllAbsences() {
-        return absenceService.getAllAbsences();
+    public List<JSONAbsenceDTO> getAllAbsences() {
+        List<Absence> absences = absenceService.getAllAbsences();
+        return absenceService.convertEntitiesToDTOs(absences);
     }
 
     @GetMapping("/{id}")
@@ -34,10 +38,28 @@ public class AbsenceController {
         return absenceService.getAbsenceById(id);
     }
 
-    @GetMapping("/therapist/{id}")
-    public List<Absence> getAbsenceByTherapistId(@PathVariable Long id) {
-        return absenceService.getAbsencesByTherapistId(id);
+    @GetMapping("/therapist/{therapistId}/date")
+    public ResponseEntity<List<JSONAbsenceDTO>> getAbsencesByDateOrWeekday(
+            @PathVariable Long therapistId,
+            @RequestParam(required = false) String date,
+            @RequestParam(required = false) String weekday) {
+
+        List<Absence> absences = new ArrayList<>();
+
+        if (date != null) {
+            absences.addAll(absenceService.getAbsencesByTherapistAndDate(therapistId, date));
+        } 
+        if (weekday != null) {
+            absences.addAll(absenceService.getAbsencesByTherapistAndWeekday(therapistId, weekday));
+        } 
+        if (date == null && weekday == null) {
+            absences = absenceService.getAbsencesByTherapistId(therapistId);
+        }
+
+        List<JSONAbsenceDTO> absenceDTOs = absenceService.convertEntitiesToDTOs(absences);
+        return ResponseEntity.ok(absenceDTOs);
     }
+
 
     @PostMapping
     public Absence createOrUpdateAbsence(@RequestBody JSONAbsenceDTO absence) {

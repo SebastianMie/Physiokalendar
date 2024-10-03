@@ -8,7 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,8 +25,9 @@ public class Absence {
     @Column(name = "date")
     private Date date;
     
-    @Column(name = "therapist_id")
-    private Long therapistId;
+    @ManyToOne
+    @JoinColumn(name = "therapist_id", referencedColumnName = "id", nullable = false)
+    private Therapist therapist;
 
     @Column(name = "weekday")
     private String weekday;

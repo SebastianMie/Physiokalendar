@@ -16,11 +16,13 @@ import org.springframework.stereotype.Service;
 import com.example.physiokalendar.entity.Absence;
 import com.example.physiokalendar.entity.Appointment;
 import com.example.physiokalendar.entity.AppointmentSeries;
+import com.example.physiokalendar.entity.Cancellation;
 import com.example.physiokalendar.entity.Patient;
 import com.example.physiokalendar.entity.Therapist;
 import com.example.physiokalendar.repository.AbsenceRepository;
 import com.example.physiokalendar.repository.AppointmentRepository;
 import com.example.physiokalendar.repository.AppointmentSeriesRepository;
+import com.example.physiokalendar.repository.CancellationRepository;
 import com.example.physiokalendar.repository.PatientRepository;
 import com.example.physiokalendar.repository.TherapistRepository;
 import com.example.physiokalendar.service.AppointmentSeriesService;
@@ -40,6 +42,10 @@ public class DataImportService {
     private AppointmentRepository appointmentRepository;
 
     @Autowired
+    private CancellationRepository cancellationRepository;
+
+
+    @Autowired
     private AppointmentSeriesRepository appointmentSeriesRepository;
 
     @Autowired
@@ -56,32 +62,32 @@ public class DataImportService {
             JsonNode rootNode = mapper.readTree(new File(filePath));
 
             // Sicherstellen, dass "daylist" existiert und "elements" ein Array ist
-            // if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
-            //     JsonNode elementsNode = rootNode.get("daylist").get("elements");
+            if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
+                JsonNode elementsNode = rootNode.get("daylist").get("elements");
 
-            //     if (elementsNode.isArray()) {
-            //         // Über die Elemente iterieren
-            //         Iterator<JsonNode> days = elementsNode.elements();
-            //         while (days.hasNext()) {
-            //             JsonNode day = days.next();
-            //             // Importiere die Termine
-            //             importAppointments(day, errorWriter);
-            //         }
-            //     }
-            // }
-
-            // Importiere die Serientermine aus der Masterlist
-            if (rootNode.has("masterlist") && rootNode.get("masterlist").has("elements")) {
-                JsonNode masterListNode = rootNode.get("masterlist").get("elements");
-
-                if (masterListNode.isArray()) {
-                    Iterator<JsonNode> seriesDays = masterListNode.elements();
-                    while (seriesDays.hasNext()) {
-                        JsonNode seriesDay = seriesDays.next();
-                        importSeriesAppointments(seriesDay, errorWriter);
+                if (elementsNode.isArray()) {
+                    // Über die Elemente iterieren
+                    Iterator<JsonNode> days = elementsNode.elements();
+                    while (days.hasNext()) {
+                        JsonNode day = days.next();
+                        // Importiere die Termine
+                        importAppointments(day, errorWriter);
                     }
                 }
             }
+
+            // Importiere die Serientermine aus der Masterlist
+            // if (rootNode.has("masterlist") && rootNode.get("masterlist").has("elements")) {
+            //     JsonNode masterListNode = rootNode.get("masterlist").get("elements");
+
+            //     if (masterListNode.isArray()) {
+            //         Iterator<JsonNode> seriesDays = masterListNode.elements();
+            //         while (seriesDays.hasNext()) {
+            //             JsonNode seriesDay = seriesDays.next();
+            //             importSeriesAppointments(seriesDay, errorWriter);
+            //         }
+            //     }
+            // }
 
             // Importiere die Abwesenheiten der Therapeuten
             // if (rootNode.has("therapists") && rootNode.get("therapists").isArray()) {
@@ -188,16 +194,19 @@ public class DataImportService {
                     if (endDate.after(cutoffDate)) {
                         endDate = cutoffDate;
                     }
-                    //TODO: appointment.setAppointmentSeriesId(appointmentNode.get("id").asInt()); // appointment_series_id
+                    
                     appointment.setStartDate(startDate);
                     appointment.setEndDate(endDate);
+                    appointment.setWeekday(weekday);
                     appointment.setWeeklyfrequency(appointmentNode.hasNonNull("interval") ? appointmentNode.get("interval").asInt() : 1);
                     appointment.setComment(appointmentNode.hasNonNull("comment") ? appointmentNode.get("comment").asText() : "");
     
                     // Erstelle die wiederkehrenden Termine anhand des Serien-Termins
-                    appointmentSeriesService.createAppointmentsFromSeries(appointment, startDate, endDate, appointment.getWeeklyfrequency());
+                    
     
-                    appointmentSeriesRepository.save(appointment);
+                    AppointmentSeries savedAppointment = appointmentSeriesRepository.save(appointment);
+
+                    appointmentSeriesService.createAppointmentsFromSeries(savedAppointment, startDate, endDate, appointment.getWeeklyfrequency());
     
                     // Behandle Ausfälle (Cancellations)
                     if (appointmentNode.has("cancellations") && appointmentNode.get("cancellations").isArray()) {
@@ -205,9 +214,10 @@ public class DataImportService {
                             String cancellationDateStr = cancellationNode.hasNonNull("date") ? cancellationNode.get("date").asText() : null;
                             Date cancellationDate = parseDate(cancellationDateStr);
                             if (cancellationDate != null) {
-                                // Logik für das Markieren von abgesagten Terminen
-                                errorWriter.write("Ausfall von Serientermin am " + cancellationDateStr + " für Patient: " + patientName + ", Therapeut: " + therapistName);
-                                errorWriter.newLine();
+                                Cancellation cancellation = new Cancellation();
+                                cancellation.setDate(cancellationDate);
+                                cancellation.setAppointmentSeries(savedAppointment);
+                                cancellationRepository.save(cancellation);
                             }
                         }
                     }
@@ -233,7 +243,7 @@ public class DataImportService {
             while (absences.hasNext()) {
                 JsonNode absenceNode = absences.next();
                 Absence absence = new Absence();
-                absence.setTherapistId(therapist.getId());
+                absence.setTherapist(therapist);
 
                 // Unterscheide zwischen Datum und Wochentag
                 String day = absenceNode.hasNonNull("day") ? absenceNode.get("day").asText() : null;
@@ -318,21 +328,27 @@ public class DataImportService {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         Date parsedTime = null;
         try {
+            // Parse the time (HH:mm)
             parsedTime = timeFormat.parse(time);
         } catch (ParseException e) {
-            // Handle the exception here, e.g. by logging or throwing a custom exception
             System.out.println("Error parsing time: " + e.getMessage());
+            return null;  // Return null in case of parsing errors
         }
-        // Create a Calendar object for the appointment date
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(appointmentDate);
-        // Create a Calendar object for the parsed time
+        
+        // Create a Calendar object for the appointment date (date part)
+        Calendar appointmentCalendar = Calendar.getInstance();
+        appointmentCalendar.setTime(appointmentDate);
+    
+        // Create a Calendar object for the parsed time (time part)
         Calendar timeCalendar = Calendar.getInstance();
         timeCalendar.setTime(parsedTime);
+    
         // Set the hour and minute from the parsed time into the appointment date
-        calendar.set(Calendar.HOUR_OF_DAY, timeCalendar.get(Calendar.HOUR_OF_DAY));
-        calendar.set(Calendar.MINUTE, timeCalendar.get(Calendar.MINUTE));
-        calendar.set(Calendar.SECOND, 0); // Optional: Set seconds to 0
-        return calendar.getTime(); // Return the combined date and time
+        appointmentCalendar.set(Calendar.HOUR_OF_DAY, timeCalendar.get(Calendar.HOUR_OF_DAY));
+        appointmentCalendar.set(Calendar.MINUTE, timeCalendar.get(Calendar.MINUTE));
+        appointmentCalendar.set(Calendar.SECOND, 0); // Optionally set seconds to 0
+    
+        // Return the combined date and time
+        return appointmentCalendar.getTime();
     }
 }
