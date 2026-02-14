@@ -58,7 +58,8 @@ public class AuthController {
         response.put("user", Map.of(
             "id", user.getId(),
             "username", user.getUsername(),
-            "role", "THERAPIST"
+            "role", user.getRole().name(),
+            "therapistId", user.getTherapistId() != null ? user.getTherapistId() : 0
         ));
 
         return ResponseEntity.ok(response);
@@ -97,7 +98,8 @@ public class AuthController {
         return ResponseEntity.ok(Map.of(
             "id", user.getId(),
             "username", user.getUsername(),
-            "role", "THERAPIST"
+            "role", user.getRole().name(),
+            "therapistId", user.getTherapistId() != null ? user.getTherapistId() : 0
         ));
     }
 

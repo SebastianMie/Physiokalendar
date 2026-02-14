@@ -12,7 +12,7 @@ import com.example.physiokalendar.repository.PatientRepository;
 
 @Service
 public class PatientService {
-    
+
     @Autowired
     private PatientRepository patientRepository;
 
@@ -36,7 +36,13 @@ public class PatientService {
         Patient existingPatient = patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
         existingPatient.setFirstName(dto.getFirstName());
         existingPatient.setLastName(dto.getLastName());
-        existingPatient.setFullName(dto.getFullName());
+        existingPatient.setFullName(dto.getFirstName() + " " + dto.getLastName());
+        existingPatient.setEmail(dto.getEmail());
+        existingPatient.setTelefon(dto.getTelefon());
+        existingPatient.setStreet(dto.getStreet());
+        existingPatient.setHouseNumber(dto.getHouseNumber());
+        existingPatient.setPostalCode(dto.getPostalCode());
+        existingPatient.setCity(dto.getCity());
         existingPatient.setActiveSince(dto.getActiveSince());
         existingPatient.setActiveUntil(dto.getActiveUntil());
         existingPatient.setIsBWO(dto.getIsBWO());
@@ -53,9 +59,17 @@ public class PatientService {
         dto.setFirstName(patient.getFirstName());
         dto.setLastName(patient.getLastName());
         dto.setFullName(patient.getFirstName() + " " + patient.getLastName());
-        dto.setActiveSince(patient.getActiveSince()); 
-        dto.setActiveUntil(patient.getActiveUntil()); 
+        dto.setEmail(patient.getEmail());
+        dto.setTelefon(patient.getTelefon());
+        dto.setStreet(patient.getStreet());
+        dto.setHouseNumber(patient.getHouseNumber());
+        dto.setPostalCode(patient.getPostalCode());
+        dto.setCity(patient.getCity());
+        dto.setActiveSince(patient.getActiveSince());
+        dto.setActiveUntil(patient.getActiveUntil());
         dto.setIsBWO(patient.getIsBWO());
+        dto.setCreatedAt(patient.getCreatedAt());
+        dto.setUpdatedAt(patient.getUpdatedAt());
         return dto;
     }
 
@@ -63,8 +77,15 @@ public class PatientService {
         Patient patient = new Patient();
         patient.setFirstName(dto.getFirstName());
         patient.setLastName(dto.getLastName());
-        patient.setActiveSince(dto.getActiveSince()); // Convert long to Date
-        patient.setActiveUntil(dto.getActiveUntil()); // Convert long to Date
+        patient.setFullName(dto.getFirstName() + " " + dto.getLastName());
+        patient.setEmail(dto.getEmail());
+        patient.setTelefon(dto.getTelefon());
+        patient.setStreet(dto.getStreet());
+        patient.setHouseNumber(dto.getHouseNumber());
+        patient.setPostalCode(dto.getPostalCode());
+        patient.setCity(dto.getCity());
+        patient.setActiveSince(dto.getActiveSince());
+        patient.setActiveUntil(dto.getActiveUntil());
         patient.setIsBWO(dto.getIsBWO());
         return patient;
     }

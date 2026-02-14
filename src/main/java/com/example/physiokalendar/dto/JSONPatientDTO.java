@@ -25,9 +25,13 @@ public class JSONPatientDTO {
     private String lastName;
     private String email;
     private String telefon;
+    private String street;
+    private String houseNumber;
+    private String postalCode;
+    private String city;
     private LocalDateTime activeSince;
     private LocalDateTime activeUntil;
     private Boolean isBWO;
-
-    // Getters and Setters
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

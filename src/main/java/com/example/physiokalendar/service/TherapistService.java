@@ -39,27 +39,27 @@ public class TherapistService {
     public Therapist createTherapist(JSONTherapistDTO dto) {
         // Konvertiere DTO zu einer Therapeuten-Entität
         Therapist therapist = convertDTOToEntity(dto);
-        
+
         // Speichere den Therapeuten in der Datenbank, um die ID zu generieren
         Therapist savedTherapist = therapistRepository.save(therapist);
-    
+
         // Benutzername und Passwort generieren
         String firstName = savedTherapist.getFirstName();
         String lastName = savedTherapist.getLastName();
-        
+
         // Stelle sicher, dass der Nachname mindestens 3 Zeichen hat
         String username = firstName + (lastName.length() >= 3 ? lastName.substring(0, 3) : lastName);
         String password = firstName + (lastName.length() >= 3 ? lastName.substring(0, 3) : lastName);
-        
+
         // Erstelle einen neuen Benutzer und setze die Standardwerte
         User user = new User();
         user.setTherapistId(savedTherapist.getId());  // Hier die generierte Therapeuten-ID setzen
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));  // Passwort verschlüsseln
-    
+
         // Speichere den Benutzer
         userService.registerUser(user);
-    
+
         // Gebe den gespeicherten Therapeuten zurück
         return savedTherapist;
     }
@@ -70,6 +70,8 @@ public class TherapistService {
         existingTherapist.setFirstName(dto.getFirstName());
         existingTherapist.setLastName(dto.getLastName());
         existingTherapist.setFullName(dto.getFirstName() + " " + dto.getLastName());
+        existingTherapist.setEmail(dto.getEmail());
+        existingTherapist.setTelefon(dto.getTelefon());
         existingTherapist.setActiveSince(dto.getActiveSince());
         existingTherapist.setActiveUntil(dto.getActiveUntil());
         existingTherapist.setIsActive(dto.getIsActive());
@@ -86,6 +88,8 @@ public class TherapistService {
         dto.setFirstName(therapist.getFirstName());
         dto.setLastName(therapist.getLastName());
         dto.setFullName(therapist.getFullName());
+        dto.setEmail(therapist.getEmail());
+        dto.setTelefon(therapist.getTelefon());
         dto.setActiveSince(therapist.getActiveSince());
         dto.setActiveUntil(therapist.getActiveUntil());
         dto.setIsActive(therapist.getIsActive());
