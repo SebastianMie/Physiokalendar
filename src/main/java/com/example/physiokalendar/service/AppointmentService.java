@@ -1,15 +1,19 @@
 package com.example.physiokalendar.service;
 
+import com.example.physiokalendar.dto.AppointmentDraftDTO;
+import com.example.physiokalendar.dto.AppointmentSaveResult;
+import com.example.physiokalendar.dto.ConflictCheckDTO;
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
-import com.example.physiokalendar.entity.Absence;
-import com.example.physiokalendar.entity.Appointment;
-import com.example.physiokalendar.entity.Patient;
-import com.example.physiokalendar.entity.Therapist;
+import com.example.physiokalendar.entity.*;
 import com.example.physiokalendar.repository.AppointmentRepository;
 import com.example.physiokalendar.repository.TherapistRepository;
+import com.example.physiokalendar.repository.PatientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,8 +25,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import com.example.physiokalendar.repository.PatientRepository;
 
 @Service
 public class AppointmentService {
@@ -44,6 +46,12 @@ public class AppointmentService {
 
     @Autowired
     private AbsenceService absenceService;
+
+    @Autowired
+    private AuditService auditService;
+
+    @Autowired
+    private ConflictService conflictService;
 
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
@@ -73,37 +81,207 @@ public class AppointmentService {
         } else if (patientId != null) {
             return appointmentRepository.findByPatientId(patientId);
         } else {
-            return appointmentRepository.findAll(); // No filters applied, return all appointments
+            return appointmentRepository.findAll();
         }
     }
 
+    /**
+     * Save appointment with integrated conflict check and audit logging.
+     * Returns the saved appointment along with conflict information.
+     */
+    @Transactional
+    public AppointmentSaveResult saveAppointmentWithConflictCheck(JSONAppointmentDTO appointmentDTO, boolean forceOnConflict) {
+        // Support both nested therapist/patient objects and flat ID fields
+        Long therapistId = appointmentDTO.getTherapistId() != null
+                ? appointmentDTO.getTherapistId()
+                : (appointmentDTO.getTherapist() != null ? appointmentDTO.getTherapist().getId() : null);
+        Long patientId = appointmentDTO.getPatientId() != null
+                ? appointmentDTO.getPatientId()
+                : (appointmentDTO.getPatient() != null ? appointmentDTO.getPatient().getId() : null);
 
-
-    public Appointment saveAppointment(JSONAppointmentDTO appointmentDTO) {
-        // Mapping DTO to Entity
-        Long therapistId = appointmentDTO.getTherapist().getId();
-        Long patientId = appointmentDTO.getPatient().getId();
+        if (therapistId == null) {
+            throw new IllegalArgumentException("Therapist ID is required");
+        }
+        if (patientId == null) {
+            throw new IllegalArgumentException("Patient ID is required");
+        }
 
         Therapist therapist = therapistRepository.findById(therapistId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));
         Patient patient = patientRepository.findById(patientId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID"));
 
+        LocalDate date = appointmentDTO.getDate() != null ? dateToLocalDate(appointmentDTO.getDate()) : null;
+        LocalDateTime startTime = appointmentDTO.getStartTime() != null ? dateToLocalDateTime(appointmentDTO.getStartTime()) : null;
+        LocalDateTime endTime = appointmentDTO.getEndTime() != null ? dateToLocalDateTime(appointmentDTO.getEndTime()) : null;
+
+        // Build draft for conflict check
+        AppointmentDraftDTO draft = AppointmentDraftDTO.builder()
+                .id(appointmentDTO.getId())
+                .therapistId(therapistId)
+                .patientId(patientId)
+                .date(date)
+                .startTime(startTime)
+                .endTime(endTime)
+                .build();
+
+        // Check conflicts
+        ConflictCheckDTO conflictResult = conflictService.checkConflicts(draft);
+
+        if (conflictResult.isHasConflict() && !forceOnConflict) {
+            return new AppointmentSaveResult(null, conflictResult, false);
+        }
+
+        // Prepare entity
         Appointment appointment = new Appointment();
-        appointment.setId(appointmentDTO.getId());
+        boolean isUpdate = appointmentDTO.getId() != null;
+        String beforeJson = null;
+
+        if (isUpdate) {
+            appointment = appointmentRepository.findById(appointmentDTO.getId())
+                    .orElseThrow(() -> new IllegalArgumentException("Appointment not found"));
+            beforeJson = auditService.toAuditJson(appointment);
+        }
+
         appointment.setTherapist(therapist);
         appointment.setPatient(patient);
-        appointment.setDate(appointmentDTO.getDate() != null ? dateToLocalDate(appointmentDTO.getDate()) : null);
-        appointment.setStartTime(appointmentDTO.getStartTime() != null ? dateToLocalDateTime(appointmentDTO.getStartTime()) : null);
-        appointment.setEndTime(appointmentDTO.getEndTime() != null ? dateToLocalDateTime(appointmentDTO.getEndTime()) : null);
+        appointment.setDate(date);
+        appointment.setStartTime(startTime);
+        appointment.setEndTime(endTime);
         appointment.setComment(appointmentDTO.getComment());
         appointment.setCreatedBySeriesAppointment(appointmentDTO.getCreatedBySeriesAppointment());
         appointment.setIsElectric(appointmentDTO.getIsElectric());
         appointment.setIsHotair(appointmentDTO.getIsHotair());
         appointment.setIsUltrasonic(appointmentDTO.getIsUltrasonic());
+        appointment.setStatus(AppointmentStatus.SCHEDULED);
 
-        // Speichern und zurückgeben
-        return appointmentRepository.save(appointment);
+        Appointment saved = appointmentRepository.save(appointment);
+
+        // Audit logging
+        auditService.record(AuditService.builder()
+                .actor(getCurrentUserId(), getCurrentUsername())
+                .entity(AuditEntityType.APPOINTMENT, saved.getId())
+                .action(isUpdate ? AuditAction.UPDATE : AuditAction.CREATE)
+                .before(beforeJson)
+                .after(auditService.toAuditJson(saved)));
+
+        return new AppointmentSaveResult(saved, conflictResult, true);
+    }
+
+    /**
+     * Legacy save method (calls new method with forceOnConflict=true for backward compatibility)
+     */
+    @Transactional
+    public Appointment saveAppointment(JSONAppointmentDTO appointmentDTO) {
+        AppointmentSaveResult result = saveAppointmentWithConflictCheck(appointmentDTO, true);
+        return result.getAppointment();
+    }
+
+    /**
+     * Move appointment (Drag & Drop support).
+     * Changes date, startTime, endTime and optionally therapist.
+     */
+    @Transactional
+    public AppointmentSaveResult moveAppointment(Long appointmentId, LocalDate newDate,
+            LocalDateTime newStartTime, LocalDateTime newEndTime, Long newTherapistId, boolean forceOnConflict) {
+
+        Appointment appointment = appointmentRepository.findById(appointmentId)
+                .orElseThrow(() -> new IllegalArgumentException("Appointment not found: " + appointmentId));
+
+        String beforeJson = auditService.toAuditJson(appointment);
+
+        Long therapistId = newTherapistId != null ? newTherapistId : appointment.getTherapist().getId();
+
+        // Build draft for conflict check
+        AppointmentDraftDTO draft = AppointmentDraftDTO.builder()
+                .id(appointmentId)
+                .therapistId(therapistId)
+                .patientId(appointment.getPatient().getId())
+                .date(newDate)
+                .startTime(newStartTime)
+                .endTime(newEndTime)
+                .build();
+
+        ConflictCheckDTO conflictResult = conflictService.checkConflicts(draft);
+
+        if (conflictResult.isHasConflict() && !forceOnConflict) {
+            return new AppointmentSaveResult(null, conflictResult, false);
+        }
+
+        // Apply changes
+        if (newTherapistId != null && !newTherapistId.equals(appointment.getTherapist().getId())) {
+            Therapist newTherapist = therapistRepository.findById(newTherapistId)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));
+            appointment.setTherapist(newTherapist);
+        }
+
+        appointment.setDate(newDate);
+        appointment.setStartTime(newStartTime);
+        appointment.setEndTime(newEndTime);
+
+        Appointment saved = appointmentRepository.save(appointment);
+
+        // Audit logging
+        auditService.record(AuditService.builder()
+                .actor(getCurrentUserId(), getCurrentUsername())
+                .entity(AuditEntityType.APPOINTMENT, appointmentId)
+                .action(AuditAction.UPDATE)
+                .before(beforeJson)
+                .after(auditService.toAuditJson(saved)));
+
+        return new AppointmentSaveResult(saved, conflictResult, true);
+    }
+
+    /**
+     * Cancel appointment (soft delete).
+     */
+    @Transactional
+    public Appointment cancelAppointment(Long id, String reason) {
+        Appointment appointment = appointmentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Appointment not found"));
+
+        String beforeJson = auditService.toAuditJson(appointment);
+
+        appointment.setStatus(AppointmentStatus.CANCELLED);
+        if (reason != null && !reason.isEmpty()) {
+            appointment.setComment((appointment.getComment() != null ? appointment.getComment() + " | " : "")
+                    + "Storniert: " + reason);
+        }
+
+        Appointment saved = appointmentRepository.save(appointment);
+
+        // Audit logging
+        auditService.record(AuditService.builder()
+                .actor(getCurrentUserId(), getCurrentUsername())
+                .entity(AuditEntityType.APPOINTMENT, id)
+                .action(AuditAction.CANCEL)
+                .before(beforeJson)
+                .after(auditService.toAuditJson(saved)));
+
+        return saved;
+    }
+
+    /**
+     * Get conflicts for a draft appointment (used by frontend before saving).
+     */
+    public ConflictCheckDTO checkConflictsForDraft(AppointmentDraftDTO draft) {
+        return conflictService.checkConflicts(draft);
+    }
+
+    private Long getCurrentUserId() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.getPrincipal() instanceof User) {
+            return ((User) auth.getPrincipal()).getId();
+        }
+        return null;
+    }
+
+    private String getCurrentUsername() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            return auth.getName();
+        }
+        return "system";
     }
 
 
@@ -272,11 +450,11 @@ public class AppointmentService {
     }
 
     private LocalDate dateToLocalDate(Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDate();
     }
 
     private LocalDateTime dateToLocalDateTime(Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDateTime();
     }
 
     public List<Appointment> getAppointmentsWithConflicts() {
@@ -298,7 +476,71 @@ public class AppointmentService {
         return conflictingAppointments;
     }
 
+    @Transactional
     public void deleteAppointment(Long id) {
-        appointmentRepository.deleteById(id);
+        Appointment existing = appointmentRepository.findById(id).orElse(null);
+        if (existing != null) {
+            String beforeJson = auditService.toAuditJson(existing);
+            appointmentRepository.deleteById(id);
+
+            // Audit-Log
+            auditService.record(AuditService.builder()
+                    .actor(getCurrentUserId(), getCurrentUsername())
+                    .entity(AuditEntityType.APPOINTMENT, id)
+                    .action(AuditAction.DELETE)
+                    .before(beforeJson));
+        }
+    }
+
+    /**
+     * Get appointments by therapist with optional date range.
+     */
+    public List<Appointment> getAppointmentsByTherapist(Long therapistId, LocalDate from, LocalDate to) {
+        List<Appointment> appointments = appointmentRepository.findByTherapistId(therapistId);
+
+        if (from != null || to != null) {
+            appointments = appointments.stream()
+                    .filter(a -> {
+                        LocalDate appointmentDate = a.getDate();
+                        boolean afterFrom = from == null || !appointmentDate.isBefore(from);
+                        boolean beforeTo = to == null || !appointmentDate.isAfter(to);
+                        return afterFrom && beforeTo;
+                    })
+                    .toList();
+        }
+
+        return appointments;
+    }
+
+    /**
+     * Get appointments by patient with optional date range.
+     */
+    public List<Appointment> getAppointmentsByPatient(Long patientId, LocalDate from, LocalDate to) {
+        List<Appointment> appointments = appointmentRepository.findByPatientId(patientId);
+
+        if (from != null || to != null) {
+            appointments = appointments.stream()
+                    .filter(a -> {
+                        LocalDate appointmentDate = a.getDate();
+                        boolean afterFrom = from == null || !appointmentDate.isBefore(from);
+                        boolean beforeTo = to == null || !appointmentDate.isAfter(to);
+                        return afterFrom && beforeTo;
+                    })
+                    .toList();
+        }
+
+        return appointments;
+    }
+
+    /**
+     * Get appointments in a date range.
+     */
+    public List<Appointment> getAppointmentsByDateRange(LocalDate from, LocalDate to) {
+        return appointmentRepository.findAll().stream()
+                .filter(a -> {
+                    LocalDate appointmentDate = a.getDate();
+                    return !appointmentDate.isBefore(from) && !appointmentDate.isAfter(to);
+                })
+                .toList();
     }
 }

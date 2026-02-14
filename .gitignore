@@ -1,0 +1,52 @@
+# Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.factorypath
+*.launch
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment Files (NEVER commit production secrets!)
+.env.prod
+.env.local
+*.env.local
+
+# Frontend node_modules (if present at root)
+node_modules/
+Physiiokalender-v2-UI/
+
+# Build outputs
+dist/
+build/
+
+# Docker
+*.tar
+
+# Test outputs
+test-results/
+coverage/

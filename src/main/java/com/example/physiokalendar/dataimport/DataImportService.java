@@ -58,32 +58,72 @@ public class DataImportService {
     @Autowired
     private AppointmentSeriesService appointmentSeriesService;
 
+    // Statistik-Counter für den Import
+    private int therapistCount = 0;
+    private int patientCount = 0;
+    private int appointmentCount = 0;
+    private int seriesCount = 0;
+    private int absenceCount = 0;
+    private int cancellationCount = 0;
+
     public void importData(String filePath) {
-        // Fehlerprotokolldatei erstellen
+        // Statistik-Counter zurücksetzen
+        therapistCount = 0;
+        patientCount = 0;
+        appointmentCount = 0;
+        seriesCount = 0;
+        absenceCount = 0;
+        cancellationCount = 0;
+
         try (BufferedWriter errorWriter = new BufferedWriter(new FileWriter("src/main/java/com/example/physiokalendar/dataimport/error_log.txt", true))) {
+            errorWriter.write("\n\n========================================\n");
+            errorWriter.write("Importieren gestartet am: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\n");
+            errorWriter.write("========================================\n");
+
             // JSON Datei einlesen
             ObjectMapper mapper = new ObjectMapper();
             JsonNode rootNode = mapper.readTree(new File(filePath));
 
-            // Sicherstellen, dass "daylist" existiert und "elements" ein Array ist
-            if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
-                JsonNode elementsNode = rootNode.get("daylist").get("elements");
+            // 1. Importiere Therapeuten
+            if (rootNode.has("therapists") && rootNode.get("therapists").isArray()) {
+                errorWriter.write("\n--- Importiere Therapeuten ---\n");
+                Iterator<JsonNode> therapists = rootNode.get("therapists").elements();
+                while (therapists.hasNext()) {
+                    JsonNode therapistNode = therapists.next();
+                    importTherapist(therapistNode, errorWriter);
+                }
+            }
 
+            // 2. Importiere Patienten aus der Daylist (um alle Patienten zu erfassen)
+            if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
+                errorWriter.write("\n--- Importiere Patienten ---\n");
+                JsonNode elementsNode = rootNode.get("daylist").get("elements");
                 if (elementsNode.isArray()) {
-                    // Über die Elemente iterieren
                     Iterator<JsonNode> days = elementsNode.elements();
                     while (days.hasNext()) {
                         JsonNode day = days.next();
-                        // Importiere die Termine
+                        importPatientsFromDay(day, errorWriter);
+                    }
+                }
+            }
+
+            // 3. Importiere Einzeltermine aus der Daylist
+            if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
+                errorWriter.write("\n--- Importiere Einzeltermine (Daylist) ---\n");
+                JsonNode elementsNode = rootNode.get("daylist").get("elements");
+                if (elementsNode.isArray()) {
+                    Iterator<JsonNode> days = elementsNode.elements();
+                    while (days.hasNext()) {
+                        JsonNode day = days.next();
                         importAppointments(day, errorWriter);
                     }
                 }
             }
 
-            // Importiere die Serientermine aus der Masterlist
+            // 4. TEMP: Serientermine SKIPPEN für jetzt
             // if (rootNode.has("masterlist") && rootNode.get("masterlist").has("elements")) {
+            //     errorWriter.write("\n--- Importiere Serientermine (Masterlist) ---\n");
             //     JsonNode masterListNode = rootNode.get("masterlist").get("elements");
-
             //     if (masterListNode.isArray()) {
             //         Iterator<JsonNode> seriesDays = masterListNode.elements();
             //         while (seriesDays.hasNext()) {
@@ -93,17 +133,126 @@ public class DataImportService {
             //     }
             // }
 
-            // Importiere die Abwesenheiten der Therapeuten
+            // 5. TEMP: Abwesenheiten SKIPPEN für jetzt
             // if (rootNode.has("therapists") && rootNode.get("therapists").isArray()) {
+            //     errorWriter.write("\n--- Importiere Abwesenheiten ---\n");
             //     Iterator<JsonNode> therapists = rootNode.get("therapists").elements();
             //     while (therapists.hasNext()) {
             //         JsonNode therapistNode = therapists.next();
             //         importAbsences(therapistNode, errorWriter);
             //     }
             // }
+
+            // Zusammenfassung
+            errorWriter.write("\n========================================\n");
+            errorWriter.write("Importieren abgeschlossen am: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\n");
+            errorWriter.write("========================================\n");
+            errorWriter.write("\nZUSAMMENFASSUNG:\n");
+            errorWriter.write("- Therapeuten importiert:        " + therapistCount + "\n");
+            errorWriter.write("- Patienten importiert:          " + patientCount + "\n");
+            errorWriter.write("- Einzeltermine importiert:      " + appointmentCount + "\n");
+            errorWriter.write("- Serientermine importiert:      " + seriesCount + "\n");
+            errorWriter.write("- Abwesenheiten importiert:      " + absenceCount + "\n");
+            errorWriter.write("- Ausfalltermine importiert:     " + cancellationCount + "\n");
+            errorWriter.write("========================================\n");
+
+            // Auch auf der Konsole ausgeben
+            System.out.println("\n========== IMPORT SUMMARY ==========");
+            System.out.println("Therapeuten:    " + therapistCount);
+            System.out.println("Patienten:      " + patientCount);
+            System.out.println("Einzeltermine:  " + appointmentCount);
+            System.out.println("Serientermine:  " + seriesCount);
+            System.out.println("Abwesenheiten:  " + absenceCount);
+            System.out.println("Ausfälle:       " + cancellationCount);
+            System.out.println("====================================\n");
         } catch (IOException e) {
-            // Logge den Fehler
             System.out.println("Fehler beim Importieren der Daten: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private void importTherapist(JsonNode therapistNode, BufferedWriter errorWriter) throws IOException {
+        try {
+            String therapistName = therapistNode.hasNonNull("name") ? therapistNode.get("name").asText() : null;
+
+            if (therapistName == null || therapistName.isEmpty()) {
+                errorWriter.write("FEHLER: Therapeut ohne Namen gefunden, übersprungen\n");
+                return;
+            }
+
+            // Prüfen, ob Therapeut bereits exists
+            Therapist existingTherapist = therapistRepository.findByFirstName(therapistName);
+            if (existingTherapist != null) {
+                // Therapeut existiert bereits, überspringe
+                return;
+            }
+
+            // Neuen Therapeuten erstellen
+            Therapist therapist = new Therapist();
+            therapist.setFirstName(therapistName);
+            therapist.setLastName(""); // Nachname nicht im JSON vorhanden
+            therapist.setFullName(therapistName);
+
+            // Optional: E-Mail und Telefon aus JSON, falls vorhanden
+            if (therapistNode.hasNonNull("email")) {
+                therapist.setEmail(therapistNode.get("email").asText());
+            }
+            if (therapistNode.hasNonNull("telefon")) {
+                therapist.setTelefon(therapistNode.get("telefon").asText());
+            }
+
+            // Active Since und Until setzen (aus JSON oder Default)
+            if (therapistNode.hasNonNull("activeSince")) {
+                long activeSince = therapistNode.get("activeSince").asLong();
+                if (activeSince > 0) {
+                    therapist.setActiveSince(dateToLocalDateTime(new Date(activeSince)));
+                } else {
+                    therapist.setActiveSince(java.time.LocalDateTime.now());
+                }
+            } else {
+                therapist.setActiveSince(java.time.LocalDateTime.now());
+            }
+
+            if (therapistNode.hasNonNull("activeUntil")) {
+                long activeUntil = therapistNode.get("activeUntil").asLong();
+                if (activeUntil > 0) {
+                    therapist.setActiveUntil(dateToLocalDateTime(new Date(activeUntil)));
+                } else {
+                    therapist.setActiveUntil(null);
+                }
+            }
+
+            therapist.setIsActive(true);
+
+            therapistRepository.save(therapist);
+            therapistCount++;
+            errorWriter.write("OK: Therapeut '" + therapistName + "' importiert\n");
+        } catch (Exception e) {
+            errorWriter.write("FEHLER beim Importieren von Therapeut: " + e.getMessage() + "\n");
+        }
+    }
+
+    private void importPatientsFromDay(JsonNode day, BufferedWriter errorWriter) throws IOException {
+        try {
+            if (day.has("appointments") && day.get("appointments").isArray()) {
+                Iterator<JsonNode> appointments = day.get("appointments").elements();
+
+                while (appointments.hasNext()) {
+                    JsonNode appointmentNode = appointments.next();
+
+                    String patientName = appointmentNode.hasNonNull("patient") ? appointmentNode.get("patient").asText() : null;
+                    if (patientName != null && !patientName.isEmpty()) {
+                        Patient existingPatient = findPatientByName(patientName);
+                        if (existingPatient == null) {
+                            createPatient(patientName);
+                            patientCount++;
+                            errorWriter.write("OK: Patient '" + patientName + "' importiert\n");
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            errorWriter.write("FEHLER beim Importieren von Patienten: " + e.getMessage() + "\n");
         }
     }
 
@@ -120,38 +269,61 @@ public class DataImportService {
                 while (appointments.hasNext()) {
                     JsonNode appointmentNode = appointments.next();
 
-                    // Patient ermitteln oder erstellen, wenn nicht gefunden
-                    String patientName = appointmentNode.hasNonNull("patient") ? appointmentNode.get("patient").asText() : null;
-                    Patient patient = findPatientByName(patientName);
-                    if (patient == null && patientName != null) {
-                        patient = createPatient(patientName);
-                    }
+                    try {
+                        // Validierung: Notwendige Felder prüfen
+                        if (!appointmentNode.hasNonNull("startTime") || !appointmentNode.hasNonNull("endTime")) {
+                            errorWriter.write("FEHLER: Termin ohne Start- oder Endzeit, übersprungen\n");
+                            continue;
+                        }
 
-                    // Therapeut ermitteln
-                    String therapistName = appointmentNode.hasNonNull("therapist") ? appointmentNode.get("therapist").asText() : null;
-                    Therapist therapist = (therapistName != null) ? findTherapistByName(therapistName) : null;
+                        // Patient ermitteln oder erstellen, wenn nicht gefunden
+                        String patientName = appointmentNode.hasNonNull("patient") ? appointmentNode.get("patient").asText() : null;
+                        Patient patient = findPatientByName(patientName);
+                        if (patient == null && patientName != null && !patientName.isEmpty()) {
+                            patient = createPatient(patientName);
+                        }
 
-                    if (patient != null && therapist != null) {
-                        // Termin speichern
-                        Appointment appointment = new Appointment();
-                        appointment.setPatient(patient);
-                        appointment.setTherapist(therapist);
-                        appointment.setDate(dateToLocalDate(new Date(date)));
-                        appointment.setCreatedBySeriesAppointment(false);
-                        appointment.setStartTime(dateToLocalDateTime(parseTime(appointmentNode.get("startTime").asText(), new Date(date))));
-                        appointment.setEndTime(dateToLocalDateTime(parseTime(appointmentNode.get("endTime").asText(), new Date(date))));
-                        appointment.setComment(appointmentNode.hasNonNull("comment") ? appointmentNode.get("comment").asText() : "");
-                        appointment.setIsHotair(appointmentNode.hasNonNull("isHotair") ? appointmentNode.get("isHotair").asBoolean() : false);
-                        appointment.setIsUltrasonic(appointmentNode.hasNonNull("isUltrasonic") ? appointmentNode.get("isUltrasonic").asBoolean() : false);
-                        appointment.setIsElectric(appointmentNode.hasNonNull("isElectric") ? appointmentNode.get("isElectric").asBoolean() : false);
+                        // Therapeut ermitteln
+                        String therapistName = appointmentNode.hasNonNull("therapist") ? appointmentNode.get("therapist").asText() : null;
+                        Therapist therapist = (therapistName != null) ? findTherapistByName(therapistName) : null;
 
-                        appointmentRepository.save(appointment);
-                    } else {
-                        // Fehler loggen mit mehr Details
-                        String appointmentId = appointmentNode.hasNonNull("id") ? appointmentNode.get("id").asText() : "Unbekannt";
-                        String formattedDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date(date));
-                        errorWriter.write("Fehler bei Termin-ID: " + appointmentId + " - Patient: " + patientName + ", Therapeut: " + therapistName + ", Datum: " + formattedDate);
-                        errorWriter.newLine();
+                        if (patient != null && therapist != null) {
+                            try {
+                                // Zeiten parsen VOR dem Speichern
+                                Date parsedStartDate = parseTime(appointmentNode.get("startTime").asText(), new Date(date));
+                                Date parsedEndDate = parseTime(appointmentNode.get("endTime").asText(), new Date(date));
+
+                                if (parsedStartDate == null || parsedEndDate == null) {
+                                    errorWriter.write("FEHLER: Ungültige Zeitformat bei Termin - Patient: " + patientName + "\n");
+                                    continue;
+                                }
+
+                                // Termin speichern
+                                Appointment appointment = new Appointment();
+                                appointment.setPatient(patient);
+                                appointment.setTherapist(therapist);
+                                appointment.setDate(dateToLocalDate(new Date(date)));
+                                appointment.setCreatedBySeriesAppointment(false);
+                                appointment.setStartTime(dateToLocalDateTime(parsedStartDate));
+                                appointment.setEndTime(dateToLocalDateTime(parsedEndDate));
+                                appointment.setComment(appointmentNode.hasNonNull("comment") ? appointmentNode.get("comment").asText() : "");
+                                appointment.setIsHotair(appointmentNode.hasNonNull("isHotair") ? appointmentNode.get("isHotair").asBoolean() : false);
+                                appointment.setIsUltrasonic(appointmentNode.hasNonNull("isUltrasonic") ? appointmentNode.get("isUltrasonic").asBoolean() : false);
+                                appointment.setIsElectric(appointmentNode.hasNonNull("isElectric") ? appointmentNode.get("isElectric").asBoolean() : false);
+
+                                appointmentRepository.save(appointment);
+                                appointmentCount++;
+                            } catch (Exception parseEx) {
+                                errorWriter.write("FEHLER beim Speichern eines Termins - Patient: " + patientName + ", Therapeut: " + therapistName + ", Fehler: " + parseEx.getClass().getSimpleName() + ": " + parseEx.getMessage() + "\n");
+                            }
+                        } else {
+                            // Fehler loggen mit mehr Details
+                            String appointmentId = appointmentNode.hasNonNull("id") ? appointmentNode.get("id").asText() : "Unbekannt";
+                            String formattedDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date(date));
+                            errorWriter.write("FEHLER bei Termin-ID: " + appointmentId + " - Patient: " + patientName + ", Therapeut: " + therapistName + ", Datum: " + formattedDate + "\n");
+                        }
+                    } catch (Exception e) {
+                        errorWriter.write("FEHLER beim Importieren eines Einzeltermins: " + e.getClass().getSimpleName() + ": " + e.getMessage() + "\n");
                     }
                 }
             }
@@ -169,67 +341,79 @@ public class DataImportService {
             while (appointments.hasNext()) {
                 JsonNode appointmentNode = appointments.next();
 
-                // Patient ermitteln oder erstellen, wenn nicht gefunden
-                String patientName = appointmentNode.hasNonNull("patient") ? appointmentNode.get("patient").asText() : null;
-                Patient patient = findPatientByName(patientName);
-                if (patient == null && patientName != null) {
-                    patient = createPatient(patientName);
-                }
-
-                // Therapeut ermitteln
-                String therapistName = appointmentNode.hasNonNull("therapist") ? appointmentNode.get("therapist").asText() : null;
-                Therapist therapist = (therapistName != null) ? findTherapistByName(therapistName) : null;
-
-                if (patient != null && therapist != null) {
-                    // Serientermin speichern
-                    AppointmentSeries appointment;
-                    appointment = new AppointmentSeries();
-                    appointment.setPatient(patient);
-                    appointment.setTherapist(therapist);
-                    appointment.setStartTime(parseTimeToLocalTime(appointmentNode.get("startTime").asText()));
-                    appointment.setEndTime(parseTimeToLocalTime(appointmentNode.get("endTime").asText()));
-
-                    // Start- und Enddatum ermitteln
-                    Date startDate = new Date(appointmentNode.get("startDate").asLong());
-                    Date endDate = new Date(appointmentNode.get("endDate").asLong());
-
-                    // Datum prüfen und ggf. Enddatum auf 01.01.2026 setzen
-                    Date cutoffDate = new Date(1767225600000L); // 01.01.2026 in Millisekunden
-                    if (endDate.after(cutoffDate)) {
-                        endDate = cutoffDate;
+                try {
+                    // Patient ermitteln oder erstellen, wenn nicht gefunden
+                    String patientName = appointmentNode.hasNonNull("patient") ? appointmentNode.get("patient").asText() : null;
+                    Patient patient = findPatientByName(patientName);
+                    if (patient == null && patientName != null) {
+                        patient = createPatient(patientName);
                     }
 
-                    appointment.setStartDate(dateToLocalDate(startDate));
-                    appointment.setEndDate(dateToLocalDate(endDate));
-                    appointment.setWeekday(weekday);
-                    appointment.setWeeklyfrequency(appointmentNode.hasNonNull("interval") ? appointmentNode.get("interval").asInt() : 1);
-                    appointment.setComment(appointmentNode.hasNonNull("comment") ? appointmentNode.get("comment").asText() : "");
+                    // Therapeut ermitteln
+                    String therapistName = appointmentNode.hasNonNull("therapist") ? appointmentNode.get("therapist").asText() : null;
+                    Therapist therapist = (therapistName != null) ? findTherapistByName(therapistName) : null;
 
-                    // Erstelle die wiederkehrenden Termine anhand des Serien-Termins
+                    if (patient != null && therapist != null && appointmentNode.hasNonNull("startTime") && appointmentNode.hasNonNull("endTime")) {
+                        // Serientermin speichern
+                        AppointmentSeries appointment = new AppointmentSeries();
+                        appointment.setPatient(patient);
+                        appointment.setTherapist(therapist);
+                        appointment.setStartTime(parseTimeToLocalTime(appointmentNode.get("startTime").asText()));
+                        appointment.setEndTime(parseTimeToLocalTime(appointmentNode.get("endTime").asText()));
 
+                        // Start- und Enddatum ermitteln
+                        Date startDate = new Date(appointmentNode.get("startDate").asLong());
+                        Date endDate = new Date(appointmentNode.get("endDate").asLong());
 
-                    AppointmentSeries savedAppointment = appointmentSeriesRepository.save(appointment);
+                        // Datum prüfen und ggf. Enddatum auf 01.01.2026 setzen
+                        Date cutoffDate = new Date(1767225600000L); // 01.01.2026 in Millisekunden
+                        if (endDate.after(cutoffDate)) {
+                            endDate = cutoffDate;
+                        }
 
-                    appointmentSeriesService.createAppointmentsFromSeries(savedAppointment, dateToLocalDate(startDate), dateToLocalDate(endDate), appointment.getWeeklyfrequency());
+                        appointment.setStartDate(dateToLocalDate(startDate));
+                        appointment.setEndDate(dateToLocalDate(endDate));
+                        appointment.setWeekday(weekday);
+                        appointment.setWeeklyfrequency(appointmentNode.hasNonNull("interval") ? appointmentNode.get("interval").asInt() : 1);
+                        appointment.setComment(appointmentNode.hasNonNull("comment") ? appointmentNode.get("comment").asText() : "");
 
-                    // Behandle Ausfälle (Cancellations)
-                    if (appointmentNode.has("cancellations") && appointmentNode.get("cancellations").isArray()) {
-                        for (JsonNode cancellationNode : appointmentNode.get("cancellations")) {
-                            String cancellationDateStr = cancellationNode.hasNonNull("date") ? cancellationNode.get("date").asText() : null;
-                            LocalDate cancellationDate = parseStringToLocalDate(cancellationDateStr);
-                            if (cancellationDate != null) {
-                                Cancellation cancellation = new Cancellation();
-                                cancellation.setDate(cancellationDate);
-                                cancellation.setAppointmentSeries(savedAppointment);
-                                cancellationRepository.save(cancellation);
+                        // Erstelle die wiederkehrenden Termine anhand des Serien-Termins
+                        AppointmentSeries savedAppointment = appointmentSeriesRepository.save(appointment);
+                        seriesCount++;
+
+                        // Standardmäßig kein Hotair, Ultrasonic oder Electric für Serientermine
+                        appointmentSeriesService.createAppointmentsFromSeries(savedAppointment,
+                            dateToLocalDate(startDate),
+                            dateToLocalDate(endDate),
+                            appointment.getWeeklyfrequency(),
+                            false, false, false);
+
+                        // Behandle Ausfälle (Cancellations)
+                        if (appointmentNode.has("cancellations") && appointmentNode.get("cancellations").isArray()) {
+                            for (JsonNode cancellationNode : appointmentNode.get("cancellations")) {
+                                try {
+                                    String cancellationDateStr = cancellationNode.hasNonNull("date") ? cancellationNode.get("date").asText() : null;
+                                    LocalDate cancellationDate = parseStringToLocalDate(cancellationDateStr);
+                                    if (cancellationDate != null) {
+                                        Cancellation cancellation = new Cancellation();
+                                        cancellation.setDate(cancellationDate);
+                                        cancellation.setAppointmentSeries(savedAppointment);
+                                        cancellationRepository.save(cancellation);
+                                        cancellationCount++;
+                                    }
+                                } catch (Exception e) {
+                                    errorWriter.write("FEHLER beim Importieren einer Cancellation: " + e.getMessage() + "\n");
+                                }
                             }
                         }
+                    } else {
+                        // Fehler loggen mit mehr Details
+                        String appointmentId = appointmentNode.hasNonNull("id") ? appointmentNode.get("id").asText() : "Unbekannt";
+                        errorWriter.write("FEHLER bei Serientermin-ID: " + appointmentId + " - Patient: " + patientName + ", Therapeut: " + therapistName + ", Wochentag: " + weekday + "\n");
                     }
-                } else {
-                    // Fehler loggen mit mehr Details
-                    String appointmentId = appointmentNode.hasNonNull("id") ? appointmentNode.get("id").asText() : "Unbekannt";
-                    errorWriter.write("Fehler bei Serientermin-ID: " + appointmentId + " - Patient: " + patientName + ", Therapeut: " + therapistName + ", Wochentag: " + weekday);
-                    errorWriter.newLine();
+                } catch (Exception e) {
+                    errorWriter.write("FEHLER beim Importieren eines Serientiermins: " + e.getMessage() + "\n");
+                    // Fortsetzung mit nächstem Serientermin
                 }
             }
         }
@@ -246,25 +430,38 @@ public class DataImportService {
             // Über die Abwesenheiten iterieren
             while (absences.hasNext()) {
                 JsonNode absenceNode = absences.next();
-                Absence absence = new Absence();
-                absence.setTherapist(therapist);
 
-                // Unterscheide zwischen Datum und Wochentag
-                String day = absenceNode.hasNonNull("day") ? absenceNode.get("day").asText() : null;
-                if (isDate(day)) {
-                    absence.setDate(parseStringToLocalDate(day));
-                } else {
-                    absence.setWeekday(day);
+                try {
+                    Absence absence = new Absence();
+                    absence.setTherapist(therapist);
+
+                    // Unterscheide zwischen Datum und Wochentag
+                    String day = absenceNode.hasNonNull("day") ? absenceNode.get("day").asText() : null;
+                    if (isDate(day)) {
+                        absence.setDate(parseStringToLocalDate(day));
+                    } else if (day != null) {
+                        absence.setWeekday(day);
+                    }
+
+                    // Zeiten setzen wenn vorhanden
+                    if (absenceNode.hasNonNull("start")) {
+                        absence.setStartTime(dateToLocalDateTime(parseTime(absenceNode.get("start").asText(), new Date())));
+                    }
+                    if (absenceNode.hasNonNull("end")) {
+                        absence.setEndTime(dateToLocalDateTime(parseTime(absenceNode.get("end").asText(), new Date())));
+                    }
+
+                    // Grund setzen wenn vorhanden
+                    if (absenceNode.hasNonNull("reason")) {
+                        absence.setReason(absenceNode.get("reason").asText());
+                    }
+
+                    absenceRepository.save(absence);
+                    absenceCount++;
+                } catch (Exception e) {
+                    errorWriter.write("FEHLER beim Importieren einer Abwesenheit für Therapeut '" + therapistName + "': " + e.getMessage() + "\n");
                 }
-
-                absence.setStartTime(dateToLocalDateTime(parseTime(absenceNode.get("start").asText(), new Date())));
-                absence.setEndTime(dateToLocalDateTime(parseTime(absenceNode.get("end").asText(), new Date())));
-
-                absenceRepository.save(absence);
             }
-        } else {
-            errorWriter.write("Fehler bei Abwesenheiten von Therapeut: " + therapistName);
-            errorWriter.newLine();
         }
     }
 
@@ -294,18 +491,18 @@ public class DataImportService {
     }
 
     private LocalDate dateToLocalDate(Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDate();
     }
 
     private LocalDateTime dateToLocalDateTime(Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDateTime();
     }
 
     private LocalTime parseTimeToLocalTime(String time) {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         try {
             Date parsedTime = timeFormat.parse(time);
-            return parsedTime.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
+            return parsedTime.toInstant().atZone(ZoneId.of("UTC")).toLocalTime();
         } catch (ParseException e) {
             System.out.println("Error parsing time: " + e.getMessage());
             return null;

@@ -10,4 +10,6 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
 
     @Query(value = "SELECT * FROM patient p WHERE p.first_name LIKE :firstName AND p.last_name LIKE :lastName LIMIT 1", nativeQuery = true)
     Patient findFirstByFirstNameAndLastNameLike(@Param("firstName") String firstName, @Param("lastName") String lastName);
+
+    java.util.Optional<Patient> findByEmail(String email);
 }

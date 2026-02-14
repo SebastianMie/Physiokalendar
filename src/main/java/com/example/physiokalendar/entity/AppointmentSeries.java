@@ -6,9 +6,12 @@ import java.time.LocalTime;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -62,6 +65,7 @@ public class AppointmentSeries {
     private LocalDate endDate;
 
     @Column(name = "weekly_frequency")
+    @JsonProperty("weeklyFrequency")
     private Integer weeklyfrequency = 1;
 
     @Column(name = "week_day")
@@ -70,12 +74,37 @@ public class AppointmentSeries {
     @Column(name = "comment", columnDefinition = "TEXT")
     private String comment;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false, length = 20)
+    private SeriesStatus status = SeriesStatus.ACTIVE;
+
     @OneToMany(mappedBy = "appointmentSeries", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Cancellation> cancellations;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    // Transient getters for JSON serialization (therapist/patient have @JsonBackReference)
+    @JsonProperty("therapistId")
+    public Long getTherapistId() {
+        return therapist != null ? therapist.getId() : null;
+    }
+
+    @JsonProperty("therapistName")
+    public String getTherapistName() {
+        return therapist != null ? therapist.getFullName() : null;
+    }
+
+    @JsonProperty("patientId")
+    public Long getPatientId() {
+        return patient != null ? patient.getId() : null;
+    }
+
+    @JsonProperty("patientName")
+    public String getPatientName() {
+        return patient != null ? patient.getFullName() : null;
+    }
 
     @PrePersist
     protected void onCreate() {

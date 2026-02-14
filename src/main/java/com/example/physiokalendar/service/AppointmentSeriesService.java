@@ -56,8 +56,13 @@ public class AppointmentSeriesService {
 
     @Transactional
     public AppointmentSeries saveAppointmentSeries(JSONAppointmentSeriesDTO appointmentSeriesDTO) {
-        // Mapping DTO to Entity
-        Long therapistId = appointmentSeriesDTO.getTherapist().getId();
+        // Support both nested therapist object and flat therapistId
+        Long therapistId = appointmentSeriesDTO.getTherapistId() != null
+                ? appointmentSeriesDTO.getTherapistId()
+                : (appointmentSeriesDTO.getTherapist() != null ? appointmentSeriesDTO.getTherapist().getId() : null);
+        if (therapistId == null) {
+            throw new IllegalArgumentException("Therapist ID is required");
+        }
         Therapist therapist = therapistRepository.findById(therapistId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));
 
@@ -82,12 +87,17 @@ public class AppointmentSeriesService {
         AppointmentSeries savedSeries = appointmentSeriesRepository.save(appointmentSeries);
 
         // Einzeltermine erstellen
-        createAppointmentsFromSeries(savedSeries, savedSeries.getStartDate(), savedSeries.getEndDate(), savedSeries.getWeeklyfrequency());
+        createAppointmentsFromSeries(savedSeries, savedSeries.getStartDate(), savedSeries.getEndDate(),
+                savedSeries.getWeeklyfrequency(),
+                Boolean.TRUE.equals(appointmentSeriesDTO.getIsHotair()),
+                Boolean.TRUE.equals(appointmentSeriesDTO.getIsUltrasonic()),
+                Boolean.TRUE.equals(appointmentSeriesDTO.getIsElectric()));
 
         return savedSeries;
     }
 
-    public void createAppointmentsFromSeries(AppointmentSeries series, LocalDate startDate, LocalDate endDate, int weeklyFrequency) {
+    public void createAppointmentsFromSeries(AppointmentSeries series, LocalDate startDate, LocalDate endDate,
+                                              int weeklyFrequency, boolean isHotair, boolean isUltrasonic, boolean isElectric) {
         Therapist therapist = series.getTherapist();
 
         // Erstellen des Kalenders für die Datumsmathematik
@@ -121,9 +131,9 @@ public class AppointmentSeriesService {
             appointment.setStartTime(startDateTime);
             appointment.setEndTime(endDateTime);
             appointment.setCreatedBySeriesAppointment(true);
-            appointment.setIsElectric(false);
-            appointment.setIsHotair(false);
-            appointment.setIsUltrasonic(false);
+            appointment.setIsElectric(isElectric);
+            appointment.setIsHotair(isHotair);
+            appointment.setIsUltrasonic(isUltrasonic);
             appointment.setComment("generiert aus SerienTermin id " + series.getId());
 
             // Speichern des Einzeltermins
@@ -200,11 +210,11 @@ public class AppointmentSeriesService {
     }
 
     private LocalDate dateToLocalDate(Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDate();
     }
 
     private LocalTime dateToLocalTime(Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
+        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalTime();
     }
 
     private Date localDateToDate(LocalDate localDate) {

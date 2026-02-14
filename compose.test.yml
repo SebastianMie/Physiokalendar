@@ -1,0 +1,74 @@
+# Test Docker Compose Stack
+# Ports: Frontend 4201, Backend 8081, DB 3307
+# Usage: docker compose -f compose.test.yml --env-file .env.test up -d
+
+services:
+  physio-test-db:
+    image: mysql:8.0.36
+    container_name: physio-test-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-physiocalendar_test}
+      MYSQL_USER: ${DB_USER:-physiouser}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-testpassword}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-testrootpassword}
+    ports:
+      - "${DB_PORT:-3307}:3306"
+    volumes:
+      - physio-test-db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+    networks:
+      - physio-test-network
+
+  physio-test-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: physio-test-backend
+    restart: unless-stopped
+    depends_on:
+      physio-test-db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: test
+      SPRING_DATASOURCE_URL: jdbc:mysql://physio-test-db:3306/${DB_NAME:-physiocalendar_test}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER:-physiouser}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-testpassword}
+      APP_ENVIRONMENT: test
+      MAIL_ENABLED: "false"
+      MAIL_REDIRECT_ALL: "true"
+      MAIL_REDIRECT_TO: ${TEST_MAIL_TO:-test-inbox@localhost}
+      SEED_DATA_ENABLED: "true"
+    ports:
+      - "${BACKEND_PORT:-8081}:8080"
+    networks:
+      - physio-test-network
+
+  physio-test-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        BUILD_ENV: test
+    container_name: physio-test-frontend
+    restart: unless-stopped
+    depends_on:
+      - physio-test-backend
+    environment:
+      API_URL: http://physio-test-backend:8080
+    ports:
+      - "${FRONTEND_PORT:-4201}:80"
+    networks:
+      - physio-test-network
+
+volumes:
+  physio-test-db-data:
+    name: physio-test-db-data
+
+networks:
+  physio-test-network:
+    name: physio-test-network
+    driver: bridge

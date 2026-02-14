@@ -3,8 +3,14 @@ package com.example.physiokalendar.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.example.physiokalendar.entity.AuditAction;
+import com.example.physiokalendar.entity.AuditEntityType;
+import com.example.physiokalendar.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.physiokalendar.dto.JSONPatientDTO;
 import com.example.physiokalendar.entity.Patient;
@@ -16,6 +22,9 @@ public class PatientService {
     @Autowired
     private PatientRepository patientRepository;
 
+    @Autowired
+    private AuditService auditService;
+
     public List<JSONPatientDTO> getAllPatients() {
         List<Patient> patients = patientRepository.findAll();
         return patients.stream().map(this::convertEntityToDTO).collect(Collectors.toList());
@@ -26,14 +35,28 @@ public class PatientService {
         return convertEntityToDTO(patient);
     }
 
+    @Transactional
     public Patient createPatient(JSONPatientDTO dto) {
         Patient patient = convertDTOToEntity(dto);
         patient.setId(null);
-        return patientRepository.save(patient);
+        Patient saved = patientRepository.save(patient);
+
+        // Audit-Log
+        auditService.record(AuditService.builder()
+                .actor(getCurrentUserId(), getCurrentUsername())
+                .entity(AuditEntityType.PATIENT, saved.getId())
+                .action(AuditAction.CREATE)
+                .after(auditService.toAuditJson(saved)));
+
+        return saved;
     }
 
+    @Transactional
     public Patient updatePatient(Long id, JSONPatientDTO dto) {
         Patient existingPatient = patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
+
+        String beforeJson = auditService.toAuditJson(existingPatient);
+
         existingPatient.setFirstName(dto.getFirstName());
         existingPatient.setLastName(dto.getLastName());
         existingPatient.setFullName(dto.getFirstName() + " " + dto.getLastName());
@@ -46,11 +69,50 @@ public class PatientService {
         existingPatient.setActiveSince(dto.getActiveSince());
         existingPatient.setActiveUntil(dto.getActiveUntil());
         existingPatient.setIsBWO(dto.getIsBWO());
-        return patientRepository.save(existingPatient);
+
+        Patient updated = patientRepository.save(existingPatient);
+
+        // Audit-Log
+        auditService.record(AuditService.builder()
+                .actor(getCurrentUserId(), getCurrentUsername())
+                .entity(AuditEntityType.PATIENT, id)
+                .action(AuditAction.UPDATE)
+                .before(beforeJson)
+                .after(auditService.toAuditJson(updated)));
+
+        return updated;
     }
 
+    @Transactional
     public void deletePatient(Long id) {
-        patientRepository.deleteById(id);
+        Patient existing = patientRepository.findById(id).orElse(null);
+        if (existing != null) {
+            String beforeJson = auditService.toAuditJson(existing);
+            patientRepository.deleteById(id);
+
+            // Audit-Log
+            auditService.record(AuditService.builder()
+                    .actor(getCurrentUserId(), getCurrentUsername())
+                    .entity(AuditEntityType.PATIENT, id)
+                    .action(AuditAction.DELETE)
+                    .before(beforeJson));
+        }
+    }
+
+    private Long getCurrentUserId() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.getPrincipal() instanceof User) {
+            return ((User) auth.getPrincipal()).getId();
+        }
+        return null;
+    }
+
+    private String getCurrentUsername() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            return auth.getName();
+        }
+        return "system";
     }
 
     public JSONPatientDTO convertEntityToDTO(Patient patient) {

@@ -3,8 +3,11 @@ package com.example.physiokalendar.entity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -57,6 +60,10 @@ public class Appointment {
     @Column(name = "comment", columnDefinition = "TEXT")
     private String comment;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false, length = 20)
+    private AppointmentStatus status = AppointmentStatus.SCHEDULED;
+
     @Column(name = "is_hotair")
     private Boolean isHotair = false;
 
@@ -80,5 +87,31 @@ public class Appointment {
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
+    }
+
+    // JSON serialization helpers - expose IDs and names for API responses
+    @JsonProperty("therapistId")
+    public Long getTherapistId() {
+        return therapist != null ? therapist.getId() : null;
+    }
+
+    @JsonProperty("patientId")
+    public Long getPatientId() {
+        return patient != null ? patient.getId() : null;
+    }
+
+    @JsonProperty("therapistName")
+    public String getTherapistName() {
+        return therapist != null ? therapist.getFullName() : null;
+    }
+
+    @JsonProperty("patientName")
+    public String getPatientName() {
+        return patient != null ? patient.getFullName() : null;
+    }
+
+    @JsonProperty("isBWO")
+    public Boolean getIsBWO() {
+        return patient != null ? patient.getIsBWO() : false;
     }
 }

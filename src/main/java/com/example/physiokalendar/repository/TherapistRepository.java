@@ -10,4 +10,8 @@ import com.example.physiokalendar.entity.Therapist;
 public interface TherapistRepository extends JpaRepository<Therapist, Long> {
 
     Therapist findByFirstName(String firstName);
+
+    java.util.List<Therapist> findByIsActiveTrue();
+
+    java.util.Optional<Therapist> findByEmail(String email);
 }

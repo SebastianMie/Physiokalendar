@@ -58,11 +58,11 @@ public class AbsenceExceptionService {
     }
 
     private static LocalDate dateToLocalDate(Date date) {
-        return date.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+        return date.toInstant().atZone(java.time.ZoneId.of("UTC")).toLocalDate();
     }
 
     private static LocalDateTime dateToLocalDateTime(Date date) {
-        return date.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDateTime();
+        return date.toInstant().atZone(java.time.ZoneId.of("UTC")).toLocalDateTime();
     }
 
     private static Date localDateToDate(LocalDate localDate) {

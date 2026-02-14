@@ -1,0 +1,50 @@
+# Application Profile: Test
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/physiocalendar_test}
+    username: ${SPRING_DATASOURCE_USERNAME:physiouser}
+    password: ${SPRING_DATASOURCE_PASSWORD:testpassword}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baselineOnMigrate: false
+
+# Application Config
+app:
+  environment: test
+  seed-data-enabled: ${SEED_DATA_ENABLED:true}
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:physiokalendarTestSecretKey2026VeryLongSecretKeyForHS256Algorithm}
+  expiration: 86400000
+
+# Mail Configuration
+mail:
+  enabled: ${MAIL_ENABLED:false}
+  redirect:
+    all: ${MAIL_REDIRECT_ALL:true}
+    to: ${TEST_MAIL_TO:test-inbox@localhost}
+    subject-prefix: "[TEST] "
+
+# Audit Configuration
+audit:
+  log-before-after: true
+  log-metadata: true
+
+logging:
+  level:
+    root: INFO
+    com.example.physiokalendar: DEBUG
+    org.flywaydb: INFO
+  file:
+    name: logs/application-test.log

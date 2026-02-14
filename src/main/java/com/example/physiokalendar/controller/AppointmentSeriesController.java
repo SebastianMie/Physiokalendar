@@ -57,10 +57,10 @@ public class AppointmentSeriesController {
     }
 
     @PostMapping("/{id}/cancellations")
-    public ResponseEntity<String> addCancellations(@PathVariable Long id, @RequestBody List<JSONCancellationDTO> cancellationDTOs) {
+    public ResponseEntity<?> addCancellations(@PathVariable Long id, @RequestBody List<JSONCancellationDTO> cancellationDTOs) {
         try {
             AppointmentSeries updatedSeries = appointmentSeriesService.addCancellations(id, cancellationDTOs);
-            return ResponseEntity.ok("Cancellations added successfully to Appointment Series ID: " + updatedSeries.getId());
+            return ResponseEntity.ok(updatedSeries);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("Appointment Series not found: " + e.getMessage());

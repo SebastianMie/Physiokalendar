@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/physiocalendar
-    username: physiouser
-    password: password
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/physiocalendar}
+    username: ${SPRING_DATASOURCE_USERNAME:physiouser}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -18,10 +18,28 @@ spring:
     locations: classpath:db/migration
     baselineOnMigrate: false
 
+# Application Config
+app:
+  environment: ${APP_ENVIRONMENT:dev}
+  seed-data-enabled: ${SEED_DATA_ENABLED:false}
+
 # JWT Configuration
 jwt:
-  secret: physiokalendarSecretKey2026VeryLongSecretKeyForHS256Algorithm
+  secret: ${JWT_SECRET:physiokalendarSecretKey2026VeryLongSecretKeyForHS256Algorithm}
   expiration: 86400000  # 24 hours in milliseconds
+
+# Mail Configuration
+mail:
+  enabled: ${MAIL_ENABLED:false}
+  redirect:
+    all: ${MAIL_REDIRECT_ALL:true}
+    to: ${TEST_MAIL_TO:dev-inbox@localhost}
+    subject-prefix: "[DEV] "
+
+# Audit Configuration
+audit:
+  log-before-after: true
+  log-metadata: true
 
 logging:
   level:

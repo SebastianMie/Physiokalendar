@@ -95,11 +95,11 @@ public class AbsenceService {
     }
 
     private LocalDate dateToLocalDate(Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDate();
     }
 
     private LocalDateTime dateToLocalDateTime(Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDateTime();
     }
 
     private Date localDateToDate(LocalDate localDate) {

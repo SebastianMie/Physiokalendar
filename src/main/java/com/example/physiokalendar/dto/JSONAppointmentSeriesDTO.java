@@ -21,6 +21,7 @@ import lombok.ToString;
 public class JSONAppointmentSeriesDTO {
     private Long id;
     private JSONTherapistDTO therapist;
+    private Long therapistId;
     private Long patientId;
     private String patientName;
     private Date startTime;
@@ -32,5 +33,8 @@ public class JSONAppointmentSeriesDTO {
     private String weekday;
     private List<JSONCancellationDTO> cancellations;
     private List<Long> cancellationIds;
+    private Boolean isHotair;
+    private Boolean isUltrasonic;
+    private Boolean isElectric;
     // Getters and Setters
 }

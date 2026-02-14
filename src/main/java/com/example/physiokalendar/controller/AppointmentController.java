@@ -3,23 +3,21 @@ package com.example.physiokalendar.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import com.example.physiokalendar.dto.AppointmentDraftDTO;
+import com.example.physiokalendar.dto.AppointmentSaveResult;
+import com.example.physiokalendar.dto.ConflictCheckDTO;
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
 import com.example.physiokalendar.entity.Appointment;
 import com.example.physiokalendar.service.AppointmentService;
@@ -86,7 +84,7 @@ public class AppointmentController {
             if (conflicts.isEmpty()) {
                 return ResponseEntity.noContent().build(); // Keine Konflikte gefunden
             }
-            return ResponseEntity.status(HttpStatus.OK).body(conflicts); 
+            return ResponseEntity.status(HttpStatus.OK).body(conflicts);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
@@ -111,39 +109,190 @@ public class AppointmentController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createOrUpdateAppointment(@RequestBody JSONAppointmentDTO appointmentDTO) {
+    public ResponseEntity<?> createOrUpdateAppointment(
+            @RequestBody JSONAppointmentDTO appointmentDTO,
+            @RequestParam(defaultValue = "false") boolean forceOnConflict) {
         try {
-            appointmentService.saveAppointment(appointmentDTO);
-            return ResponseEntity.status(HttpStatus.CREATED).body("Termin erfolgreich erstellt.");
+            AppointmentSaveResult result = appointmentService.saveAppointmentWithConflictCheck(appointmentDTO, forceOnConflict);
+
+            if (!result.isSaved() && result.hasConflicts()) {
+                // Return conflict info without saving
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(result.getConflictCheck());
+            }
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(result);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Fehler beim Erstellen des Termins.");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Fehler beim Erstellen des Termins: " + e.getMessage()));
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateAppointment(@PathVariable Long id, @RequestBody JSONAppointmentDTO appointmentDTO) {
+    /**
+     * Move an appointment (Drag & Drop).
+     * POST /api/appointments/{id}/move
+     */
+    @PostMapping("/{id}/move")
+    public ResponseEntity<?> moveAppointment(
+            @PathVariable Long id,
+            @RequestBody MoveAppointmentRequest request,
+            @RequestParam(defaultValue = "false") boolean forceOnConflict) {
         try {
-            // Überprüfe, ob der Termin existiert
-            if (!appointmentService.getAppointmentById(id).isPresent()) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Termin nicht gefunden.");
+            AppointmentSaveResult result = appointmentService.moveAppointment(
+                    id,
+                    request.getNewDate(),
+                    request.getNewStartTime(),
+                    request.getNewEndTime(),
+                    request.getNewTherapistId(),
+                    forceOnConflict);
+
+            if (!result.isSaved() && result.hasConflicts()) {
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(result.getConflictCheck());
             }
 
-            // Check for conflicts
-            if (appointmentService.checkForConflicts(appointmentService.convertDTOToEntity(appointmentDTO))) {
-                return ResponseEntity.status(HttpStatus.CONFLICT)
-                        .body("Konflikt mit einem bestehenden Termin für den Therapeuten.");
-            }
-
-            // Aktualisiere den Termin
-            appointmentService.saveAppointment(appointmentDTO);
-            return ResponseEntity.status(HttpStatus.OK).body("Termin erfolgreich aktualisiert.");
+            return ResponseEntity.ok(result);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Map.of("error", e.getMessage()));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Fehler beim Aktualisieren des Termins.");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Fehler beim Verschieben: " + e.getMessage()));
+        }
+    }
+
+    /**
+     * Cancel an appointment (soft delete).
+     * POST /api/appointments/{id}/cancel
+     */
+    @PostMapping("/{id}/cancel")
+    public ResponseEntity<?> cancelAppointment(
+            @PathVariable Long id,
+            @RequestBody(required = false) Map<String, String> body) {
+        try {
+            String reason = body != null ? body.get("reason") : null;
+            Appointment cancelled = appointmentService.cancelAppointment(id, reason);
+            return ResponseEntity.ok(cancelled);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Map.of("error", e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Fehler beim Stornieren: " + e.getMessage()));
+        }
+    }
+
+    /**
+     * Check conflicts for a draft appointment (before saving).
+     * POST /api/appointments/check-conflicts
+     */
+    @PostMapping("/check-conflicts")
+    public ResponseEntity<ConflictCheckDTO> checkConflicts(@RequestBody AppointmentDraftDTO draft) {
+        ConflictCheckDTO result = appointmentService.checkConflictsForDraft(draft);
+        return ResponseEntity.ok(result);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateAppointment(
+            @PathVariable Long id,
+            @RequestBody JSONAppointmentDTO appointmentDTO,
+            @RequestParam(defaultValue = "false") boolean forceOnConflict) {
+        try {
+            if (!appointmentService.getAppointmentById(id).isPresent()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body(Map.of("error", "Termin nicht gefunden."));
+            }
+
+            appointmentDTO.setId(id);
+            AppointmentSaveResult result = appointmentService.saveAppointmentWithConflictCheck(appointmentDTO, forceOnConflict);
+
+            if (!result.isSaved() && result.hasConflicts()) {
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(result.getConflictCheck());
+            }
+
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Fehler beim Aktualisieren: " + e.getMessage()));
         }
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAppointment(@PathVariable Long id) {
-        appointmentService.deleteAppointment(id);
+    public ResponseEntity<?> deleteAppointment(@PathVariable Long id) {
+        try {
+            appointmentService.deleteAppointment(id);
+            return ResponseEntity.ok(Map.of("message", "Termin gelöscht"));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Fehler beim Löschen: " + e.getMessage()));
+        }
+    }
+
+    /**
+     * Get all appointments for a specific therapist.
+     * GET /api/appointments/therapist/{therapistId}
+     */
+    @GetMapping("/therapist/{therapistId}")
+    public ResponseEntity<List<Appointment>> getAppointmentsByTherapist(
+            @PathVariable Long therapistId,
+            @RequestParam(required = false) String from,
+            @RequestParam(required = false) String to) {
+        try {
+            LocalDate fromDate = from != null ? LocalDate.parse(from) : null;
+            LocalDate toDate = to != null ? LocalDate.parse(to) : null;
+
+            List<Appointment> appointments = appointmentService.getAppointmentsByTherapist(therapistId, fromDate, toDate);
+            return ResponseEntity.ok(appointments);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    /**
+     * Get all appointments for a specific patient.
+     * GET /api/appointments/patient/{patientId}
+     */
+    @GetMapping("/patient/{patientId}")
+    public ResponseEntity<List<Appointment>> getAppointmentsByPatient(
+            @PathVariable Long patientId,
+            @RequestParam(required = false) String from,
+            @RequestParam(required = false) String to) {
+        try {
+            LocalDate fromDate = from != null ? LocalDate.parse(from) : null;
+            LocalDate toDate = to != null ? LocalDate.parse(to) : null;
+
+            List<Appointment> appointments = appointmentService.getAppointmentsByPatient(patientId, fromDate, toDate);
+            return ResponseEntity.ok(appointments);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    /**
+     * Get appointments for a date range.
+     * GET /api/appointments/range
+     */
+    @GetMapping("/range")
+    public ResponseEntity<List<Appointment>> getAppointmentsByDateRange(
+            @RequestParam String from,
+            @RequestParam String to) {
+        try {
+            LocalDate fromDate = LocalDate.parse(from);
+            LocalDate toDate = LocalDate.parse(to);
+
+            List<Appointment> appointments = appointmentService.getAppointmentsByDateRange(fromDate, toDate);
+            return ResponseEntity.ok(appointments);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    /**
+     * DTO for move appointment request.
+     */
+    @lombok.Data
+    public static class MoveAppointmentRequest {
+        private LocalDate newDate;
+        private LocalDateTime newStartTime;
+        private LocalDateTime newEndTime;
+        private Long newTherapistId; // Optional - null means same therapist
     }
 }
