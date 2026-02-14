@@ -1,6 +1,10 @@
 // AppointmentSeriesService.java
 package com.example.physiokalendar.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -50,7 +54,7 @@ public class AppointmentSeriesService {
         return appointmentSeriesRepository.findById(id);
     }
 
-     @Transactional
+    @Transactional
     public AppointmentSeries saveAppointmentSeries(JSONAppointmentSeriesDTO appointmentSeriesDTO) {
         // Mapping DTO to Entity
         Long therapistId = appointmentSeriesDTO.getTherapist().getId();
@@ -61,10 +65,15 @@ public class AppointmentSeriesService {
         appointmentSeries.setTherapist(therapist);
         appointmentSeries.setPatient(patientRepository.findById(appointmentSeriesDTO.getPatientId())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID")));
-        appointmentSeries.setStartTime(appointmentSeriesDTO.getStartTime());
-        appointmentSeries.setEndTime(appointmentSeriesDTO.getEndTime());
-        appointmentSeries.setStartDate(appointmentSeriesDTO.getStartDate());
-        appointmentSeries.setEndDate(appointmentSeriesDTO.getEndDate());
+
+        // Konvertiere Date zu LocalTime für Start- und Endzeit
+        appointmentSeries.setStartTime(appointmentSeriesDTO.getStartTime() != null ? dateToLocalTime(appointmentSeriesDTO.getStartTime()) : null);
+        appointmentSeries.setEndTime(appointmentSeriesDTO.getEndTime() != null ? dateToLocalTime(appointmentSeriesDTO.getEndTime()) : null);
+
+        // Konvertiere Date zu LocalDate für Start- und Enddatum
+        appointmentSeries.setStartDate(appointmentSeriesDTO.getStartDate() != null ? dateToLocalDate(appointmentSeriesDTO.getStartDate()) : null);
+        appointmentSeries.setEndDate(appointmentSeriesDTO.getEndDate() != null ? dateToLocalDate(appointmentSeriesDTO.getEndDate()) : null);
+
         appointmentSeries.setWeeklyfrequency(appointmentSeriesDTO.getWeeklyFrequency());
         appointmentSeries.setWeekday(appointmentSeriesDTO.getWeekday());
         appointmentSeries.setComment(appointmentSeriesDTO.getComment());
@@ -73,68 +82,57 @@ public class AppointmentSeriesService {
         AppointmentSeries savedSeries = appointmentSeriesRepository.save(appointmentSeries);
 
         // Einzeltermine erstellen
-        createAppointmentsFromSeries(savedSeries, appointmentSeriesDTO.getStartTime(), appointmentSeriesDTO.getEndDate(), appointmentSeriesDTO.getWeeklyFrequency());
+        createAppointmentsFromSeries(savedSeries, savedSeries.getStartDate(), savedSeries.getEndDate(), savedSeries.getWeeklyfrequency());
 
         return savedSeries;
     }
 
-    public void createAppointmentsFromSeries(AppointmentSeries series, Date startDate, Date endDate, int weeklyFrequency) {
+    public void createAppointmentsFromSeries(AppointmentSeries series, LocalDate startDate, LocalDate endDate, int weeklyFrequency) {
         Therapist therapist = series.getTherapist();
-    
+
         // Erstellen des Kalenders für die Datumsmathematik
         Calendar startCalendar = Calendar.getInstance();
-        startCalendar.setTime(startDate);
+        startCalendar.setTime(localDateToDate(startDate));
         startCalendar.set(Calendar.HOUR_OF_DAY, 0);
         startCalendar.set(Calendar.MINUTE, 0);
         startCalendar.set(Calendar.SECOND, 0);
         startCalendar.set(Calendar.MILLISECOND, 0);
-        
+
         Calendar endCalendar = Calendar.getInstance();
-        endCalendar.setTime(endDate);
-    
-        Calendar startTimeCalendar = Calendar.getInstance();
-        startTimeCalendar.setTime(series.getStartTime());
-    
-        Calendar endTimeCalendar = Calendar.getInstance();
-        endTimeCalendar.setTime(series.getEndTime());
-    
+        endCalendar.setTime(localDateToDate(endDate));
+
+        LocalTime startTime = series.getStartTime();
+        LocalTime endTime = series.getEndTime();
+
         // Iterieren durch die Wochen, um die Einzeltermine zu erstellen
         while (startCalendar.before(endCalendar) || startCalendar.equals(endCalendar)) {
             // Erstellen des Einzeltermins
             Appointment appointment = new Appointment();
             appointment.setTherapist(therapist);
             appointment.setPatient(series.getPatient());
-            
+
             // Kombiniere Datum mit Start- und Endzeit
-            Calendar startTimeForAppointment = (Calendar) startCalendar.clone();
-            startTimeForAppointment.set(Calendar.HOUR_OF_DAY, startTimeCalendar.get(Calendar.HOUR_OF_DAY));
-            startTimeForAppointment.set(Calendar.MINUTE, startTimeCalendar.get(Calendar.MINUTE));
-            startTimeForAppointment.set(Calendar.SECOND, startTimeCalendar.get(Calendar.SECOND));
-    
-            Calendar endTimeForAppointment = (Calendar) startCalendar.clone();
-            endTimeForAppointment.set(Calendar.HOUR_OF_DAY, endTimeCalendar.get(Calendar.HOUR_OF_DAY));
-            endTimeForAppointment.set(Calendar.MINUTE, endTimeCalendar.get(Calendar.MINUTE));
-            endTimeForAppointment.set(Calendar.SECOND, endTimeCalendar.get(Calendar.SECOND));
-    
-            appointment.setAppointmentSeriesId(series.getId());
-            appointment.setDate(startCalendar.getTime());
-            appointment.setStartTime(startTimeForAppointment.getTime());
-            appointment.setEndTime(endTimeForAppointment.getTime());
+            LocalDate appointmentDate = dateToLocalDate(startCalendar.getTime());
+            LocalDateTime startDateTime = appointmentDate.atTime(startTime);
+            LocalDateTime endDateTime = appointmentDate.atTime(endTime);
+
+            appointment.setAppointmentSeries(series);
+            appointment.setDate(appointmentDate);
+            appointment.setStartTime(startDateTime);
+            appointment.setEndTime(endDateTime);
             appointment.setCreatedBySeriesAppointment(true);
             appointment.setIsElectric(false);
             appointment.setIsHotair(false);
             appointment.setIsUltrasonic(false);
             appointment.setComment("generiert aus SerienTermin id " + series.getId());
-    
-            // Überprüfen auf Konflikte (eventuell ergänzen)
-            
+
             // Speichern des Einzeltermins
             appointmentRepository.save(appointment);
-    
+
             // Nächster Termin basierend auf der wöchentlichen Frequenz
             startCalendar.add(Calendar.WEEK_OF_YEAR, weeklyFrequency);
         }
-    }    
+    }
 
     // private boolean checkForConflicts(Appointment newAppointment) {
     //     // Filterlogik für Konflikte, z.B. Termine des heutigen Tages
@@ -196,8 +194,20 @@ public class AppointmentSeriesService {
     private Cancellation convertDTOToEntity(JSONCancellationDTO dto) {
         Cancellation cancellation = new Cancellation();
         cancellation.setId(dto.getId());
-        cancellation.setDate(dto.getDate());
+        cancellation.setDate(dto.getDate() != null ? dateToLocalDate(dto.getDate()) : null);
         // Weitere Felder falls nötig
         return cancellation;
+    }
+
+    private LocalDate dateToLocalDate(Date date) {
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    private LocalTime dateToLocalTime(Date date) {
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
+    }
+
+    private Date localDateToDate(LocalDate localDate) {
+        return java.sql.Date.valueOf(localDate);
     }
 }

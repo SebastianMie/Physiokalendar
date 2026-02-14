@@ -12,17 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashSet;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
-
-import java.time.ZoneId;
-import java.util.Date;
 
 import com.example.physiokalendar.repository.PatientRepository;
 
@@ -78,14 +76,14 @@ public class AppointmentService {
             return appointmentRepository.findAll(); // No filters applied, return all appointments
         }
     }
-    
-    
+
+
 
     public Appointment saveAppointment(JSONAppointmentDTO appointmentDTO) {
         // Mapping DTO to Entity
         Long therapistId = appointmentDTO.getTherapist().getId();
         Long patientId = appointmentDTO.getPatient().getId();
-        
+
         Therapist therapist = therapistRepository.findById(therapistId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID"));
         Patient patient = patientRepository.findById(patientId)
@@ -95,46 +93,17 @@ public class AppointmentService {
         appointment.setId(appointmentDTO.getId());
         appointment.setTherapist(therapist);
         appointment.setPatient(patient);
-        appointment.setDate(appointmentDTO.getDate());
-        appointment.setStartTime(appointmentDTO.getStartTime());
-        appointment.setEndTime(appointmentDTO.getEndTime());
+        appointment.setDate(appointmentDTO.getDate() != null ? dateToLocalDate(appointmentDTO.getDate()) : null);
+        appointment.setStartTime(appointmentDTO.getStartTime() != null ? dateToLocalDateTime(appointmentDTO.getStartTime()) : null);
+        appointment.setEndTime(appointmentDTO.getEndTime() != null ? dateToLocalDateTime(appointmentDTO.getEndTime()) : null);
         appointment.setComment(appointmentDTO.getComment());
         appointment.setCreatedBySeriesAppointment(appointmentDTO.getCreatedBySeriesAppointment());
+        appointment.setIsElectric(appointmentDTO.getIsElectric());
         appointment.setIsHotair(appointmentDTO.getIsHotair());
         appointment.setIsUltrasonic(appointmentDTO.getIsUltrasonic());
-        appointment.setIsElectric(appointmentDTO.getIsElectric());
 
+        // Speichern und zurückgeben
         return appointmentRepository.save(appointment);
-    }
-
-    public void deleteAppointment(Long id) {
-        appointmentRepository.deleteById(id);
-    }
-
-    public List<Appointment> getAppointmentsWithConflicts() {
-        List<Appointment> allAppointments = this.getAllAppointments();
-        List<Appointment> conflictingAppointments = new ArrayList<>();
-        Set<Long> addedAppointments = new HashSet<>();
-    
-        for (Appointment currentAppointment : allAppointments) {
-            if (addedAppointments.contains(currentAppointment.getId())) {
-                // Überspringe dieses Appointment, wenn es bereits als konfliktbehaftet markiert wurde
-                continue;
-            }
-            for (Appointment compareAppointment : allAppointments) {
-                if (!currentAppointment.getId().equals(compareAppointment.getId()) &&
-                    this.checkForConflicts(currentAppointment, compareAppointment)) {
-    
-                    // Füge nur das erste gefundene konfliktbehaftete Appointment hinzu
-                    conflictingAppointments.add(currentAppointment);
-                    // Markiere beide Termine als bearbeitet
-                    addedAppointments.add(currentAppointment.getId());
-                    addedAppointments.add(compareAppointment.getId());
-                    break;
-                }
-            }
-        }
-        return conflictingAppointments;
     }
 
 
@@ -149,7 +118,6 @@ public class AppointmentService {
 
         LocalTime startTime = TimeOfDayService.getStartTime(timeOfDayId);
         LocalTime endTime = TimeOfDayService.getEndTime(timeOfDayId);
-        //ZoneId systemTimeZone = ZoneId.systemDefault(); // System-Zeitzone
 
         while (startTime.plusMinutes(duration).isBefore(endTime)) {
             calendar.set(Calendar.HOUR_OF_DAY, startTime.getHour());
@@ -164,19 +132,19 @@ public class AppointmentService {
                 potentialAppointment.setTherapist(therapistRepository.findById(therapistId)
                     .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID")));
 
-                potentialAppointment.setPatient(patientRepository.findById(patientId)  
+                potentialAppointment.setPatient(patientRepository.findById(patientId)
                     .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID")));
-                potentialAppointment.setStartTime(startDateTime);
-                potentialAppointment.setEndTime(endDateTime);
+                potentialAppointment.setStartTime(dateToLocalDateTime(startDateTime));
+                potentialAppointment.setEndTime(dateToLocalDateTime(endDateTime));
                 potentialAppointment.setIsElectric(false);
                 potentialAppointment.setIsHotair(false);
                 potentialAppointment.setIsUltrasonic(false);
-                potentialAppointment.setDate(today); // Das Datum ohne Zeitkomponente
+                potentialAppointment.setDate(dateToLocalDate(today));
 
                 availableAppointments.add(potentialAppointment);
             }
 
-            startTime = startTime.plusMinutes(duration); // Update startTime für den nächsten Durchlauf
+            startTime = startTime.plusMinutes(duration);
         }
 
         return availableAppointments;
@@ -185,31 +153,33 @@ public class AppointmentService {
     private boolean isTherapistAbsent(List<Absence> absences, Date startDateTime, Date endDateTime) {
         for (Absence absence : absences) {
             if (absence.getDate() != null) {
-                Date absenceStart = absence.getStartTime();
-                Date absenceEnd = absence.getEndTime();
-                if (!absenceStart.after(endDateTime) && !absenceEnd.before(startDateTime)) {
+                LocalDateTime absenceStart = absence.getStartTime();
+                LocalDateTime absenceEnd = absence.getEndTime();
+                LocalDateTime checkStart = dateToLocalDateTime(startDateTime);
+                LocalDateTime checkEnd = dateToLocalDateTime(endDateTime);
+                if (!checkStart.isAfter(absenceEnd) && !checkEnd.isBefore(absenceStart)) {
                     return true; // Überlappung gefunden
                 }
-            } else if (!absence.getWeekday().isEmpty() && matchesWeeklyAbsence(absence, startDateTime, endDateTime)) {
+            } else if (absence.getWeekday() != null && !absence.getWeekday().isEmpty() && matchesWeeklyAbsence(absence, startDateTime, endDateTime)) {
                 return true; // Überlappung mit wöchentlicher Abwesenheit gefunden
             }
         }
         return false;
     }
-    
+
     private boolean matchesWeeklyAbsence(Absence absence, Date start, Date end) {
         Calendar calStart = Calendar.getInstance();
         calStart.setTime(start);
         int startDayOfWeek = calStart.get(Calendar.DAY_OF_WEEK);
-    
+
         Calendar calEnd = Calendar.getInstance();
         calEnd.setTime(end);
         int endDayOfWeek = calEnd.get(Calendar.DAY_OF_WEEK);
-    
+
         int absenceDayOfWeek = convertWeekdayStringToIndex(absence.getWeekday());
         return absenceDayOfWeek == startDayOfWeek || absenceDayOfWeek == endDayOfWeek;
     }
-    
+
     private int convertWeekdayStringToIndex(String weekday) {
         switch (weekday) {
             case "Sonntag" -> {
@@ -236,22 +206,16 @@ public class AppointmentService {
             default -> throw new IllegalArgumentException("Unbekannter Wochentag: " + weekday); // Fehler werfen bei ungültigem Wochentag
         }
     }
-    
+
     private boolean isSlotAvailable(Long therapistId, Date startDateTime, Date endDateTime) {
         // Prüfen, ob der Slot Überschneidungen mit bestehenden Terminen hat
-        LocalDate date = startDateTime.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return appointmentRepository.findAllByTherapistIdAndDate(therapistId, Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant())).stream()
-            .noneMatch(appointment ->
-                startDateTime.before(appointment.getEndTime()) && 
-                endDateTime.after(appointment.getStartTime())
-            );
-    }
-
-    private boolean checkForConflicts(Appointment app1, Appointment app2) {
-        return app1.getTherapist().getId().equals(app2.getTherapist().getId()) &&
-               app1.getDate().equals(app2.getDate()) &&
-               app1.getStartTime().before(app2.getEndTime()) &&
-               app1.getEndTime().after(app2.getStartTime());
+        LocalDate date = dateToLocalDate(startDateTime);
+        LocalDateTime checkStart = dateToLocalDateTime(startDateTime);
+        LocalDateTime checkEnd = dateToLocalDateTime(endDateTime);
+        return appointmentRepository.findAll().stream()
+            .filter(a -> a.getDate().equals(date) && a.getTherapist().getId().equals(therapistId))
+            .noneMatch(appointment -> checkStart.isBefore(appointment.getEndTime()) &&
+                       checkEnd.isAfter(appointment.getStartTime()));
     }
 
     public boolean checkForConflicts(Appointment newAppointment) {
@@ -276,20 +240,28 @@ public class AppointmentService {
         return false;
     }
 
-    private boolean isOverlapping(Appointment existingAppointment, Appointment newAppointment) {
-        return existingAppointment.getStartTime().before(newAppointment.getEndTime()) &&
-               existingAppointment.getEndTime().after(newAppointment.getStartTime());
+    public boolean checkForConflicts(Appointment app1, Appointment app2) {
+        // Überprüfe ob zwei Appointments Überlappungen erzeugten
+        if (!app1.getDate().equals(app2.getDate()) ||
+            !app1.getTherapist().getId().equals(app2.getTherapist().getId())) {
+            return false;
+        }
+        return isOverlapping(app1, app2);
     }
 
-     public Appointment convertDTOToEntity(JSONAppointmentDTO dto) {
+    private boolean isOverlapping(Appointment existingAppointment, Appointment newAppointment) {
+        return existingAppointment.getStartTime().isBefore(newAppointment.getEndTime()) &&
+               existingAppointment.getEndTime().isAfter(newAppointment.getStartTime());
+    }
+
+    public Appointment convertDTOToEntity(JSONAppointmentDTO dto) {
         Appointment appointment = new Appointment();
         appointment.setId(dto.getId());
-        appointment.setDate(dto.getDate());
+        appointment.setDate(dto.getDate() != null ? dateToLocalDate(dto.getDate()) : null);
         appointment.setComment(dto.getComment());
         appointment.setCreatedBySeriesAppointment(dto.getCreatedBySeriesAppointment());
-        appointment.setAppointmentSeriesId(dto.getAppointmentSeriesId());
-        appointment.setStartTime(dto.getStartTime());
-        appointment.setEndTime(dto.getEndTime());
+        appointment.setStartTime(dto.getStartTime() != null ? dateToLocalDateTime(dto.getStartTime()) : null);
+        appointment.setEndTime(dto.getEndTime() != null ? dateToLocalDateTime(dto.getEndTime()) : null);
         appointment.setIsElectric(dto.getIsElectric());
         appointment.setIsHotair(dto.getIsHotair());
         appointment.setIsUltrasonic(dto.getIsUltrasonic());
@@ -297,5 +269,36 @@ public class AppointmentService {
         appointment.setTherapist(therapistService.convertDTOToEntity(dto.getTherapist()));
         // Weitere Felder falls nötig
         return appointment;
+    }
+
+    private LocalDate dateToLocalDate(Date date) {
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    private LocalDateTime dateToLocalDateTime(Date date) {
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+    }
+
+    public List<Appointment> getAppointmentsWithConflicts() {
+        List<Appointment> allAppointments = getAllAppointments();
+        List<Appointment> conflictingAppointments = new ArrayList<>();
+
+        for (int i = 0; i < allAppointments.size(); i++) {
+            Appointment app1 = allAppointments.get(i);
+            for (int j = i + 1; j < allAppointments.size(); j++) {
+                Appointment app2 = allAppointments.get(j);
+                if (checkForConflicts(app1, app2) && !conflictingAppointments.contains(app1)) {
+                    conflictingAppointments.add(app1);
+                }
+                if (checkForConflicts(app1, app2) && !conflictingAppointments.contains(app2)) {
+                    conflictingAppointments.add(app2);
+                }
+            }
+        }
+        return conflictingAppointments;
+    }
+
+    public void deleteAppointment(Long id) {
+        appointmentRepository.deleteById(id);
     }
 }

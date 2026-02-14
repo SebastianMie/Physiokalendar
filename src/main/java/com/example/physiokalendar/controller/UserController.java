@@ -31,7 +31,7 @@ public class UserController {
     @GetMapping("/user/therapist/{therapistId}")
     public ResponseEntity<JSONUserDTO> getUserByTherapistId(@PathVariable Long therapistId) {
         User user = userService.getUserByTherapistId(therapistId);
-        
+
         if (user == null) {
             return ResponseEntity.notFound().build();
         }
@@ -55,39 +55,10 @@ public class UserController {
         return ResponseEntity.ok(userDTO);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody JSONLoginDTO loginDTO) {
-        UserDetails userDetails = userService.authenticateUser(loginDTO.getUsername(), loginDTO.getPassword());
-        if (userDetails != null) {
-            String token = jwtService.generateToken(userDetails);
-            LoginResponse loginResponse = new LoginResponse(token);
-            return ResponseEntity.ok(loginResponse);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResponse("Invalid credentials"));
-        }
-    }
-
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody JSONLoginDTO registerDTO) {
         User user = userService.registerUser(registerDTO.getUsername(), registerDTO.getPassword(), registerDTO.getTherapistId());
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
-
-    public static class LoginResponse {
-        private String token;
-
-        public LoginResponse(String token) {
-            this.token = token;
-        }
-
-        public String getToken() {
-            return token;
-        }
-
-        public void setToken(String token) {
-            this.token = token;
-        }
-    }
-
 }
 

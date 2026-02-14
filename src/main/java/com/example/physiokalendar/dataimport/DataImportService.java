@@ -6,6 +6,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
@@ -132,10 +136,10 @@ public class DataImportService {
                         Appointment appointment = new Appointment();
                         appointment.setPatient(patient);
                         appointment.setTherapist(therapist);
-                        appointment.setDate(new Date(date));
+                        appointment.setDate(dateToLocalDate(new Date(date)));
                         appointment.setCreatedBySeriesAppointment(false);
-                        appointment.setStartTime(parseTime(appointmentNode.get("startTime").asText(), new Date(date)));
-                        appointment.setEndTime(parseTime(appointmentNode.get("endTime").asText(), new Date(date)));
+                        appointment.setStartTime(dateToLocalDateTime(parseTime(appointmentNode.get("startTime").asText(), new Date(date))));
+                        appointment.setEndTime(dateToLocalDateTime(parseTime(appointmentNode.get("endTime").asText(), new Date(date))));
                         appointment.setComment(appointmentNode.hasNonNull("comment") ? appointmentNode.get("comment").asText() : "");
                         appointment.setIsHotair(appointmentNode.hasNonNull("isHotair") ? appointmentNode.get("isHotair").asBoolean() : false);
                         appointment.setIsUltrasonic(appointmentNode.hasNonNull("isUltrasonic") ? appointmentNode.get("isUltrasonic").asBoolean() : false);
@@ -156,63 +160,63 @@ public class DataImportService {
 
     private void importSeriesAppointments(JsonNode seriesDay, BufferedWriter errorWriter) throws IOException {
         String weekday = seriesDay.hasNonNull("weekday") ? seriesDay.get("weekday").asText() : null;
-    
+
         // Überprüfen, ob "appointments" vorhanden ist und ein Array ist
         if (seriesDay.has("appointments") && seriesDay.get("appointments").isArray()) {
             Iterator<JsonNode> appointments = seriesDay.get("appointments").elements();
-    
+
             // Über die Termine iterieren
             while (appointments.hasNext()) {
                 JsonNode appointmentNode = appointments.next();
-    
+
                 // Patient ermitteln oder erstellen, wenn nicht gefunden
                 String patientName = appointmentNode.hasNonNull("patient") ? appointmentNode.get("patient").asText() : null;
                 Patient patient = findPatientByName(patientName);
                 if (patient == null && patientName != null) {
                     patient = createPatient(patientName);
                 }
-    
+
                 // Therapeut ermitteln
                 String therapistName = appointmentNode.hasNonNull("therapist") ? appointmentNode.get("therapist").asText() : null;
                 Therapist therapist = (therapistName != null) ? findTherapistByName(therapistName) : null;
-    
+
                 if (patient != null && therapist != null) {
                     // Serientermin speichern
                     AppointmentSeries appointment;
                     appointment = new AppointmentSeries();
                     appointment.setPatient(patient);
                     appointment.setTherapist(therapist);
-                    appointment.setStartTime(parseTime(appointmentNode.get("startTime").asText(), new Date()));
-                    appointment.setEndTime(parseTime(appointmentNode.get("endTime").asText(), new Date()));
-    
+                    appointment.setStartTime(parseTimeToLocalTime(appointmentNode.get("startTime").asText()));
+                    appointment.setEndTime(parseTimeToLocalTime(appointmentNode.get("endTime").asText()));
+
                     // Start- und Enddatum ermitteln
                     Date startDate = new Date(appointmentNode.get("startDate").asLong());
                     Date endDate = new Date(appointmentNode.get("endDate").asLong());
-    
+
                     // Datum prüfen und ggf. Enddatum auf 01.01.2026 setzen
                     Date cutoffDate = new Date(1767225600000L); // 01.01.2026 in Millisekunden
                     if (endDate.after(cutoffDate)) {
                         endDate = cutoffDate;
                     }
-                    
-                    appointment.setStartDate(startDate);
-                    appointment.setEndDate(endDate);
+
+                    appointment.setStartDate(dateToLocalDate(startDate));
+                    appointment.setEndDate(dateToLocalDate(endDate));
                     appointment.setWeekday(weekday);
                     appointment.setWeeklyfrequency(appointmentNode.hasNonNull("interval") ? appointmentNode.get("interval").asInt() : 1);
                     appointment.setComment(appointmentNode.hasNonNull("comment") ? appointmentNode.get("comment").asText() : "");
-    
+
                     // Erstelle die wiederkehrenden Termine anhand des Serien-Termins
-                    
-    
+
+
                     AppointmentSeries savedAppointment = appointmentSeriesRepository.save(appointment);
 
-                    appointmentSeriesService.createAppointmentsFromSeries(savedAppointment, startDate, endDate, appointment.getWeeklyfrequency());
-    
+                    appointmentSeriesService.createAppointmentsFromSeries(savedAppointment, dateToLocalDate(startDate), dateToLocalDate(endDate), appointment.getWeeklyfrequency());
+
                     // Behandle Ausfälle (Cancellations)
                     if (appointmentNode.has("cancellations") && appointmentNode.get("cancellations").isArray()) {
                         for (JsonNode cancellationNode : appointmentNode.get("cancellations")) {
                             String cancellationDateStr = cancellationNode.hasNonNull("date") ? cancellationNode.get("date").asText() : null;
-                            Date cancellationDate = parseDate(cancellationDateStr);
+                            LocalDate cancellationDate = parseStringToLocalDate(cancellationDateStr);
                             if (cancellationDate != null) {
                                 Cancellation cancellation = new Cancellation();
                                 cancellation.setDate(cancellationDate);
@@ -230,7 +234,7 @@ public class DataImportService {
             }
         }
     }
-    
+
     private void importAbsences(JsonNode therapistNode, BufferedWriter errorWriter) throws IOException {
         // Therapeut ermitteln
         String therapistName = therapistNode.hasNonNull("name") ? therapistNode.get("name").asText() : null;
@@ -248,13 +252,13 @@ public class DataImportService {
                 // Unterscheide zwischen Datum und Wochentag
                 String day = absenceNode.hasNonNull("day") ? absenceNode.get("day").asText() : null;
                 if (isDate(day)) {
-                    absence.setDate(parseDate(day));
+                    absence.setDate(parseStringToLocalDate(day));
                 } else {
                     absence.setWeekday(day);
                 }
 
-                absence.setStartTime(parseTime(absenceNode.get("start").asText(), new Date()));
-                absence.setEndTime(parseTime(absenceNode.get("end").asText(), new Date()));
+                absence.setStartTime(dateToLocalDateTime(parseTime(absenceNode.get("start").asText(), new Date())));
+                absence.setEndTime(dateToLocalDateTime(parseTime(absenceNode.get("end").asText(), new Date())));
 
                 absenceRepository.save(absence);
             }
@@ -280,6 +284,30 @@ public class DataImportService {
             return sdf.parse(dateStr);
         } catch (ParseException e) {
             System.out.println("Error parsing date: " + dateStr);
+            return null;
+        }
+    }
+
+    private LocalDate parseStringToLocalDate(String dateStr) {
+        Date date = parseDate(dateStr);
+        return date != null ? dateToLocalDate(date) : null;
+    }
+
+    private LocalDate dateToLocalDate(Date date) {
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    private LocalDateTime dateToLocalDateTime(Date date) {
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+    }
+
+    private LocalTime parseTimeToLocalTime(String time) {
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        try {
+            Date parsedTime = timeFormat.parse(time);
+            return parsedTime.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
+        } catch (ParseException e) {
+            System.out.println("Error parsing time: " + e.getMessage());
             return null;
         }
     }
@@ -311,8 +339,8 @@ public class DataImportService {
             patient.setLastName(""); // Leeres Nachnamefeld, wenn nicht vorhanden
         }
         patient.setFullName(patient.getFirstName() + " " + patient.getLastName());
-        patient.setActiveSince(new Date());
-        patient.setActiveUntil(new Date());
+        patient.setActiveSince(java.time.LocalDateTime.now());
+        patient.setActiveUntil(java.time.LocalDateTime.now());
         patient.setIsBWO(false);
         return patientRepository.save(patient);
     }
@@ -334,20 +362,20 @@ public class DataImportService {
             System.out.println("Error parsing time: " + e.getMessage());
             return null;  // Return null in case of parsing errors
         }
-        
+
         // Create a Calendar object for the appointment date (date part)
         Calendar appointmentCalendar = Calendar.getInstance();
         appointmentCalendar.setTime(appointmentDate);
-    
+
         // Create a Calendar object for the parsed time (time part)
         Calendar timeCalendar = Calendar.getInstance();
         timeCalendar.setTime(parsedTime);
-    
+
         // Set the hour and minute from the parsed time into the appointment date
         appointmentCalendar.set(Calendar.HOUR_OF_DAY, timeCalendar.get(Calendar.HOUR_OF_DAY));
         appointmentCalendar.set(Calendar.MINUTE, timeCalendar.get(Calendar.MINUTE));
         appointmentCalendar.set(Calendar.SECOND, 0); // Optionally set seconds to 0
-    
+
         // Return the combined date and time
         return appointmentCalendar.getTime();
     }

@@ -1,5 +1,8 @@
 package com.example.physiokalendar.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,9 +39,9 @@ public class AbsenceExceptionService {
         AbsenceException exception = new AbsenceException();
         exception.setId(dto.getId());
         exception.setWeekday(dto.getWeekday());
-        exception.setDate(dto.getDate());
-        exception.setStartTime(dto.getDate());
-        exception.setEndTime(dto.getDate());
+        exception.setDate(dto.getDate() != null ? dateToLocalDate(dto.getDate()) : null);
+        exception.setStartTime(dto.getStartTime() != null ? dateToLocalDateTime(dto.getStartTime()) : null);
+        exception.setEndTime(dto.getEndTime() != null ? dateToLocalDateTime(dto.getEndTime()) : null);
         // Weitere Felder falls nötig
         return exception;
     }
@@ -46,11 +49,27 @@ public class AbsenceExceptionService {
     public static JSONAbsenceExceptionDTO convertEntityToDTO(AbsenceException exception) {
         JSONAbsenceExceptionDTO dto = new JSONAbsenceExceptionDTO();
         dto.setId(exception.getId());
-        dto.setDate(exception.getDate());
-        dto.setWeekday(dto.getWeekday());
-        dto.setStartTime(exception.getDate());
-        dto.setEndTime(exception.getDate());
+        dto.setDate(exception.getDate() != null ? localDateToDate(exception.getDate()) : null);
+        dto.setWeekday(exception.getWeekday());
+        dto.setStartTime(exception.getStartTime() != null ? localDateTimeToDate(exception.getStartTime()) : null);
+        dto.setEndTime(exception.getEndTime() != null ? localDateTimeToDate(exception.getEndTime()) : null);
         // Weitere Felder falls nötig
         return dto;
+    }
+
+    private static LocalDate dateToLocalDate(Date date) {
+        return date.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+    }
+
+    private static LocalDateTime dateToLocalDateTime(Date date) {
+        return date.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDateTime();
+    }
+
+    private static Date localDateToDate(LocalDate localDate) {
+        return java.sql.Date.valueOf(localDate);
+    }
+
+    private static Date localDateTimeToDate(LocalDateTime localDateTime) {
+        return java.sql.Timestamp.valueOf(localDateTime);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.physiokalendar.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,11 +38,17 @@ public class Patient {
     @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "acitve_since")
-    private Date activeSince;
+    @Column(name = "email", unique = true)
+    private String email;
+
+    @Column(name = "telefon")
+    private String telefon;
+
+    @Column(name = "active_since")
+    private LocalDateTime activeSince;
 
     @Column(name = "active_until")
-    private Date activeUntil;
+    private LocalDateTime activeUntil;
 
     @Column(name = "is_bwo")
     private Boolean isBWO;

@@ -40,6 +40,16 @@ public class JwtService {
         return generateToken(new HashMap<>(), userDetails);
     }
 
+    // Generiert ein Token für einen String Username (für AuthController)
+    public String generateToken(String username) {
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + jwtExpiration))
+                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                .compact();
+    }
+
     // Generiert ein Token mit zusätzlichen Claims
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
         return buildToken(extraClaims, userDetails, jwtExpiration);
@@ -69,6 +79,12 @@ public class JwtService {
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
+    }
+
+    // Überprüft, ob das Token gültig ist (für String username)
+    public boolean isTokenValid(String token, String username) {
+        final String tokenUsername = extractUsername(token);
+        return (tokenUsername.equals(username)) && !isTokenExpired(token);
     }
 
     // Überprüft, ob das Token abgelaufen ist

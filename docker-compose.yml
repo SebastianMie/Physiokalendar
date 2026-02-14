@@ -1,24 +1,7 @@
-version: '3.8'
+# Development docker-compose: Nur Datenbank - Backend läuft lokal mit Hot-Reload
 services:
-  app:
-    build: .
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./src:/usr/src/app/src
-      - ./target:/usr/src/app/target
-      - ./pom.xml:/usr/src/app/pom.xml
-      - ~/.m2:/root/.m2  # Optional: cache your Maven dependencies
-    environment:
-      - JAVA_HOME=/usr/local/openjdk-17
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/physiocalendar
-      - SPRING_DATASOURCE_USERNAME=physiouser
-      - SPRING_DATASOURCE_PASSWORD=password
-    depends_on:
-      - db
-
   db:
-    image: mysql:latest
+    image: mysql:8.0.36
     restart: always
     environment:
       MYSQL_DATABASE: physiocalendar
@@ -29,6 +12,11 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+      - ./src/main/resources/db/migration:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
 
 volumes:
   db_data:

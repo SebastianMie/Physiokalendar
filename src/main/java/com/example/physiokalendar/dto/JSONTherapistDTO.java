@@ -1,7 +1,7 @@
 // JSONTherapistDTO.java
 package com.example.physiokalendar.dto;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import lombok.Getter;
@@ -16,8 +16,10 @@ public class JSONTherapistDTO {
     private String fullName;
     private String firstName;
     private String lastName;
-    private Date activeSince;
-    private Date activeUntil;
+    private String email;
+    private String telefon;
+    private LocalDateTime activeSince;
+    private LocalDateTime activeUntil;
     private Boolean isActive;
     private List<Long> absenceIds;
     private List<JSONAbsenceDTO> absences;

@@ -1,4 +1,5 @@
 com\example\physiokalendar\repository\CancellationRepository.class
+com\example\physiokalendar\controller\AuthController$LoginRequest.class
 com\example\physiokalendar\controller\HomeController.class
 com\example\physiokalendar\config\SecurityConfig.class
 com\example\physiokalendar\entity\Therapist.class
@@ -8,6 +9,7 @@ com\example\physiokalendar\service\CancellationService.class
 com\example\physiokalendar\WebConfig.class
 com\example\physiokalendar\entity\Absence.class
 com\example\physiokalendar\controller\PatientController.class
+com\example\physiokalendar\service\TimeOfDayService.class
 com\example\physiokalendar\controller\AbsenceController.class
 com\example\physiokalendar\repository\UserRepository.class
 com\example\physiokalendar\repository\AbsenceExceptionRepository.class
@@ -24,6 +26,7 @@ com\example\physiokalendar\repository\AbsenceRepository.class
 com\example\physiokalendar\entity\AppointmentSeries.class
 com\example\physiokalendar\repository\PatientRepository.class
 com\example\physiokalendar\dto\JSONAbsenceDTO.class
+com\example\physiokalendar\controller\DataImportController.class
 com\example\physiokalendar\controller\TherapistController.class
 com\example\physiokalendar\entity\Appointment.class
 com\example\physiokalendar\controller\ExceptionController.class
@@ -34,13 +37,17 @@ com\example\physiokalendar\service\AbsenceService.class
 com\example\physiokalendar\config\JwtService.class
 com\example\physiokalendar\dto\JSONAppointmentDTO.class
 com\example\physiokalendar\service\PatientService.class
+com\example\physiokalendar\controller\AuthController.class
+com\example\physiokalendar\config\SecurityConfig$1.class
 com\example\physiokalendar\service\AppointmentService.class
 com\example\physiokalendar\repository\TherapistRepository.class
 com\example\physiokalendar\controller\CancellationController.class
-com\example\physiokalendar\controller\UserController$LoginResponse.class
 com\example\physiokalendar\dto\JSONLoginDTO.class
 com\example\physiokalendar\service\AbsenceExceptionService.class
+com\example\physiokalendar\service\TimeOfDayService$TimeRange.class
 com\example\physiokalendar\dto\JSONPatientDTO.class
 com\example\physiokalendar\service\UserService.class
+com\example\physiokalendar\dataimport\DataImportService.class
+com\example\physiokalendar\dto\JSONUserDTO.class
 com\example\physiokalendar\entity\Cancellation.class
 com\example\physiokalendar\controller\AppointmentSeriesController.class

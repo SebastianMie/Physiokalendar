@@ -1,6 +1,10 @@
 package com.example.physiokalendar.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,41 +55,58 @@ public class AbsenceService {
     }
 
     public Absence convertDTOToEntity(JSONAbsenceDTO dto) {
-    Absence absence = new Absence();
-    absence.setId(dto.getId());
-    
-    // Hole das Therapist-Objekt anhand der ID
-    Therapist therapist = therapistRepository.findById(dto.getTherapistId())
-        .orElseThrow(() -> new RuntimeException("Therapist not found with id " + dto.getTherapistId()));
+        Absence absence = new Absence();
+        absence.setId(dto.getId());
 
-    // Setze das Therapist-Objekt
-    absence.setTherapist(therapist);
-    
-    absence.setDate(dto.getDate());
-    absence.setWeekday(dto.getWeekday());
-    absence.setStartTime(dto.getStartTime());
-    absence.setEndTime(dto.getEndTime());
-    return absence;
-}
+        // Hole das Therapist-Objekt anhand der ID
+        Therapist therapist = therapistRepository.findById(dto.getTherapistId())
+            .orElseThrow(() -> new RuntimeException("Therapist not found with id " + dto.getTherapistId()));
 
+        // Setze das Therapist-Objekt
+        absence.setTherapist(therapist);
 
-    public static JSONAbsenceDTO convertEntityToDTO(Absence absence) {
+        absence.setDate(dto.getDate() != null ? dateToLocalDate(dto.getDate()) : null);
+        absence.setWeekday(dto.getWeekday());
+        absence.setStartTime(dto.getStartTime() != null ? dateToLocalDateTime(dto.getStartTime()) : null);
+        absence.setEndTime(dto.getEndTime() != null ? dateToLocalDateTime(dto.getEndTime()) : null);
+        // Weitere Felder falls nötig
+        return absence;
+    }
+
+    public JSONAbsenceDTO convertEntityToDTO(Absence absence) {
         JSONAbsenceDTO dto = new JSONAbsenceDTO();
         dto.setId(absence.getId());
-        dto.setTherapistId(absence.getTherapist().getId());
-        dto.setDate(absence.getDate());
+        if (absence.getTherapist() != null) {
+            dto.setTherapistId(absence.getTherapist().getId());
+        }
+        dto.setDate(absence.getDate() != null ? localDateToDate(absence.getDate()) : null);
         dto.setWeekday(absence.getWeekday());
-        dto.setStartTime(absence.getStartTime());
-        dto.setEndTime(absence.getEndTime());
-        // Weitere Felder falls nötig
+        dto.setStartTime(absence.getStartTime() != null ? localDateTimeToDate(absence.getStartTime()) : null);
+        dto.setEndTime(absence.getEndTime() != null ? localDateTimeToDate(absence.getEndTime()) : null);
         return dto;
     }
 
-     public List<JSONAbsenceDTO> convertEntitiesToDTOs(List<Absence> absences) {
+    public List<JSONAbsenceDTO> convertEntitiesToDTOs(List<Absence> absences) {
         List<JSONAbsenceDTO> dtoList = new ArrayList<>();
         for (Absence absence : absences) {
             dtoList.add(convertEntityToDTO(absence));
         }
         return dtoList;
+    }
+
+    private LocalDate dateToLocalDate(Date date) {
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    private LocalDateTime dateToLocalDateTime(Date date) {
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+    }
+
+    private Date localDateToDate(LocalDate localDate) {
+        return java.sql.Date.valueOf(localDate);
+    }
+
+    private Date localDateTimeToDate(LocalDateTime localDateTime) {
+        return java.sql.Timestamp.valueOf(localDateTime);
     }
 }
