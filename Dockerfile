@@ -1,5 +1,5 @@
 # Verwenden Sie ein Basis-Image mit Java 17
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk
 
 # Setzen Sie das Arbeitsverzeichnis im Container
 WORKDIR /usr/src/app

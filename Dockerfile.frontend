@@ -27,7 +27,7 @@ ENV BUILD_ENV=${BUILD_ENV}
 RUN if [ "$BUILD_ENV" = "development" ]; then \
       npm run build -- --configuration=development; \
     elif [ "$BUILD_ENV" = "test" ]; then \
-      npm run build -- --configuration=test; \
+      npm run build -- --configuration=development; \
     else \
       npm run build -- --configuration=production; \
     fi

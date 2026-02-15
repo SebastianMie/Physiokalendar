@@ -75,6 +75,15 @@ public class AbsenceService {
         if (dto.getAbsenceType() != null) {
             absence.setAbsenceType(AbsenceType.valueOf(dto.getAbsenceType()));
         }
+
+        // Validation
+        if (absence.getAbsenceType() == AbsenceType.SPECIAL && absence.getDate() == null) {
+            throw new IllegalArgumentException("Date is required for SPECIAL absences");
+        }
+        if (absence.getAbsenceType() == AbsenceType.RECURRING && (absence.getWeekday() == null || absence.getWeekday().trim().isEmpty())) {
+            throw new IllegalArgumentException("Weekday is required for RECURRING absences");
+        }
+
         return absence;
     }
 
@@ -103,18 +112,22 @@ public class AbsenceService {
     }
 
     private LocalDate dateToLocalDate(Date date) {
-        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDate();
+        // Verwende die System-Zeitzone für konsistente Datumsbehandlung
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
     private LocalDateTime dateToLocalDateTime(Date date) {
-        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDateTime();
+        // Verwende die System-Zeitzone statt UTC für korrekte Zeitbehandlung
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 
     private Date localDateToDate(LocalDate localDate) {
-        return java.sql.Date.valueOf(localDate);
+        // Verwende die System-Zeitzone für konsistente Konvertierung
+        return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
     private Date localDateTimeToDate(LocalDateTime localDateTime) {
-        return java.sql.Timestamp.valueOf(localDateTime);
+        // Verwende die System-Zeitzone für konsistente Konvertierung
+        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
     }
 }
