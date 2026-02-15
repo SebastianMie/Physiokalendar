@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.physiokalendar.dto.JSONAbsenceDTO;
 import com.example.physiokalendar.entity.Absence;
+import com.example.physiokalendar.entity.AbsenceType;
 import com.example.physiokalendar.entity.Therapist;
 import com.example.physiokalendar.repository.AbsenceRepository;
 import com.example.physiokalendar.repository.TherapistRepository;
@@ -66,10 +67,14 @@ public class AbsenceService {
         absence.setTherapist(therapist);
 
         absence.setDate(dto.getDate() != null ? dateToLocalDate(dto.getDate()) : null);
+        absence.setEndDate(dto.getEndDate() != null ? dateToLocalDate(dto.getEndDate()) : null);
         absence.setWeekday(dto.getWeekday());
         absence.setStartTime(dto.getStartTime() != null ? dateToLocalDateTime(dto.getStartTime()) : null);
         absence.setEndTime(dto.getEndTime() != null ? dateToLocalDateTime(dto.getEndTime()) : null);
-        // Weitere Felder falls nötig
+        absence.setReason(dto.getReason());
+        if (dto.getAbsenceType() != null) {
+            absence.setAbsenceType(AbsenceType.valueOf(dto.getAbsenceType()));
+        }
         return absence;
     }
 
@@ -80,9 +85,12 @@ public class AbsenceService {
             dto.setTherapistId(absence.getTherapist().getId());
         }
         dto.setDate(absence.getDate() != null ? localDateToDate(absence.getDate()) : null);
+        dto.setEndDate(absence.getEndDate() != null ? localDateToDate(absence.getEndDate()) : null);
         dto.setWeekday(absence.getWeekday());
         dto.setStartTime(absence.getStartTime() != null ? localDateTimeToDate(absence.getStartTime()) : null);
         dto.setEndTime(absence.getEndTime() != null ? localDateTimeToDate(absence.getEndTime()) : null);
+        dto.setReason(absence.getReason());
+        dto.setAbsenceType(absence.getAbsenceType() != null ? absence.getAbsenceType().name() : null);
         return dto;
     }
 

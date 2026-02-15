@@ -5,7 +5,7 @@
       "label": "Start Spring Boot Application",
       "type": "shell",
       "command": ".\\mvnw.cmd",
-      "args": ["spring-boot:run"],
+      "args": ["spring-boot:run", "-Dspring-boot.run.profiles=dev"],
       "isBackground": false,
       "group": {
         "kind": "build",
@@ -33,6 +33,48 @@
         "focus": true,
         "panel": "shared"
       }
+    },
+    {
+      "label": "Start Angular Frontend",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev"],
+      "options": {
+        "cwd": "${workspaceFolder}/Physiokalender-v2-UI"
+      },
+      "isBackground": true,
+      "group": "build",
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": {
+          "regexp": "^(.*)\\((\\d+),(\\d+)\\):\\s+(error|warning)\\s+TS(\\d+):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 5,
+          "message": 6
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*Compiling.*",
+          "endsPattern": ".*Compiled successfully.*|.*compiled.*"
+        }
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "Start Full Stack (Backend + Frontend)",
+      "dependsOn": ["Start Angular Frontend"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
     }
   ]
 }

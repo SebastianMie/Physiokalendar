@@ -18,7 +18,9 @@
         "titleBar.inactiveBackground": "#18dff899",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "java.compile.nullAnalysis.mode": "automatic",
+    "java.compile.nullAnalysis.mode": "disabled",
     "java.configuration.updateBuildConfiguration": "automatic",
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.debug.settings.console": "integratedTerminal",
     "peacock.color": "#18dff8"
 }

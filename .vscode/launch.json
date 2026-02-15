@@ -1,14 +1,47 @@
 {
+  "version": "0.2.0",
   "configurations": [
     {
       "type": "java",
-      "name": "Spring Boot-PhysiokalendarApplication",
+      "name": "Debug Spring Boot Backend",
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "mainClass": "com.example.physiokalendar.PhysiokalendarApplication",
       "projectName": "Physiokalendar",
-      "args": "",
-      "envFile": "${workspaceFolder}/.env"
+      "args": "--spring.profiles.active=dev",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "vmArgs": "-Dfile.encoding=UTF-8",
+      "shortenCommandLine": "argfile"
+    },
+    {
+      "type": "chrome",
+      "name": "Debug Angular Frontend",
+      "request": "launch",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/Physiokalender-v2-UI/src",
+      "sourceMaps": true,
+      "preLaunchTask": "Start Angular Frontend"
+    },
+    {
+      "type": "chrome",
+      "name": "Debug Angular (Attach)",
+      "request": "attach",
+      "port": 9222,
+      "webRoot": "${workspaceFolder}/Physiokalender-v2-UI/src",
+      "sourceMaps": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack Debug (Backend + Frontend)",
+      "configurations": ["Debug Spring Boot Backend", "Debug Angular Frontend"],
+      "stopAll": true,
+      "presentation": {
+        "hidden": false,
+        "group": "Physiokalendar",
+        "order": 1
+      }
     }
   ]
 }

@@ -21,9 +21,10 @@ public class JSONAbsenceDTO {
     private Long id;
     private Long therapistId;
     private Date date;
+    private Date endDate;
     private String weekday;
     private Date startTime;
     private Date endTime;
-
-    // Getters and Setters
+    private String reason;
+    private String absenceType;
 }

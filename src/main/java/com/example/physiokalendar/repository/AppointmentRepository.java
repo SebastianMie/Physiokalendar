@@ -30,6 +30,19 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     @Query("SELECT a FROM Appointment a WHERE a.therapist.id = :therapistId AND a.patient.id = :patientId AND a.date = :date")
     List<Appointment> findByTherapistIdAndPatientIdAndDate(@Param("therapistId") Long therapistId, @Param("patientId") Long patientId, @Param("date") Date date);
 
+    // For duplicate checking during import with LocalDate
+    @Query("SELECT a FROM Appointment a WHERE a.therapist.id = :therapistId AND a.patient.id = :patientId AND a.date = :date")
+    List<Appointment> findByTherapistIdAndPatientIdAndLocalDate(@Param("therapistId") Long therapistId, @Param("patientId") Long patientId, @Param("date") LocalDate date);
+
+    // Check if exact appointment exists (for duplicate detection during import)
+    @Query("SELECT COUNT(a) > 0 FROM Appointment a WHERE a.therapist.id = :therapistId AND a.patient.id = :patientId AND a.date = :date AND a.startTime = :startTime AND a.endTime = :endTime")
+    boolean existsByTherapistPatientDateAndTime(
+            @Param("therapistId") Long therapistId,
+            @Param("patientId") Long patientId,
+            @Param("date") LocalDate date,
+            @Param("startTime") LocalDateTime startTime,
+            @Param("endTime") LocalDateTime endTime);
+
     @Query("SELECT a FROM Appointment a WHERE a.therapist.id = :therapistId AND a.patient.id = :patientId")
     List<Appointment> findByTherapistIdAndPatientId(@Param("therapistId") Long therapistId, @Param("patientId") Long patientId);
 

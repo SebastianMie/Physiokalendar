@@ -43,6 +43,9 @@ public class Absence {
     @Column(name = "date")
     private LocalDate date;
 
+    @Column(name = "end_date")
+    private LocalDate endDate;
+
     @Column(name = "weekday")
     private String weekday;
 

@@ -32,6 +32,7 @@ logs/
 Thumbs.db
 
 # Environment Files (NEVER commit production secrets!)
+.env
 .env.prod
 .env.local
 *.env.local

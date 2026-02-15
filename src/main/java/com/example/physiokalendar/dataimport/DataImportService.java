@@ -12,7 +12,9 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,6 +68,10 @@ public class DataImportService {
     private int absenceCount = 0;
     private int cancellationCount = 0;
 
+    // Cache to prevent duplicate patient imports within a single run
+    private Map<String, Long> patientNameToIdCache = new HashMap<>();
+
+    // Einfacher Import ohne Transaktionen - jeder save() wird sofort committed
     public void importData(String filePath) {
         // Statistik-Counter zurücksetzen
         therapistCount = 0;
@@ -74,6 +80,9 @@ public class DataImportService {
         seriesCount = 0;
         absenceCount = 0;
         cancellationCount = 0;
+
+        // Clear patient cache for new import run
+        patientNameToIdCache.clear();
 
         try (BufferedWriter errorWriter = new BufferedWriter(new FileWriter("src/main/java/com/example/physiokalendar/dataimport/error_log.txt", true))) {
             errorWriter.write("\n\n========================================\n");
@@ -89,8 +98,13 @@ public class DataImportService {
                 errorWriter.write("\n--- Importiere Therapeuten ---\n");
                 Iterator<JsonNode> therapists = rootNode.get("therapists").elements();
                 while (therapists.hasNext()) {
-                    JsonNode therapistNode = therapists.next();
-                    importTherapist(therapistNode, errorWriter);
+                    try {
+                        JsonNode therapistNode = therapists.next();
+                        importTherapist(therapistNode, errorWriter);
+                    } catch (Exception thEx) {
+                        errorWriter.write("[ERROR] Therapeut-Import fehlgeschlagen: " + thEx.getMessage() + "\n");
+                        errorWriter.flush();
+                    }
                 }
             }
 
@@ -101,8 +115,13 @@ public class DataImportService {
                 if (elementsNode.isArray()) {
                     Iterator<JsonNode> days = elementsNode.elements();
                     while (days.hasNext()) {
-                        JsonNode day = days.next();
-                        importPatientsFromDay(day, errorWriter);
+                        try {
+                            JsonNode day = days.next();
+                            importPatientsFromDay(day, errorWriter);
+                        } catch (Exception patEx) {
+                            errorWriter.write("[ERROR] Patient-Import fehlgeschlagen: " + patEx.getMessage() + " - weiter mit nächstem\n");
+                            errorWriter.flush();
+                        }
                     }
                 }
             }
@@ -111,11 +130,21 @@ public class DataImportService {
             if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
                 errorWriter.write("\n--- Importiere Einzeltermine (Daylist) ---\n");
                 JsonNode elementsNode = rootNode.get("daylist").get("elements");
+                errorWriter.write("[DEBUG] Total Tage im daylist: " + elementsNode.size() + "\n");
+                errorWriter.flush();
                 if (elementsNode.isArray()) {
-                    Iterator<JsonNode> days = elementsNode.elements();
-                    while (days.hasNext()) {
-                        JsonNode day = days.next();
-                        importAppointments(day, errorWriter);
+                    // !!! WICHTIG: NEUER ITERATOR FÜR JEDEN DURCHGANG !!!
+                    for (int i = 0; i < elementsNode.size(); i++) {
+                        try {
+                            JsonNode day = elementsNode.get(i);
+                            errorWriter.write("[DEBUG] Verarbeite Tag " + (i + 1) + " von " + elementsNode.size() + "\n");
+                            errorWriter.flush();
+                            importAppointmentsForDay(day, errorWriter);
+                        } catch (Exception dayEx) {
+                            errorWriter.write("[ERROR] Tag " + (i + 1) + " fehlgeschlagen: " + dayEx.getClass().getSimpleName() + ": " + dayEx.getMessage() + " - weiter mit nächstem Tag\n");
+                            errorWriter.flush();
+                            // Continue with next day - don't abort entire import
+                        }
                     }
                 }
             }
@@ -171,6 +200,9 @@ public class DataImportService {
         }
     }
 
+    /**
+     * Importiert einen Therapeuten.
+     */
     private void importTherapist(JsonNode therapistNode, BufferedWriter errorWriter) throws IOException {
         try {
             String therapistName = therapistNode.hasNonNull("name") ? therapistNode.get("name").asText() : null;
@@ -232,6 +264,9 @@ public class DataImportService {
         }
     }
 
+    /**
+     * Importiert Patienten aus einem Tag.
+     */
     private void importPatientsFromDay(JsonNode day, BufferedWriter errorWriter) throws IOException {
         try {
             if (day.has("appointments") && day.get("appointments").isArray()) {
@@ -256,78 +291,123 @@ public class DataImportService {
         }
     }
 
-    private void importAppointments(JsonNode day, BufferedWriter errorWriter) throws IOException {
-        // Überprüfen, ob der "date"-Wert existiert und nicht null ist
-        if (day.hasNonNull("date")) {
-            long date = day.get("date").asLong();
+    /**
+     * Importiert alle Termine eines Tages.
+     */
+    private void importAppointmentsForDay(JsonNode day, BufferedWriter errorWriter) {
+        try {
+            if (!day.has("date") || !day.has("appointments")) return;
 
-            // Überprüfen, ob "appointments" vorhanden ist und ein Array ist
-            if (day.has("appointments") && day.get("appointments").isArray()) {
-                Iterator<JsonNode> appointments = day.get("appointments").elements();
+            long timestampMs = day.get("date").asLong();
+            LocalDate aptDate = LocalDate.ofEpochDay(timestampMs / 86400000);
+            JsonNode apts = day.get("appointments");
 
-                // Über die Termine iterieren
-                while (appointments.hasNext()) {
-                    JsonNode appointmentNode = appointments.next();
+            if (!apts.isArray()) return;
 
-                    try {
-                        // Validierung: Notwendige Felder prüfen
-                        if (!appointmentNode.hasNonNull("startTime") || !appointmentNode.hasNonNull("endTime")) {
-                            errorWriter.write("FEHLER: Termin ohne Start- oder Endzeit, übersprungen\n");
-                            continue;
-                        }
+            errorWriter.write("[APT-DAY] Datum: " + aptDate + ", Anzahl Termine: " + apts.size() + "\n");
+            errorWriter.flush();
 
-                        // Patient ermitteln oder erstellen, wenn nicht gefunden
-                        String patientName = appointmentNode.hasNonNull("patient") ? appointmentNode.get("patient").asText() : null;
-                        Patient patient = findPatientByName(patientName);
-                        if (patient == null && patientName != null && !patientName.isEmpty()) {
-                            patient = createPatient(patientName);
-                        }
+            for (int i = 0; i < apts.size(); i++) {
+                try {
+                    JsonNode apt = apts.get(i);
 
-                        // Therapeut ermitteln
-                        String therapistName = appointmentNode.hasNonNull("therapist") ? appointmentNode.get("therapist").asText() : null;
-                        Therapist therapist = (therapistName != null) ? findTherapistByName(therapistName) : null;
+                    String therapist = apt.has("therapist") ? apt.get("therapist").asText("") : "";
+                    String patient = apt.has("patient") ? apt.get("patient").asText("") : "";
+                    String start = apt.has("startTime") ? apt.get("startTime").asText("") : "";
+                    String end = apt.has("endTime") ? apt.get("endTime").asText("") : "";
 
-                        if (patient != null && therapist != null) {
-                            try {
-                                // Zeiten parsen VOR dem Speichern
-                                Date parsedStartDate = parseTime(appointmentNode.get("startTime").asText(), new Date(date));
-                                Date parsedEndDate = parseTime(appointmentNode.get("endTime").asText(), new Date(date));
-
-                                if (parsedStartDate == null || parsedEndDate == null) {
-                                    errorWriter.write("FEHLER: Ungültige Zeitformat bei Termin - Patient: " + patientName + "\n");
-                                    continue;
-                                }
-
-                                // Termin speichern
-                                Appointment appointment = new Appointment();
-                                appointment.setPatient(patient);
-                                appointment.setTherapist(therapist);
-                                appointment.setDate(dateToLocalDate(new Date(date)));
-                                appointment.setCreatedBySeriesAppointment(false);
-                                appointment.setStartTime(dateToLocalDateTime(parsedStartDate));
-                                appointment.setEndTime(dateToLocalDateTime(parsedEndDate));
-                                appointment.setComment(appointmentNode.hasNonNull("comment") ? appointmentNode.get("comment").asText() : "");
-                                appointment.setIsHotair(appointmentNode.hasNonNull("isHotair") ? appointmentNode.get("isHotair").asBoolean() : false);
-                                appointment.setIsUltrasonic(appointmentNode.hasNonNull("isUltrasonic") ? appointmentNode.get("isUltrasonic").asBoolean() : false);
-                                appointment.setIsElectric(appointmentNode.hasNonNull("isElectric") ? appointmentNode.get("isElectric").asBoolean() : false);
-
-                                appointmentRepository.save(appointment);
-                                appointmentCount++;
-                            } catch (Exception parseEx) {
-                                errorWriter.write("FEHLER beim Speichern eines Termins - Patient: " + patientName + ", Therapeut: " + therapistName + ", Fehler: " + parseEx.getClass().getSimpleName() + ": " + parseEx.getMessage() + "\n");
-                            }
-                        } else {
-                            // Fehler loggen mit mehr Details
-                            String appointmentId = appointmentNode.hasNonNull("id") ? appointmentNode.get("id").asText() : "Unbekannt";
-                            String formattedDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date(date));
-                            errorWriter.write("FEHLER bei Termin-ID: " + appointmentId + " - Patient: " + patientName + ", Therapeut: " + therapistName + ", Datum: " + formattedDate + "\n");
-                        }
-                    } catch (Exception e) {
-                        errorWriter.write("FEHLER beim Importieren eines Einzeltermins: " + e.getClass().getSimpleName() + ": " + e.getMessage() + "\n");
+                    if (therapist.isEmpty() || patient.isEmpty() || start.isEmpty() || end.isEmpty()) {
+                        errorWriter.write("  [SKIP] Pflichtfelder leer (T:'" + therapist + "', P:'" + patient + "', Start:'" + start + "', End:'" + end + "')\n");
+                        errorWriter.flush();
+                        continue;
                     }
+
+                    java.time.format.DateTimeFormatter timeFormatter = java.time.format.DateTimeFormatter.ofPattern("H:mm");
+                    LocalTime startTime = LocalTime.parse(start, timeFormatter);
+                    LocalTime endTime = LocalTime.parse(end, timeFormatter);
+                    LocalDateTime startDT = LocalDateTime.of(aptDate, startTime);
+                    LocalDateTime endDT = LocalDateTime.of(aptDate, endTime);
+
+                    Patient p = findPatientByName(patient);
+                    if (p == null) {
+                        p = createPatient(patient);
+                        if (p != null) {
+                            errorWriter.write("  [CREATE-P] Patient erstellt: " + patient + "\n");
+                            errorWriter.flush();
+                        }
+                    }
+                    if (p == null) {
+                        errorWriter.write("  [ERROR-P] Patient konnte nicht erstellt werden: " + patient + "\n");
+                        errorWriter.flush();
+                        continue;
+                    }
+
+                    Therapist t = findTherapistByName(therapist);
+                    if (t == null) {
+                        errorWriter.write("  [ERROR-T] Therapeut nicht gefunden: " + therapist + "\n");
+                        errorWriter.flush();
+                        continue;
+                    }
+
+                    // Check for duplicate appointments
+                    boolean isDuplicate = appointmentRepository.existsByTherapistPatientDateAndTime(
+                            t.getId(), p.getId(), aptDate, startDT, endDT);
+                    if (isDuplicate) {
+                        errorWriter.write("  [DUP] Duplikat ignoriert: " + therapist + " - " + patient + " " + startTime + "-" + endTime + "\n");
+                        errorWriter.flush();
+                        continue;
+                    }
+
+                    Appointment a = new Appointment();
+                    a.setPatient(p);
+                    a.setTherapist(t);
+                    a.setDate(aptDate);
+                    a.setStartTime(startDT);
+                    a.setEndTime(endDT);
+                    a.setComment(apt.has("comment") ? apt.get("comment").asText("") : "");
+                    a.setIsHotair(apt.has("isHotair") ? apt.get("isHotair").asBoolean(false) : false);
+                    a.setIsUltrasonic(apt.has("isUltrasonic") ? apt.get("isUltrasonic").asBoolean(false) : false);
+                    a.setIsElectric(apt.has("isElectric") ? apt.get("isElectric").asBoolean(false) : false);
+                    a.setCreatedBySeriesAppointment(false);
+
+                    appointmentRepository.save(a);
+                    appointmentCount++;
+                    errorWriter.write("  [SAVE] ✓ " + therapist + " - " + patient + " " + startTime + "-" + endTime + "\n");
+                    errorWriter.flush();
+                } catch (Exception e) {
+                    errorWriter.write("  [ERROR] Exception bei Termin: " + e.getClass().getSimpleName() + ": " + e.getMessage() + "\n");
+                    errorWriter.flush();
+                    // Continue with next appointment - don't abort the whole import
                 }
             }
+        } catch (Exception e) {
+            try {
+                errorWriter.write("[ERROR] Exception in importAppointments: " + e.getClass().getSimpleName() + ": " + e.getMessage() + "\n");
+                errorWriter.flush();
+            } catch (IOException ioe) {}
         }
+    }
+
+
+    // HELPER: Sichere String-Extraktion
+    private String getStringField(JsonNode node, String fieldName) {
+        if (node.hasNonNull(fieldName)) {
+            String value = node.get(fieldName).asText();
+            return value != null && !value.isEmpty() ? value : null;
+        }
+        return null;
+    }
+
+    // HELPER: Sichere Boolean-Extraktion
+    private Boolean getBooleanField(JsonNode node, String fieldName) {
+        if (node.hasNonNull(fieldName)) {
+            try {
+                return node.get(fieldName).asBoolean();
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return null;
     }
 
     private void importSeriesAppointments(JsonNode seriesDay, BufferedWriter errorWriter) throws IOException {
@@ -491,11 +571,23 @@ public class DataImportService {
     }
 
     private LocalDate dateToLocalDate(Date date) {
-        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDate();
+        if (date == null) return null;
+        try {
+            return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDate();
+        } catch (Exception e) {
+            System.out.println("Error converting to LocalDate: " + e.getMessage());
+            return null;
+        }
     }
 
     private LocalDateTime dateToLocalDateTime(Date date) {
-        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDateTime();
+        if (date == null) return null;
+        try {
+            return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDateTime();
+        } catch (Exception e) {
+            System.out.println("Error converting to LocalDateTime: " + e.getMessage());
+            return null;
+        }
     }
 
     private LocalTime parseTimeToLocalTime(String time) {
@@ -511,26 +603,46 @@ public class DataImportService {
 
     // Patient anhand des Namens finden
     private Patient findPatientByName(String fullName) {
-        String[] parts = fullName.split(", ");
-        if (parts.length == 2) {
-            String lastName = parts[0];
-            String firstName = parts[1];
-            String firstNamePattern = "%" + firstName + "%";
-            String lastNamePattern = "%" + lastName + "%";
-            return patientRepository.findFirstByFirstNameAndLastNameLike(firstNamePattern, lastNamePattern);
-        } else if (parts.length == 1) {
-            return patientRepository.findFirstByFirstNameAndLastNameLike("%" + fullName + "%", "%");
+        // First check the cache (important after EntityManager.clear())
+        if (patientNameToIdCache.containsKey(fullName)) {
+            Long patientId = patientNameToIdCache.get(fullName);
+            return patientRepository.findById(patientId).orElse(null);
         }
-        return null;
+
+        // Handle complex names with multiple commas by splitting only on first comma
+        int firstComma = fullName.indexOf(", ");
+        Patient patient = null;
+        if (firstComma > 0) {
+            String lastName = fullName.substring(0, firstComma).trim();
+            String firstName = fullName.substring(firstComma + 2).trim();
+            // Use exact match instead of LIKE patterns to avoid false duplicates
+            patient = patientRepository.findByFirstNameAndLastName(firstName, lastName);
+            if (patient == null) {
+                // Fallback: try with LIKE pattern for backwards compatibility
+                String firstNamePattern = "%" + firstName + "%";
+                String lastNamePattern = "%" + lastName + "%";
+                patient = patientRepository.findFirstByFirstNameAndLastNameLike(firstNamePattern, lastNamePattern);
+            }
+        } else {
+            // No comma - search by full name pattern
+            patient = patientRepository.findFirstByFirstNameAndLastNameLike("%" + fullName + "%", "%");
+        }
+
+        // Add to cache if found
+        if (patient != null) {
+            patientNameToIdCache.put(fullName, patient.getId());
+        }
+        return patient;
     }
 
     // Patient erstellen, wenn nicht gefunden
     private Patient createPatient(String fullName) {
-        String[] parts = fullName.split(", ");
+        // Handle complex names with multiple commas by splitting only on first comma
+        int firstComma = fullName.indexOf(", ");
         Patient patient = new Patient();
-        if (parts.length == 2) {
-            patient.setFirstName(parts[1]);
-            patient.setLastName(parts[0]);
+        if (firstComma > 0) {
+            patient.setLastName(fullName.substring(0, firstComma).trim());
+            patient.setFirstName(fullName.substring(firstComma + 2).trim());
         } else {
             patient.setFirstName(fullName);
             patient.setLastName(""); // Leeres Nachnamefeld, wenn nicht vorhanden
@@ -539,7 +651,11 @@ public class DataImportService {
         patient.setActiveSince(java.time.LocalDateTime.now());
         patient.setActiveUntil(java.time.LocalDateTime.now());
         patient.setIsBWO(false);
-        return patientRepository.save(patient);
+        patient = patientRepository.save(patient);
+
+        // Add to cache for future lookups
+        patientNameToIdCache.put(fullName, patient.getId());
+        return patient;
     }
 
     // Therapeut anhand des Namens finden
