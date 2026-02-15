@@ -100,16 +100,23 @@ public class AppointmentSeriesService {
                                               int weeklyFrequency, boolean isHotair, boolean isUltrasonic, boolean isElectric) {
         Therapist therapist = series.getTherapist();
 
+        // Limit end date to 1 year in the future to prevent excessive appointment creation
+        LocalDate maxEndDate = LocalDate.now().plusYears(1);
+        LocalDate effectiveEndDate = endDate.isBefore(maxEndDate) ? endDate : maxEndDate;
+
+        // Start from today if startDate is in the past
+        LocalDate effectiveStartDate = startDate.isBefore(LocalDate.now()) ? LocalDate.now() : startDate;
+
         // Erstellen des Kalenders für die Datumsmathematik
         Calendar startCalendar = Calendar.getInstance();
-        startCalendar.setTime(localDateToDate(startDate));
+        startCalendar.setTime(localDateToDate(effectiveStartDate));
         startCalendar.set(Calendar.HOUR_OF_DAY, 0);
         startCalendar.set(Calendar.MINUTE, 0);
         startCalendar.set(Calendar.SECOND, 0);
         startCalendar.set(Calendar.MILLISECOND, 0);
 
         Calendar endCalendar = Calendar.getInstance();
-        endCalendar.setTime(localDateToDate(endDate));
+        endCalendar.setTime(localDateToDate(effectiveEndDate));
 
         LocalTime startTime = series.getStartTime();
         LocalTime endTime = series.getEndTime();
@@ -134,7 +141,7 @@ public class AppointmentSeriesService {
             appointment.setIsElectric(isElectric);
             appointment.setIsHotair(isHotair);
             appointment.setIsUltrasonic(isUltrasonic);
-            appointment.setComment("generiert aus SerienTermin id " + series.getId());
+            appointment.setComment("");
 
             // Speichern des Einzeltermins
             appointmentRepository.save(appointment);

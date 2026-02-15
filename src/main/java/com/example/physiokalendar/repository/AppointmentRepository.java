@@ -155,4 +155,14 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
             @Param("endTime") LocalDateTime endTime,
             @Param("excludeId") Long excludeId,
             @Param("excludeStatus") AppointmentStatus excludeStatus);
+
+    // Series appointment queries
+    @Query("SELECT MAX(a.date) FROM Appointment a WHERE a.appointmentSeries.id = :seriesId")
+    LocalDate findLatestDateBySeriesId(@Param("seriesId") Long seriesId);
+
+    @Query("SELECT COUNT(a) > 0 FROM Appointment a WHERE a.appointmentSeries.id = :seriesId AND a.date = :date")
+    boolean existsBySeriesIdAndDate(@Param("seriesId") Long seriesId, @Param("date") LocalDate date);
+
+    @Query("SELECT a FROM Appointment a WHERE a.appointmentSeries.id = :seriesId ORDER BY a.date")
+    List<Appointment> findBySeriesId(@Param("seriesId") Long seriesId);
 }

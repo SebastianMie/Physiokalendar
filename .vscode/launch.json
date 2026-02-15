@@ -3,6 +3,12 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Java Program",
+      "request": "launch",
+      "mainClass": ""
+    },
+    {
+      "type": "java",
       "name": "Debug Spring Boot Backend",
       "request": "launch",
       "cwd": "${workspaceFolder}",

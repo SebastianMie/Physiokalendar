@@ -20,4 +20,14 @@ public class DataImportController {
         dataImportService.importData(filePath);
         return "Import abgeschlossen";
     }
+
+    /**
+     * Importiert nur Serientermine aus der JSON-Datei.
+     * Einzeltermine werden übersprungen (bereits importiert).
+     */
+    @PostMapping("/import-series")
+    public String importSeriesOnly(@RequestParam String filePath) {
+        dataImportService.importSeriesOnly(filePath);
+        return "Serientermine-Import abgeschlossen";
+    }
 }

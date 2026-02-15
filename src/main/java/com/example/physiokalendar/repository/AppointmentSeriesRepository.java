@@ -64,4 +64,26 @@ public interface AppointmentSeriesRepository extends JpaRepository<AppointmentSe
      */
     @Query("SELECT s FROM AppointmentSeries s WHERE s.therapist.id = :therapistId")
     List<AppointmentSeries> findByTherapistId(@Param("therapistId") Long therapistId);
+
+    /**
+     * Check if a similar series already exists (for duplicate detection during import).
+     */
+    @Query("SELECT COUNT(s) > 0 FROM AppointmentSeries s WHERE " +
+           "s.therapist.id = :therapistId AND " +
+           "s.patient.id = :patientId AND " +
+           "s.weekday = :weekday AND " +
+           "s.startTime = :startTime AND " +
+           "s.endTime = :endTime")
+    boolean existsByTherapistPatientWeekdayAndTime(
+            @Param("therapistId") Long therapistId,
+            @Param("patientId") Long patientId,
+            @Param("weekday") String weekday,
+            @Param("startTime") java.time.LocalTime startTime,
+            @Param("endTime") java.time.LocalTime endTime);
+
+    /**
+     * Find all active series (for generator job).
+     */
+    @Query("SELECT s FROM AppointmentSeries s WHERE s.status = :status")
+    List<AppointmentSeries> findByStatus(@Param("status") SeriesStatus status);
 }

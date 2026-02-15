@@ -1,0 +1,835 @@
+
+
+========================================
+SERIENTERMINE-IMPORT gestartet am: 2026-02-15 16:48:12
+========================================
+
+--- Importiere Serientermine (Masterlist) ---
+[INFO] Anzahl Wochentage in Masterlist: 5
+OK: Serientermin gespeichert (Therapeutic: Albrecht, Peter, Therapeut: Torben, Montag 07:50-08:20)
+OK: Serientermin gespeichert (Therapeutic: Daniel, Nina, Therapeut: Orazio, Montag 15:00-15:30)
+  OK: Ausfalltermin gespeichert 2026-01-11
+OK: Serientermin gespeichert (Therapeutic: Ising, Renate, Therapeut: Torben, Montag 07:30-07:50)
+OK: Serientermin gespeichert (Therapeutic: Reil, Kerstin, Therapeut: André, Montag 07:50-08:10)
+OK: Serientermin gespeichert (Therapeutic: Dresbach, Eckhard, Therapeut: Jona, Montag 13:10-13:50)
+OK: Serientermin gespeichert (Therapeutic: Savu, Martina, Therapeut: Jona, Montag 07:20-08:00)
+OK: Serientermin gespeichert (Therapeutic: Lumpe, Andre, Therapeut: Vicky, Montag 07:00-07:30)
+  OK: Ausfalltermin gespeichert 2025-08-24
+  OK: Ausfalltermin gespeichert 2025-09-14
+  OK: Ausfalltermin gespeichert 2025-10-19
+  OK: Ausfalltermin gespeichert 2025-10-05
+  OK: Ausfalltermin gespeichert 2025-10-12
+  OK: Ausfalltermin gespeichert 2025-10-26
+  OK: Ausfalltermin gespeichert 2025-11-02
+  OK: Ausfalltermin gespeichert 2025-11-09
+  OK: Ausfalltermin gespeichert 2025-11-16
+  OK: Ausfalltermin gespeichert 2025-11-23
+  OK: Ausfalltermin gespeichert 2025-11-30
+  OK: Ausfalltermin gespeichert 2025-12-07
+  OK: Ausfalltermin gespeichert 2025-12-14
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2025-08-17
+  OK: Ausfalltermin gespeichert 2025-09-07
+  OK: Ausfalltermin gespeichert 2025-08-31
+  OK: Ausfalltermin gespeichert 2025-09-28
+  OK: Ausfalltermin gespeichert 2025-09-21
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2026-01-11
+  OK: Ausfalltermin gespeichert 2026-01-18
+  OK: Ausfalltermin gespeichert 2026-01-25
+  OK: Ausfalltermin gespeichert 2026-02-01
+  OK: Ausfalltermin gespeichert 2026-02-22
+  OK: Ausfalltermin gespeichert 2026-02-15
+OK: Serientermin gespeichert (Therapeutic: Krakau, Gabi, Therapeut: Vicky, Montag 07:30-08:00)
+  OK: Ausfalltermin gespeichert 2025-07-20
+  OK: Ausfalltermin gespeichert 2025-08-03
+  OK: Ausfalltermin gespeichert 2025-09-14
+  OK: Ausfalltermin gespeichert 2025-10-12
+  OK: Ausfalltermin gespeichert 2025-08-17
+  OK: Ausfalltermin gespeichert 2025-12-07
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2026-02-15
+OK: Serientermin gespeichert (Therapeutic: Zielenbach, Doris, Therapeut: Vicky, Montag 10:30-11:00)
+  OK: Ausfalltermin gespeichert 2026-01-18
+  OK: Ausfalltermin gespeichert 2026-01-25
+  OK: Ausfalltermin gespeichert 2026-02-01
+  OK: Ausfalltermin gespeichert 2026-02-15
+OK: Serientermin gespeichert (Therapeutic: Wolfslast, Stefan, Therapeut: Vicky, Montag 08:00-08:30)
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-01-25
+OK: Serientermin gespeichert (Therapeutic: Grabeck, Katharina, Therapeut: Vicky, Montag 09:00-09:30)
+  OK: Ausfalltermin gespeichert 2025-07-13
+  OK: Ausfalltermin gespeichert 2025-07-20
+  OK: Ausfalltermin gespeichert 2025-07-27
+  OK: Ausfalltermin gespeichert 2025-08-03
+  OK: Ausfalltermin gespeichert 2025-08-24
+  OK: Ausfalltermin gespeichert 2025-08-10
+  OK: Ausfalltermin gespeichert 2025-10-12
+  OK: Ausfalltermin gespeichert 2025-10-19
+  OK: Ausfalltermin gespeichert 2025-09-07
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-01-25
+OK: Serientermin gespeichert (Therapeutic: Weller, Liane, Therapeut: Vicky, Montag 09:30-10:00)
+  OK: Ausfalltermin gespeichert 2025-08-24
+  OK: Ausfalltermin gespeichert 2025-09-14
+  OK: Ausfalltermin gespeichert 2025-10-12
+  OK: Ausfalltermin gespeichert 2025-10-19
+  OK: Ausfalltermin gespeichert 2025-09-28
+  OK: Ausfalltermin gespeichert 2025-11-02
+  OK: Ausfalltermin gespeichert 2025-11-16
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2025-11-30
+  OK: Ausfalltermin gespeichert 2025-12-14
+  OK: Ausfalltermin gespeichert 2026-01-18
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-01-25
+OK: Serientermin gespeichert (Therapeutic: Dross, Kerstin, Therapeut: Vicky, Montag 11:00-11:30)
+  OK: Ausfalltermin gespeichert 2025-07-27
+  OK: Ausfalltermin gespeichert 2025-07-13
+  OK: Ausfalltermin gespeichert 2025-07-20
+  OK: Ausfalltermin gespeichert 2025-08-03
+  OK: Ausfalltermin gespeichert 2025-08-17
+  OK: Ausfalltermin gespeichert 2025-09-14
+  OK: Ausfalltermin gespeichert 2025-08-24
+  OK: Ausfalltermin gespeichert 2025-10-12
+  OK: Ausfalltermin gespeichert 2025-10-19
+  OK: Ausfalltermin gespeichert 2025-10-26
+  OK: Ausfalltermin gespeichert 2025-09-28
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2025-11-23
+  OK: Ausfalltermin gespeichert 2025-11-30
+  OK: Ausfalltermin gespeichert 2025-12-07
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-01-25
+OK: Serientermin gespeichert (Therapeutic: Therapie bei André, Therapeut: Roman, Montag 11:00-11:20)
+  OK: Ausfalltermin gespeichert 2026-03-08
+  OK: Ausfalltermin gespeichert 2026-03-29
+OK: Serientermin gespeichert (Therapeutic: Ullmann, Roman, Therapeut: André, Montag 11:00-11:20)
+  OK: Ausfalltermin gespeichert 2026-03-08
+  OK: Ausfalltermin gespeichert 2026-03-29
+OK: Serientermin gespeichert (Therapeutic: Schmidt, Christa KGG, Therapeut: Jenny, Montag 10:30-11:00)
+  OK: Ausfalltermin gespeichert 2025-08-10
+  OK: Ausfalltermin gespeichert 2025-08-17
+  OK: Ausfalltermin gespeichert 2025-08-03
+  OK: Ausfalltermin gespeichert 2025-07-20
+  OK: Ausfalltermin gespeichert 2025-10-19
+  OK: Ausfalltermin gespeichert 2025-09-21
+  OK: Ausfalltermin gespeichert 2025-10-12
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2025-11-09
+  OK: Ausfalltermin gespeichert 2025-11-30
+  OK: Ausfalltermin gespeichert 2026-01-25
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-03-29
+OK: Serientermin gespeichert (Therapeutic: Lenzner, Ursula HB, Therapeut: Jenny, Montag 09:40-10:30)
+  OK: Ausfalltermin gespeichert 2025-08-10
+  OK: Ausfalltermin gespeichert 2025-08-17
+  OK: Ausfalltermin gespeichert 2025-07-20
+  OK: Ausfalltermin gespeichert 2025-10-19
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-03-29
+OK: Serientermin gespeichert (Therapeutic: Ufer, Jennifer, Therapeut: Jenny, Montag 09:00-09:40)
+  OK: Ausfalltermin gespeichert 2025-08-03
+  OK: Ausfalltermin gespeichert 2025-08-17
+  OK: Ausfalltermin gespeichert 2025-08-10
+  OK: Ausfalltermin gespeichert 2025-07-27
+  OK: Ausfalltermin gespeichert 2025-07-20
+  OK: Ausfalltermin gespeichert 2025-10-19
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-12-27
+  OK: Ausfalltermin gespeichert 2026-03-29
+OK: Serientermin gespeichert (Therapeutic: Hilsbecher, Silke, Therapeut: Jenny, Montag 08:30-09:00)
+  OK: Ausfalltermin gespeichert 2025-08-03
+  OK: Ausfalltermin gespeichert 2025-08-17
+  OK: Ausfalltermin gespeichert 2025-08-10
+  OK: Ausfalltermin gespeichert 2025-07-27
+  OK: Ausfalltermin gespeichert 2025-07-20
+  OK: Ausfalltermin gespeichert 2025-10-19
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-12-27
+  OK: Ausfalltermin gespeichert 2026-03-29
+OK: Serientermin gespeichert (Therapeutic: Wendt, Wiebke, Therapeut: Jenny, Montag 08:00-08:30)
+  OK: Ausfalltermin gespeichert 2025-08-03
+  OK: Ausfalltermin gespeichert 2025-08-17
+  OK: Ausfalltermin gespeichert 2025-08-10
+  OK: Ausfalltermin gespeichert 2025-07-27
+  OK: Ausfalltermin gespeichert 2025-07-20
+  OK: Ausfalltermin gespeichert 2025-10-19
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-12-27
+  OK: Ausfalltermin gespeichert 2026-03-29
+OK: Serientermin gespeichert (Therapeutic: Löttgen, Doris HB, Therapeut: Lukas, Montag 08:00-08:50)
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-04-26
+  OK: Ausfalltermin gespeichert 2026-04-12
+OK: Serientermin gespeichert (Therapeutic: Götze, Thomas Praxis, Therapeut: Jona, Montag 12:40-13:10)
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2025-12-07
+  OK: Ausfalltermin gespeichert 2025-12-14
+  OK: Ausfalltermin gespeichert 2026-01-11
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-02-01
+OK: Serientermin gespeichert (Therapeutic: Keding, Barbara GW / Scheer Britta UW, Therapeut: Vicky, Montag 10:00-10:30)
+  OK: Ausfalltermin gespeichert 2025-07-13
+  OK: Ausfalltermin gespeichert 2025-07-20
+  OK: Ausfalltermin gespeichert 2025-07-27
+  OK: Ausfalltermin gespeichert 2025-08-03
+  OK: Ausfalltermin gespeichert 2025-08-24
+  OK: Ausfalltermin gespeichert 2025-10-12
+  OK: Ausfalltermin gespeichert 2025-10-19
+  OK: Ausfalltermin gespeichert 2025-09-07
+  OK: Ausfalltermin gespeichert 2025-09-21
+  OK: Ausfalltermin gespeichert 2025-11-16
+  OK: Ausfalltermin gespeichert 2025-12-21
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-01-25
+  OK: Ausfalltermin gespeichert 2026-03-29
+OK: Serientermin gespeichert (Therapeutic: Altemühle, Andrea, Therapeut: André, Montag 15:00-15:30)
+  OK: Ausfalltermin gespeichert 2025-09-07
+  OK: Ausfalltermin gespeichert 2025-09-14
+  OK: Ausfalltermin gespeichert 2025-10-12
+  OK: Ausfalltermin gespeichert 2025-11-16
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-02-01
+  OK: Ausfalltermin gespeichert 2026-02-15
+OK: Serientermin gespeichert (Therapeutic: Hospiz, Therapeut: André, Montag 11:20-12:20)
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2026-02-15
+OK: Serientermin gespeichert (Therapeutic: Hospiz, Therapeut: André, Montag 12:20-12:40)
+  OK: Ausfalltermin gespeichert 2026-01-11
+  OK: Ausfalltermin gespeichert 2026-02-08
+  OK: Ausfalltermin gespeichert 2026-02-15
+OK: Serientermin gespeichert (Therapeutic: Dr. Schüttenhelm, Wolfgang, KGG, Therapeut: André, Montag 07:00-07:30)
+  OK: Ausfalltermin gespeichert 2025-10-12
+  OK: Ausfalltermin gespeichert 2026-03-15
+  OK: Ausfalltermin gespeichert 2025-10-26
+  OK: Ausfalltermin gespeichert 2025-11-02
+  OK: Ausfalltermin gespeichert 2025-11-09
+  OK: Ausfalltermin gespeichert 2025-11-16
+  OK: Ausfalltermin gespeichert 2025-11-23
+  OK: Ausfalltermin gespeichert 2026-01-04
+  OK: Ausfalltermin gespeichert 2025-12-28
+  OK: Ausfalltermin gespeichert 2025-12-07
+  OK: Ausfalltermin gespeichert 2026-01-18
+  OK: Ausfalltermin gespeichert 2026-02-15
+OK: Serientermin gespeichert (Therapeutic: Kusenberg, Sarah, Therapeut: Torben, Montag 13:20-13:40)
+  OK: Ausfalltermin gespeichert 2026-02-08
+OK: Serientermin gespeichert (Therapeutic: Fuchs, Elke HB, Therapeut: Lukas, Montag 08:50-10:10)
+  OK: Ausfalltermin gespeichert 2026-02-15
+  OK: Ausfalltermin gespeichert 2026-04-26
+  OK: Ausfalltermin gespeichert 2026-04-12
+  OK: Ausfalltermin gespeichert 2026-05-17
+OK: Serientermin gespeichert (Therapeutic: Kostenzer, Piroschka , Therapeut: Vicky, Dienstag 11:00-11:30)
+OK: Serientermin gespeichert (Therapeutic: Keding, Barbara UW, Therapeut: Vicky, Dienstag 10:00-10:30)
+OK: Serientermin gespeichert (Therapeutic: Stoffel, Inge HB, Therapeut: André, Dienstag 11:20-11:50)
+  OK: Ausfalltermin gespeichert 2025-10-13
+  OK: Ausfalltermin gespeichert 2025-09-15
+  OK: Ausfalltermin gespeichert 2025-11-03
+  OK: Ausfalltermin gespeichert 2025-11-10
+  OK: Ausfalltermin gespeichert 2025-11-17
+  OK: Ausfalltermin gespeichert 2025-11-24
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2025-12-29
+OK: Serientermin gespeichert (Therapeutic: Mollenhauer, Christel HB, Therapeut: André, Dienstag 11:50-12:30)
+  OK: Ausfalltermin gespeichert 2025-10-13
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2025-12-29
+OK: Serientermin gespeichert (Therapeutic: Albrecht, Peter, Therapeut: Torben, Dienstag 11:30-12:00)
+  OK: Ausfalltermin gespeichert 2025-09-29
+  OK: Ausfalltermin gespeichert 2025-09-08
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2025-12-08
+OK: Serientermin gespeichert (Therapeutic: Koch, Uwe, Therapeut: André, Dienstag 09:50-10:30)
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2025-12-15
+  OK: Ausfalltermin gespeichert 2025-12-22
+OK: Serientermin gespeichert (Therapeutic: Vogel, Maren, Therapeut: André, Dienstag 16:30-17:00)
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2025-12-22
+OK: Serientermin gespeichert (Therapeutic: Schwichtenberg, Karl-Heinz HB, Therapeut: Torben, Dienstag 10:10-11:00)
+OK: Serientermin gespeichert (Therapeutic: Kolpe, Udo, Therapeut: André, Dienstag 10:30-11:20)
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2026-01-12
+  OK: Ausfalltermin gespeichert 2026-01-26
+OK: Serientermin gespeichert (Therapeutic: Schuster, Thorsten, Therapeut: Torben, Dienstag 15:00-15:30)
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2026-01-19
+OK: Serientermin gespeichert (Therapeutic: Sutter, Gudrun, Therapeut: Roman, Dienstag 12:00-12:40)
+  OK: Ausfalltermin gespeichert 2026-03-09
+OK: Serientermin gespeichert (Therapeutic: Bufe, Klaus, Therapeut: Nadine, Dienstag 08:40-09:00)
+  OK: Ausfalltermin gespeichert 2026-02-16
+  OK: Ausfalltermin gespeichert 2026-03-30
+  OK: Ausfalltermin gespeichert 2026-04-06
+OK: Serientermin gespeichert (Therapeutic: Bauer, Heike, Therapeut: Nadine, Dienstag 09:00-09:20)
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2026-02-16
+  OK: Ausfalltermin gespeichert 2026-01-12
+  OK: Ausfalltermin gespeichert 2026-03-30
+  OK: Ausfalltermin gespeichert 2026-04-06
+OK: Serientermin gespeichert (Therapeutic: Schröder, Erika, Therapeut: Nadine, Dienstag 09:20-10:00)
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2026-02-16
+  OK: Ausfalltermin gespeichert 2026-01-12
+  OK: Ausfalltermin gespeichert 2026-03-30
+  OK: Ausfalltermin gespeichert 2026-04-06
+OK: Serientermin gespeichert (Therapeutic: Hohnen,Sabrina, Therapeut: Vicky, Dienstag 07:00-07:30)
+  OK: Ausfalltermin gespeichert 2025-08-25
+  OK: Ausfalltermin gespeichert 2025-08-18
+  OK: Ausfalltermin gespeichert 2025-10-13
+  OK: Ausfalltermin gespeichert 2025-10-20
+  OK: Ausfalltermin gespeichert 2025-11-03
+  OK: Ausfalltermin gespeichert 2025-11-24
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-11-17
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2026-01-26
+  OK: Ausfalltermin gespeichert 2025-12-15
+  OK: Ausfalltermin gespeichert 2026-01-12
+  OK: Ausfalltermin gespeichert 2026-01-19
+  OK: Ausfalltermin gespeichert 2026-02-02
+  OK: Ausfalltermin gespeichert 2026-02-09
+  OK: Ausfalltermin gespeichert 2026-02-16
+  OK: Ausfalltermin gespeichert 2026-02-23
+OK: Serientermin gespeichert (Therapeutic: Krell, Dieter, Therapeut: André, Dienstag 07:00-07:20)
+  OK: Ausfalltermin gespeichert 2025-07-28
+  OK: Ausfalltermin gespeichert 2025-08-04
+  OK: Ausfalltermin gespeichert 2025-08-11
+  OK: Ausfalltermin gespeichert 2025-07-14
+  OK: Ausfalltermin gespeichert 2025-10-13
+  OK: Ausfalltermin gespeichert 2025-09-15
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2026-01-26
+OK: Serientermin gespeichert (Therapeutic: Eisenbach, Heinz , Therapeut: Torben, Dienstag 11:00-11:30)
+  OK: Ausfalltermin gespeichert 2025-09-29
+  OK: Ausfalltermin gespeichert 2025-09-08
+  OK: Ausfalltermin gespeichert 2025-10-13
+  OK: Ausfalltermin gespeichert 2025-10-27
+  OK: Ausfalltermin gespeichert 2025-12-01
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2025-11-24
+  OK: Ausfalltermin gespeichert 2025-12-08
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2026-01-26
+OK: Serientermin gespeichert (Therapeutic: Jacobs, Hella, Therapeut: Jenny, Dienstag 10:50-11:10)
+  OK: Ausfalltermin gespeichert 2025-10-20
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2025-12-08
+  OK: Ausfalltermin gespeichert 2026-02-09
+  OK: Ausfalltermin gespeichert 2026-03-16
+  OK: Ausfalltermin gespeichert 2026-03-30
+  OK: Ausfalltermin gespeichert 2026-04-06
+OK: Serientermin gespeichert (Therapeutic: Suckau, Nellie HB, Therapeut: Jenny, Dienstag 12:00-13:00)
+  OK: Ausfalltermin gespeichert 2026-03-16
+  OK: Ausfalltermin gespeichert 2026-03-30
+  OK: Ausfalltermin gespeichert 2026-04-06
+OK: Serientermin gespeichert (Therapeutic: Schmidt, Christa, Therapeut: Jona, Dienstag 13:50-14:40)
+  OK: Ausfalltermin gespeichert 2026-02-16
+  OK: Ausfalltermin gespeichert 2026-02-23
+  OK: Ausfalltermin gespeichert 2026-02-02
+OK: Serientermin gespeichert (Therapeutic: Gräbenstein, Bernd KGG, Therapeut: Jona, Dienstag 09:20-09:50)
+  OK: Ausfalltermin gespeichert 2025-11-10
+  OK: Ausfalltermin gespeichert 2025-11-17
+  OK: Ausfalltermin gespeichert 2025-11-24
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2025-12-01
+  OK: Ausfalltermin gespeichert 2025-12-08
+  OK: Ausfalltermin gespeichert 2026-02-16
+  OK: Ausfalltermin gespeichert 2026-02-02
+OK: Serientermin gespeichert (Therapeutic: Kaminski, Lena, Therapeut: Jona, Dienstag 15:00-15:40)
+  OK: Ausfalltermin gespeichert 2025-08-25
+  OK: Ausfalltermin gespeichert 2025-11-10
+  OK: Ausfalltermin gespeichert 2025-11-17
+  OK: Ausfalltermin gespeichert 2025-11-24
+  OK: Ausfalltermin gespeichert 2025-07-14
+  OK: Ausfalltermin gespeichert 2025-08-04
+  OK: Ausfalltermin gespeichert 2025-09-01
+  OK: Ausfalltermin gespeichert 2025-10-06
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2025-12-08
+  OK: Ausfalltermin gespeichert 2026-02-16
+  OK: Ausfalltermin gespeichert 2026-02-02
+OK: Serientermin gespeichert (Therapeutic: Zielinski, Stella, Therapeut: Jona, Dienstag 16:30-17:10)
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2025-12-08
+  OK: Ausfalltermin gespeichert 2026-02-16
+  OK: Ausfalltermin gespeichert 2026-02-02
+OK: Serientermin gespeichert (Therapeutic: D agnolo, Christiane, Therapeut: Nadine, Dienstag 08:20-08:40)
+  OK: Ausfalltermin gespeichert 2025-12-22
+  OK: Ausfalltermin gespeichert 2025-12-29
+  OK: Ausfalltermin gespeichert 2026-01-05
+  OK: Ausfalltermin gespeichert 2026-02-16
+  OK: Ausfalltermin gespeichert 2026-01-12
+  OK: Ausfalltermin gespeichert 2026-01-19
+  OK: Ausfalltermin gespeichert 2026-01-26
+  OK: Ausfalltermin gespeichert 2026-03-30
+  OK: Ausfalltermin gespeichert 2026-04-06
+  OK: Ausfalltermin gespeichert 2026-02-02
+  OK: Ausfalltermin gespeichert 2026-02-09
+OK: Serientermin gespeichert (Therapeutic: Götze, Thomas Praxis, Therapeut: Torben, Mittwoch 12:30-13:00)
+  OK: Ausfalltermin gespeichert 2025-09-09
+OK: Serientermin gespeichert (Therapeutic: Raum "Europa" für Fr. Freitag reservieren, Therapeut: Torben, Mittwoch 06:00-06:30)
+OK: Serientermin gespeichert (Therapeutic: Krawinkel, Charlotte, Therapeut: André, Mittwoch 13:20-14:00)
+  OK: Ausfalltermin gespeichert 2026-01-06
+OK: Serientermin gespeichert (Therapeutic: Schuster, Gerhard HB, Therapeut: André, Mittwoch 14:00-14:40)
+  OK: Ausfalltermin gespeichert 2026-01-06
+  OK: Ausfalltermin gespeichert 2025-12-09
+OK: Serientermin gespeichert (Therapeutic: Meyer, Marion, Therapeut: Vicky, Mittwoch 07:00-08:00)
+  OK: Ausfalltermin gespeichert 2025-07-22
+  OK: Ausfalltermin gespeichert 2025-09-16
+  OK: Ausfalltermin gespeichert 2025-11-11
+  OK: Ausfalltermin gespeichert 2025-10-14
+  OK: Ausfalltermin gespeichert 2025-12-09
+OK: Serientermin gespeichert (Therapeutic: Blum, Florence, Therapeut: André, Mittwoch 12:50-13:20)
+  OK: Ausfalltermin gespeichert 2026-04-14
+  OK: Ausfalltermin gespeichert 2026-04-21
+  OK: Ausfalltermin gespeichert 2026-04-28
+  OK: Ausfalltermin gespeichert 2026-05-05
+  OK: Ausfalltermin gespeichert 2026-05-12
+  OK: Ausfalltermin gespeichert 2026-05-19
+  OK: Ausfalltermin gespeichert 2026-05-26
+  OK: Ausfalltermin gespeichert 2026-06-02
+  OK: Ausfalltermin gespeichert 2026-06-09
+  OK: Ausfalltermin gespeichert 2026-06-16
+  OK: Ausfalltermin gespeichert 2026-06-23
+  OK: Ausfalltermin gespeichert 2026-06-30
+  OK: Ausfalltermin gespeichert 2026-07-07
+  OK: Ausfalltermin gespeichert 2026-07-14
+  OK: Ausfalltermin gespeichert 2026-07-21
+  OK: Ausfalltermin gespeichert 2026-07-28
+  OK: Ausfalltermin gespeichert 2026-08-04
+  OK: Ausfalltermin gespeichert 2026-08-11
+  OK: Ausfalltermin gespeichert 2026-08-18
+  OK: Ausfalltermin gespeichert 2026-08-25
+  OK: Ausfalltermin gespeichert 2026-09-01
+  OK: Ausfalltermin gespeichert 2026-09-08
+  OK: Ausfalltermin gespeichert 2026-09-15
+  OK: Ausfalltermin gespeichert 2026-09-22
+  OK: Ausfalltermin gespeichert 2026-09-29
+OK: Serientermin gespeichert (Therapeutic: Hamacher, Heinz-Jürgen, Therapeut: Jenny, Mittwoch 07:50-08:10)
+  OK: Ausfalltermin gespeichert 2025-12-02
+  OK: Ausfalltermin gespeichert 2025-12-09
+  OK: Ausfalltermin gespeichert 2026-02-10
+  OK: Ausfalltermin gespeichert 2026-01-06
+  OK: Ausfalltermin gespeichert 2026-01-13
+  OK: Ausfalltermin gespeichert 2026-01-27
+  OK: Ausfalltermin gespeichert 2026-04-07
+  OK: Ausfalltermin gespeichert 2026-03-31
+OK: Serientermin gespeichert (Therapeutic: Hamacher, Dagmar , Therapeut: Jenny, Mittwoch 08:10-08:30)
+  OK: Ausfalltermin gespeichert 2025-12-02
+  OK: Ausfalltermin gespeichert 2025-12-09
+  OK: Ausfalltermin gespeichert 2026-02-10
+  OK: Ausfalltermin gespeichert 2026-01-06
+  OK: Ausfalltermin gespeichert 2026-01-13
+  OK: Ausfalltermin gespeichert 2026-01-27
+  OK: Ausfalltermin gespeichert 2026-04-07
+  OK: Ausfalltermin gespeichert 2026-03-31
+OK: Serientermin gespeichert (Therapeutic: Bernhardt, Claudia, Therapeut: Jona, Mittwoch 13:40-14:30)
+  OK: Ausfalltermin gespeichert 2025-11-04
+  OK: Ausfalltermin gespeichert 2025-11-18
+  OK: Ausfalltermin gespeichert 2025-11-25
+  OK: Ausfalltermin gespeichert 2025-10-14
+  OK: Ausfalltermin gespeichert 2025-10-21
+  OK: Ausfalltermin gespeichert 2026-01-06
+  OK: Ausfalltermin gespeichert 2025-11-11
+  OK: Ausfalltermin gespeichert 2025-12-09
+  OK: Ausfalltermin gespeichert 2026-02-03
+OK: Serientermin gespeichert (Therapeutic: Knieriem, Heike, Therapeut: André, Mittwoch 08:20-09:00)
+  OK: Ausfalltermin gespeichert 2025-10-14
+  OK: Ausfalltermin gespeichert 2025-09-16
+  OK: Ausfalltermin gespeichert 2025-10-21
+  OK: Ausfalltermin gespeichert 2025-12-09
+  OK: Ausfalltermin gespeichert 2025-11-25
+  OK: Ausfalltermin gespeichert 2026-01-06
+  OK: Ausfalltermin gespeichert 2026-01-13
+  OK: Ausfalltermin gespeichert 2026-01-27
+  OK: Ausfalltermin gespeichert 2026-02-03
+OK: Serientermin gespeichert (Therapeutic: Kaminski, Lena, Therapeut: Torben, Donnerstag 15:10-16:10)
+  OK: Ausfalltermin gespeichert 2025-10-01
+  OK: Ausfalltermin gespeichert 2025-08-27
+  OK: Ausfalltermin gespeichert 2025-09-10
+  OK: Ausfalltermin gespeichert 2025-09-17
+  OK: Ausfalltermin gespeichert 2025-10-08
+OK: Serientermin gespeichert (Therapeutic: Hospiz, Therapeut: André, Donnerstag 11:40-12:40)
+OK: Serientermin gespeichert (Therapeutic: Schoon, Johanna, Therapeut: Vicky, Donnerstag 07:00-07:30)
+OK: Serientermin gespeichert (Therapeutic: Ader, Christine, Therapeut: André, Donnerstag 13:30-14:00)
+OK: Serientermin gespeichert (Therapeutic: Stoffel, Inge HB, Therapeut: André, Donnerstag 11:20-11:40)
+OK: Serientermin gespeichert (Therapeutic: Schmalz, Angelika, Therapeut: André, Donnerstag 14:00-14:30)
+OK: Serientermin gespeichert (Therapeutic: Kolpe, Udo, Therapeut: André, Donnerstag 09:40-10:30)
+  OK: Ausfalltermin gespeichert 2026-04-29
+OK: Serientermin gespeichert (Therapeutic: Lewandowski, Helmut, Therapeut: Torben, Donnerstag 17:30-18:00)
+  OK: Ausfalltermin gespeichert 2025-10-01
+  OK: Ausfalltermin gespeichert 2025-10-08
+  OK: Ausfalltermin gespeichert 2025-10-15
+  OK: Ausfalltermin gespeichert 2025-10-29
+  OK: Ausfalltermin gespeichert 2025-11-19
+  OK: Ausfalltermin gespeichert 2025-12-17
+  OK: Ausfalltermin gespeichert 2026-01-07
+OK: Serientermin gespeichert (Therapeutic: Dresbach, Eckhard, Therapeut: Roman, Donnerstag 13:00-13:40)
+  OK: Ausfalltermin gespeichert 2026-03-11
+OK: Serientermin gespeichert (Therapeutic: Hoffmann, Ivonne , Therapeut: Jona, Donnerstag 09:30-10:10)
+  OK: Ausfalltermin gespeichert 2025-10-15
+  OK: Ausfalltermin gespeichert 2025-10-08
+  OK: Ausfalltermin gespeichert 2025-11-05
+  OK: Ausfalltermin gespeichert 2025-11-12
+  OK: Ausfalltermin gespeichert 2025-11-19
+  OK: Ausfalltermin gespeichert 2025-11-26
+  OK: Ausfalltermin gespeichert 2025-10-22
+  OK: Ausfalltermin gespeichert 2026-01-07
+  OK: Ausfalltermin gespeichert 2026-01-14
+  OK: Ausfalltermin gespeichert 2026-01-21
+  OK: Ausfalltermin gespeichert 2026-01-28
+  OK: Ausfalltermin gespeichert 2026-02-04
+  OK: Ausfalltermin gespeichert 2026-02-18
+OK: Serientermin gespeichert (Therapeutic: Pack, Karl-Otto, Therapeut: Jona, Donnerstag 12:50-13:50)
+  OK: Ausfalltermin gespeichert 2025-10-15
+  OK: Ausfalltermin gespeichert 2025-07-30
+  OK: Ausfalltermin gespeichert 2025-08-13
+  OK: Ausfalltermin gespeichert 2025-09-17
+  OK: Ausfalltermin gespeichert 2025-09-24
+  OK: Ausfalltermin gespeichert 2025-10-08
+  OK: Ausfalltermin gespeichert 2025-10-01
+  OK: Ausfalltermin gespeichert 2025-11-05
+  OK: Ausfalltermin gespeichert 2025-10-22
+  OK: Ausfalltermin gespeichert 2025-11-12
+  OK: Ausfalltermin gespeichert 2025-12-17
+  OK: Ausfalltermin gespeichert 2025-12-10
+  OK: Ausfalltermin gespeichert 2026-02-18
+OK: Serientermin gespeichert (Therapeutic: Schuster, Thorsten, Therapeut: Jona, Donnerstag 15:40-16:10)
+  OK: Ausfalltermin gespeichert 2026-02-18
+OK: Serientermin gespeichert (Therapeutic: Savu, Martina, Therapeut: Jona, Donnerstag 10:10-10:50)
+OK: Serientermin gespeichert (Therapeutic: Fischer-Wolter, Hanna Dorothea, Therapeut: Vicky, Donnerstag 10:30-11:00)
+  OK: Ausfalltermin gespeichert 2026-02-11
+  OK: Ausfalltermin gespeichert 2026-01-28
+OK: Serientermin gespeichert (Therapeutic: Zielinski, Stella, Therapeut: Jona, Donnerstag 17:00-17:40)
+  OK: Ausfalltermin gespeichert 2025-11-05
+  OK: Ausfalltermin gespeichert 2025-11-12
+  OK: Ausfalltermin gespeichert 2025-11-19
+  OK: Ausfalltermin gespeichert 2025-11-26
+  OK: Ausfalltermin gespeichert 2025-10-15
+  OK: Ausfalltermin gespeichert 2025-09-17
+  OK: Ausfalltermin gespeichert 2025-10-01
+  OK: Ausfalltermin gespeichert 2025-10-29
+  OK: Ausfalltermin gespeichert 2025-12-10
+  OK: Ausfalltermin gespeichert 2025-12-17
+  OK: Ausfalltermin gespeichert 2026-02-18
+  OK: Ausfalltermin gespeichert 2026-01-28
+OK: Serientermin gespeichert (Therapeutic: Tesch, Sabine, Therapeut: André, Donnerstag 07:20-07:50)
+  OK: Ausfalltermin gespeichert 2025-11-26
+  OK: Ausfalltermin gespeichert 2025-12-17
+  OK: Ausfalltermin gespeichert 2026-01-28
+OK: Serientermin gespeichert (Therapeutic: Baum, Andreas GW/ UW Tetzner Stefan, Therapeut: André, Donnerstag 06:50-07:20)
+OK: Serientermin gespeichert (Therapeutic: Tetzner, Stefan, Therapeut: André, Donnerstag 09:00-09:30)
+OK: Serientermin gespeichert (Therapeutic: Menges, Andrea, Therapeut: Jenny, Donnerstag 08:10-08:40)
+  OK: Ausfalltermin gespeichert 2026-03-25
+  OK: Ausfalltermin gespeichert 2026-01-28
+  OK: Ausfalltermin gespeichert 2026-04-01
+  OK: Ausfalltermin gespeichert 2026-04-08
+OK: Serientermin gespeichert (Therapeutic: Suckau, Nellie HB, Therapeut: Jenny, Donnerstag 08:40-09:30)
+  OK: Ausfalltermin gespeichert 2026-03-25
+  OK: Ausfalltermin gespeichert 2026-01-28
+  OK: Ausfalltermin gespeichert 2026-04-01
+  OK: Ausfalltermin gespeichert 2026-04-08
+OK: Serientermin gespeichert (Therapeutic: Dräger, Fritz HB, Therapeut: Jenny, Donnerstag 09:30-10:20)
+  OK: Ausfalltermin gespeichert 2026-02-11
+  OK: Ausfalltermin gespeichert 2026-03-25
+  OK: Ausfalltermin gespeichert 2026-01-28
+  OK: Ausfalltermin gespeichert 2026-04-01
+  OK: Ausfalltermin gespeichert 2026-04-08
+OK: Serientermin gespeichert (Therapeutic: Koch, Alfons, Therapeut: Jenny, Donnerstag 11:10-11:40)
+  OK: Ausfalltermin gespeichert 2025-10-22
+  OK: Ausfalltermin gespeichert 2025-10-08
+  OK: Ausfalltermin gespeichert 2026-01-07
+  OK: Ausfalltermin gespeichert 2025-12-17
+  OK: Ausfalltermin gespeichert 2026-02-11
+  OK: Ausfalltermin gespeichert 2026-03-25
+  OK: Ausfalltermin gespeichert 2026-01-28
+  OK: Ausfalltermin gespeichert 2026-04-01
+  OK: Ausfalltermin gespeichert 2026-04-08
+OK: Serientermin gespeichert (Therapeutic: Koch, Helena, Therapeut: Jenny, Donnerstag 11:40-12:10)
+  OK: Ausfalltermin gespeichert 2025-10-22
+  OK: Ausfalltermin gespeichert 2025-10-08
+  OK: Ausfalltermin gespeichert 2026-01-07
+  OK: Ausfalltermin gespeichert 2025-12-17
+  OK: Ausfalltermin gespeichert 2026-02-11
+  OK: Ausfalltermin gespeichert 2026-03-25
+  OK: Ausfalltermin gespeichert 2026-01-28
+  OK: Ausfalltermin gespeichert 2026-04-01
+  OK: Ausfalltermin gespeichert 2026-04-08
+OK: Serientermin gespeichert (Therapeutic: Crisci, Dejan , Therapeut: André, Donnerstag 14:40-15:00)
+  OK: Ausfalltermin gespeichert 2025-10-15
+  OK: Ausfalltermin gespeichert 2025-10-01
+  OK: Ausfalltermin gespeichert 2025-10-08
+  OK: Ausfalltermin gespeichert 2025-11-05
+  OK: Ausfalltermin gespeichert 2025-10-29
+  OK: Ausfalltermin gespeichert 2025-11-19
+  OK: Ausfalltermin gespeichert 2025-11-26
+  OK: Ausfalltermin gespeichert 2025-12-03
+  OK: Ausfalltermin gespeichert 2026-01-07
+  OK: Ausfalltermin gespeichert 2026-01-14
+  OK: Ausfalltermin gespeichert 2026-01-21
+  OK: Ausfalltermin gespeichert 2026-02-04
+OK: Serientermin gespeichert (Therapeutic: Stoffel, Inge HB, Therapeut: André, Freitag 09:00-09:30)
+  OK: Ausfalltermin gespeichert 2025-12-18
+  OK: Ausfalltermin gespeichert 2026-01-08
+  OK: Ausfalltermin gespeichert 2026-01-15
+  OK: Ausfalltermin gespeichert 2026-01-01
+  OK: Ausfalltermin gespeichert 2025-11-20
+OK: Serientermin gespeichert (Therapeutic: Trommelschläger, Dorit, Therapeut: Vicky, Freitag 09:30-10:00)
+  OK: Ausfalltermin gespeichert 2025-10-16
+  OK: Ausfalltermin gespeichert 2025-09-04
+  OK: Ausfalltermin gespeichert 2025-11-27
+  OK: Ausfalltermin gespeichert 2025-12-11
+OK: Serientermin gespeichert (Therapeutic:  Tratz, Oli HB, Therapeut: André, Freitag 09:30-10:00)
+  OK: Ausfalltermin gespeichert 2025-12-18
+  OK: Ausfalltermin gespeichert 2026-01-08
+  OK: Ausfalltermin gespeichert 2026-01-15
+  OK: Ausfalltermin gespeichert 2026-01-01
+  OK: Ausfalltermin gespeichert 2026-01-22
+OK: Serientermin gespeichert (Therapeutic: Mollenhauer, Christel HB, Therapeut: André, Freitag 10:00-10:40)
+  OK: Ausfalltermin gespeichert 2026-01-01
+  OK: Ausfalltermin gespeichert 2026-01-22
+OK: Serientermin gespeichert (Therapeutic: Klein, Britta, Therapeut: Jona, Freitag 07:30-08:00)
+  OK: Ausfalltermin gespeichert 2025-10-16
+  OK: Ausfalltermin gespeichert 2025-08-07
+  OK: Ausfalltermin gespeichert 2025-08-28
+  OK: Ausfalltermin gespeichert 2025-09-04
+  OK: Ausfalltermin gespeichert 2025-09-11
+  OK: Ausfalltermin gespeichert 2025-11-13
+  OK: Ausfalltermin gespeichert 2025-11-27
+  OK: Ausfalltermin gespeichert 2025-11-06
+  OK: Ausfalltermin gespeichert 2026-01-01
+  OK: Ausfalltermin gespeichert 2025-12-11
+  OK: Ausfalltermin gespeichert 2025-12-18
+  OK: Ausfalltermin gespeichert 2026-02-19
+OK: Serientermin gespeichert (Therapeutic: Baltes, Klaus HB, Therapeut: Jona, Freitag 10:10-11:00)
+  OK: Ausfalltermin gespeichert 2026-01-01
+  OK: Ausfalltermin gespeichert 2025-12-11
+  OK: Ausfalltermin gespeichert 2026-02-19
+OK: Serientermin gespeichert (Therapeutic: Schwichtenberg, Karl-Heinz HB, Therapeut: Jona, Freitag 11:00-11:50)
+  OK: Ausfalltermin gespeichert 2026-02-19
+OK: Serientermin gespeichert (Therapeutic: Gläser, Marcus, Therapeut: Jona, Freitag 08:20-08:50)
+  OK: Ausfalltermin gespeichert 2026-01-01
+  OK: Ausfalltermin gespeichert 2025-12-18
+  OK: Ausfalltermin gespeichert 2026-02-19
+  OK: Ausfalltermin gespeichert 2026-02-05
+  OK: Ausfalltermin gespeichert 2026-02-12
+  OK: Ausfalltermin gespeichert 2026-02-26
+OK: Serientermin gespeichert (Therapeutic: Baum, Andreas, Therapeut: André, Freitag 07:00-07:30)
+  OK: Ausfalltermin gespeichert 2025-09-18
+  OK: Ausfalltermin gespeichert 2025-10-16
+  OK: Ausfalltermin gespeichert 2025-10-30
+  OK: Ausfalltermin gespeichert 2025-11-27
+  OK: Ausfalltermin gespeichert 2026-01-22
+OK: Serientermin gespeichert (Therapeutic: Albrecht, Peter, Therapeut: Jona, Freitag 08:50-09:20)
+  OK: Ausfalltermin gespeichert 2026-02-19
+  OK: Ausfalltermin gespeichert 2026-02-12
+OK: Serientermin gespeichert (Therapeutic: Lumpe, Andre, Therapeut: Vicky, Freitag 11:00-11:30)
+  OK: Ausfalltermin gespeichert 2025-10-16
+  OK: Ausfalltermin gespeichert 2025-10-23
+  OK: Ausfalltermin gespeichert 2025-09-11
+  OK: Ausfalltermin gespeichert 2025-09-25
+  OK: Ausfalltermin gespeichert 2025-10-30
+  OK: Ausfalltermin gespeichert 2025-10-09
+  OK: Ausfalltermin gespeichert 2025-11-06
+  OK: Ausfalltermin gespeichert 2025-11-13
+  OK: Ausfalltermin gespeichert 2025-09-18
+  OK: Ausfalltermin gespeichert 2025-11-27
+  OK: Ausfalltermin gespeichert 2026-07-16
+  OK: Ausfalltermin gespeichert 2025-12-11
+  OK: Ausfalltermin gespeichert 2025-12-04
+  OK: Ausfalltermin gespeichert 2025-12-18
+  OK: Ausfalltermin gespeichert 2026-01-01
+  OK: Ausfalltermin gespeichert 2025-11-20
+  OK: Ausfalltermin gespeichert 2026-01-08
+  OK: Ausfalltermin gespeichert 2026-02-05
+  OK: Ausfalltermin gespeichert 2026-01-15
+  OK: Ausfalltermin gespeichert 2026-02-12
+  OK: Ausfalltermin gespeichert 2026-01-22
+
+--- Beende Transaktions-Block (Serien+Ausfälle+Abwesenheiten) ---
+
+========================================
+SERIENTERMINE-IMPORT abgeschlossen am: 2026-02-15 16:48:23
+========================================
+
+ZUSAMMENFASSUNG:
+- Serientermine importiert:      98
+- Patienten neu erstellt:        0
+- Ausfalltermine importiert:     588
+- Abwesenheiten importiert:      0
+========================================
+
+[SUCCESS] Alle 98 Serientermine und 588 Ausfalltermine wurden sofort in die Datenbank gespeichert!
+
+--- Generiere Einzeltermine aus Serien (max 1 Jahr) [SEPARATE TRANSAKTION] ---
+
+
+========================================
+SERIENTERMINE-IMPORT gestartet am: 2026-02-15 16:53:26
+========================================
+
+--- Importiere Serientermine (Masterlist) ---
+[INFO] Anzahl Wochentage in Masterlist: 5
+[DUP] Serie existiert bereits: Albrecht, Peter - Torben Montag 07:50-08:20
+[DUP] Serie existiert bereits: Daniel, Nina - Orazio Montag 15:00-15:30
+[DUP] Serie existiert bereits: Ising, Renate - Torben Montag 07:30-07:50
+[DUP] Serie existiert bereits: Reil, Kerstin - André Montag 07:50-08:10
+[DUP] Serie existiert bereits: Dresbach, Eckhard - Jona Montag 13:10-13:50
+[DUP] Serie existiert bereits: Savu, Martina - Jona Montag 07:20-08:00
+[DUP] Serie existiert bereits: Lumpe, Andre - Vicky Montag 07:00-07:30
+[DUP] Serie existiert bereits: Krakau, Gabi - Vicky Montag 07:30-08:00
+[DUP] Serie existiert bereits: Zielenbach, Doris - Vicky Montag 10:30-11:00
+[DUP] Serie existiert bereits: Wolfslast, Stefan - Vicky Montag 08:00-08:30
+[DUP] Serie existiert bereits: Grabeck, Katharina - Vicky Montag 09:00-09:30
+[DUP] Serie existiert bereits: Weller, Liane - Vicky Montag 09:30-10:00
+[DUP] Serie existiert bereits: Dross, Kerstin - Vicky Montag 11:00-11:30
+[DUP] Serie existiert bereits: Therapie bei André - Roman Montag 11:00-11:20
+[DUP] Serie existiert bereits: Ullmann, Roman - André Montag 11:00-11:20
+[DUP] Serie existiert bereits: Schmidt, Christa KGG - Jenny Montag 10:30-11:00
+[DUP] Serie existiert bereits: Lenzner, Ursula HB - Jenny Montag 09:40-10:30
+[DUP] Serie existiert bereits: Ufer, Jennifer - Jenny Montag 09:00-09:40
+[DUP] Serie existiert bereits: Hilsbecher, Silke - Jenny Montag 08:30-09:00
+[DUP] Serie existiert bereits: Wendt, Wiebke - Jenny Montag 08:00-08:30
+[DUP] Serie existiert bereits: Löttgen, Doris HB - Lukas Montag 08:00-08:50
+[DUP] Serie existiert bereits: Götze, Thomas Praxis - Jona Montag 12:40-13:10
+[DUP] Serie existiert bereits: Keding, Barbara GW / Scheer Britta UW - Vicky Montag 10:00-10:30
+[DUP] Serie existiert bereits: Altemühle, Andrea - André Montag 15:00-15:30
+[DUP] Serie existiert bereits: Hospiz - André Montag 11:20-12:20
+[DUP] Serie existiert bereits: Hospiz - André Montag 12:20-12:40
+[DUP] Serie existiert bereits: Dr. Schüttenhelm, Wolfgang, KGG - André Montag 07:00-07:30
+[DUP] Serie existiert bereits: Kusenberg, Sarah - Torben Montag 13:20-13:40
+[DUP] Serie existiert bereits: Fuchs, Elke HB - Lukas Montag 08:50-10:10
+[DUP] Serie existiert bereits: Kostenzer, Piroschka  - Vicky Dienstag 11:00-11:30
+[DUP] Serie existiert bereits: Keding, Barbara UW - Vicky Dienstag 10:00-10:30
+[DUP] Serie existiert bereits: Stoffel, Inge HB - André Dienstag 11:20-11:50
+[DUP] Serie existiert bereits: Mollenhauer, Christel HB - André Dienstag 11:50-12:30
+[DUP] Serie existiert bereits: Albrecht, Peter - Torben Dienstag 11:30-12:00
+[DUP] Serie existiert bereits: Koch, Uwe - André Dienstag 09:50-10:30
+[DUP] Serie existiert bereits: Vogel, Maren - André Dienstag 16:30-17:00
+[DUP] Serie existiert bereits: Schwichtenberg, Karl-Heinz HB - Torben Dienstag 10:10-11:00
+[DUP] Serie existiert bereits: Kolpe, Udo - André Dienstag 10:30-11:20
+[DUP] Serie existiert bereits: Schuster, Thorsten - Torben Dienstag 15:00-15:30
+[DUP] Serie existiert bereits: Sutter, Gudrun - Roman Dienstag 12:00-12:40
+[DUP] Serie existiert bereits: Bufe, Klaus - Nadine Dienstag 08:40-09:00
+[DUP] Serie existiert bereits: Bauer, Heike - Nadine Dienstag 09:00-09:20
+[DUP] Serie existiert bereits: Schröder, Erika - Nadine Dienstag 09:20-10:00
+[DUP] Serie existiert bereits: Hohnen,Sabrina - Vicky Dienstag 07:00-07:30
+[DUP] Serie existiert bereits: Krell, Dieter - André Dienstag 07:00-07:20
+[DUP] Serie existiert bereits: Eisenbach, Heinz  - Torben Dienstag 11:00-11:30
+[DUP] Serie existiert bereits: Jacobs, Hella - Jenny Dienstag 10:50-11:10
+[DUP] Serie existiert bereits: Suckau, Nellie HB - Jenny Dienstag 12:00-13:00
+[DUP] Serie existiert bereits: Schmidt, Christa - Jona Dienstag 13:50-14:40
+[DUP] Serie existiert bereits: Gräbenstein, Bernd KGG - Jona Dienstag 09:20-09:50
+[DUP] Serie existiert bereits: Kaminski, Lena - Jona Dienstag 15:00-15:40
+[DUP] Serie existiert bereits: Zielinski, Stella - Jona Dienstag 16:30-17:10
+[DUP] Serie existiert bereits: D agnolo, Christiane - Nadine Dienstag 08:20-08:40
+[DUP] Serie existiert bereits: Götze, Thomas Praxis - Torben Mittwoch 12:30-13:00
+[DUP] Serie existiert bereits: Raum "Europa" für Fr. Freitag reservieren - Torben Mittwoch 06:00-06:30
+[DUP] Serie existiert bereits: Krawinkel, Charlotte - André Mittwoch 13:20-14:00
+[DUP] Serie existiert bereits: Schuster, Gerhard HB - André Mittwoch 14:00-14:40
+[DUP] Serie existiert bereits: Meyer, Marion - Vicky Mittwoch 07:00-08:00
+[DUP] Serie existiert bereits: Blum, Florence - André Mittwoch 12:50-13:20
+[DUP] Serie existiert bereits: Hamacher, Heinz-Jürgen - Jenny Mittwoch 07:50-08:10
+[DUP] Serie existiert bereits: Hamacher, Dagmar  - Jenny Mittwoch 08:10-08:30
+[DUP] Serie existiert bereits: Bernhardt, Claudia - Jona Mittwoch 13:40-14:30
+[DUP] Serie existiert bereits: Knieriem, Heike - André Mittwoch 08:20-09:00
+[DUP] Serie existiert bereits: Kaminski, Lena - Torben Donnerstag 15:10-16:10
+[DUP] Serie existiert bereits: Hospiz - André Donnerstag 11:40-12:40
+[DUP] Serie existiert bereits: Schoon, Johanna - Vicky Donnerstag 07:00-07:30
+[DUP] Serie existiert bereits: Ader, Christine - André Donnerstag 13:30-14:00
+[DUP] Serie existiert bereits: Stoffel, Inge HB - André Donnerstag 11:20-11:40
+[DUP] Serie existiert bereits: Schmalz, Angelika - André Donnerstag 14:00-14:30
+[DUP] Serie existiert bereits: Kolpe, Udo - André Donnerstag 09:40-10:30
+[DUP] Serie existiert bereits: Lewandowski, Helmut - Torben Donnerstag 17:30-18:00
+[DUP] Serie existiert bereits: Dresbach, Eckhard - Roman Donnerstag 13:00-13:40
+[DUP] Serie existiert bereits: Hoffmann, Ivonne  - Jona Donnerstag 09:30-10:10
+[DUP] Serie existiert bereits: Pack, Karl-Otto - Jona Donnerstag 12:50-13:50
+[DUP] Serie existiert bereits: Schuster, Thorsten - Jona Donnerstag 15:40-16:10
+[DUP] Serie existiert bereits: Savu, Martina - Jona Donnerstag 10:10-10:50
+[DUP] Serie existiert bereits: Fischer-Wolter, Hanna Dorothea - Vicky Donnerstag 10:30-11:00
+[DUP] Serie existiert bereits: Zielinski, Stella - Jona Donnerstag 17:00-17:40
+[DUP] Serie existiert bereits: Tesch, Sabine - André Donnerstag 07:20-07:50
+[DUP] Serie existiert bereits: Baum, Andreas GW/ UW Tetzner Stefan - André Donnerstag 06:50-07:20
+[DUP] Serie existiert bereits: Tetzner, Stefan - André Donnerstag 09:00-09:30
+[DUP] Serie existiert bereits: Menges, Andrea - Jenny Donnerstag 08:10-08:40
+[DUP] Serie existiert bereits: Suckau, Nellie HB - Jenny Donnerstag 08:40-09:30
+[DUP] Serie existiert bereits: Dräger, Fritz HB - Jenny Donnerstag 09:30-10:20
+[DUP] Serie existiert bereits: Koch, Alfons - Jenny Donnerstag 11:10-11:40
+[DUP] Serie existiert bereits: Koch, Helena - Jenny Donnerstag 11:40-12:10
+[DUP] Serie existiert bereits: Crisci, Dejan  - André Donnerstag 14:40-15:00
+[DUP] Serie existiert bereits: Stoffel, Inge HB - André Freitag 09:00-09:30
+[DUP] Serie existiert bereits: Trommelschläger, Dorit - Vicky Freitag 09:30-10:00
+[DUP] Serie existiert bereits:  Tratz, Oli HB - André Freitag 09:30-10:00
+[DUP] Serie existiert bereits: Mollenhauer, Christel HB - André Freitag 10:00-10:40
+[DUP] Serie existiert bereits: Klein, Britta - Jona Freitag 07:30-08:00
+[DUP] Serie existiert bereits: Baltes, Klaus HB - Jona Freitag 10:10-11:00
+[DUP] Serie existiert bereits: Schwichtenberg, Karl-Heinz HB - Jona Freitag 11:00-11:50
+[DUP] Serie existiert bereits: Gläser, Marcus - Jona Freitag 08:20-08:50
+[DUP] Serie existiert bereits: Baum, Andreas - André Freitag 07:00-07:30
+[DUP] Serie existiert bereits: Albrecht, Peter - Jona Freitag 08:50-09:20
+[DUP] Serie existiert bereits: Lumpe, Andre - Vicky Freitag 11:00-11:30
+
+--- Beende Transaktions-Block (Serien+Ausfälle+Abwesenheiten) ---
+
+========================================
+SERIENTERMINE-IMPORT abgeschlossen am: 2026-02-15 16:53:27
+========================================
+
+ZUSAMMENFASSUNG:
+- Serientermine importiert:      0
+- Patienten neu erstellt:        0
+- Ausfalltermine importiert:     0
+- Abwesenheiten importiert:      0
+========================================
+
+[SUCCESS] Alle 0 Serientermine und 0 Ausfalltermine wurden sofort in die Datenbank gespeichert!
+
+--- Generiere Einzeltermine aus Serien (max 1 Jahr) [SEPARATE TRANSAKTION] ---
+OK: 356 Einzeltermine aus Serien generiert

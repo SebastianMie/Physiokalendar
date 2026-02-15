@@ -20,6 +20,21 @@
       }
     },
     {
+      "label": "Maven Clean Compile",
+      "type": "shell",
+      "command": ".\\mvnw.cmd",
+      "args": ["clean", "compile"],
+      "isBackground": false,
+      "group": "build",
+      "problemMatcher": ["$java"],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared"
+      }
+    },
+    {
       "label": "Build Project (Maven Clean Install)",
       "type": "shell",
       "command": ".\\mvnw.cmd",

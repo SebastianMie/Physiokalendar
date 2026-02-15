@@ -54,6 +54,7 @@ com\example\physiokalendar\entity\AuditEvent$AuditEventBuilder.class
 com\example\physiokalendar\dto\AuditEventDTO$AuditEventDTOBuilder.class
 com\example\physiokalendar\dto\CalendarRangeDTO$CalendarBlockDTO$CalendarBlockDTOBuilder.class
 com\example\physiokalendar\controller\AuthController$LoginRequest.class
+com\example\physiokalendar\config\DataImportStartupConfig.class
 com\example\physiokalendar\service\CancellationService.class
 com\example\physiokalendar\dto\CalendarRangeDTO.class
 com\example\physiokalendar\controller\PatientController.class
@@ -85,6 +86,7 @@ com\example\physiokalendar\dto\SlotSearchDTO$Response$ResponseBuilder.class
 com\example\physiokalendar\entity\AuditEntityType.class
 com\example\physiokalendar\PhysiokalendarApplication.class
 com\example\physiokalendar\repository\AppointmentSeriesRepository.class
+com\example\physiokalendar\service\AppointmentSeriesGeneratorJob.class
 com\example\physiokalendar\service\mail\NoopMailService.class
 com\example\physiokalendar\dto\JSONAppointmentDTO.class
 com\example\physiokalendar\controller\AuditController.class

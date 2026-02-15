@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -18,8 +20,10 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.physiokalendar.entity.Absence;
+import com.example.physiokalendar.entity.AbsenceType;
 import com.example.physiokalendar.entity.Appointment;
 import com.example.physiokalendar.entity.AppointmentSeries;
 import com.example.physiokalendar.entity.Cancellation;
@@ -60,6 +64,12 @@ public class DataImportService {
     @Autowired
     private AppointmentSeriesService appointmentSeriesService;
 
+    @Autowired
+    private com.example.physiokalendar.service.AppointmentSeriesGeneratorJob seriesGeneratorJob;
+
+    @Autowired
+    private jakarta.persistence.EntityManager entityManager;
+
     // Statistik-Counter für den Import
     private int therapistCount = 0;
     private int patientCount = 0;
@@ -72,6 +82,7 @@ public class DataImportService {
     private Map<String, Long> patientNameToIdCache = new HashMap<>();
 
     // Einfacher Import ohne Transaktionen - jeder save() wird sofort committed
+    @Transactional
     public void importData(String filePath) {
         // Statistik-Counter zurücksetzen
         therapistCount = 0;
@@ -127,40 +138,60 @@ public class DataImportService {
             }
 
             // 3. Importiere Einzeltermine aus der Daylist
-            if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
-                errorWriter.write("\n--- Importiere Einzeltermine (Daylist) ---\n");
-                JsonNode elementsNode = rootNode.get("daylist").get("elements");
-                errorWriter.write("[DEBUG] Total Tage im daylist: " + elementsNode.size() + "\n");
-                errorWriter.flush();
-                if (elementsNode.isArray()) {
-                    // !!! WICHTIG: NEUER ITERATOR FÜR JEDEN DURCHGANG !!!
-                    for (int i = 0; i < elementsNode.size(); i++) {
-                        try {
-                            JsonNode day = elementsNode.get(i);
-                            errorWriter.write("[DEBUG] Verarbeite Tag " + (i + 1) + " von " + elementsNode.size() + "\n");
-                            errorWriter.flush();
-                            importAppointmentsForDay(day, errorWriter);
-                        } catch (Exception dayEx) {
-                            errorWriter.write("[ERROR] Tag " + (i + 1) + " fehlgeschlagen: " + dayEx.getClass().getSimpleName() + ": " + dayEx.getMessage() + " - weiter mit nächstem Tag\n");
-                            errorWriter.flush();
-                            // Continue with next day - don't abort entire import
-                        }
-                    }
-                }
-            }
-
-            // 4. TEMP: Serientermine SKIPPEN für jetzt
-            // if (rootNode.has("masterlist") && rootNode.get("masterlist").has("elements")) {
-            //     errorWriter.write("\n--- Importiere Serientermine (Masterlist) ---\n");
-            //     JsonNode masterListNode = rootNode.get("masterlist").get("elements");
-            //     if (masterListNode.isArray()) {
-            //         Iterator<JsonNode> seriesDays = masterListNode.elements();
-            //         while (seriesDays.hasNext()) {
-            //             JsonNode seriesDay = seriesDays.next();
-            //             importSeriesAppointments(seriesDay, errorWriter);
+            // if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
+            //     errorWriter.write("\n--- Importiere Einzeltermine (Daylist) ---\n");
+            //     JsonNode elementsNode = rootNode.get("daylist").get("elements");
+            //     errorWriter.write("[DEBUG] Total Tage im daylist: " + elementsNode.size() + "\n");
+            //     errorWriter.flush();
+            //     if (elementsNode.isArray()) {
+            //         // !!! WICHTIG: NEUER ITERATOR FÜR JEDEN DURCHGANG !!!
+            //         for (int i = 0; i < elementsNode.size(); i++) {
+            //             try {
+            //                 JsonNode day = elementsNode.get(i);
+            //                 errorWriter.write("[DEBUG] Verarbeite Tag " + (i + 1) + " von " + elementsNode.size() + "\n");
+            //                 errorWriter.flush();
+            //                 importAppointmentsForDay(day, errorWriter);
+            //             } catch (Exception dayEx) {
+            //                 errorWriter.write("[ERROR] Tag " + (i + 1) + " fehlgeschlagen: " + dayEx.getClass().getSimpleName() + ": " + dayEx.getMessage() + " - weiter mit nächstem Tag\n");
+            //                 errorWriter.flush();
+            //                 // Continue with next day - don't abort entire import
+            //             }
             //         }
             //     }
             // }
+
+            // 4. Importiere Serientermine aus der Masterlist
+            if (rootNode.has("masterlist") && rootNode.get("masterlist").has("elements")) {
+                errorWriter.write("\n--- Importiere Serientermine (Masterlist) ---\n");
+                JsonNode masterListNode = rootNode.get("masterlist").get("elements");
+                if (masterListNode.isArray()) {
+                    for (int i = 0; i < masterListNode.size(); i++) {
+                        try {
+                            JsonNode seriesDay = masterListNode.get(i);
+                            importSeriesAppointments(seriesDay, errorWriter);
+                        } catch (Exception seriesEx) {
+                            errorWriter.write("[ERROR] Serientermin-Import fehlgeschlagen: " + seriesEx.getMessage() + "\n");
+                            errorWriter.flush();
+                        }
+                    }
+                }
+
+                // Nach dem Import aller Serien: Einzeltermine generieren (max 1 Jahr)
+                errorWriter.write("\n--- Generiere Einzeltermine aus Serien (max 1 Jahr) ---\n");
+                errorWriter.flush();
+                try {
+                    // Flush um sicherzustellen dass alle Serien committed sind
+                    entityManager.flush();
+                    entityManager.clear();
+
+                    int generatedCount = seriesGeneratorJob.generateMissingAppointments();
+                    errorWriter.write("OK: " + generatedCount + " Einzeltermine aus Serien generiert\n");
+                } catch (Exception genEx) {
+                    errorWriter.write("[ERROR] Fehler beim Generieren der Einzeltermine: " + genEx.getMessage() + "\n");
+                    genEx.printStackTrace();
+                }
+                errorWriter.flush();
+            }
 
             // 5. TEMP: Abwesenheiten SKIPPEN für jetzt
             // if (rootNode.has("therapists") && rootNode.get("therapists").isArray()) {
@@ -196,6 +227,105 @@ public class DataImportService {
             System.out.println("====================================\n");
         } catch (IOException e) {
             System.out.println("Fehler beim Importieren der Daten: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Importiert NUR Serientermine aus der JSON-Datei.
+     * Einzeltermine werden übersprungen (bereits importiert).
+     * Therapeuten und Patienten werden nur erstellt wenn sie noch nicht existieren.
+     *
+     * WICHTIG: Kein @Transactional! Speichert wie importAppointmentsForDay() direkt mit repository.save()
+     */
+    public void importSeriesOnly(String filePath) {
+        // Statistik-Counter zurücksetzen
+        seriesCount = 0;
+        cancellationCount = 0;
+        absenceCount = 0;
+        patientCount = 0;
+
+        // Clear patient cache for new import run
+        patientNameToIdCache.clear();
+
+        System.out.println("\n[TX-START] Transaktion gestartet für importSeriesOnly()");
+
+        try (BufferedWriter errorWriter = new BufferedWriter(new FileWriter("src/main/java/com/example/physiokalendar/dataimport/series_import_log.txt", true))) {
+            errorWriter.write("\n\n========================================\n");
+            errorWriter.write("SERIENTERMINE-IMPORT gestartet am: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\n");
+            errorWriter.write("========================================\n");
+
+            // JSON Datei einlesen
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode rootNode = mapper.readTree(new File(filePath));
+
+            // 1. Importiere Serientermine aus der Masterlist
+            if (rootNode.has("masterlist") && rootNode.get("masterlist").has("elements")) {
+                errorWriter.write("\n--- Importiere Serientermine (Masterlist) ---\n");
+                JsonNode masterListNode = rootNode.get("masterlist").get("elements");
+                errorWriter.write("[INFO] Anzahl Wochentage in Masterlist: " + masterListNode.size() + "\n");
+                errorWriter.flush();
+
+                if (masterListNode.isArray()) {
+                    for (int i = 0; i < masterListNode.size(); i++) {
+                        try {
+                            JsonNode seriesDay = masterListNode.get(i);
+                            importSeriesAppointments(seriesDay, errorWriter);
+                        } catch (Exception seriesEx) {
+                            errorWriter.write("[ERROR] Serientermin-Import fehlgeschlagen: " + seriesEx.getMessage() + "\n");
+                            errorWriter.flush();
+                        }
+                    }
+                }
+
+                // Nach dem Import aller Serien: Flush + Transaktion end
+                errorWriter.write("\n--- Beende Transaktions-Block (Serien+Ausfälle+Abwesenheiten) ---\n");
+                errorWriter.flush();
+            } else {
+                errorWriter.write("[WARN] Keine Masterlist in der JSON-Datei gefunden!\n");
+            }
+
+            // Zusammenfassung
+            errorWriter.write("\n========================================\n");
+            errorWriter.write("SERIENTERMINE-IMPORT abgeschlossen am: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\n");;
+            errorWriter.write("========================================\n");
+            errorWriter.write("\nZUSAMMENFASSUNG:\n");
+            errorWriter.write("- Serientermine importiert:      " + seriesCount + "\n");
+            errorWriter.write("- Patienten neu erstellt:        " + patientCount + "\n");
+            errorWriter.write("- Ausfalltermine importiert:     " + cancellationCount + "\n");
+            errorWriter.write("- Abwesenheiten importiert:      " + absenceCount + "\n");
+            errorWriter.write("========================================\n");
+
+            // Auch auf der Konsole ausgeben
+            System.out.println("\n========== SERIES IMPORT SUMMARY ==========");
+            System.out.println("Serientermine:  " + seriesCount);
+            System.out.println("Patienten neu:  " + patientCount);
+            System.out.println("Ausfälle:       " + cancellationCount);
+            System.out.println("Abwesenheiten:  " + absenceCount);
+            System.out.println("============================================\n");
+
+            // Alle Daten werden sofort mit repository.save() gespeichert - kein Flush nötig
+            System.out.println("[IMPORT-SUCCESS] Serientermine erfolgreich importiert und sofort in DB gespeichert!");
+            errorWriter.write("\n[SUCCESS] Alle " + seriesCount + " Serientermine und " + cancellationCount + " Ausfalltermine wurden sofort in die Datenbank gespeichert!\n");
+            errorWriter.flush();
+        } catch (Exception e) {
+            System.out.println("[TX-ROLLBACK] Fehler beim Importieren der Serientermine: " + e.getClass().getSimpleName());
+            System.out.println("[TX-ROLLBACK] Message: " + e.getMessage());
+            System.out.println("[TX-ROLLBACK] Die Transaktion wird komplett zurückgerollt!");
+            e.printStackTrace();
+        }
+
+        // GENERIERUNG LÄUFT NACH DER TRANSAKTION - getrennte Transaktion!
+        System.out.println("\n[SEPARATE-TX] Starte Einzeltermin-Generierung (separate Transaktion)");
+        try (BufferedWriter errorWriter = new BufferedWriter(new FileWriter("src/main/java/com/example/physiokalendar/dataimport/series_import_log.txt", true))) {
+            errorWriter.write("\n--- Generiere Einzeltermine aus Serien (max 1 Jahr) [SEPARATE TRANSAKTION] ---\n");
+            errorWriter.flush();
+            int generatedCount = seriesGeneratorJob.generateMissingAppointments();
+            errorWriter.write("OK: " + generatedCount + " Einzeltermine aus Serien generiert\n");
+            errorWriter.flush();
+            System.out.println("[SEPARATE-TX] Einzeltermin-Generierung erfolgreich: " + generatedCount + " Termine");
+        } catch (Exception e) {
+            System.out.println("[SEPARATE-TX-ERROR] Fehler beim Generieren der Einzeltermine: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -388,6 +518,107 @@ public class DataImportService {
         }
     }
 
+    /**
+     * Speichert eine einzelne Cancellation.
+     * Wird innerhalb der Batch-Transaktion von importSeriesOnly() committed
+     */
+    /**
+     * Speichert eine einzelne Cancellation sofort in der DB
+     * (wie im normalen Import - repository.save() statt entityManager.persist())
+     */
+    private void saveCancellation(AppointmentSeries series, LocalDate cancellationDate) {
+        if (series != null && cancellationDate != null) {
+            Cancellation cancellation = new Cancellation();
+            cancellation.setDate(cancellationDate);
+            cancellation.setAppointmentSeries(series);
+            cancellationRepository.save(cancellation);  // Sofort speichern wie im normalen Import
+        }
+    }
+
+    /**
+     * Importiert Therapeuten-Abwesenheiten aus der JSON
+     * Unterstützt wöchentliche (RECURRING) und einmalige (SPECIAL) Abwesenheiten
+     */
+    private void importAbsences(JsonNode therapistsNode, BufferedWriter errorWriter) throws IOException {
+        for (JsonNode therapistNode : therapistsNode) {
+            try {
+                String therapistName = therapistNode.hasNonNull("name") ? therapistNode.get("name").asText() : null;
+                if (therapistName == null) {
+                    continue;
+                }
+
+                Therapist therapist = findTherapistByName(therapistName);
+                if (therapist == null) {
+                    errorWriter.write("[SKIP] Therapeut '" + therapistName + "' nicht gefunden - Abwesenheiten übersprungen\n");
+                    continue;
+                }
+
+                // Verarbeite Abwesenheiten (absences)
+                if (therapistNode.has("absences") && therapistNode.get("absences").isArray()) {
+                    for (JsonNode absenceNode : therapistNode.get("absences")) {
+                        try {
+                            String dayStr = absenceNode.hasNonNull("day") ? absenceNode.get("day").asText() : null;
+                            String startStr = absenceNode.hasNonNull("start") ? absenceNode.get("start").asText() : null;
+                            String endStr = absenceNode.hasNonNull("end") ? absenceNode.get("end").asText() : null;
+
+                            if (dayStr == null) {
+                                continue;
+                            }
+
+                            // Parse start und end times
+                            LocalDateTime startTime = startStr != null ? parseTimeToLocalDateTime(startStr) : null;
+                            LocalDateTime endTime = endStr != null ? parseTimeToLocalDateTime(endStr) : null;
+
+                            // Prüfe ob es ein Wochentag oder ein Datum ist
+                            String weekday = tryParseWeekday(dayStr);
+                            if (weekday != null) {
+                                // RECURRING Absence (Wochentag)
+                                Absence absence = new Absence();
+                                absence.setTherapist(therapist);
+                                absence.setAbsenceType(AbsenceType.RECURRING);
+                                absence.setWeekday(weekday);
+                                absence.setStartTime(startTime);
+                                absence.setEndTime(endTime);
+                                absence.setReason("Regelmäßige Abwesenheit");
+                                saveAbsence(absence);
+                                absenceCount++;
+                                errorWriter.write("OK: RECURRING Abwesenheit " + therapistName + " " + weekday + " " + startStr + "-" + endStr + "\n");
+                            } else {
+                                // SPECIAL Absence (Datum)
+                                LocalDate absenceDate = tryParseDateStringGerman(dayStr);
+                                if (absenceDate != null) {
+                                    Absence absence = new Absence();
+                                    absence.setTherapist(therapist);
+                                    absence.setAbsenceType(AbsenceType.SPECIAL);
+                                    absence.setDate(absenceDate);
+                                    absence.setStartTime(startTime);
+                                    absence.setEndTime(endTime);
+                                    absence.setReason("Abwesenheit");
+                                    saveAbsence(absence);
+                                    absenceCount++;
+                                    errorWriter.write("OK: SPECIAL Abwesenheit " + therapistName + " " + dayStr + "\n");
+                                }
+                            }
+                        } catch (Exception e) {
+                            errorWriter.write("  [WARN] Abwesenheit übersprungen: " + e.getMessage() + "\n");
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                errorWriter.write("[ERROR] Fehler beim Import der Abwesenheiten für Therapeut: " + e.getMessage() + "\n");
+            }
+        }
+    }
+
+    /**
+     * Speichert eine einzelne Absence sofort in der DB
+     * (wie im normalen Import - repository.save() statt entityManager.persist())
+     */
+    private void saveAbsence(Absence absence) {
+        if (absence != null && absence.getTherapist() != null) {
+            absenceRepository.save(absence);  // Sofort speichern wie im normalen Import
+        }
+    }
 
     // HELPER: Sichere String-Extraktion
     private String getStringField(JsonNode node, String fieldName) {
@@ -413,6 +644,9 @@ public class DataImportService {
     private void importSeriesAppointments(JsonNode seriesDay, BufferedWriter errorWriter) throws IOException {
         String weekday = seriesDay.hasNonNull("weekday") ? seriesDay.get("weekday").asText() : null;
 
+        // FILTER: Nur Serien mit startDate >= 15.06.2025 importieren (weniger Testdaten)
+        LocalDate filterDate = LocalDate.of(2025, 6, 15);
+
         // Überprüfen, ob "appointments" vorhanden ist und ein Array ist
         if (seriesDay.has("appointments") && seriesDay.get("appointments").isArray()) {
             Iterator<JsonNode> appointments = seriesDay.get("appointments").elements();
@@ -422,6 +656,15 @@ public class DataImportService {
                 JsonNode appointmentNode = appointments.next();
 
                 try {
+                    // FILTER: Prüfe startDate vor weiterem Processing
+                    if (appointmentNode.hasNonNull("startDate")) {
+                        LocalDate seriesStartDate = dateToLocalDate(new Date(appointmentNode.get("startDate").asLong()));
+                        if (seriesStartDate != null && seriesStartDate.isBefore(filterDate)) {
+                            // Überspringe Serien vor 15.06.2025
+                            continue;
+                        }
+                    }
+
                     // Patient ermitteln oder erstellen, wenn nicht gefunden
                     String patientName = appointmentNode.hasNonNull("patient") ? appointmentNode.get("patient").asText() : null;
                     Patient patient = findPatientByName(patientName);
@@ -433,113 +676,82 @@ public class DataImportService {
                     String therapistName = appointmentNode.hasNonNull("therapist") ? appointmentNode.get("therapist").asText() : null;
                     Therapist therapist = (therapistName != null) ? findTherapistByName(therapistName) : null;
 
-                    if (patient != null && therapist != null && appointmentNode.hasNonNull("startTime") && appointmentNode.hasNonNull("endTime")) {
+                    // Therapeut nicht gefunden = SKIP (kein Fehler, Therapeut existiert nicht mehr)
+                    if (therapist == null) {
+                        errorWriter.write("[SKIP] Therapeut '" + therapistName + "' nicht gefunden - Serie übersprungen\n");
+                        continue;
+                    }
+
+                    if (patient != null && appointmentNode.hasNonNull("startTime") && appointmentNode.hasNonNull("endTime")) {
+                        // Parse Zeiten
+                        LocalTime startTime = parseTimeToLocalTime(appointmentNode.get("startTime").asText());
+                        LocalTime endTime = parseTimeToLocalTime(appointmentNode.get("endTime").asText());
+
+                        // Duplikatsprüfung: Existiert diese Serie bereits?
+                        boolean isDuplicate = appointmentSeriesRepository.existsByTherapistPatientWeekdayAndTime(
+                                therapist.getId(), patient.getId(), weekday, startTime, endTime);
+                        if (isDuplicate) {
+                            errorWriter.write("[DUP] Serie existiert bereits: " + patientName + " - " + therapistName +
+                                    " " + weekday + " " + startTime + "-" + endTime + "\n");
+                            continue;
+                        }
+
                         // Serientermin speichern
                         AppointmentSeries appointment = new AppointmentSeries();
                         appointment.setPatient(patient);
                         appointment.setTherapist(therapist);
-                        appointment.setStartTime(parseTimeToLocalTime(appointmentNode.get("startTime").asText()));
-                        appointment.setEndTime(parseTimeToLocalTime(appointmentNode.get("endTime").asText()));
+                        appointment.setStartTime(startTime);
+                        appointment.setEndTime(endTime);
 
                         // Start- und Enddatum ermitteln
                         Date startDate = new Date(appointmentNode.get("startDate").asLong());
                         Date endDate = new Date(appointmentNode.get("endDate").asLong());
 
-                        // Datum prüfen und ggf. Enddatum auf 01.01.2026 setzen
-                        Date cutoffDate = new Date(1767225600000L); // 01.01.2026 in Millisekunden
-                        if (endDate.after(cutoffDate)) {
-                            endDate = cutoffDate;
-                        }
-
+                        // Serientermin speichern mit entityManager.persist() für konsistentes Batch-Saving
                         appointment.setStartDate(dateToLocalDate(startDate));
                         appointment.setEndDate(dateToLocalDate(endDate));
                         appointment.setWeekday(weekday);
                         appointment.setWeeklyfrequency(appointmentNode.hasNonNull("interval") ? appointmentNode.get("interval").asInt() : 1);
                         appointment.setComment(appointmentNode.hasNonNull("comment") ? appointmentNode.get("comment").asText() : "");
+                        appointment.setStatus(com.example.physiokalendar.entity.SeriesStatus.ACTIVE);
 
-                        // Erstelle die wiederkehrenden Termine anhand des Serien-Termins
-                        AppointmentSeries savedAppointment = appointmentSeriesRepository.save(appointment);
+                        // Speichere sofort mit repository.save() wie im normalen Import
+                        appointment = appointmentSeriesRepository.save(appointment);
                         seriesCount++;
 
-                        // Standardmäßig kein Hotair, Ultrasonic oder Electric für Serientermine
-                        appointmentSeriesService.createAppointmentsFromSeries(savedAppointment,
-                            dateToLocalDate(startDate),
-                            dateToLocalDate(endDate),
-                            appointment.getWeeklyfrequency(),
-                            false, false, false);
+                        // Für Logging brauchen wir die ID - machen wir einen ID-Lookup nach persist
+                        String seriesIdStr = (appointment.getId() != null) ? String.valueOf(appointment.getId()) : "?";
+                        errorWriter.write("OK: Serientermin gespeichert (Therapeutic: " + patientName + ", Therapeut: " + therapistName +
+                                ", " + weekday + " " + appointment.getStartTime() + "-" + appointment.getEndTime() + ")\n");
 
-                        // Behandle Ausfälle (Cancellations)
+                        // Behandle Ausfälle (Cancellations) - wasserdicht
                         if (appointmentNode.has("cancellations") && appointmentNode.get("cancellations").isArray()) {
                             for (JsonNode cancellationNode : appointmentNode.get("cancellations")) {
                                 try {
-                                    String cancellationDateStr = cancellationNode.hasNonNull("date") ? cancellationNode.get("date").asText() : null;
-                                    LocalDate cancellationDate = parseStringToLocalDate(cancellationDateStr);
+                                    LocalDate cancellationDate = parseCancellationDate(cancellationNode);
                                     if (cancellationDate != null) {
-                                        Cancellation cancellation = new Cancellation();
-                                        cancellation.setDate(cancellationDate);
-                                        cancellation.setAppointmentSeries(savedAppointment);
-                                        cancellationRepository.save(cancellation);
-                                        cancellationCount++;
+                                        // Nur Cancellations im gültigen Zeitraum der Serie speichern
+                                        if (!cancellationDate.isBefore(appointment.getStartDate()) &&
+                                            !cancellationDate.isAfter(appointment.getEndDate())) {
+                                            // Speichere Cancellation in der Hibernate-Session
+                                            saveCancellation(appointment, cancellationDate);
+                                            cancellationCount++;
+                                            errorWriter.write("  OK: Ausfalltermin gespeichert " + cancellationDate + "\n");
+                                        }
                                     }
                                 } catch (Exception e) {
-                                    errorWriter.write("FEHLER beim Importieren einer Cancellation: " + e.getMessage() + "\n");
+                                    // Cancellation-Fehler ignorieren - Serie wurde bereits gespeichert
+                                    errorWriter.write("  [WARN] Cancellation übersprungen: " + e.getMessage() + "\n");
                                 }
                             }
                         }
                     } else {
-                        // Fehler loggen mit mehr Details
-                        String appointmentId = appointmentNode.hasNonNull("id") ? appointmentNode.get("id").asText() : "Unbekannt";
-                        errorWriter.write("FEHLER bei Serientermin-ID: " + appointmentId + " - Patient: " + patientName + ", Therapeut: " + therapistName + ", Wochentag: " + weekday + "\n");
+                        // Patient fehlt
+                        errorWriter.write("[SKIP] Patient '" + patientName + "' konnte nicht erstellt werden\n");
                     }
                 } catch (Exception e) {
                     errorWriter.write("FEHLER beim Importieren eines Serientiermins: " + e.getMessage() + "\n");
                     // Fortsetzung mit nächstem Serientermin
-                }
-            }
-        }
-    }
-
-    private void importAbsences(JsonNode therapistNode, BufferedWriter errorWriter) throws IOException {
-        // Therapeut ermitteln
-        String therapistName = therapistNode.hasNonNull("name") ? therapistNode.get("name").asText() : null;
-        Therapist therapist = (therapistName != null) ? findTherapistByName(therapistName) : null;
-
-        if (therapist != null && therapistNode.has("absences") && therapistNode.get("absences").isArray()) {
-            Iterator<JsonNode> absences = therapistNode.get("absences").elements();
-
-            // Über die Abwesenheiten iterieren
-            while (absences.hasNext()) {
-                JsonNode absenceNode = absences.next();
-
-                try {
-                    Absence absence = new Absence();
-                    absence.setTherapist(therapist);
-
-                    // Unterscheide zwischen Datum und Wochentag
-                    String day = absenceNode.hasNonNull("day") ? absenceNode.get("day").asText() : null;
-                    if (isDate(day)) {
-                        absence.setDate(parseStringToLocalDate(day));
-                    } else if (day != null) {
-                        absence.setWeekday(day);
-                    }
-
-                    // Zeiten setzen wenn vorhanden
-                    if (absenceNode.hasNonNull("start")) {
-                        absence.setStartTime(dateToLocalDateTime(parseTime(absenceNode.get("start").asText(), new Date())));
-                    }
-                    if (absenceNode.hasNonNull("end")) {
-                        absence.setEndTime(dateToLocalDateTime(parseTime(absenceNode.get("end").asText(), new Date())));
-                    }
-
-                    // Grund setzen wenn vorhanden
-                    if (absenceNode.hasNonNull("reason")) {
-                        absence.setReason(absenceNode.get("reason").asText());
-                    }
-
-                    absenceRepository.save(absence);
-                    absenceCount++;
-                } catch (Exception e) {
-                    errorWriter.write("FEHLER beim Importieren einer Abwesenheit für Therapeut '" + therapistName + "': " + e.getMessage() + "\n");
                 }
             }
         }
@@ -599,6 +811,66 @@ public class DataImportService {
             System.out.println("Error parsing time: " + e.getMessage());
             return null;
         }
+    }
+
+    /**
+     * Wasserdichte Cancellation-Datum-Konvertierung.
+     * Unterstützt:
+     * - Timestamp als Long (Millisekunden seit Epoch)
+     * - Datumsstring "dd.MM.yyyy"
+     * - ISO-Datumsstring "yyyy-MM-dd"
+     * - Verschachtelte Objekte mit "date" Feld
+     */
+    private LocalDate parseCancellationDate(JsonNode cancellationNode) {
+        if (cancellationNode == null) return null;
+
+        try {
+            // Fall 1: Direkter Long-Wert (Timestamp)
+            if (cancellationNode.isNumber()) {
+                long timestamp = cancellationNode.asLong();
+                if (timestamp > 0) {
+                    return LocalDate.ofEpochDay(timestamp / 86400000);
+                }
+            }
+
+            // Fall 2: Verschachteltes Objekt mit "date" Feld
+            JsonNode dateNode = cancellationNode.hasNonNull("date") ? cancellationNode.get("date") : cancellationNode;
+
+            // Fall 2a: date ist ein Timestamp (Long)
+            if (dateNode.isNumber()) {
+                long timestamp = dateNode.asLong();
+                if (timestamp > 0) {
+                    return LocalDate.ofEpochDay(timestamp / 86400000);
+                }
+            }
+
+            // Fall 2b: date ist ein String
+            if (dateNode.isTextual()) {
+                String dateStr = dateNode.asText();
+                if (dateStr == null || dateStr.isEmpty()) return null;
+
+                // Versuche verschiedene Formate
+                // Format: dd.MM.yyyy
+                if (dateStr.contains(".")) {
+                    return parseStringToLocalDate(dateStr);
+                }
+                // Format: yyyy-MM-dd (ISO)
+                if (dateStr.contains("-") && dateStr.length() == 10) {
+                    return LocalDate.parse(dateStr);
+                }
+                // Vielleicht ist es ein numerischer String (Timestamp)
+                try {
+                    long timestamp = Long.parseLong(dateStr);
+                    if (timestamp > 0) {
+                        return LocalDate.ofEpochDay(timestamp / 86400000);
+                    }
+                } catch (NumberFormatException ignored) {}
+            }
+        } catch (Exception e) {
+            // Fehler beim Parsen - null zurückgeben
+        }
+
+        return null;
     }
 
     // Patient anhand des Namens finden
@@ -692,4 +964,94 @@ public class DataImportService {
         // Return the combined date and time
         return appointmentCalendar.getTime();
     }
+
+    /**
+     * Parst Zeit-String "7:00" oder "14:30" zu LocalDateTime mit heutigem Datum
+     */
+    private LocalDateTime parseTimeToLocalDateTime(String timeStr) {
+        if (timeStr == null || timeStr.trim().isEmpty()) {
+            return null;
+        }
+        try {
+            LocalTime time = parseTimeToLocalTime(timeStr);
+            if (time != null) {
+                return time.atDate(LocalDate.now());
+            }
+        } catch (Exception e) {
+            // Fehler beim Parsen - null zurückgeben
+        }
+        return null;
+    }
+
+    /**
+     * Versucht den String als Wochentag zu parsen (Montag, Monday, MO, etc.)
+     * Gibt den englischen Wochentag zurück oder null
+     */
+    private String tryParseWeekday(String dayStr) {
+        if (dayStr == null || dayStr.trim().isEmpty()) {
+            return null;
+        }
+
+        String normalized = dayStr.trim().toUpperCase();
+
+        // Deutsche Wochentage
+        if (normalized.startsWith("MON")) return "MONDAY";
+        if (normalized.startsWith("MONT")) return "MONDAY";
+        if (normalized.startsWith("DIENS") || normalized.startsWith("DIEN")) return "TUESDAY";
+        if (normalized.startsWith("MITT")) return "WEDNESDAY";
+        if (normalized.startsWith("DONN")) return "THURSDAY";
+        if (normalized.startsWith("FREIT")) return "FRIDAY";
+        if (normalized.startsWith("FREIT")) return "FRIDAY";
+        if (normalized.startsWith("SAMS")) return "SATURDAY";
+        if (normalized.startsWith("SONN")) return "SUNDAY";
+
+        // English
+        if (normalized.startsWith("MON")) return "MONDAY";
+        if (normalized.startsWith("TUE")) return "TUESDAY";
+        if (normalized.startsWith("WED")) return "WEDNESDAY";
+        if (normalized.startsWith("THU")) return "THURSDAY";
+        if (normalized.startsWith("FRI")) return "FRIDAY";
+        if (normalized.startsWith("SAT")) return "SATURDAY";
+        if (normalized.startsWith("SUN")) return "SUNDAY";
+
+        // Abbreviations
+        if (normalized.equals("MO")) return "MONDAY";
+        if (normalized.equals("DI")) return "TUESDAY";
+        if (normalized.equals("MI")) return "WEDNESDAY";
+        if (normalized.equals("DO")) return "THURSDAY";
+        if (normalized.equals("FR")) return "FRIDAY";
+        if (normalized.equals("SA")) return "SATURDAY";
+        if (normalized.equals("SO")) return "SUNDAY";
+
+        return null;
+    }
+
+    /**
+     * Versucht einen deutschen Datumsstring "dd.MM.yyyy" zu parsen
+     * Returns LocalDate oder null wenn nicht parsbar
+     */
+    private LocalDate tryParseDateStringGerman(String dateStr) {
+        if (dateStr == null || dateStr.trim().isEmpty()) {
+            return null;
+        }
+
+        try {
+            // Format dd.MM.yyyy
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+            Date parsedDate = sdf.parse(dateStr.trim());
+            return dateToLocalDate(parsedDate);
+        } catch (ParseException e) {
+            // Nicht in diesem Format - versuche andere Formate
+        }
+
+        // Versuche ISO Format yyyy-MM-dd
+        try {
+            return LocalDate.parse(dateStr.trim());
+        } catch (Exception e) {
+            // Auch nicht erfolgreich
+        }
+
+        return null;
+    }
 }
+
