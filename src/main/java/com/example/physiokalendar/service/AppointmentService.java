@@ -10,6 +10,8 @@ import com.example.physiokalendar.repository.TherapistRepository;
 import com.example.physiokalendar.repository.PatientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -55,6 +57,39 @@ public class AppointmentService {
 
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
+    }
+
+    /**
+     * Get paginated single appointments (non-series) with optional filters.
+     * Used for lazy loading in the appointment overview.
+     */
+    public Page<Appointment> getSingleAppointmentsPaginated(
+            LocalDate dateFrom,
+            LocalDate dateTo,
+            Long therapistId,
+            AppointmentStatus status,
+            String searchTerm,
+            Pageable pageable) {
+        return appointmentRepository.findSingleAppointmentsFiltered(
+                dateFrom, dateTo, therapistId, status, searchTerm, pageable);
+    }
+
+    /**
+     * Get paginated appointments with optional appointment type filter.
+     * Used for therapist detail view with faceted search.
+     * @param appointmentType null=all, true=series only, false=single only
+     */
+    public Page<Appointment> getAppointmentsPaginated(
+            Boolean appointmentType,
+            LocalDate dateFrom,
+            LocalDate dateTo,
+            Long therapistId,
+            Long patientId,
+            AppointmentStatus status,
+            String searchTerm,
+            Pageable pageable) {
+        return appointmentRepository.findAppointmentsFiltered(
+                appointmentType, dateFrom, dateTo, therapistId, patientId, status, searchTerm, pageable);
     }
 
     public Optional<Appointment> getAppointmentById(Long id) {

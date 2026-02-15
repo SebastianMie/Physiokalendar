@@ -7,6 +7,10 @@ import com.example.physiokalendar.entity.AuditAction;
 import com.example.physiokalendar.entity.AuditEntityType;
 import com.example.physiokalendar.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -28,6 +32,44 @@ public class PatientService {
     public List<JSONPatientDTO> getAllPatients() {
         List<Patient> patients = patientRepository.findAll();
         return patients.stream().map(this::convertEntityToDTO).collect(Collectors.toList());
+    }
+
+    /**
+     * Paginated retrieval of patients with optional search and BWO filter.
+     * Uses compound sorting for proper alphabetical order (lastName + firstName).
+     */
+    public Page<JSONPatientDTO> getPatientsPaginated(
+            int page,
+            int size,
+            String sortBy,
+            String sortDir,
+            String search,
+            Boolean isBWO) {
+
+        Sort.Direction direction = sortDir.equalsIgnoreCase("desc") ? Sort.Direction.DESC : Sort.Direction.ASC;
+        Sort sort;
+
+        // Apply compound sorting for proper alphabetical order
+        switch (sortBy) {
+            case "lastName":
+                // Sort by lastName, then firstName as secondary
+                sort = Sort.by(direction, "lastName").and(Sort.by(direction, "firstName"));
+                break;
+            case "firstName":
+                // Sort by firstName, then lastName as secondary
+                sort = Sort.by(direction, "firstName").and(Sort.by(direction, "lastName"));
+                break;
+            case "fullName":
+                // fullName is already combined - use lastName + firstName for consistency
+                sort = Sort.by(direction, "lastName").and(Sort.by(direction, "firstName"));
+                break;
+            default:
+                sort = Sort.by(direction, sortBy);
+        }
+
+        Pageable pageable = PageRequest.of(page, size, sort);
+        Page<Patient> patientPage = patientRepository.findPatientsFiltered(search, isBWO, pageable);
+        return patientPage.map(this::convertEntityToDTO);
     }
 
     public JSONPatientDTO getPatientById(Long id) {

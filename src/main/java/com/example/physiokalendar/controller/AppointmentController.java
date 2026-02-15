@@ -11,6 +11,9 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +23,7 @@ import com.example.physiokalendar.dto.AppointmentSaveResult;
 import com.example.physiokalendar.dto.ConflictCheckDTO;
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
 import com.example.physiokalendar.entity.Appointment;
+import com.example.physiokalendar.entity.AppointmentStatus;
 import com.example.physiokalendar.service.AppointmentService;
 
 @RestController
@@ -28,6 +32,147 @@ public class AppointmentController {
 
     @Autowired
     private AppointmentService appointmentService;
+
+    /**
+     * Paginated endpoint for appointments with server-side filtering and sorting.
+     * GET /api/appointments/paginated
+     *
+     * @param page Page number (0-indexed)
+     * @param size Page size (default 50)
+     * @param sortBy Sort field: date, time, patient, therapist
+     * @param sortDir Sort direction: asc, desc
+     * @param dateFrom Filter: start date (yyyy-MM-dd)
+     * @param dateTo Filter: end date (yyyy-MM-dd)
+     * @param therapistId Filter: therapist ID
+     * @param status Filter: appointment status
+     * @param search Search term (patient name, therapist name, comment)
+     */
+    @GetMapping("/paginated")
+    public ResponseEntity<Page<Appointment>> getPaginatedAppointments(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "50") int size,
+            @RequestParam(defaultValue = "date") String sortBy,
+            @RequestParam(defaultValue = "desc") String sortDir,
+            @RequestParam(required = false) String dateFrom,
+            @RequestParam(required = false) String dateTo,
+            @RequestParam(required = false) Long therapistId,
+            @RequestParam(required = false) String status,
+            @RequestParam(required = false) String search) {
+        try {
+            // Parse dates
+            LocalDate fromDate = dateFrom != null && !dateFrom.isEmpty() ? LocalDate.parse(dateFrom) : null;
+            LocalDate toDate = dateTo != null && !dateTo.isEmpty() ? LocalDate.parse(dateTo) : null;
+
+            // Parse status
+            AppointmentStatus appointmentStatus = null;
+            if (status != null && !status.isEmpty()) {
+                try {
+                    appointmentStatus = AppointmentStatus.valueOf(status.toUpperCase());
+                } catch (IllegalArgumentException ignored) {
+                    // Invalid status, ignore filter
+                }
+            }
+
+            // Build sort
+            String sortProperty = switch (sortBy) {
+                case "time" -> "startTime";
+                case "patient" -> "patient.lastName";
+                case "therapist" -> "therapist.lastName";
+                default -> "date";
+            };
+            Sort sort = Sort.by(sortDir.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC, sortProperty);
+
+            // Add secondary sort by startTime for date/patient/therapist
+            if (!sortBy.equals("time")) {
+                sort = sort.and(Sort.by(Sort.Direction.ASC, "startTime"));
+            }
+
+            PageRequest pageRequest = PageRequest.of(page, size, sort);
+
+            Page<Appointment> appointments = appointmentService.getSingleAppointmentsPaginated(
+                    fromDate, toDate, therapistId, appointmentStatus, search, pageRequest);
+
+            return ResponseEntity.ok(appointments);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    /**
+     * Extended paginated endpoint for appointments with appointment type filter.
+     * Used for therapist detail view and patient detail view with faceted search.
+     * GET /api/appointments/paginated-extended
+     *
+     * @param appointmentType Filter: 'series' (only series), 'single' (only single), null (all)
+     * @param timeFilter Filter: 'upcoming' (today+future, non-cancelled), 'past' (before today), null (all)
+     */
+    @GetMapping("/paginated-extended")
+    public ResponseEntity<Page<Appointment>> getPaginatedAppointmentsExtended(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "50") int size,
+            @RequestParam(defaultValue = "date") String sortBy,
+            @RequestParam(defaultValue = "desc") String sortDir,
+            @RequestParam(required = false) String dateFrom,
+            @RequestParam(required = false) String dateTo,
+            @RequestParam(required = false) Long therapistId,
+            @RequestParam(required = false) Long patientId,
+            @RequestParam(required = false) String status,
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String appointmentType,
+            @RequestParam(required = false) String timeFilter) {
+        try {
+            // Parse dates based on timeFilter
+            LocalDate fromDate = null;
+            LocalDate toDate = null;
+            LocalDate today = LocalDate.now();
+
+            if ("upcoming".equalsIgnoreCase(timeFilter)) {
+                fromDate = today;
+            } else if ("past".equalsIgnoreCase(timeFilter)) {
+                toDate = today.minusDays(1);
+            } else {
+                fromDate = dateFrom != null && !dateFrom.isEmpty() ? LocalDate.parse(dateFrom) : null;
+                toDate = dateTo != null && !dateTo.isEmpty() ? LocalDate.parse(dateTo) : null;
+            }
+
+            // Parse appointment type
+            Boolean appointmentTypeBool = null;
+            if ("series".equalsIgnoreCase(appointmentType)) {
+                appointmentTypeBool = true;
+            } else if ("single".equalsIgnoreCase(appointmentType)) {
+                appointmentTypeBool = false;
+            }
+
+            // Parse status (exclude cancelled for upcoming)
+            AppointmentStatus appointmentStatus = null;
+            if (status != null && !status.isEmpty()) {
+                try {
+                    appointmentStatus = AppointmentStatus.valueOf(status.toUpperCase());
+                } catch (IllegalArgumentException ignored) {}
+            }
+
+            // Build sort
+            String sortProperty = switch (sortBy) {
+                case "time" -> "startTime";
+                case "patient" -> "patient.lastName";
+                case "therapist" -> "therapist.lastName";
+                default -> "date";
+            };
+            Sort sort = Sort.by(sortDir.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC, sortProperty);
+            if (!sortBy.equals("time")) {
+                sort = sort.and(Sort.by(Sort.Direction.ASC, "startTime"));
+            }
+
+            PageRequest pageRequest = PageRequest.of(page, size, sort);
+
+            Page<Appointment> appointments = appointmentService.getAppointmentsPaginated(
+                    appointmentTypeBool, fromDate, toDate, therapistId, patientId, appointmentStatus, search, pageRequest);
+
+            return ResponseEntity.ok(appointments);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 
 
     @GetMapping
