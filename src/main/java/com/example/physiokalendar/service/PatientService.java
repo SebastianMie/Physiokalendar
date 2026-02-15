@@ -108,6 +108,10 @@ public class PatientService {
         existingPatient.setHouseNumber(dto.getHouseNumber());
         existingPatient.setPostalCode(dto.getPostalCode());
         existingPatient.setCity(dto.getCity());
+        existingPatient.setDateOfBirth(dto.getDateOfBirth());
+        existingPatient.setInsuranceType(dto.getInsuranceType());
+        existingPatient.setNotes(dto.getNotes());
+        existingPatient.setIsActive(dto.getIsActive());
         existingPatient.setActiveSince(dto.getActiveSince());
         existingPatient.setActiveUntil(dto.getActiveUntil());
         existingPatient.setIsBWO(dto.getIsBWO());
@@ -169,6 +173,10 @@ public class PatientService {
         dto.setHouseNumber(patient.getHouseNumber());
         dto.setPostalCode(patient.getPostalCode());
         dto.setCity(patient.getCity());
+        dto.setDateOfBirth(patient.getDateOfBirth());
+        dto.setInsuranceType(patient.getInsuranceType());
+        dto.setNotes(patient.getNotes());
+        dto.setIsActive(patient.getIsActive() != null ? patient.getIsActive() : true);
         dto.setActiveSince(patient.getActiveSince());
         dto.setActiveUntil(patient.getActiveUntil());
         dto.setIsBWO(patient.getIsBWO());
@@ -188,6 +196,10 @@ public class PatientService {
         patient.setHouseNumber(dto.getHouseNumber());
         patient.setPostalCode(dto.getPostalCode());
         patient.setCity(dto.getCity());
+        patient.setDateOfBirth(dto.getDateOfBirth());
+        patient.setInsuranceType(dto.getInsuranceType());
+        patient.setNotes(dto.getNotes());
+        patient.setIsActive(dto.getIsActive() != null ? dto.getIsActive() : true);
         patient.setActiveSince(dto.getActiveSince());
         patient.setActiveUntil(dto.getActiveUntil());
         patient.setIsBWO(dto.getIsBWO());

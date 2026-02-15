@@ -1,6 +1,7 @@
 // PatientDTO.java
 package com.example.physiokalendar.dto;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
@@ -29,6 +30,10 @@ public class JSONPatientDTO {
     private String houseNumber;
     private String postalCode;
     private String city;
+    private LocalDate dateOfBirth;
+    private String insuranceType;
+    private String notes;
+    private Boolean isActive;
     private LocalDateTime activeSince;
     private LocalDateTime activeUntil;
     private Boolean isBWO;
