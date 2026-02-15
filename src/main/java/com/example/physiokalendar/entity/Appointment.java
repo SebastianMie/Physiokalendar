@@ -114,4 +114,9 @@ public class Appointment {
     public Boolean getIsBWO() {
         return patient != null ? patient.getIsBWO() : false;
     }
+
+    @JsonProperty("appointmentSeriesId")
+    public Long getAppointmentSeriesId() {
+        return appointmentSeries != null ? appointmentSeries.getId() : null;
+    }
 }

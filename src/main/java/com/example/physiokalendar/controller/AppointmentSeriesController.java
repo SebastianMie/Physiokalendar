@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,6 +57,20 @@ public class AppointmentSeriesController {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateAppointmentSeries(@PathVariable Long id, @RequestBody JSONAppointmentSeriesDTO appointmentSeriesDTO) {
+        try {
+            AppointmentSeries updatedSeries = appointmentSeriesService.updateAppointmentSeries(id, appointmentSeriesDTO);
+            return ResponseEntity.ok(updatedSeries);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Appointment Series not found: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error updating appointment series: " + e.getMessage());
+        }
+    }
+
     @PostMapping("/{id}/cancellations")
     public ResponseEntity<?> addCancellations(@PathVariable Long id, @RequestBody List<JSONCancellationDTO> cancellationDTOs) {
         try {
@@ -67,6 +82,20 @@ public class AppointmentSeriesController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error adding cancellations.");
+        }
+    }
+
+    @DeleteMapping("/{seriesId}/cancellations/{cancellationId}")
+    public ResponseEntity<?> deleteCancellation(@PathVariable Long seriesId, @PathVariable Long cancellationId) {
+        try {
+            AppointmentSeries updatedSeries = appointmentSeriesService.deleteCancellation(seriesId, cancellationId);
+            return ResponseEntity.ok(updatedSeries);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Not found: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error deleting cancellation.");
         }
     }
 

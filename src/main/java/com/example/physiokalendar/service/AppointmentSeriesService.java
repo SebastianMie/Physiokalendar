@@ -204,8 +204,98 @@ public class AppointmentSeriesService {
         return appointmentSeriesRepository.save(appointmentSeries);
     }
 
+    /**
+     * Updates an existing appointment series (master data only).
+     * Updates times and treatment flags for the series master.
+     * Future appointments generated from this series are also updated.
+     */
+    @Transactional
+    public AppointmentSeries updateAppointmentSeries(Long id, JSONAppointmentSeriesDTO dto) {
+        AppointmentSeries series = appointmentSeriesRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Appointment series not found: " + id));
+
+        // Update times if provided
+        if (dto.getStartTime() != null) {
+            series.setStartTime(dateToLocalTime(dto.getStartTime()));
+        }
+        if (dto.getEndTime() != null) {
+            series.setEndTime(dateToLocalTime(dto.getEndTime()));
+        }
+
+        // Update comment if provided
+        if (dto.getComment() != null) {
+            series.setComment(dto.getComment());
+        }
+
+        // Update endDate if provided
+        if (dto.getEndDate() != null) {
+            series.setEndDate(dateToLocalDate(dto.getEndDate()));
+        }
+
+        // Update weeklyFrequency if provided
+        if (dto.getWeeklyFrequency() != null) {
+            series.setWeeklyfrequency(dto.getWeeklyFrequency());
+        }
+
+        AppointmentSeries savedSeries = appointmentSeriesRepository.save(series);
+
+        // Update all future appointments in this series
+        LocalDate today = LocalDate.now();
+        List<Appointment> futureAppointments = appointmentRepository.findBySeriesId(id).stream()
+                .filter(a -> !a.getDate().isBefore(today))
+                .toList();
+
+        for (Appointment apt : futureAppointments) {
+            if (dto.getStartTime() != null) {
+                apt.setStartTime(apt.getDate().atTime(savedSeries.getStartTime()));
+            }
+            if (dto.getEndTime() != null) {
+                apt.setEndTime(apt.getDate().atTime(savedSeries.getEndTime()));
+            }
+            if (dto.getComment() != null) {
+                apt.setComment(dto.getComment());
+            }
+            if (dto.getIsHotair() != null) {
+                apt.setIsHotair(dto.getIsHotair());
+            }
+            if (dto.getIsUltrasonic() != null) {
+                apt.setIsUltrasonic(dto.getIsUltrasonic());
+            }
+            if (dto.getIsElectric() != null) {
+                apt.setIsElectric(dto.getIsElectric());
+            }
+            appointmentRepository.save(apt);
+        }
+
+        return savedSeries;
+    }
+
     public void deleteAppointmentSeries(Long id) {
         appointmentSeriesRepository.deleteById(id);
+    }
+
+    /**
+     * Deletes a cancellation from a series.
+     * This can be used to restore a previously cancelled appointment.
+     */
+    @Transactional
+    public AppointmentSeries deleteCancellation(Long seriesId, Long cancellationId) {
+        AppointmentSeries series = appointmentSeriesRepository.findById(seriesId)
+                .orElseThrow(() -> new IllegalArgumentException("Series not found: " + seriesId));
+
+        Cancellation cancellation = cancellationRepository.findById(cancellationId)
+                .orElseThrow(() -> new IllegalArgumentException("Cancellation not found: " + cancellationId));
+
+        // Verify the cancellation belongs to this series
+        if (!cancellation.getAppointmentSeries().getId().equals(seriesId)) {
+            throw new IllegalArgumentException("Cancellation does not belong to this series");
+        }
+
+        // Remove from the series list and delete
+        series.getCancellations().removeIf(c -> c.getId().equals(cancellationId));
+        cancellationRepository.deleteById(cancellationId);
+
+        return appointmentSeriesRepository.save(series);
     }
 
     private Cancellation convertDTOToEntity(JSONCancellationDTO dto) {

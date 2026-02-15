@@ -6,6 +6,7 @@ import com.example.physiokalendar.dto.ConflictCheckDTO;
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
 import com.example.physiokalendar.entity.*;
 import com.example.physiokalendar.repository.AppointmentRepository;
+import com.example.physiokalendar.repository.CancellationRepository;
 import com.example.physiokalendar.repository.TherapistRepository;
 import com.example.physiokalendar.repository.PatientRepository;
 
@@ -48,6 +49,9 @@ public class AppointmentService {
 
     @Autowired
     private AbsenceService absenceService;
+
+    @Autowired
+    private CancellationRepository cancellationRepository;
 
     @Autowired
     private AuditService auditService;
@@ -184,7 +188,11 @@ public class AppointmentService {
         appointment.setStartTime(startTime);
         appointment.setEndTime(endTime);
         appointment.setComment(appointmentDTO.getComment());
-        appointment.setCreatedBySeriesAppointment(appointmentDTO.getCreatedBySeriesAppointment());
+        // Only update createdBySeriesAppointment if explicitly provided - preserve existing value on update
+        if (!isUpdate || appointmentDTO.getCreatedBySeriesAppointment() != null) {
+            appointment.setCreatedBySeriesAppointment(appointmentDTO.getCreatedBySeriesAppointment());
+        }
+        // Note: appointmentSeries relationship is NOT touched here - it remains linked to the series
         appointment.setIsElectric(appointmentDTO.getIsElectric());
         appointment.setIsHotair(appointmentDTO.getIsHotair());
         appointment.setIsUltrasonic(appointmentDTO.getIsUltrasonic());
@@ -516,6 +524,15 @@ public class AppointmentService {
         Appointment existing = appointmentRepository.findById(id).orElse(null);
         if (existing != null) {
             String beforeJson = auditService.toAuditJson(existing);
+
+            // If this appointment was created by a series, add a cancellation record
+            if (Boolean.TRUE.equals(existing.getCreatedBySeriesAppointment()) && existing.getAppointmentSeries() != null) {
+                Cancellation cancellation = new Cancellation();
+                cancellation.setAppointmentSeries(existing.getAppointmentSeries());
+                cancellation.setDate(existing.getDate());
+                cancellationRepository.save(cancellation);
+            }
+
             appointmentRepository.deleteById(id);
 
             // Audit-Log

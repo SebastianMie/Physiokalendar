@@ -104,6 +104,15 @@ public class ConflictService {
     private List<ConflictDTO> checkSeriesConflicts(AppointmentDraftDTO draft) {
         List<ConflictDTO> conflicts = new ArrayList<>();
 
+        // If this is an existing appointment, check if it belongs to a series
+        Long excludeSeriesId = null;
+        if (draft.getId() != null) {
+            Appointment existingApt = appointmentRepository.findById(draft.getId()).orElse(null);
+            if (existingApt != null && existingApt.getAppointmentSeries() != null) {
+                excludeSeriesId = existingApt.getAppointmentSeries().getId();
+            }
+        }
+
         // Find active series for the therapist that could have an instance on this date
         List<AppointmentSeries> seriesList = seriesRepository.findActiveByTherapistIdAndDateRange(
                 draft.getTherapistId(),
@@ -112,6 +121,11 @@ public class ConflictService {
                 SeriesStatus.ACTIVE);
 
         for (AppointmentSeries series : seriesList) {
+            // Skip if this is the series that the appointment being edited belongs to
+            if (excludeSeriesId != null && series.getId().equals(excludeSeriesId)) {
+                continue;
+            }
+
             // Check if this series has an instance on the draft date
             DayOfWeek seriesDay = parseWeekday(series.getWeekday());
             if (seriesDay == null || !draft.getDate().getDayOfWeek().equals(seriesDay)) {
