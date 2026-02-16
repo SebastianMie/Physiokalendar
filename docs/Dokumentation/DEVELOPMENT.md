@@ -3,11 +3,15 @@
 ## Quick Start für lokale Entwicklung (mit Hot-Reload)
 
 ### 1. Datenbank starten (Docker)
+- Verwende den DB‑Compose (nur DB). Backend und Frontend laufen lokal (IDE / npm).
 ```bash
+# Startet nur die lokale DB (top-level docker-compose.yml)
+docker compose -f docker-compose.yml --env-file .env.dev up -d
+# fallback (ältere Docker-Version)
 docker-compose up -d
 ```
 
-Das startet **NUR die MySQL-Datenbank** - die bleibt laufen und verwaltet die Daten persistent. Du brauchst **keine ständigen docker-compose down/up** mehr!
+Hinweis: `compose.dev.yml` enthält keine containerisierten Backend-/Frontend-Dienste mehr — starte Backend lokal mit `./mvnw spring-boot:run` und Frontend mit `cd Physiokalender-v2-UI && npm run dev`. Wenn du containerisierte Dev-Services brauchst, nutze `compose.test.yml` oder reaktiviere die Services manuell.
 
 ### 2. Backend lokal starten (mit Hot-Reload)
 
@@ -77,6 +81,7 @@ docker run -p 8080:8080 \
 ├── src/main/resources/    ← application.yml, DB-Migrations
 ├── Physiokalender-v2-UI/  ← Angular Frontend
 ├── docker-compose.yml     ← DEV: Nur Datenbank (nicht verändern!)
+├── compose.dev.yml        ← DEPRECATED: keine Backend/Frontend-Container — nutze lokale Dev-Umgebung
 ├── Dockerfile.prod        ← PROD: Multi-Stage Build
 └── pom.xml               ← Maven Dependencies
 ```
