@@ -12,8 +12,12 @@ RUN chmod +x /usr/local/bin/mysql_backup.sh && \
     chmod 0644 /etc/cron.d/backup-cron && \
     crontab /etc/cron.d/backup-cron
 
-# Create backup dir
-RUN mkdir -p /backup && chown 1000:1000 /backup || true
+# Create backup dir and logfile for cron
+RUN mkdir -p /backup /var/log && \
+    touch /var/log/mysql_backup.log && \
+    chmod 0644 /var/log/mysql_backup.log && \
+    chown root:root /var/log/mysql_backup.log || true && \
+    chown 1000:1000 /backup || true
 VOLUME ["/backup"]
 
 # Run cron in foreground

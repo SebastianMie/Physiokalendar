@@ -116,6 +116,63 @@ Folgende Skripte und Dienste sind im Repository enthalten, um Backups zu automat
 - `scripts/import_latest_to_test.sh` — importiert die neueste `dev_dump_*.sql.gz` aus `./backups/` in `physio-test-db` (legt zuvor ein Test‑Backup an).
 - `Makefile` — Shortcuts: `make backup-dev`, `make import-latest-to-test`, `make start-backup`.
 
+Automatische Planung
+
+- Der Backup‑Sidecar verwendet die Datei `backup-cron` (in der Image‑Build) — aktuell: `0 2 * * * /usr/local/bin/mysql_backup.sh` → täglicher Lauf um **02:00** (Container‑/Server‑Zeitzone).
+- Prüfen, ob der Cron‑Eintrag aktiv ist:
+  ```bash
+  docker exec -it physio-test-backup cat /etc/cron.d/backup-cron
+  ```
+- Letzte Ausgaben / Historie prüfen:
+  ```bash
+  docker exec -it physio-test-backup tail -n 200 /var/log/mysql_backup.log
+  docker logs physio-test-backup --since "24h"
+  ```
+
+Manuelles inkrementelles Backup (Kurzbefehle)
+
+- 1) Prüfe, ob Binary‑Logging aktiviert ist (wenn nicht → Script erzeugt Fallback Vollbackup):
+  ```bash
+  docker exec -it physio-test-db mysql -uroot -p${DB_ROOT_PASSWORD:-testrootpassword} \
+    -e "SHOW VARIABLES LIKE 'log_bin'; SELECT @@GLOBAL.binlog_format;"
+  ```
+
+- 2) Manuell das Backup‑Script ausführen (das Script wählt inkrementell oder Fallback automatisch):
+  ```bash
+  # Verwende MSYS_NO_PATHCONV in Git Bash auf Windows, sonst normal:
+  MSYS_NO_PATHCONV=1 docker exec -i physio-test-backup sh -c "/usr/local/bin/mysql_backup.sh"
+  # oder interaktiv:
+  docker exec -it physio-test-backup /bin/sh -c "/usr/local/bin/mysql_backup.sh"
+  ```
+  - Ergebnis: `inc_YYYY-MM-DD*.sql.gz` (bei aktivem binlog) oder `full_fallback_YYYY-MM-DD*.sql.gz`.
+
+- 3) (Optional / Fortgeschritten) Direkter mysqlbinlog‑Dump einer Binlog‑Datei:
+  ```bash
+  # Auf DB: neue Binlog-Datei erzeugen und Name holen
+  docker exec -it physio-test-db mysql -uroot -p${DB_ROOT_PASSWORD:-testrootpassword} -e "FLUSH LOGS; SHOW BINARY LOGS;"
+
+  # Beispiel: BINLOG_FILE aus dem vorherigen Befehl übernehmen und auf dem Backup-Container auslesen
+  docker exec -i physio-test-backup sh -c \
+    "mysqlbinlog --read-from-remote-server --host=physio-test-db --port=3306 --user=${DB_USER:-physiouser} --password=${DB_PASSWORD:-testpassword} BINLOG_FILE | gzip > /backup/inc_$(date +%Y-%m-%d).sql.gz"
+  ```
+  - Hinweis: für `mysqlbinlog` sind Replikations‑Rechte/`REPLICATION CLIENT` hilfreich; Root funktioniert immer.
+
+- 4) Prüfen, ob ein inkrementelles Backup erstellt wurde:
+  ```bash
+  ls -lah backups | grep inc_ || ls -lah backups | grep full_fallback_
+  ```
+
+Logs & Troubleshooting
+
+- Cron‑Status prüfen (crontab in Container) und Logs (`/var/log/mysql_backup.log`).
+- Wenn inkrementelles Backup ausbleibt: Binlog auf `physio-test-db` aktivieren (siehe `mysql/conf.d/my.cnf`) oder akzeptiere, dass Script einen `full_fallback` erstellt.
+
+Windows‑Scheduled‑Task (Hinweis)
+
+- Die Windows‑PowerShell‑Hilfsdatei `scripts/register_import_task.ps1` ist optional und wird in dieser Dokumentation **nicht** mehr empfohlen. Die empfohlene Methoden sind:
+  - Backup/Cron im Container (`physio-test-backup`) oder
+  - Host‑Cron (für nicht‑Docker Umgebungen).
+
 Beispiele (manuell):
 
 - Start Backup‑Sidecar (führt täglich Backups aus):

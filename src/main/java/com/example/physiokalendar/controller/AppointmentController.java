@@ -33,6 +33,26 @@ public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;
 
+    // Try to parse date strings flexibly: accept yyyy-MM-dd or full ISO timestamps
+    private LocalDate parseToLocalDate(String input) {
+        if (input == null || input.isEmpty()) return null;
+        try {
+            return LocalDate.parse(input);
+        } catch (java.time.format.DateTimeParseException ignored) {
+        }
+        try {
+            java.time.Instant inst = java.time.Instant.parse(input);
+            return java.time.LocalDateTime.ofInstant(inst, java.time.ZoneId.systemDefault()).toLocalDate();
+        } catch (Exception ignored) {
+        }
+        try {
+            java.time.LocalDateTime ldt = java.time.LocalDateTime.parse(input);
+            return ldt.toLocalDate();
+        } catch (Exception ignored) {
+        }
+        return null;
+    }
+
     /**
      * Paginated endpoint for appointments with server-side filtering and sorting.
      * GET /api/appointments/paginated
@@ -59,9 +79,9 @@ public class AppointmentController {
             @RequestParam(required = false) String status,
             @RequestParam(required = false) String search) {
         try {
-            // Parse dates
-            LocalDate fromDate = dateFrom != null && !dateFrom.isEmpty() ? LocalDate.parse(dateFrom) : null;
-            LocalDate toDate = dateTo != null && !dateTo.isEmpty() ? LocalDate.parse(dateTo) : null;
+            // Parse dates (accept either yyyy-MM-dd or full ISO timestamps)
+            LocalDate fromDate = parseToLocalDate(dateFrom);
+            LocalDate toDate = parseToLocalDate(dateTo);
 
             // Parse status
             AppointmentStatus appointmentStatus = null;
@@ -131,8 +151,8 @@ public class AppointmentController {
             } else if ("past".equalsIgnoreCase(timeFilter)) {
                 toDate = today.minusDays(1);
             } else {
-                fromDate = dateFrom != null && !dateFrom.isEmpty() ? LocalDate.parse(dateFrom) : null;
-                toDate = dateTo != null && !dateTo.isEmpty() ? LocalDate.parse(dateTo) : null;
+                fromDate = parseToLocalDate(dateFrom);
+                toDate = parseToLocalDate(dateTo);
             }
 
             // Parse appointment type
