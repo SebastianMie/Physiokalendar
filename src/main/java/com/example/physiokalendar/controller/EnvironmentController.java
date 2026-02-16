@@ -13,7 +13,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:5173"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:4201", "http://localhost:5173"})
 public class EnvironmentController {
 
     @Value("${app.environment:dev}")

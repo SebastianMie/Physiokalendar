@@ -1,0 +1,18 @@
+FROM mysql:8.0.36
+
+# Cron + bash are available in the Debian-based mysql image
+RUN apt-get update && apt-get install -y cron bash && rm -rf /var/lib/apt/lists/*
+
+# Copy backup script and cron definition
+COPY mysql_backup.sh /usr/local/bin/mysql_backup.sh
+COPY backup-cron /etc/cron.d/backup-cron
+RUN chmod +x /usr/local/bin/mysql_backup.sh && \
+    chmod 0644 /etc/cron.d/backup-cron && \
+    crontab /etc/cron.d/backup-cron
+
+# Create backup dir
+RUN mkdir -p /backup && chown mysql:mysql /backup
+VOLUME ["/backup"]
+
+# Run cron in foreground
+CMD ["cron", "-f"]

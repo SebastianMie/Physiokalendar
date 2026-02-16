@@ -35,7 +35,7 @@
  		<groupId>org.springframework.boot</groupId>
  		<artifactId>spring-boot-starter-actuator</artifactId>
  	</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -59,6 +59,15 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- DB migrations -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-mysql</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -71,7 +80,7 @@
     		<scope>provided</scope>
 		</dependency>
 
-	
+
    <dependency>
      <groupId>org.apache.poi</groupId>
      <artifactId>poi</artifactId>
@@ -81,13 +90,13 @@
     <groupId>ch.qos.logback</groupId>
     <artifactId>logback-classic</artifactId>
 </dependency>
- 
+
    <dependency>
      <groupId>org.springframework.security</groupId>
      <artifactId>spring-security-web</artifactId>
      <version>6.3.3</version>
    </dependency>
- 
+
    <dependency>
     <groupId>io.jsonwebtoken</groupId>
     <artifactId>jjwt-api</artifactId>
@@ -103,7 +112,7 @@
     <artifactId>jjwt-jackson</artifactId>
     <version>0.11.5</version>
   </dependency>
- 
+
  </dependencies>
 
 	<build>

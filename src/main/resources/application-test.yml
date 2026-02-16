@@ -22,6 +22,10 @@ spring:
 app:
   environment: test
   seed-data-enabled: ${SEED_DATA_ENABLED:true}
+  # Enable full JSON data import for test profile (imports src/.../backup.json at startup)
+  dataimport:
+    enabled: true
+    filepath: src/main/java/com/example/physiokalendar/dataimport/backup.json
 
 # JWT Configuration
 jwt:

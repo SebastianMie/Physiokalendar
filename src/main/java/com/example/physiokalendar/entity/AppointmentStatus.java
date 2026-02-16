@@ -5,6 +5,7 @@ package com.example.physiokalendar.entity;
  */
 public enum AppointmentStatus {
     SCHEDULED,
+    CONFIRMED,
     CANCELLED,
     COMPLETED,
     NO_SHOW

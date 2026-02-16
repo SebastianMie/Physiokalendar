@@ -1,0 +1,17 @@
+# Ignore node modules and build artifacts
+node_modules
+Physiokalender-v2-UI/node_modules
+Physiokalender-v2-UI/dist
+target
+dist
+.DS_Store
+.git
+.gitignore
+.vscode
+.idea
+backups
+logs
+*.log
+*.tar.gz
+.env.local
+.env.*

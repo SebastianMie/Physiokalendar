@@ -1,0 +1,2 @@
+# Run full/incremental backup every day at 02:00 (server timezone)
+0 2 * * * /usr/local/bin/mysql_backup.sh >> /var/log/mysql_backup.log 2>&1

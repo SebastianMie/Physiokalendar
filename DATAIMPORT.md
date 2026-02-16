@@ -90,6 +90,8 @@ curl -X POST http://localhost:8080/api/dataimport/import \
   -d "filePath=src/main/java/com/example/physiokalendar/dataimport/backup.json"
 ```
 
+> Hinweis: Im `test`‑Profil kann der Import automatisch beim Start ausgeführt werden — `app.dataimport.enabled=true` in `application-test.yml` (verwendet dieselbe `backup.json`).
+
 ### 2. Direkt in Java-Code
 
 ```java

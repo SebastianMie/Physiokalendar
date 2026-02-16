@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
  */
 @RestController
 @RequestMapping("/api/audit")
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:5173"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:4201", "http://localhost:5173"})
 public class AuditController {
 
     private final AuditService auditService;
