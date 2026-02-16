@@ -63,7 +63,7 @@ public class AuditService {
 
         try {
             auditEventRepository.save(event);
-            log.debug("Recorded audit event: {} {} on {} #{}",
+            log.info("Recorded audit event: {} {} on {} #{}",
                     event.getAction(), event.getEntityType(),
                     event.getEntityId(), event.getActorUsername());
         } catch (Exception e) {

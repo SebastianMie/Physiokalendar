@@ -15,7 +15,7 @@ services:
     ports:
       - "${DB_PORT:-3306}:3306"
     volumes:
-      - physio-dev-db-data:/var/lib/mysql
+      - physiokalendar_db_data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 5s
@@ -67,6 +67,8 @@ services:
 volumes:
   physio-dev-db-data:
     name: physio-dev-db-data
+  physiokalendar_db_data:
+    external: true
 
 networks:
   physio-dev-network:

@@ -107,6 +107,41 @@ Basierend auf den vorhandenen Dateien (`compose.test.yml`, `Dockerfile`, `Docker
    docker compose -f compose.test.yml down -v
    ```
 
+## 3. Automatisierung (Backup + automatischer Import in Test)
+Folgende Skripte und Dienste sind im Repository enthalten, um Backups zu automatisieren und bei Bedarf Dev‑Dumps in die Test‑DB zu importieren:
+
+- `scripts/mysql_backup.sh` — tägliche Full/Incremental Backups (konfigurierbar, schreibt nach `/backup`).
+- `Dockerfile.backup` + `backup-cron` — Sidecar‑Container, der `mysql_backup.sh` per cron ausführt (Service `physio-test-backup` in `compose.test.yml`).
+- `scripts/sync_dev_to_test.sh` — erzeugt Dev‑Dump und spielt ihn in die Test‑DB ein (inkl. Test‑DB‑Backup, `--force` zum Überspringen von Fehlern).
+- `scripts/import_latest_to_test.sh` — importiert die neueste `dev_dump_*.sql.gz` aus `./backups/` in `physio-test-db` (legt zuvor ein Test‑Backup an).
+- `Makefile` — Shortcuts: `make backup-dev`, `make import-latest-to-test`, `make start-backup`.
+
+Beispiele (manuell):
+
+- Start Backup‑Sidecar (führt täglich Backups aus):
+  ```bash
+  docker compose -f compose.test.yml --env-file .env.test up -d physio-test-backup
+  ```
+
+- Erstelle sofortiges Dev‑Backup (lokal):
+  ```bash
+  make backup-dev
+  ```
+
+- Importiere das neueste Dev‑Backup in Test (non‑interactive):
+  ```bash
+  make import-latest-to-test
+  # oder:
+  bash scripts/import_latest_to_test.sh -y
+  ```
+
+- Cron (Host) — importiere Dev→Test jede Nacht um 03:30 (optional):
+  ```cron
+  30 3 * * * cd /path/to/Physiokalendar && ./scripts/import_latest_to_test.sh -y >> logs/import_cron.log 2>&1
+  ```
+
+---
+
 ## Hinweise
 - Die Testinstanz ist isoliert und beeinflusst nicht Ihre Dev/Prod-Umgebung.
 - Für Produktion verwenden Sie `compose.prod.yml`.

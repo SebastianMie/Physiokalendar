@@ -1,7 +1,9 @@
-FROM mysql:8.0.36
+FROM debian:bookworm-slim
 
-# Cron + bash are available in the Debian-based mysql image
-RUN apt-get update && apt-get install -y cron bash && rm -rf /var/lib/apt/lists/*
+# Install cron, bash and MySQL client
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends cron bash default-mysql-client ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy backup script and cron definition
 COPY mysql_backup.sh /usr/local/bin/mysql_backup.sh
@@ -11,8 +13,8 @@ RUN chmod +x /usr/local/bin/mysql_backup.sh && \
     crontab /etc/cron.d/backup-cron
 
 # Create backup dir
-RUN mkdir -p /backup && chown mysql:mysql /backup
+RUN mkdir -p /backup && chown 1000:1000 /backup || true
 VOLUME ["/backup"]
 
 # Run cron in foreground
-CMD ["cron", "-f"]
+CMD ["/usr/sbin/cron", "-f"]
