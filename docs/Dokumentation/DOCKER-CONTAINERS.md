@@ -183,4 +183,60 @@ Tipp: Für schnelle Java-Iterationen nutze `mvn spring-boot:run` lokal (IDE) sta
 
 ---
 
-Wenn du willst, ergänze ich noch ein kurzes Bash-/PowerShell-Skript zum automatischen Dumpen vor jedem `docker compose up --build` (z. B. pre-deploy hook). 💡
+## 🚀 Praktischer Plan: Dev → Test (konkret)
+Kurz, präzise Schritte, damit Änderungen aus deinem lokalen Coding‑Space sauber in die Test‑Instanz gelangen.
+
+### Ziel
+- Lokal entwickeln mit Hot‑Reload (VS Code / `./mvnw spring-boot:run` + `npm run dev`).
+- Bei „Promote to test“: lokalen Build erstellen, Images bauen, Test‑Compose neu starten (DB + Backup unangetastet).
+
+### 1) Lokale Entwicklung (Hot‑Reload) — empfohlen
+- Backend lokal: `./mvnw spring-boot:run -Dspring-boot.run.profiles=dev` (IDE/VS Code)
+- Frontend lokal: `cd Physiokalender-v2-UI && npm run dev`
+- Docker nur für Infrastruktur: `COMPOSE_PROJECT_NAME=physio-test docker compose -f docker-compose.yml -f compose.test.yml up -d physio-test-db physio-test-backup`
+
+Vorteil: sofortiges Hot‑Reload, persistente DB bleibt in Compose.
+
+### 2) Manuelle Promotion (Dev → Test) — minimal, sicher
+1. Option (lokal build): `./mvnw -DskipTests clean package`
+2. Frontend build: `cd Physiokalender-v2-UI && npm ci && npm run build`
+3. Build (Compose) + Deploy:
+   ```bash
+   COMPOSE_PROJECT_NAME=physio-test docker compose -f docker-compose.yml -f compose.test.yml up -d --remove-orphans --force-recreate --build physio-test-backend physio-test-frontend
+   ```
+4. Optional: Health‑Check / Smoke Test (z. B. `curl http://localhost:8081/actuator/health`)
+5. Wenn Probleme: restore DB aus `backups/` oder rollback auf vorheriges Image (siehe unten).
+
+One‑liner (alles nacheinander):
+```bash
+./mvnw -DskipTests clean package && cd Physiokalender-v2-UI && npm ci && npm run build && \
+  COMPOSE_PROJECT_NAME=physio-test docker compose -f docker-compose.yml -f compose.test.yml up -d --remove-orphans --force-recreate --build physio-test-backend physio-test-frontend
+```
+
+### 3) Script‑Unterstützung (lokal, ohne Git‑CI)
+- Neu: `scripts/redeploy-stack.sh` (bash) und `scripts/redeploy-stack.ps1` (PowerShell)
+- Zweck: `build` (optional MVN + FE), `docker compose build` + `up -d --force-recreate`, Health‑check‑Hinweis.
+- Beispiel (bash):
+  - `./scripts/redeploy-stack.sh test --mvn --frontend --no-cache`
+- Beispiel (PowerShell):
+  - `.\	ools\redeploy-stack.ps1 -env test -Maven -Frontend -NoCache`
+
+> Die Skripte sind in `scripts/` abgelegt — sie führen keine Git‑Operationen aus (lokal, ohne Registry).
+
+### 4) Rollback kurz
+- Halte das vorherige Image lokal (oder verwende Image‑Tags).
+- Rollback durch Start des vorherigen Tags oder vorherigen Compose‑Up (z. B. `docker compose up -d --no-deps --force-recreate <service>` nachdem du das `image:`-Tag angepasst hast).
+
+### 5) Kurzplan für Self‑hosted Runner / spätere Automation (Phase 1 → 3)
+- Phase 1 (sofort): On push to `test` branch → runner macht `./mvnw -DskipTests package`, `npm run build`, `docker compose -f docker-compose.yml -f compose.test.yml up -d --build` (local runner auf deinem Dev‑Rechner). No registry required.
+- Phase 2: füge Unit/Integration tests hinzu, deploy nur bei grün.
+- Phase 3: Release tags → tag images → deploy prod stack.
+
+---
+
+### Dateien: Scripts (bereits angelegt)
+- `scripts/redeploy-stack.sh` — Bash (Windows/Git‑Bash / Linux / macOS)
+- `scripts/redeploy-stack.ps1` — PowerShell (Windows)
+
+Beispiele und Usage stehen direkt in den Skripten. Willst du, dass ich die VS Code‑Tasks (`tasks.json`) so anpasse, dass ein Task `Rebuild & Deploy → test` die neuen Skripte aufruft? 🔧
+

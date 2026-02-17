@@ -30,13 +30,14 @@ public class SlotSearchDTO {
         private Long excludePatientId; // Optional: exclude patient's existing appointments
     }
 
+
     /**
      * Day part enum for filtering.
      */
     public enum DayPart {
         MORNING,    // 06:00 - 12:00
-        AFTERNOON,  // 12:00 - 17:00
-        EVENING     // 17:00 - 21:00
+        AFTERNOON,  // 12:00 - 19:30
+        EVENING     // 19:30 - 21:00
     }
 
     /**
