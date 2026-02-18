@@ -1,5 +1,9 @@
 name: Deploy → Docker Desktop (self-hosted)
 
+permissions:
+  issues: write
+  contents: read
+
 on:
   workflow_dispatch:
     inputs:
@@ -125,4 +129,4 @@ jobs:
           script: |
             const title = `[ALERT] Deploy failed on runner ${process.env['RUNNER_NAME'] || 'self-hosted'}`;
             const body = `**Workflow**: ${context.workflow}\n**Ref**: ${process.env.GITHUB_REF}\n**Runner**: ${process.env.RUNNER_NAME}\n\n**Backend logs (tail)**:\n\n\`\`\`\n${process.env.BACKEND_LOGS || '(no backend logs)'}\n\`\`\`\n\n**DB logs (tail)**:\n\n\`\`\`\n${process.env.DB_LOGS || '(no db logs)'}\n\`\`\`\n\n**Frontend logs (tail)**:\n\n\`\`\`\n${process.env.FRONTEND_LOGS || '(no frontend logs)'}\n\`\`\`\n`;
-            await github.issues.create({ owner: context.repo.owner, repo: context.repo.repo, title, body, labels: ['incident','auto-deploy'] });
+            await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo, title, body, labels: ['incident','auto-deploy'] });
