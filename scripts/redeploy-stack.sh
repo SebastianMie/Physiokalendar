@@ -47,6 +47,10 @@ if $DO_MVN; then
   fi
   echo "[redeploy] Running Maven package (skip tests)..."
   "$MVNW" -DskipTests clean package
+  echo "[redeploy] Maven build finished. Listing target/*.jar:"
+  ls -l target/*.jar || true
+  echo "[redeploy] Displaying JAR file details (size + timestamp):"
+  for f in target/*.jar; do echo " - $f -> $(stat -c '%y %s' "$f" 2>/dev/null || date -r "$f" '+%F %T')"; done || true
 fi
 
 if $DO_FE; then
@@ -61,6 +65,10 @@ if $DO_FE; then
     pushd "$FE_DIR" >/dev/null
     npm ci
     npm run build
+    echo "[redeploy] Frontend build finished. Listing dist/ directory:"
+    ls -la dist/ || true
+    echo "[redeploy] Dist summary (top files):"
+    ls -la dist/physiokalender-v2-ui | head -n 40 || true
     popd >/dev/null
   else
     echo "[redeploy] Frontend folder not found: Physiokalender-v2-UI or ../Physiokalender-v2-UI"; exit 3
@@ -69,6 +77,10 @@ fi
 
 echo "[redeploy] Building Docker images (compose)..."
 COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT docker compose $COMPOSE_FILES build $NO_CACHE --parallel
+
+# show the images that were just built (helpful for CI logs)
+echo "[redeploy] Docker images after build (recent matches):"
+docker images --format '{{.Repository}}:{{.Tag}}\t{{.ID}}\t{{.CreatedSince}}\t{{.Size}}' | egrep 'physio|physiokalender' || docker images --format '{{.Repository}}:{{.Tag}}\t{{.ID}}\t{{.CreatedSince}}\t{{.Size}}'
 
 echo "[redeploy] Deploying stack (force recreate — DB excluded by default)..."
 # Recreate only application containers by default (do NOT touch DB unless explicitly requested)
