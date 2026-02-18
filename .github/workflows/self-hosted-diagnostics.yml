@@ -1,0 +1,45 @@
+name: Self-hosted Runner Diagnostics
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose-runner:
+    name: Diagnose self-hosted runner
+    # requires a self-hosted runner to pick this up
+    runs-on: [self-hosted, windows]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Print runner info
+        run: |
+          echo "RUNNER_NAME=$RUNNER_NAME"
+          echo "RUNNER_OS=$RUNNER_OS"
+          echo "RUNNER_TEMP=$RUNNER_TEMP"
+          echo "RUNNER_TOOL_CACHE=$RUNNER_TOOL_CACHE"
+          echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
+          echo "Labels present on this runner:"
+          curl -s "https://api.github.com/repos/${{ github.repository_owner }}/${{ github.event.repository.name }}/actions/runners" | jq -r '.runners[] | select(.name==env.RUNNER_NAME) | .labels[].name' || true
+        shell: powershell
+
+      - name: Check Docker availability
+        run: |
+          docker --version || echo 'docker not found'
+          docker info --format '{{json .}}' || echo 'docker info failed'
+          docker ps -a
+        shell: powershell
+
+      - name: List repo files (workspace)
+        run: |
+          ls -la
+        shell: powershell
+
+      - name: Quick disk usage
+        run: |
+          Get-PSDrive -PSProvider FileSystem | Select-Object Name,Free,Used,Provider
+        shell: powershell
+
+      - name: Emit success marker
+        run: echo "diagnostics-complete"
