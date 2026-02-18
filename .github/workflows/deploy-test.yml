@@ -1,0 +1,33 @@
+name: Deploy → Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Image tag to deploy (default: latest)'
+        required: false
+        default: 'latest'
+
+jobs:
+  deploy-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to TEST server via SSH
+        uses: appleboy/ssh-action@v0.1.9
+        with:
+          host: ${{ secrets.DEPLOY_HOST_TEST }}
+          username: ${{ secrets.DEPLOY_USER_TEST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
+          port: ${{ secrets.DEPLOY_SSH_PORT_TEST || '22' }}
+          script: |
+            set -euo pipefail
+            cd /var/www/physiokalendar || exit 1
+            git fetch --all
+            git reset --hard origin/main
+            ./scripts/redeploy-stack.sh test --mvn --no-cache
+            # smoke check (remote)
+            sleep 6
+            curl --fail -sS http://localhost:8080/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)
