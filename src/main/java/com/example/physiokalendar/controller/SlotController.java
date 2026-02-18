@@ -41,4 +41,6 @@ public class SlotController {
         SlotSearchDTO.Response result = slotSearchService.searchSlots(request);
         return ResponseEntity.ok(result);
     }
+
+
 }

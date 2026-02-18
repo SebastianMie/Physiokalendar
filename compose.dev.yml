@@ -1,11 +1,12 @@
 # Development Docker Compose Stack
-# Ports: Frontend 4200, Backend 8082, DB 3306
-# Usage: docker compose -f compose.dev.yml --env-file .env.dev up -d
+# NOTE: Backend/Frontend containerized dev removed — run both locally (IDE / npm).
+# Use the top-level `docker-compose.yml` (or this file) only to start the DB container.
+# Usage: docker compose -f docker-compose.yml --env-file .env.dev up -d
 
 services:
   physio-dev-db:
     image: mysql:8.0.36
-    container_name: physio-dev-db
+    container_name: ${COMPOSE_PROJECT_NAME:-physio-dev}-db
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_NAME:-physiocalendar_dev}
@@ -15,7 +16,7 @@ services:
     ports:
       - "${DB_PORT:-3306}:3306"
     volumes:
-      - physiokalendar_db_data:/var/lib/mysql
+      - physio-dev-db-data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 5s
@@ -23,54 +24,16 @@ services:
     networks:
       - physio-dev-network
 
-  physio-dev-backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: physio-dev-backend
-    restart: unless-stopped
-    depends_on:
-      physio-dev-db:
-        condition: service_healthy
-    environment:
-      SPRING_PROFILES_ACTIVE: dev
-      SPRING_DATASOURCE_URL: jdbc:mysql://physio-dev-db:3306/${DB_NAME:-physiocalendar_dev}
-      SPRING_DATASOURCE_USERNAME: ${DB_USER:-physiouser}
-      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-devpassword}
-      APP_ENVIRONMENT: dev
-      MAIL_ENABLED: "false"
-      MAIL_REDIRECT_ALL: "true"
-      MAIL_REDIRECT_TO: ${TEST_MAIL_TO:-dev-inbox@localhost}
-      SEED_DATA_ENABLED: "true"
-    ports:
-      - "${BACKEND_PORT:-8082}:8080"
-    networks:
-      - physio-dev-network
-
-  physio-dev-frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-      args:
-        BUILD_ENV: development
-    container_name: physio-dev-frontend
-    restart: unless-stopped
-    depends_on:
-      - physio-dev-backend
-    environment:
-      API_URL: http://physio-dev-backend:8080
-    ports:
-      - "${FRONTEND_PORT:-4200}:80"
-    networks:
-      - physio-dev-network
+# Removed: physio-dev-backend + physio-dev-frontend — run locally with `./mvnw spring-boot:run` and `npm run dev`.
+# If you need containerized dev versions, re-add the service blocks or use `compose.test.yml` for containerized testing.
 
 volumes:
   physio-dev-db-data:
     name: physio-dev-db-data
-  physiokalendar_db_data:
     external: true
 
 networks:
   physio-dev-network:
     name: physio-dev-network
     driver: bridge
+    external: true

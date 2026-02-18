@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -56,6 +57,7 @@ public class AdminController {
         String password = (String) request.get("password");
         String roleStr = (String) request.get("role");
         Object therapistIdObj = request.get("therapistId");
+        String email = (String) request.get("email");
 
         if (username == null || password == null) {
             return ResponseEntity.badRequest().build();
@@ -65,10 +67,21 @@ public class AdminController {
             return ResponseEntity.badRequest().body(Map.of("error", "Username already exists"));
         }
 
+        // ensure email is present (DB requires non-null). Use a safe default if frontend didn't provide one
+        if (email == null || email.isBlank()) {
+            email = username + "@example.local";
+        }
+
         User user = new User();
         user.setUsername(username);
+        user.setEmail(email);
         user.setPassword(passwordEncoder.encode(password));
-        user.setRole(roleStr != null ? Role.valueOf(roleStr) : Role.THERAPIST);
+
+        try {
+            user.setRole(roleStr != null ? Role.valueOf(roleStr) : Role.THERAPIST);
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.badRequest().body(Map.of("error", "Invalid role"));
+        }
 
         if (therapistIdObj != null) {
             if (therapistIdObj instanceof Integer) {
@@ -78,7 +91,13 @@ public class AdminController {
             }
         }
 
-        User saved = userRepository.save(user);
+        User saved;
+        try {
+            saved = userRepository.save(user);
+        } catch (DataIntegrityViolationException ex) {
+            // return readable message instead of HTTP 500
+            return ResponseEntity.badRequest().body(Map.of("error", "Constraint violation: " + ex.getMostSpecificCause().getMessage()));
+        }
 
         return ResponseEntity.ok(Map.<String, Object>of(
             "id", saved.getId(),

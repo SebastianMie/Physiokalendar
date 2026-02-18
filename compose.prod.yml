@@ -5,7 +5,7 @@
 services:
   physio-prod-db:
     image: mysql:8.0.36
-    container_name: physio-prod-db
+    container_name: ${COMPOSE_PROJECT_NAME:-physio-prod}-db
     restart: always
     environment:
       MYSQL_DATABASE: ${DB_NAME:-physiocalendar}
@@ -28,6 +28,7 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     container_name: physio-prod-backend
+    image: physio-prod-backend:latest
     restart: always
     depends_on:
       physio-prod-db:
@@ -48,6 +49,12 @@ services:
       SEED_DATA_ENABLED: "false"
     ports:
       - "127.0.0.1:${BACKEND_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
     networks:
       - physio-prod-network
 
@@ -58,6 +65,7 @@ services:
       args:
         BUILD_ENV: production
     container_name: physio-prod-frontend
+    image: physio-prod-frontend:latest
     restart: always
     depends_on:
       - physio-prod-backend
@@ -72,8 +80,10 @@ services:
 volumes:
   physio-prod-db-data:
     name: physio-prod-db-data
+    external: true
 
 networks:
   physio-prod-network:
     name: physio-prod-network
     driver: bridge
+    external: true

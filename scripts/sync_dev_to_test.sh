@@ -63,18 +63,24 @@ TEST_BACKUP="$BACKUP_DIR/test_backup_before_import_$TIMESTAMP.sql.gz"
 # Helper: run mysqldump on host or inside Docker container if client not available
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 
+# determine compose project names (fall back to defaults if not set in env files)
+DEV_PROJECT="$(grep -E '^COMPOSE_PROJECT_NAME=' "$ROOT_DIR/.env.dev" 2>/dev/null | cut -d= -f2 || echo 'physio-dev')"
+TEST_PROJECT="$(grep -E '^COMPOSE_PROJECT_NAME=' "$ROOT_DIR/.env.test" 2>/dev/null | cut -d= -f2 || echo 'physio-test')"
+DEV_DB_CONTAINER="${DEV_PROJECT}-db"
+TEST_DB_CONTAINER="${TEST_PROJECT}-db"
+
 # Try host mysqldump first
 if have_cmd mysqldump; then
   echo "Dumping dev DB with local mysqldump..."
   mysqldump -h 127.0.0.1 -P "$DEV_DB_PORT" -u "$DEV_DB_USER" -p"$DEV_DB_PASS" \
     --single-transaction --routines --triggers --events "$DEV_DB_NAME" | gzip > "$DEV_DUMP"
 else
-  # fallback to docker exec (container must be named in compose: physio-dev-db)
-  if docker ps --format '{{.Names}}' | grep -q "physio-dev-db"; then
-    echo "Local mysqldump not found — using docker exec on 'physio-dev-db' container..."
-    docker exec -i physio-dev-db sh -c "exec mysqldump -u$DEV_DB_USER -p\"$DEV_DB_PASS\" --single-transaction --routines --triggers --events $DEV_DB_NAME" | gzip > "$DEV_DUMP"
+  # fallback to docker exec (container must be named in compose: ${DEV_DB_CONTAINER})
+  if docker ps --format '{{.Names}}' | grep -q "${DEV_DB_CONTAINER}"; then
+    echo "Local mysqldump not found — using docker exec on '${DEV_DB_CONTAINER}' container..."
+    docker exec -i "${DEV_DB_CONTAINER}" sh -c "exec mysqldump -u$DEV_DB_USER -p\"$DEV_DB_PASS\" --single-transaction --routines --triggers --events $DEV_DB_NAME" | gzip > "$DEV_DUMP"
   else
-    echo "ERROR: mysqldump not available and 'physio-dev-db' container not found."; exit 2
+    echo "ERROR: mysqldump not available and '${DEV_DB_CONTAINER}' container not found."; exit 2
   fi
 fi
 
@@ -87,10 +93,10 @@ if have_cmd mysqldump; then
   mysqldump -h 127.0.0.1 -P "$TEST_DB_PORT" -u "$TEST_DB_USER" -p"$TEST_DB_PASS" \
     --single-transaction --routines --triggers --events "$TEST_DB_NAME" | gzip > "$TEST_BACKUP" || echo "Warning: test DB backup failed (continuing)"
 else
-  if docker ps --format '{{.Names}}' | grep -q "physio-test-db"; then
-    docker exec -i physio-test-db sh -c "exec mysqldump -u$TEST_DB_USER -p\"$TEST_DB_PASS\" --single-transaction --routines --triggers --events $TEST_DB_NAME" | gzip > "$TEST_BACKUP" || echo "Warning: test DB backup failed (continuing)"
+  if docker ps --format '{{.Names}}' | grep -q "${TEST_DB_CONTAINER}"; then
+    docker exec -i "${TEST_DB_CONTAINER}" sh -c "exec mysqldump -u$TEST_DB_USER -p\"$TEST_DB_PASS\" --single-transaction --routines --triggers --events $TEST_DB_NAME" | gzip > "$TEST_BACKUP" || echo "Warning: test DB backup failed (continuing)"
   else
-    echo "Warning: cannot backup test DB (mysql client missing and physio-test-db not found)"
+    echo "Warning: cannot backup test DB (mysql client missing and ${TEST_DB_CONTAINER} not found)"
   fi
 fi
 
@@ -98,8 +104,8 @@ fi
 if have_cmd mysql; then
   mysql -h 127.0.0.1 -P "$TEST_DB_PORT" -u "$TEST_DB_USER" -p"$TEST_DB_PASS" -e "CREATE DATABASE IF NOT EXISTS \`$TEST_DB_NAME\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" || true
 else
-  if docker ps --format '{{.Names}}' | grep -q "physio-test-db"; then
-    docker exec -i physio-test-db sh -c "mysql -u$TEST_DB_USER -p\"$TEST_DB_PASS\" -e \"CREATE DATABASE IF NOT EXISTS \\\\`$TEST_DB_NAME\\\\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\"" || true
+  if docker ps --format '{{.Names}}' | grep -q "${TEST_DB_CONTAINER}"; then
+    docker exec -i "${TEST_DB_CONTAINER}" sh -c "mysql -u$TEST_DB_USER -p\"$TEST_DB_PASS\" -e \"CREATE DATABASE IF NOT EXISTS \\\`$TEST_DB_NAME\\\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\"" || true
   fi
 fi
 
@@ -108,10 +114,10 @@ echo "Importing dev dump into test DB (errors will be skipped)..."
 if have_cmd mysql; then
   gunzip -c "$DEV_DUMP" | sed "s/\b$DEV_DB_NAME\b/$TEST_DB_NAME/g" | awk 'BEGIN{print "SET FOREIGN_KEY_CHECKS=0;"} {print} END{print "SET FOREIGN_KEY_CHECKS=1;"}' | mysql -h 127.0.0.1 -P "$TEST_DB_PORT" -u "$TEST_DB_USER" -p"$TEST_DB_PASS" --force "$TEST_DB_NAME"
 else
-  if docker ps --format '{{.Names}}' | grep -q "physio-test-db"; then
-    gunzip -c "$DEV_DUMP" | sed "s/\b$DEV_DB_NAME\b/$TEST_DB_NAME/g" | awk 'BEGIN{print "SET FOREIGN_KEY_CHECKS=0;"} {print} END{print "SET FOREIGN_KEY_CHECKS=1;"}' | docker exec -i physio-test-db sh -c "mysql -u$TEST_DB_USER -p\"$TEST_DB_PASS\" --force $TEST_DB_NAME"
+  if docker ps --format '{{.Names}}' | grep -q "${TEST_DB_CONTAINER}"; then
+    gunzip -c "$DEV_DUMP" | sed "s/\b$DEV_DB_NAME\b/$TEST_DB_NAME/g" | awk 'BEGIN{print "SET FOREIGN_KEY_CHECKS=0;"} {print} END{print "SET FOREIGN_KEY_CHECKS=1;"}' | docker exec -i "${TEST_DB_CONTAINER}" sh -c "mysql -u$TEST_DB_USER -p\"$TEST_DB_PASS\" --force $TEST_DB_NAME"
   else
-    echo "ERROR: cannot import — mysql client not available and physio-test-db not found."; exit 4
+    echo "ERROR: cannot import — mysql client not available and ${TEST_DB_CONTAINER} not found."; exit 4
   fi
 fi
 

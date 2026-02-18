@@ -86,6 +86,62 @@
       }
     },
     {
+      "label": "Rebuild & Redeploy (test)",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "./scripts/redeploy-stack.sh test"],
+      "isBackground": false,
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Rebuild & Redeploy (test, with local build)",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "./scripts/redeploy-stack.sh test --mvn --frontend --no-cache"],
+      "isBackground": false,
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Deploy (dev → test)",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "./scripts/deploy.sh --from dev --to test"],
+      "isBackground": false,
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Deploy (dev → prod)",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "./scripts/deploy.sh --from dev --to prod --no-cache"],
+      "isBackground": false,
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared"
+      }
+    },
+    {
       "label": "Start Full Stack (Backend + Frontend)",
       "dependsOn": ["Start Angular Frontend"],
       "dependsOrder": "parallel",

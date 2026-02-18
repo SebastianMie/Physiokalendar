@@ -1,3 +1,4 @@
+com\example\physiokalendar\config\DatabaseSanityCheck.class
 com\example\physiokalendar\repository\CancellationRepository.class
 com\example\physiokalendar\dto\CalendarRangeDTO$CalendarSeriesInstanceDTO.class
 com\example\physiokalendar\controller\HomeController.class

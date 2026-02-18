@@ -105,60 +105,60 @@ public class DataImportService {
             JsonNode rootNode = mapper.readTree(new File(filePath));
 
             // 1. Importiere Therapeuten
-            if (rootNode.has("therapists") && rootNode.get("therapists").isArray()) {
-                errorWriter.write("\n--- Importiere Therapeuten ---\n");
-                Iterator<JsonNode> therapists = rootNode.get("therapists").elements();
-                while (therapists.hasNext()) {
-                    try {
-                        JsonNode therapistNode = therapists.next();
-                        importTherapist(therapistNode, errorWriter);
-                    } catch (Exception thEx) {
-                        errorWriter.write("[ERROR] Therapeut-Import fehlgeschlagen: " + thEx.getMessage() + "\n");
-                        errorWriter.flush();
-                    }
-                }
-            }
+            // if (rootNode.has("therapists") && rootNode.get("therapists").isArray()) {
+            //     errorWriter.write("\n--- Importiere Therapeuten ---\n");
+            //     Iterator<JsonNode> therapists = rootNode.get("therapists").elements();
+            //     while (therapists.hasNext()) {
+            //         try {
+            //             JsonNode therapistNode = therapists.next();
+            //             importTherapist(therapistNode, errorWriter);
+            //         } catch (Exception thEx) {
+            //             errorWriter.write("[ERROR] Therapeut-Import fehlgeschlagen: " + thEx.getMessage() + "\n");
+            //             errorWriter.flush();
+            //         }
+            //     }
+            // }
 
-            // 2. Importiere Patienten aus der Daylist (um alle Patienten zu erfassen)
-            if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
-                errorWriter.write("\n--- Importiere Patienten ---\n");
-                JsonNode elementsNode = rootNode.get("daylist").get("elements");
-                if (elementsNode.isArray()) {
-                    Iterator<JsonNode> days = elementsNode.elements();
-                    while (days.hasNext()) {
-                        try {
-                            JsonNode day = days.next();
-                            importPatientsFromDay(day, errorWriter);
-                        } catch (Exception patEx) {
-                            errorWriter.write("[ERROR] Patient-Import fehlgeschlagen: " + patEx.getMessage() + " - weiter mit nächstem\n");
-                            errorWriter.flush();
-                        }
-                    }
-                }
-            }
-
-            // 3. Importiere Einzeltermine aus der Daylist
+            // // 2. Importiere Patienten aus der Daylist (um alle Patienten zu erfassen)
             // if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
-            //     errorWriter.write("\n--- Importiere Einzeltermine (Daylist) ---\n");
+            //     errorWriter.write("\n--- Importiere Patienten ---\n");
             //     JsonNode elementsNode = rootNode.get("daylist").get("elements");
-            //     errorWriter.write("[DEBUG] Total Tage im daylist: " + elementsNode.size() + "\n");
-            //     errorWriter.flush();
             //     if (elementsNode.isArray()) {
-            //         // !!! WICHTIG: NEUER ITERATOR FÜR JEDEN DURCHGANG !!!
-            //         for (int i = 0; i < elementsNode.size(); i++) {
+            //         Iterator<JsonNode> days = elementsNode.elements();
+            //         while (days.hasNext()) {
             //             try {
-            //                 JsonNode day = elementsNode.get(i);
-            //                 errorWriter.write("[DEBUG] Verarbeite Tag " + (i + 1) + " von " + elementsNode.size() + "\n");
+            //                 JsonNode day = days.next();
+            //                 importPatientsFromDay(day, errorWriter);
+            //             } catch (Exception patEx) {
+            //                 errorWriter.write("[ERROR] Patient-Import fehlgeschlagen: " + patEx.getMessage() + " - weiter mit nächstem\n");
             //                 errorWriter.flush();
-            //                 importAppointmentsForDay(day, errorWriter);
-            //             } catch (Exception dayEx) {
-            //                 errorWriter.write("[ERROR] Tag " + (i + 1) + " fehlgeschlagen: " + dayEx.getClass().getSimpleName() + ": " + dayEx.getMessage() + " - weiter mit nächstem Tag\n");
-            //                 errorWriter.flush();
-            //                 // Continue with next day - don't abort entire import
             //             }
             //         }
             //     }
             // }
+
+            // 3. Importiere Einzeltermine aus der Daylist
+            if (rootNode.has("daylist") && rootNode.get("daylist").has("elements")) {
+                errorWriter.write("\n--- Importiere Einzeltermine (Daylist) ---\n");
+                JsonNode elementsNode = rootNode.get("daylist").get("elements");
+                errorWriter.write("[DEBUG] Total Tage im daylist: " + elementsNode.size() + "\n");
+                errorWriter.flush();
+                if (elementsNode.isArray()) {
+                    // !!! WICHTIG: NEUER ITERATOR FÜR JEDEN DURCHGANG !!!
+                    for (int i = 0; i < elementsNode.size(); i++) {
+                        try {
+                            JsonNode day = elementsNode.get(i);
+                            errorWriter.write("[DEBUG] Verarbeite Tag " + (i + 1) + " von " + elementsNode.size() + "\n");
+                            errorWriter.flush();
+                            importAppointmentsForDay(day, errorWriter);
+                        } catch (Exception dayEx) {
+                            errorWriter.write("[ERROR] Tag " + (i + 1) + " fehlgeschlagen: " + dayEx.getClass().getSimpleName() + ": " + dayEx.getMessage() + " - weiter mit nächstem Tag\n");
+                            errorWriter.flush();
+                            // Continue with next day - don't abort entire import
+                        }
+                    }
+                }
+            }
 
             // 4. Importiere Serientermine aus der Masterlist
             if (rootNode.has("masterlist") && rootNode.get("masterlist").has("elements")) {

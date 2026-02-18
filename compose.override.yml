@@ -1,0 +1,21 @@
+# Optional overrides for local development (docker compose -f compose.test.yml -f compose.override.yml ...)
+# - mounts source for iterative development
+# - exposes frontend dev server port
+
+services:
+  physio-test-backend:
+    # mount source into container and run via Maven (example only)
+    volumes:
+      - ./src:/usr/src/app/src:ro
+      - ./pom.xml:/usr/src/app/pom.xml:ro
+    command: mvn -DskipTests -pl . spring-boot:run
+    environment:
+      - SPRING_PROFILES_ACTIVE=test
+
+  physio-test-frontend:
+    # mount UI sources for live reload (alternative to running `npm run dev` locally)
+    volumes:
+      - ./Physiokalender-v2-UI:/app:rw
+    command: sh -c "cd /app && npm ci && npm run dev -- --host 0.0.0.0 --port 4201"
+    ports:
+      - "4201:4201"

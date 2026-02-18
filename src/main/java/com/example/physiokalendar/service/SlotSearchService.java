@@ -1,6 +1,12 @@
 package com.example.physiokalendar.service;
 
-import com.example.physiokalendar.dto.SlotSearchDTO.*;
+import com.example.physiokalendar.dto.SlotSearchDTO;
+import com.example.physiokalendar.dto.SlotSearchDTO.Request;
+import com.example.physiokalendar.dto.SlotSearchDTO.Response;
+import com.example.physiokalendar.dto.SlotSearchDTO.SlotDTO;
+import com.example.physiokalendar.dto.SlotSearchDTO.SlotGroupDTO;
+
+import com.example.physiokalendar.dto.SlotSearchDTO.DayPart;
 import com.example.physiokalendar.entity.*;
 import com.example.physiokalendar.repository.*;
 import lombok.extern.slf4j.Slf4j;
@@ -128,6 +134,8 @@ public class SlotSearchService {
                 .totalSlotsFound(totalSlots)
                 .build();
     }
+
+
 
     /**
      * Get all busy intervals for a therapist on a specific date.
@@ -293,12 +301,14 @@ public class SlotSearchService {
     private DayPart determineDayPart(LocalTime time) {
         if (time.isBefore(LocalTime.of(12, 0))) {
             return DayPart.MORNING;
-        } else if (time.isBefore(LocalTime.of(17, 0))) {
+        } else if (time.isBefore(LocalTime.of(19, 30))) {
             return DayPart.AFTERNOON;
         } else {
             return DayPart.EVENING;
         }
     }
+
+
 
     private DayOfWeek parseWeekday(String weekday) {
         if (weekday == null) return null;

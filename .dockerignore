@@ -2,6 +2,7 @@
 node_modules
 Physiokalender-v2-UI/node_modules
 Physiokalender-v2-UI/dist
+!Physiokalender-v2-UI/dist/
 target
 dist
 .DS_Store

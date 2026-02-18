@@ -1,0 +1,28 @@
+name: Deploy → Prod (manual approval required)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to PROD server via SSH
+        uses: appleboy/ssh-action@v0.1.9
+        with:
+          host: ${{ secrets.DEPLOY_HOST_PROD }}
+          username: ${{ secrets.DEPLOY_USER_PROD }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_PROD }}
+          port: ${{ secrets.DEPLOY_SSH_PORT_PROD || '22' }}
+          script: |
+            set -euo pipefail
+            cd /var/www/physiokalendar || exit 1
+            git fetch --all
+            git reset --hard origin/main
+            ./scripts/deploy.sh --from test --to prod --no-cache --confirm-prod
+            sleep 6
+            curl --fail -sS http://localhost:8080/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)
