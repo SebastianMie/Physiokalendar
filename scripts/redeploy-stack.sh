@@ -50,14 +50,20 @@ if $DO_MVN; then
 fi
 
 if $DO_FE; then
+  FE_DIR=""
   if [[ -d Physiokalender-v2-UI ]]; then
-    echo "[redeploy] Building frontend..."
-    pushd Physiokalender-v2-UI >/dev/null
+    FE_DIR="Physiokalender-v2-UI"
+  elif [[ -d ../Physiokalender-v2-UI ]]; then
+    FE_DIR="../Physiokalender-v2-UI"
+  fi
+  if [[ -n "$FE_DIR" ]]; then
+    echo "[redeploy] Building frontend from: $FE_DIR"
+    pushd "$FE_DIR" >/dev/null
     npm ci
     npm run build
     popd >/dev/null
   else
-    echo "[redeploy] Frontend folder not found: Physiokalender-v2-UI"; exit 3
+    echo "[redeploy] Frontend folder not found: Physiokalender-v2-UI or ../Physiokalender-v2-UI"; exit 3
   fi
 fi
 

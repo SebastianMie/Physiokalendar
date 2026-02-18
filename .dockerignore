@@ -1,8 +1,6 @@
 # Ignore node modules and build artifacts
 node_modules
-Physiokalender-v2-UI/node_modules
-Physiokalender-v2-UI/dist
-!Physiokalender-v2-UI/dist/
+# frontend moved to separate repo — remove Physiokalender-v2-UI/* entries from backend .dockerignore
 target
 dist
 .DS_Store

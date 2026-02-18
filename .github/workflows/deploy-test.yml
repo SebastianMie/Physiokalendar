@@ -9,7 +9,51 @@ on:
         default: 'latest'
 
 jobs:
-  deploy-test:
+  detect-selfhosted:
+    name: Detect any self-hosted runner
+    runs-on: ubuntu-latest
+    outputs:
+      any_available: ${{ steps.check.outputs.any_available }}
+    steps:
+      - id: check
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const res = await github.rest.actions.listSelfHostedRunnersForRepo({ owner: context.repo.owner, repo: context.repo.repo });
+            const runners = res.data.runners || [];
+            const any = runners.some(r => r.status === 'online');
+            core.setOutput('any_available', any ? 'true' : 'false');
+
+  deploy-selfhosted:
+    name: Deploy → TEST (self-hosted)
+    needs: detect-selfhosted
+    if: needs.detect-selfhosted.outputs.any_available == 'true'
+    runs-on: [self-hosted]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to TEST server via SSH
+        uses: appleboy/ssh-action@v0.1.9
+        with:
+          host: ${{ secrets.DEPLOY_HOST_TEST }}
+          username: ${{ secrets.DEPLOY_USER_TEST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
+          port: ${{ secrets.DEPLOY_SSH_PORT_TEST || '22' }}
+          script: |
+            set -euo pipefail
+            cd /var/www/physiokalendar || exit 1
+            git fetch --all
+            git reset --hard origin/main
+            ./scripts/redeploy-stack.sh test --mvn --no-cache
+            # smoke check (remote)
+            sleep 6
+            curl --fail -sS http://localhost:8080/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)
+
+  deploy-hosted:
+    name: Deploy → TEST (github-hosted)
+    needs: detect-selfhosted
+    if: needs.detect-selfhosted.outputs.any_available != 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

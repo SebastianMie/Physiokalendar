@@ -54,8 +54,13 @@ jobs:
           chmod +x mvnw
           ./mvnw -B -DskipTests=false clean verify
 
+      - name: Check for test reports
+        id: check_reports
+        run: |
+          if [ -d "target/surefire-reports" ]; then echo "found=true" >> $GITHUB_OUTPUT; else echo "found=false" >> $GITHUB_OUTPUT; fi
+
       - name: Upload test reports
-        if: always()
+        if: steps.check_reports.outputs.found == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: surefire-reports

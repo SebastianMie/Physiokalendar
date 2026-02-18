@@ -4,10 +4,89 @@ on:
   push:
     branches:
       - main
+      - master
       - 'release/**'
 
 jobs:
-  build-and-push:
+  detect-selfhosted:
+    name: Detect self-hosted Linux runner
+    runs-on: ubuntu-latest
+    outputs:
+      linux_available: ${{ steps.check.outputs.linux_available }}
+    steps:
+      - id: check
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const res = await github.rest.actions.listSelfHostedRunnersForRepo({ owner: context.repo.owner, repo: context.repo.repo });
+            const runners = res.data.runners || [];
+            const linuxAvailable = runners.some(r => r.status === 'online' && r.labels.some(l => /linux|ubuntu/i.test(l.name)));
+            core.setOutput('linux_available', linuxAvailable ? 'true' : 'false');
+
+  build-and-push-selfhosted:
+    name: Build & Push (self-hosted)
+    needs: detect-selfhosted
+    if: needs.detect-selfhosted.outputs.linux_available == 'true'
+    runs-on: [self-hosted, linux]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Cache buildx layers
+        uses: actions/cache@v4
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Detect frontend sources in repository
+        id: detect_frontend
+        run: |
+          if [ -d "Physiokalender-v2-UI" ] || [ -d "Physiokalendar-v2-UI" ]; then echo "frontend_present=true" >> $GITHUB_OUTPUT; else echo "frontend_present=false" >> $GITHUB_OUTPUT; fi
+
+      - name: Build and push (backend image)
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: Dockerfile.test
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/physiokalender-backend:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
+
+      - name: Build and push (frontend image)
+        if: steps.detect_frontend.outputs.frontend_present == 'true'
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: Dockerfile.frontend
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
+
+  build-and-push-hosted:
+    name: Build & Push (github-hosted)
+    needs: detect-selfhosted
+    if: needs.detect-selfhosted.outputs.linux_available != 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,7 +113,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push (test image)
+      - name: Detect frontend sources in repository
+        id: detect_frontend
+        run: |
+          if [ -d "Physiokalender-v2-UI" ] || [ -d "Physiokalendar-v2-UI" ]; then echo "frontend_present=true" >> $GITHUB_OUTPUT; else echo "frontend_present=false" >> $GITHUB_OUTPUT; fi
+
+      - name: Build and push (backend image)
         uses: docker/build-push-action@v4
         with:
           context: .
@@ -45,3 +129,20 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/physiokalender-backend:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
+
+      - name: Build and push (frontend image)
+        if: steps.detect_frontend.outputs.frontend_present == 'true'
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: Dockerfile.frontend
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
+
+      # NOTE: if your frontend lives in a different repository, prefer adding a CI workflow to that repo
+      # and push the frontend image from there. Alternatively we can `actions/checkout` the frontend repo
+      # into path `Physiokalender-v2-UI` (requires PAT/permissions).
