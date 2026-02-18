@@ -7,6 +7,9 @@ on:
         description: 'Which stack to deploy: dev or test'
         required: false
         default: 'test'
+  push:
+    branches:
+      - test
 
 jobs:
   deploy-local:
@@ -14,20 +17,23 @@ jobs:
     runs-on: [self-hosted, windows, docker]
 
     env:
-      STACK: ${{ github.event.inputs.stack || 'test' }}
+      STACK: ${{ github.event.inputs.stack || github.ref_name || 'test' }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy (docker compose)
+      - name: Ensure repo root and run redeploy (build + deploy)
         run: |
           $stack = '${{ github.event.inputs.stack }}'
-          if (-not $stack) { $stack = 'test' }
-          if ($stack -eq 'dev') { $compose = 'compose.dev.yml'; $envf = '.env.dev' } else { $compose = 'compose.test.yml'; $envf = '.env.test' }
-          Write-Host "Using compose file: $compose (env: $envf)"
-          docker compose -f $compose --env-file $envf pull || Write-Host 'pull skipped or failed (continuing)'
-          docker compose -f $compose --env-file $envf up -d --remove-orphans
+          if (-not $stack) {
+            # on push events github.ref_name contains the branch
+            $stack = '${{ github.ref_name }}'
+            if (-not $stack) { $stack = 'test' }
+          }
+          Write-Host "Running redeploy-stack.sh for stack: $stack (mvn + frontend + no-cache)"
+          # run the redeploy script which runs mvn, frontend build and docker compose
+          ./scripts/redeploy-stack.sh $stack --mvn --frontend --no-cache
         shell: powershell
 
       - name: Wait / verify container health

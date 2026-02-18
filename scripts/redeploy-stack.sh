@@ -27,7 +27,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-COMPOSE_FILES="-f docker-compose.yml -f compose.${ENV}.yml"
+COMPOSE_FILES="-f compose.${ENV}.yml"
 COMPOSE_PROJECT="physio-${ENV}"
 
 # detect mvnw
