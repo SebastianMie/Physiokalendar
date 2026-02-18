@@ -36,6 +36,9 @@ Hinweis: `compose.dev.yml` enthält keine containerisierten Backend-/Frontend-Di
 
 Die Daten bleiben in Docker persistent - auch nach `docker-compose down`.
 
+**Wichtig (Safety):** Für lokale Entwicklung muss `SPRING_DATASOURCE_URL` auf die *Dev*-Datenbank zeigen (z. B. `jdbc:mysql://localhost:3306/physiocalendar_dev`).
+Die Anwendung führt beim Start jetzt eine Validierung durch und bricht mit einer klaren Fehlermeldung ab, wenn Profil und Datenbankname nicht zusammenpassen.
+
 ### Demo-Daten zurücksetzen:
 ```bash
 # Nur wenn du die Daten löschen möchtest

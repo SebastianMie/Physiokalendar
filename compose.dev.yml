@@ -6,7 +6,7 @@
 services:
   physio-dev-db:
     image: mysql:8.0.36
-    container_name: physio-dev-db
+    container_name: ${COMPOSE_PROJECT_NAME:-physio-dev}-db
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_NAME:-physiocalendar_dev}
@@ -16,7 +16,7 @@ services:
     ports:
       - "${DB_PORT:-3306}:3306"
     volumes:
-      - physiokalendar_db_data:/var/lib/mysql
+      - physio-dev-db-data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 5s
@@ -30,10 +30,10 @@ services:
 volumes:
   physio-dev-db-data:
     name: physio-dev-db-data
-  physiokalendar_db_data:
     external: true
 
 networks:
   physio-dev-network:
     name: physio-dev-network
     driver: bridge
+    external: true

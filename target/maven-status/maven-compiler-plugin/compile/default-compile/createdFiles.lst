@@ -1,3 +1,4 @@
+com\example\physiokalendar\config\DatabaseSanityCheck.class
 com\example\physiokalendar\repository\CancellationRepository.class
 com\example\physiokalendar\dto\CalendarRangeDTO$CalendarSeriesInstanceDTO.class
 com\example\physiokalendar\controller\HomeController.class
@@ -19,7 +20,6 @@ com\example\physiokalendar\entity\AbsenceException.class
 com\example\physiokalendar\entity\User.class
 com\example\physiokalendar\dto\JSONTherapistDTO.class
 com\example\physiokalendar\dto\CalendarRangeDTO$TherapistSummaryDTO$TherapistSummaryDTOBuilder.class
-com\example\physiokalendar\dto\SlotSearchDTO$AppointmentRequest.class
 com\example\physiokalendar\entity\Patient.class
 com\example\physiokalendar\service\mail\SmtpMailService.class
 com\example\physiokalendar\repository\AbsenceRepository.class
@@ -47,7 +47,6 @@ com\example\physiokalendar\service\TimeOfDayService$TimeRange.class
 com\example\physiokalendar\controller\CalendarController.class
 com\example\physiokalendar\dataimport\DataImportService.class
 com\example\physiokalendar\service\SeedDataService.class
-com\example\physiokalendar\dto\SlotSearchDTO$AppointmentRequest$AppointmentRequestBuilder.class
 com\example\physiokalendar\dataimport\DataImportRunner.class
 com\example\physiokalendar\controller\AppointmentSeriesController.class
 com\example\physiokalendar\dto\SlotSearchDTO$Request$RequestBuilder.class

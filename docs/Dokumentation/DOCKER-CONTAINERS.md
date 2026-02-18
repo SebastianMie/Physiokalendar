@@ -8,7 +8,18 @@ Kurzbeschreibung
 
 ## 🧩 Übersicht (Services)
 - Test-Stack (compose.test.yml): `physio-test-db`, `physio-test-backend`, `physio-test-frontend`, `physio-test-backup` ✅
+
+> Container names are generated from `COMPOSE_PROJECT_NAME` (example: `container_name: ${COMPOSE_PROJECT_NAME}-db` → `physio-test-db`).
 - Dev-Stack (compose.dev.yml): `physio-dev-db`, `physio-dev-backend`, `physio-dev-frontend` (oder: nur DB via top-level `docker-compose.yml` und Backend lokal für Hot-Reload)
+
+### 🏷️ Namenskonvention (kurz)
+- Container / Service: service names are simple (`db`, `backend`, `frontend`, `backup`) and `container_name` uses `COMPOSE_PROJECT_NAME` to remain unique across projects: `${COMPOSE_PROJECT_NAME}-<service>` (e.g. `physio-test-backend`)
+- Image name / tag: `physio-<env>-<service>:<tag>` (z. B. `physio-test-backend:latest`)
+- Network: `physio-<env>-network`
+- Volume (DB): `physio-<env>-db-data` (z. B. `physio-test-db-data`)
+- Env file: `.env.<env>` must contain `COMPOSE_PROJECT_NAME=physio-<env>`
+
+> Hinweis: `compose.dev.yml` entfernte das alte `physiokalendar_db_data` — das ist veraltet; neue Standard‑Volume‑Name ist `physio-dev-db-data`. Falls du noch das alte Volume brauchst, behalte es manuell oder migriere Daten (siehe Abschnitt "Volume-Export").
 
 > Ports (Standard aus repo): DB test=3307, Backend test=8081, Frontend test=4201. (Siehe `.env.test` / `.env.dev`)
 
@@ -31,6 +42,11 @@ Beispiel — nur Frontend neu bauen:
 ```bash
 # Standard: neu bauen und starten (verwendet ggf. Docker‑Cache)
 docker compose -f compose.test.yml --env-file .env.test up -d --build physio-test-frontend
+
+# Build (kein Cache):
+COMPOSE_PROJECT_NAME=physio-test docker compose -f docker-compose.yml -f compose.test.yml --env-file .env.test build --no-cache physio-test-backend physio-test-frontend
+# Recreate (ohne Dependencies → DB bleibt unangetastet):
+COMPOSE_PROJECT_NAME=physio-test docker compose -f docker-compose.yml -f compose.test.yml --env-file .env.test up -d --no-deps --force-recreate physio-test-backend physio-test-frontend
 ```
 
 # Falls Änderungen nach normalem Rebuild NICHT sichtbar sind (häufige Ursachen: Docker‑Layer‑Cache oder Browser‑Cache):
@@ -176,6 +192,11 @@ Tipp: Für schnelle Java-Iterationen nutze `mvn spring-boot:run` lokal (IDE) sta
 
 ## Quellen / Referenzen im Repo
 - `compose.test.yml`, `.env.test` — Test-Stack-Konfiguration
+  - Uses `Dockerfile.test` (multi-stage) for faster, smaller test backend image.
+  - Adds `logging` + `deploy.resources` blocks (useful for CI / swarm). Note: `deploy.resources` is ignored by local docker-compose but kept for stack deployments.
+  - `compose.override.yml` is available as an optional local‑dev override to mount sources and run dev servers.
+  - Uses named / external network & volume (avoid duplicate resources across projects). Ensure `COMPOSE_PROJECT_NAME` in `.env.test` matches the stack (default: `physio-test`).
+  - Healthchecks added for backend & frontend; compose will no longer auto-start DB/backup unless requested.
 - `compose.dev.yml`, `.env.dev` — Dev-Stack
 - `Dockerfile.frontend`, `Dockerfile`, `Dockerfile.backup` — Build/Runtime
 - `mysql_backup.sh` — Backup-Logik (full / incremental)

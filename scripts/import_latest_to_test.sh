@@ -43,20 +43,24 @@ fi
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 TEST_BACKUP="$BACKUP_DIR/test_backup_before_import_$TIMESTAMP.sql.gz"
 
+# determine project container name for test (can be overridden by env COMPOSE_PROJECT_NAME)
+TEST_PROJECT="${COMPOSE_PROJECT_NAME:-$(grep -E '^COMPOSE_PROJECT_NAME=' "$ROOT_DIR/.env.test" 2>/dev/null | cut -d= -f2 || echo 'physio-test')}"
+TEST_DB_CONTAINER="${TEST_PROJECT}-db"
+
 # ensure test DB container is running
-if ! docker ps --format '{{.Names}}' | grep -q '^physio-test-db$'; then
-  echo "physio-test-db not running. Starting test DB via docker compose..."
+if ! docker ps --format '{{.Names}}' | grep -q "^${TEST_DB_CONTAINER}$"; then
+  echo "${TEST_DB_CONTAINER} not running. Starting test DB via docker compose..."
   docker compose -f compose.test.yml --env-file .env.test up -d physio-test-db
   echo "Waiting 3s for DB to accept connections..."
   sleep 3
 fi
 
 echo "Backing up current test DB to: $TEST_BACKUP"
-docker exec -i physio-test-db sh -c 'exec mysqldump -uphysiouser -p"testpassword" --single-transaction --quick --no-tablespaces --routines --triggers --events physiocalendar_test' | gzip > "$TEST_BACKUP" || echo "Warning: test DB backup failed (continuing)"
+docker exec -i "${TEST_DB_CONTAINER}" sh -c 'exec mysqldump -uphysiouser -p"testpassword" --single-transaction --quick --no-tablespaces --routines --triggers --events physiocalendar_test' | gzip > "$TEST_BACKUP" || echo "Warning: test DB backup failed (continuing)"
 
 # Import: replace DB name and import with disabled FK checks
-echo "Importing $FILE into physio-test-db (errors will be skipped)..."
-(gunzip -c "$FILE" | sed 's/\bphysiocalendar_dev\b/physiocalendar_test/g') | docker exec -i physio-test-db sh -c "bash -lc 'echo \"SET FOREIGN_KEY_CHECKS=0;\"; cat -; echo \"SET FOREIGN_KEY_CHECKS=1;\"' | mysql -uphysiouser -p\"testpassword\" --force physiocalendar_test"
+echo "Importing $FILE into ${TEST_DB_CONTAINER} (errors will be skipped)..."
+(gunzip -c "$FILE" | sed 's/\bphysiocalendar_dev\b/physiocalendar_test/g') | docker exec -i "${TEST_DB_CONTAINER}" sh -c "bash -lc 'echo \"SET FOREIGN_KEY_CHECKS=0;\"; cat -; echo \"SET FOREIGN_KEY_CHECKS=1;\"' | mysql -uphysiouser -p\"testpassword\" --force physiocalendar_test"
 
 echo "Import finished. Restarting backend and showing last logs..."
 docker compose -f compose.test.yml --env-file .env.test restart physio-test-backend || true

@@ -5,7 +5,7 @@
 services:
   physio-test-db:
     image: mysql:8.0.36
-    container_name: physio-test-db
+    container_name: ${COMPOSE_PROJECT_NAME:-physio-test}-db
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_NAME:-physiocalendar_test}
@@ -23,13 +23,13 @@ services:
       timeout: 5s
       retries: 10
     networks:
-      - physio-test-network
+      physio-test-network:
+        aliases:
+          - ${COMPOSE_PROJECT_NAME:-physio-test}-db
 
   physio-test-backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: physio-test-backend
+    container_name: ${COMPOSE_PROJECT_NAME:-physio-test}-backend
+    image: physio-test-backend:latest
     restart: unless-stopped
     depends_on:
       physio-test-db:
@@ -49,9 +49,28 @@ services:
       - "${BACKEND_PORT:-8081}:8080"
     volumes:
       - ./logs:/usr/src/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          memory: 128M
     networks:
       physio-test-network:
         aliases:
+          - ${COMPOSE_PROJECT_NAME:-physio-test}-backend
           - backend
 
   physio-test-frontend:
@@ -60,7 +79,8 @@ services:
       dockerfile: Dockerfile.frontend
       args:
         BUILD_ENV: test
-    container_name: physio-test-frontend
+    container_name: ${COMPOSE_PROJECT_NAME:-physio-test}-frontend
+    image: physio-test-frontend:latest
     restart: unless-stopped
     depends_on:
       - physio-test-backend
@@ -68,6 +88,24 @@ services:
       API_URL: http://physio-test-backend:8080
     ports:
       - "${FRONTEND_PORT:-4201}:80"
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
+        reservations:
+          memory: 64M
     networks:
       - physio-test-network
 
@@ -75,7 +113,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.backup
-    container_name: physio-test-backup
+    container_name: ${COMPOSE_PROJECT_NAME:-physio-test}-backup
+    image: physio-test-backup:latest
     restart: unless-stopped
     environment:
       DB_HOST: physio-test-db
@@ -94,8 +133,10 @@ services:
 volumes:
   physio-test-db-data:
     name: physio-test-db-data
+    external: true
 
 networks:
   physio-test-network:
     name: physio-test-network
     driver: bridge
+    external: true
