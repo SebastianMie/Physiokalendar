@@ -25,7 +25,7 @@
       "name": "Debug Angular Frontend",
       "request": "launch",
       "url": "http://localhost:4200",
-      "webRoot": "${workspaceFolder}/Physiokalender-v2-UI/src",
+      "webRoot": "${workspaceFolder}/../Physiokalender-v2-UI/src",
       "sourceMaps": true,
       "preLaunchTask": "Start Angular Frontend"
     },
@@ -34,7 +34,7 @@
       "name": "Debug Angular (Attach)",
       "request": "attach",
       "port": 9222,
-      "webRoot": "${workspaceFolder}/Physiokalender-v2-UI/src",
+      "webRoot": "${workspaceFolder}/../Physiokalender-v2-UI/src",
       "sourceMaps": true
     }
   ],

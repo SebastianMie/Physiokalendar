@@ -74,13 +74,10 @@ services:
           - backend
 
   physio-test-frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-      args:
-        BUILD_ENV: test
+    # Use a prebuilt frontend image for test deploys (CI should push this image).
+    # Local development can still mount the frontend via compose.override.yml
     container_name: ${COMPOSE_PROJECT_NAME:-physio-test}-frontend
-    image: physio-test-frontend:latest
+    image: ${FRONTEND_IMAGE:-physio-test-frontend:latest}
     restart: unless-stopped
     depends_on:
       - physio-test-backend

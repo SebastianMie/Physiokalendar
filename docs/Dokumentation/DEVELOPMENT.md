@@ -11,7 +11,7 @@ docker compose -f docker-compose.yml --env-file .env.dev up -d
 docker-compose up -d
 ```
 
-Hinweis: `compose.dev.yml` enthält keine containerisierten Backend-/Frontend-Dienste mehr — starte Backend lokal mit `./mvnw spring-boot:run` und Frontend mit `cd Physiokalender-v2-UI && npm run dev`. Wenn du containerisierte Dev-Services brauchst, nutze `compose.test.yml` oder reaktiviere die Services manuell.
+Hinweis: `compose.dev.yml` enthält keine containerisierten Backend-/Frontend-Dienste mehr — starte Backend lokal mit `./mvnw spring-boot:run` und Frontend mit `cd ../Physiokalender-v2-UI && npm run dev` (Frontend kann als separates Repo / Verzeichnis neben dem Backend liegen). Wenn du containerisierte Dev-Services brauchst, nutze `compose.test.yml` oder reaktiviere die Services manuell.
 
 ### 2. Backend lokal starten (mit Hot-Reload)
 

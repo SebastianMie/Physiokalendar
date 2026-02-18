@@ -14,8 +14,9 @@ services:
 
   physio-test-frontend:
     # mount UI sources for live reload (alternative to running `npm run dev` locally)
+    # frontend may live outside this repo (sibling folder) — try ../Physiokalender-v2-UI first
     volumes:
-      - ./Physiokalender-v2-UI:/app:rw
+      - ../Physiokalender-v2-UI:/app:rw
     command: sh -c "cd /app && npm ci && npm run dev -- --host 0.0.0.0 --port 4201"
     ports:
       - "4201:4201"
