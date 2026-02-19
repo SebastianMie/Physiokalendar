@@ -1,45 +1,52 @@
-name: Deploy → Prod (manual approval required)
+name: Build & Deploy → Prod Backend
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - master
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
 jobs:
-  deploy-prod:
-    runs-on: ubuntu-latest
+  build-and-deploy-prod:
+    runs-on: [self-hosted]
     environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy to PROD server via SSH
-        uses: appleboy/ssh-action@v0.1.9
+      - name: Verify tag is on master branch
+        if: github.event_name == 'push'
+        run: |
+          TAG_NAME=${GITHUB_REF##*/}
+          echo "Verifying tag $TAG_NAME is on master branch..."
+          TAG_COMMIT=$(git rev-list -n 1 $GITHUB_REF)
+          BRANCHES=$(git branch -r --contains $TAG_COMMIT)
+
+          if echo "$BRANCHES" | grep -q "origin/master"; then
+            echo "✓ Tag is on master branch"
+          else
+            echo "✗ Tag NOT on master branch - skipping deployment"
+            exit 1
+          fi
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
         with:
-          host: ${{ secrets.DEPLOY_HOST_PROD }}
-          username: ${{ secrets.DEPLOY_USER_PROD }}
-          key: ${{ secrets.SSH_PRIVATE_KEY_PROD }}
-          port: ${{ secrets.DEPLOY_SSH_PORT_PROD || '22' }}
-          script: |
-            set -euo pipefail
-            IMAGE_TAG='${{ github.event.inputs.image_tag != '' && github.event.inputs.image_tag || '' }}'
-            if [ -z "$IMAGE_TAG" ]; then BRANCH=${GITHUB_REF##*/}; if [ "$BRANCH" = "master" ]; then IMAGE_TAG=latest; else IMAGE_TAG=${GITHUB_SHA::8}; fi; fi
-            echo "Using image tag: $IMAGE_TAG"
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
 
-            if [ -n "${{ secrets.GHCR_PAT }}" ]; then echo "Logging into GHCR"; echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin; fi
-            BACKEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${IMAGE_TAG}
-            FRONTEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:${IMAGE_TAG}
+      - name: Build backend with Maven
+        run: ./mvnw.cmd clean package -DskipTests
 
-            echo "Pulling $BACKEND_IMAGE"
-            docker pull "$BACKEND_IMAGE" || true
-            docker tag "$BACKEND_IMAGE" physio-prod-backend:latest || true
+      - name: Build Docker image
+        run: docker build -t physio-prod-backend:latest -f Dockerfile.prod .
 
-            echo "Pulling $FRONTEND_IMAGE"
-            docker pull "$FRONTEND_IMAGE" || true
-            docker tag "$FRONTEND_IMAGE" physio-prod-frontend:latest || true
-
-            cd /var/www/physiokalendar || exit 1
-            COMPOSE_PROJECT_NAME=physio-prod docker compose -f compose.prod.yml --env-file .env.prod up -d --no-deps physio-prod-backend physio-prod-frontend
-            sleep 6
-            curl --fail -sS http://localhost:8082/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)
+      - name: Deploy to PROD stack
+        run: |
+          cd ${{ github.workspace }}
+          COMPOSE_PROJECT_NAME=physio-prod docker compose -f compose.prod.yml --env-file .env.prod up -d --no-deps physio-prod-backend
+          sleep 6
+          echo "Waiting for backend health check..."
+          curl --fail -sS http://localhost:8082/actuator/health || exit 1
+          echo "✓ Backend deployed and healthy"

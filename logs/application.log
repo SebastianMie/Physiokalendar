@@ -36393,3 +36393,1201 @@ org.hibernate.LazyInitializationException: failed to lazily initialize a collect
 2026-02-19 14:42:06.791 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
 2026-02-19 14:42:06.887 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
 2026-02-19 14:42:06.887 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:17.830 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/auth/login
+2026-02-19 14:56:17.831 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/auth/login
+2026-02-19 14:56:17.831 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2026-02-19 14:56:17.832 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AuthController#login(LoginRequest)
+2026-02-19 14:56:17.832 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [com.example.physiokalendar.controller.AuthController$LoginRequest@e3eac08]
+2026-02-19 14:56:17.893 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:17.893 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{expiresIn=86400, user={role=ADMIN, username=max.mustermann, therapistId=0, id=5}, token=eyJhbGciOiJ (truncated)...]
+2026-02-19 14:56:17.894 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:17.894 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:17.901 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated?page=0&size=50&sortBy=date&sortDir=desc
+2026-02-19 14:56:17.902 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated?page=0&size=50&sortBy=date&sortDir=desc
+2026-02-19 14:56:17.902 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated?page=0&size=50&sortBy=date&sortDir=desc", parameters={masked}
+2026-02-19 14:56:17.902 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointments(int, int, String, String, String, String, Long, String, String)
+2026-02-19 14:56:17.927 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:17.927 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 82 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 14:56:17.962 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:17.962 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:17.983 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/env
+2026-02-19 14:56:17.983 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/env
+2026-02-19 14:56:17.984 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/env", parameters={}
+2026-02-19 14:56:17.984 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.EnvironmentController#getEnvironment()
+2026-02-19 14:56:17.985 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:17.985 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{seedDataEnabled=false, environment=DEV, isProduction=false, isTest=false, mailEnabled=false, banner (truncated)...]
+2026-02-19 14:56:17.985 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:17.987 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:17.998 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 14:56:17.998 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 14:56:17.998 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 14:56:17.998 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/admin/users
+2026-02-19 14:56:17.998 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 14:56:17.998 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 14:56:17.998 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 14:56:17.998 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 14:56:17.998 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 14:56:17.998 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 14:56:17.998 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 14:56:17.998 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/admin/users
+2026-02-19 14:56:17.999 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 14:56:17.999 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/admin/users", parameters={}
+2026-02-19 14:56:17.998 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 14:56:17.998 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 14:56:17.998 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 14:56:17.999 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated?size=1&dateFrom=2026-02-19", parameters={masked}
+2026-02-19 14:56:17.999 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AdminController#getAllUsers()
+2026-02-19 14:56:17.999 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 14:56:17.999 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 14:56:17.999 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 14:56:17.999 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointments(int, int, String, String, String, String, Long, String, String)
+2026-02-19 14:56:17.999 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 14:56:18.007 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:18.007 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:18.007 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:18.007 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@5b3a18d2, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 14:56:18.007 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[{role=ADMIN, username=admin, therapistId=0, id=4}, {role=ADMIN, username=max.mustermann, therapistI (truncated)...]
+2026-02-19 14:56:18.008 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@37f961e, com.example.physiokalendar.dto.JSONTherapi (truncated)...]
+2026-02-19 14:56:18.008 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:18.008 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:18.008 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:18.009 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:18.009 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:18.009 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:18.016 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 14:56:18.016 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 14:56:18.016 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 14:56:18.016 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 14:56:18.016 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 14:56:18.016 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 14:56:18.017 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 14:56:18.017 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 14:56:18.017 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:18.020 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 14:56:18.021 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:18.021 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:18.021 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 1625 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 14:56:18.022 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 14:56:18.025 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:18.025 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:18.027 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:18.028 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:18.030 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:18.030 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:18.036 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:18.036 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:18.037 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 14:56:18.039 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 14:56:18.042 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:18.042 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:18.044 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:18.045 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:56:18.052 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-19
+2026-02-19 14:56:18.053 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-19
+2026-02-19 14:56:18.053 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-19", parameters={masked}
+2026-02-19 14:56:18.054 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 14:56:18.063 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:56:18.064 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@71950273, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 14:56:18.152 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:56:18.152 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:57:39.461 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 14:57:39.462 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 14:57:39.462 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 14:57:39.462 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 14:57:39.477 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:57:39.477 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@3446813f, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 14:57:39.478 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:57:39.479 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:57:39.489 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 14:57:39.490 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 14:57:39.490 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 14:57:39.490 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 14:57:39.510 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:57:39.513 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 14:57:39.516 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:57:39.516 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:04.306 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/absences
+2026-02-19 14:58:04.306 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/absences
+2026-02-19 14:58:04.306 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/absences", parameters={}
+2026-02-19 14:58:04.307 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#createOrUpdateAbsence(JSONAbsenceDTO)
+2026-02-19 14:58:04.312 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [JSONAbsenceDTO(id=null, therapistId=7, date=Thu Feb 19 01:00:00 CET 2026, endDate=Thu Feb 19 01:00:0 (truncated)...]
+2026-02-19 14:58:04.344 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:04.344 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [com.example.physiokalendar.entity.Absence@371e38e2]
+2026-02-19 14:58:04.345 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:04.345 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:04.375 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 14:58:04.375 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 14:58:04.375 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 14:58:04.375 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 14:58:04.389 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:04.390 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 14:58:04.392 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:04.392 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:36.281 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 14:58:36.282 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 14:58:36.282 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 14:58:36.282 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 14:58:36.282 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/admin/users
+2026-02-19 14:58:36.282 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 14:58:36.283 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 14:58:36.283 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 14:58:36.283 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 14:58:36.283 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 14:58:36.283 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/admin/users
+2026-02-19 14:58:36.283 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 14:58:36.283 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 14:58:36.283 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 14:58:36.283 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 14:58:36.283 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/admin/users", parameters={}
+2026-02-19 14:58:36.283 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 14:58:36.283 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated?size=1&dateFrom=2026-02-19", parameters={masked}
+2026-02-19 14:58:36.284 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AdminController#getAllUsers()
+2026-02-19 14:58:36.284 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointments(int, int, String, String, String, String, Long, String, String)
+2026-02-19 14:58:36.284 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 14:58:36.288 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 14:58:36.289 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 14:58:36.289 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 14:58:36.296 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:36.296 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:36.297 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@1fd1b910, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 14:58:36.297 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[{role=ADMIN, username=admin, therapistId=0, id=4}, {role=ADMIN, username=max.mustermann, therapistI (truncated)...]
+2026-02-19 14:58:36.297 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:36.297 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:36.297 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:36.297 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@7b34d277, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 14:58:36.297 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:36.297 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:36.298 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:36.298 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:36.303 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:36.303 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 1625 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 14:58:36.304 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:36.304 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 14:58:36.304 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 14:58:36.305 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 14:58:36.305 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 14:58:36.305 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:36.305 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 14:58:36.305 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 14:58:36.305 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 14:58:36.305 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 14:58:36.305 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 14:58:36.306 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 14:58:36.309 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:36.309 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:36.310 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:36.310 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:36.310 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:36.310 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:36.310 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-19
+2026-02-19 14:58:36.311 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-19
+2026-02-19 14:58:36.311 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-19", parameters={masked}
+2026-02-19 14:58:36.311 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 14:58:36.319 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:36.320 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@6d0bf070, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 14:58:36.324 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:36.324 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:36.325 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 14:58:36.326 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 14:58:36.329 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:36.329 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:36.332 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:36.332 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:36.414 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:36.414 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:39.685 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 14:58:39.686 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 14:58:39.686 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 14:58:39.686 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 14:58:39.689 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 14:58:39.690 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 14:58:39.690 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 14:58:39.690 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 14:58:39.690 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 14:58:39.690 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 14:58:39.690 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 14:58:39.690 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 14:58:39.698 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:39.698 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@3a9223d1, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 14:58:39.699 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:39.699 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:39.700 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:39.701 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 14:58:39.702 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:39.704 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:39.704 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 14:58:39.704 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:39.707 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:39.707 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:49.717 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 14:58:49.717 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 14:58:49.717 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 14:58:49.718 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 14:58:49.726 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:49.726 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@2640f527, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 14:58:49.727 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:49.727 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:52.337 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists/7
+2026-02-19 14:58:52.337 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated-extended?page=0&size=50&sortBy=date&sortDir=desc&therapistId=7&timeFilter=upcoming
+2026-02-19 14:58:52.337 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences/therapist/7/date
+2026-02-19 14:58:52.338 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists/7
+2026-02-19 14:58:52.338 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated-extended?page=0&size=50&sortBy=date&sortDir=desc&therapistId=7&timeFilter=upcoming
+2026-02-19 14:58:52.338 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences/therapist/7/date
+2026-02-19 14:58:52.338 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists/7", parameters={}
+2026-02-19 14:58:52.338 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated-extended?page=0&size=50&sortBy=date&sortDir=desc&therapistId=7&timeFilter=upcoming", parameters={masked}
+2026-02-19 14:58:52.338 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences/therapist/7/date", parameters={}
+2026-02-19 14:58:52.339 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointmentsExtended(int, int, String, String, String, String, Long, Long, String, String, String, String)
+2026-02-19 14:58:52.339 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getTherapistById(Long)
+2026-02-19 14:58:52.339 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAbsencesByDateOrWeekday(Long, String, String)
+2026-02-19 14:58:52.349 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:52.349 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[JSONAbsenceDTO(id=66, therapistId=7, date=null, endDate=null, weekday=FRIDAY, startTime=Sun Feb 15  (truncated)...]
+2026-02-19 14:58:52.349 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:52.350 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [com.example.physiokalendar.dto.JSONTherapistDTO@5c8fe32c]
+2026-02-19 14:58:52.350 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:52.350 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:52.350 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:52.350 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:58:52.364 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:58:52.364 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 17 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 14:58:52.383 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:58:52.383 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:17.031 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 14:59:17.031 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated-extended?page=0&size=50&sortBy=date&sortDir=asc&timeFilter=upcoming
+2026-02-19 14:59:17.032 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 14:59:17.032 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 14:59:17.032 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 14:59:17.032 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated-extended?page=0&size=50&sortBy=date&sortDir=asc&timeFilter=upcoming
+2026-02-19 14:59:17.032 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated-extended?page=0&size=50&sortBy=date&sortDir=asc&timeFilter=upcoming", parameters={masked}
+2026-02-19 14:59:17.033 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointmentsExtended(int, int, String, String, String, String, Long, Long, String, String, String, String)
+2026-02-19 14:59:17.041 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:17.041 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@116094c1, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 14:59:17.041 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:17.042 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:17.080 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:17.080 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 128 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 14:59:17.176 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:17.176 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:24.688 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated-extended?page=0&size=50&sortBy=date&sortDir=asc&therapistId=7&timeFilter=upcoming
+2026-02-19 14:59:24.689 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated-extended?page=0&size=50&sortBy=date&sortDir=asc&therapistId=7&timeFilter=upcoming
+2026-02-19 14:59:24.689 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated-extended?page=0&size=50&sortBy=date&sortDir=asc&therapistId=7&timeFilter=upcoming", parameters={masked}
+2026-02-19 14:59:24.690 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointmentsExtended(int, int, String, String, String, String, Long, Long, String, String, String, String)
+2026-02-19 14:59:24.700 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:24.700 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 17 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 14:59:24.763 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:24.763 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:27.962 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 14:59:27.962 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 14:59:27.962 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 14:59:27.962 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 14:59:27.963 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 14:59:27.963 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 14:59:27.963 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 14:59:27.963 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 14:59:27.963 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 14:59:27.963 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 14:59:27.963 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 14:59:27.964 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 14:59:27.972 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:27.972 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@2ab97150, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 14:59:27.972 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:27.972 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:27.979 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:27.979 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-19
+2026-02-19 14:59:27.980 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-19
+2026-02-19 14:59:27.980 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 14:59:27.980 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-19", parameters={masked}
+2026-02-19 14:59:27.980 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 14:59:27.982 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:27.982 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:27.982 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:27.983 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 14:59:27.988 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:27.988 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@6c591657, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 14:59:27.988 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:27.988 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:28.060 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:28.060 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:28.171 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 14:59:28.172 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 14:59:28.172 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 14:59:28.172 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 14:59:28.173 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 14:59:28.172 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/75692
+2026-02-19 14:59:28.173 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 14:59:28.173 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 14:59:28.173 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/75692
+2026-02-19 14:59:28.173 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/75692", parameters={}
+2026-02-19 14:59:28.173 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 14:59:28.173 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentById(Long)
+2026-02-19 14:59:28.179 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:28.179 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@70b48e28, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 14:59:28.180 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:28.180 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:28.181 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:28.182 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [Optional[com.example.physiokalendar.entity.Appointment@6d0ac95]]
+2026-02-19 14:59:28.184 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:28.184 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:28.185 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:28.185 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 14:59:28.189 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:28.189 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:28.192 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 14:59:28.193 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients/3438
+2026-02-19 14:59:28.193 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 14:59:28.193 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 14:59:28.193 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients/3438
+2026-02-19 14:59:28.193 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 14:59:28.193 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients/3438", parameters={}
+2026-02-19 14:59:28.194 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getPatientById(Long)
+2026-02-19 14:59:28.200 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:28.201 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [JSONPatientDTO(id=3438, fullName=Stefanie Schreiber, firstName=Stefanie, lastName=Schreiber, email=n (truncated)...]
+2026-02-19 14:59:28.201 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:28.201 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:28.207 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:28.208 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 14:59:28.211 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:28.211 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:36.026 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /api/appointments/75692?forceOnConflict=false
+2026-02-19 14:59:36.027 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /api/appointments/75692?forceOnConflict=false
+2026-02-19 14:59:36.028 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - PUT "/api/appointments/75692?forceOnConflict=false", parameters={masked}
+2026-02-19 14:59:36.028 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#updateAppointment(Long, JSONAppointmentDTO, boolean)
+2026-02-19 14:59:36.038 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [JSONAppointmentDTO(id=null, therapist=null, therapistId=7, date=Thu Feb 19 01:00:00 CET 2026, patien (truncated)...]
+2026-02-19 14:59:36.114 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 14:59:36.135 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:36.136 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [AppointmentSaveResult(appointment=com.example.physiokalendar.entity.Appointment@607d4f8f, conflictCh (truncated)...]
+2026-02-19 14:59:36.140 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:36.146 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-19
+2026-02-19 14:59:36.147 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-19
+2026-02-19 14:59:36.147 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-19", parameters={masked}
+2026-02-19 14:59:36.147 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 14:59:36.155 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 14:59:36.155 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@7eeeff70, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 14:59:36.229 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 14:59:36.230 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:02:55.542 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:02:55.543 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:02:55.543 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:02:55.544 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:02:55.556 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:02:55.557 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@307db432, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:02:55.557 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:02:55.558 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:02:55.565 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:02:55.565 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:02:55.565 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:02:55.565 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:02:55.585 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:02:55.586 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:02:55.589 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:02:55.590 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:06.652 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/71
+2026-02-19 15:03:06.653 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/71
+2026-02-19 15:03:06.653 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/71", parameters={}
+2026-02-19 15:03:06.653 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:06.690 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:06.690 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:06.691 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:06.691 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:06.698 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:06.699 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:06.699 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:06.699 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:06.715 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:06.717 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:06.720 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:06.720 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:10.646 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/439
+2026-02-19 15:03:10.647 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/439
+2026-02-19 15:03:10.647 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/439", parameters={}
+2026-02-19 15:03:10.648 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:10.667 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:10.667 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:10.667 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:10.667 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:10.674 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:10.674 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:10.674 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:10.675 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:10.686 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:10.687 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:10.689 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:10.689 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:15.028 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/440
+2026-02-19 15:03:15.028 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/440
+2026-02-19 15:03:15.029 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/440", parameters={}
+2026-02-19 15:03:15.029 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:15.055 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:15.055 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:15.055 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:15.055 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:15.062 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:15.063 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:15.063 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:15.063 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:15.078 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:15.079 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:15.082 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:15.083 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:19.018 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/808
+2026-02-19 15:03:19.019 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/808
+2026-02-19 15:03:19.019 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/808", parameters={}
+2026-02-19 15:03:19.020 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:19.047 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:19.048 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:19.048 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:19.048 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:19.055 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:19.055 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:19.056 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:19.056 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:19.070 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:19.071 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:19.073 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:19.074 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:22.154 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/441
+2026-02-19 15:03:22.155 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/441
+2026-02-19 15:03:22.155 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/441", parameters={}
+2026-02-19 15:03:22.155 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:22.172 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:22.172 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:22.173 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:22.173 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:22.178 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:22.179 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:22.179 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:22.179 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:22.199 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:22.200 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:22.204 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:22.205 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:25.148 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/809
+2026-02-19 15:03:25.149 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/809
+2026-02-19 15:03:25.149 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/809", parameters={}
+2026-02-19 15:03:25.149 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:25.171 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:25.171 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:25.171 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:25.172 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:25.177 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:25.178 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:25.178 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:25.178 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:25.190 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:25.191 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:25.193 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:25.193 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:34.529 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/456
+2026-02-19 15:03:34.529 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/456
+2026-02-19 15:03:34.530 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/456", parameters={}
+2026-02-19 15:03:34.530 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:34.545 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:34.545 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:34.545 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:34.546 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:34.553 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:34.553 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:34.553 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:34.553 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:34.565 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:34.566 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:34.568 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:34.568 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:37.436 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/824
+2026-02-19 15:03:37.437 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/824
+2026-02-19 15:03:37.437 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/824", parameters={}
+2026-02-19 15:03:37.438 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:37.460 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:37.460 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:37.460 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:37.460 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:37.467 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:37.467 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:37.467 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:37.468 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:37.483 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:37.484 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:37.488 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:37.488 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:40.355 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/458
+2026-02-19 15:03:40.356 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/458
+2026-02-19 15:03:40.356 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/458", parameters={}
+2026-02-19 15:03:40.357 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:40.374 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:40.374 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:40.374 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:40.374 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:40.383 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:40.384 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:40.384 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:40.385 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:40.403 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:40.405 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:40.407 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:40.408 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:43.134 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/826
+2026-02-19 15:03:43.135 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/826
+2026-02-19 15:03:43.135 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/826", parameters={}
+2026-02-19 15:03:43.135 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:43.164 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:43.164 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:43.164 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:43.164 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:43.171 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:43.171 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:43.172 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:43.172 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:43.185 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:43.186 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:43.188 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:43.188 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:47.228 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/459
+2026-02-19 15:03:47.229 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/459
+2026-02-19 15:03:47.229 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/459", parameters={}
+2026-02-19 15:03:47.229 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:47.251 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:47.251 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:47.251 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:47.251 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:47.258 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:47.259 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:47.259 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:47.259 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:47.274 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:47.274 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:47.277 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:47.277 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:50.501 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/827
+2026-02-19 15:03:50.502 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/827
+2026-02-19 15:03:50.502 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/827", parameters={}
+2026-02-19 15:03:50.502 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:50.522 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:50.523 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:50.523 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:50.523 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:50.530 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:50.531 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:50.531 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:50.531 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:50.550 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:50.550 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:50.553 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:50.553 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:55.041 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/821
+2026-02-19 15:03:55.042 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/821
+2026-02-19 15:03:55.043 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/821", parameters={}
+2026-02-19 15:03:55.043 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:55.064 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:55.065 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:55.065 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:55.065 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:55.074 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:55.074 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:55.074 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:55.074 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:55.086 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:55.087 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:55.091 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:55.091 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:57.432 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing DELETE /api/absences/453
+2026-02-19 15:03:57.432 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured DELETE /api/absences/453
+2026-02-19 15:03:57.433 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - DELETE "/api/absences/453", parameters={}
+2026-02-19 15:03:57.433 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#deleteAbsence(Long)
+2026-02-19 15:03:57.451 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:57.452 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Nothing to write: null body
+2026-02-19 15:03:57.452 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:57.452 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:03:57.460 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:03:57.460 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:03:57.460 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:03:57.460 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:03:57.473 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:03:57.474 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:03:57.478 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:03:57.478 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:04.219 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/admin/users
+2026-02-19 15:04:04.219 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:04:04.219 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:04:04.219 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:04:04.219 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:04:04.220 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/admin/users
+2026-02-19 15:04:04.220 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:04:04.220 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:04:04.220 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:04:04.220 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:04:04.220 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:04:04.220 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:04:04.220 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/admin/users", parameters={}
+2026-02-19 15:04:04.220 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:04:04.220 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:04:04.220 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated?size=1&dateFrom=2026-02-19", parameters={masked}
+2026-02-19 15:04:04.221 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AdminController#getAllUsers()
+2026-02-19 15:04:04.221 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointments(int, int, String, String, String, String, Long, String, String)
+2026-02-19 15:04:04.221 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:04:04.221 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:04:04.228 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:04.228 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:04.228 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[{role=ADMIN, username=admin, therapistId=0, id=4}, {role=ADMIN, username=max.mustermann, therapistI (truncated)...]
+2026-02-19 15:04:04.228 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@5f34575f, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:04:04.228 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:04.228 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:04.228 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:04.229 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:04.231 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:04.232 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:04:04.233 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:04:04.233 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:04:04.233 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:04.233 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:04:04.233 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:04:04.234 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:04:04.236 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:04.236 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:04.237 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:04.237 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 1625 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 15:04:04.237 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:04.238 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:04.239 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:04:04.239 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:04:04.239 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:04.239 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:04:04.240 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@c3d8476, com.example.physiokalendar.dto.JSONTherapi (truncated)...]
+2026-02-19 15:04:04.240 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:04:04.240 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:04.240 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:04.240 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:04.240 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:04.241 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:04:04.242 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:04:04.242 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:04:04.242 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:04:04.247 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:04:04.248 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:04:04.248 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-19", parameters={masked}
+2026-02-19 15:04:04.249 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 15:04:04.254 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:04.255 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:04:04.255 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:04.255 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@699df338, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 15:04:04.257 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:04.258 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:04:04.258 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:04.258 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:04.260 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:04.261 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:04.327 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:04.327 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:20.588 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:04:20.588 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:04:20.589 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:04:20.589 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:04:20.597 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:20.597 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@6de8a98c, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:04:20.598 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:20.598 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:20.604 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:04:20.604 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:04:20.604 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:04:20.605 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:04:20.616 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:20.617 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:04:20.619 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:20.619 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:40.670 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:04:40.670 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:04:40.670 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:04:40.670 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:04:40.670 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:04:40.670 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/admin/users
+2026-02-19 15:04:40.670 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:04:40.670 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:04:40.670 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:04:40.670 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:04:40.670 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:04:40.670 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/admin/users
+2026-02-19 15:04:40.670 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:04:40.670 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:04:40.670 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated?size=1&dateFrom=2026-02-19", parameters={masked}
+2026-02-19 15:04:40.670 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:04:40.670 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/admin/users", parameters={}
+2026-02-19 15:04:40.670 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointments(int, int, String, String, String, String, Long, String, String)
+2026-02-19 15:04:40.670 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:04:40.670 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AdminController#getAllUsers()
+2026-02-19 15:04:40.679 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:40.679 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:40.679 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@5e1cc6bc, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:04:40.679 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[{role=ADMIN, username=admin, therapistId=0, id=4}, {role=ADMIN, username=max.mustermann, therapistI (truncated)...]
+2026-02-19 15:04:40.680 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:40.680 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:40.680 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:40.680 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:40.685 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:40.685 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 1625 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 15:04:40.685 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:40.686 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:40.686 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:04:40.686 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:04:40.686 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:04:40.687 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:04:40.687 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:04:40.687 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:04:40.689 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:40.689 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:40.690 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:40.691 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:40.692 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:40.692 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:40.693 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:40.693 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@62aff76e, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:04:40.694 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:40.694 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:40.694 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:04:40.695 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:04:40.695 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:04:40.695 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:04:40.695 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:04:40.695 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:04:40.695 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:04:40.695 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:04:40.700 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:04:40.700 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:04:40.701 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-19", parameters={masked}
+2026-02-19 15:04:40.701 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 15:04:40.707 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:40.707 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:40.707 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@4c4c7e1e, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 15:04:40.707 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:40.708 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:04:40.708 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:04:40.711 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:40.711 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:40.711 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:40.711 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:40.783 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:40.783 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:45.143 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:04:45.143 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:04:45.143 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:04:45.144 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:04:45.150 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:45.150 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@35c32d7b, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:04:45.151 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:45.152 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:04:45.157 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:04:45.157 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:04:45.157 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:04:45.158 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:04:45.168 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:04:45.169 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:04:45.172 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:04:45.172 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:16.780 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /api/absences/72
+2026-02-19 15:05:16.781 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /api/absences/72
+2026-02-19 15:05:16.782 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - PUT "/api/absences/72", parameters={}
+2026-02-19 15:05:16.782 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#updateAbsence(Long, JSONAbsenceDTO)
+2026-02-19 15:05:16.783 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [JSONAbsenceDTO(id=72, therapistId=7, date=null, endDate=null, weekday=THURSDAY, startTime=Thu Jan 01 (truncated)...]
+2026-02-19 15:05:16.812 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:16.812 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [com.example.physiokalendar.entity.Absence@1f7b9a1a]
+2026-02-19 15:05:16.813 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:16.813 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:16.819 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:05:16.821 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:05:16.821 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:05:16.821 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:05:16.834 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:16.835 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:05:16.837 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:16.837 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:23.556 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:05:23.556 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/admin/users
+2026-02-19 15:05:23.556 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:05:23.557 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:05:23.557 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:05:23.557 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:05:23.557 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/admin/users
+2026-02-19 15:05:23.557 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:05:23.557 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:05:23.557 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/admin/users", parameters={}
+2026-02-19 15:05:23.557 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:05:23.558 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AdminController#getAllUsers()
+2026-02-19 15:05:23.558 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:05:23.558 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:05:23.558 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:05:23.558 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:05:23.558 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:05:23.558 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:05:23.558 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated?size=1&dateFrom=2026-02-19", parameters={masked}
+2026-02-19 15:05:23.558 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointments(int, int, String, String, String, String, Long, String, String)
+2026-02-19 15:05:23.564 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:23.564 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:23.565 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@1b18badc, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:05:23.565 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[{role=ADMIN, username=admin, therapistId=0, id=4}, {role=ADMIN, username=max.mustermann, therapistI (truncated)...]
+2026-02-19 15:05:23.565 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:23.565 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:23.566 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:23.566 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:23.569 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:23.569 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:05:23.570 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:23.570 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:05:23.570 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:05:23.571 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:05:23.571 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:05:23.572 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:05:23.572 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:23.573 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 1625 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 15:05:23.574 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:23.574 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:23.574 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:23.575 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:23.575 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:23.576 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:23.577 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:23.577 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@34ec2cbd, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:05:23.578 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:23.578 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:23.580 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:05:23.580 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:05:23.580 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:05:23.580 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:05:23.580 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:05:23.580 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:05:23.581 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:05:23.581 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:05:23.584 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:05:23.584 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:05:23.585 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-19", parameters={masked}
+2026-02-19 15:05:23.585 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 15:05:23.591 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:23.591 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:23.592 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:23.592 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@7325a6a4, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 15:05:23.592 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:05:23.592 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:05:23.593 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:23.594 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:23.595 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:23.596 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:23.657 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:23.658 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:40.431 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:05:40.432 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:05:40.432 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:05:40.432 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:05:40.442 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:40.442 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@2915b5f4, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:05:40.443 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:40.443 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:41.722 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:05:41.722 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:05:41.722 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:05:41.722 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/admin/users
+2026-02-19 15:05:41.722 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:05:41.723 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:05:41.723 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/admin/users
+2026-02-19 15:05:41.723 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:05:41.723 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:05:41.723 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:05:41.723 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:05:41.723 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/admin/users", parameters={}
+2026-02-19 15:05:41.723 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated?size=1&dateFrom=2026-02-19", parameters={masked}
+2026-02-19 15:05:41.723 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:05:41.723 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:05:41.723 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:05:41.723 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AdminController#getAllUsers()
+2026-02-19 15:05:41.723 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointments(int, int, String, String, String, String, Long, String, String)
+2026-02-19 15:05:41.723 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:05:41.723 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:05:41.732 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:41.732 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:41.732 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[{role=ADMIN, username=admin, therapistId=0, id=4}, {role=ADMIN, username=max.mustermann, therapistI (truncated)...]
+2026-02-19 15:05:41.732 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@c42bb51, com.example.physiokalendar.dto.JSONTherapi (truncated)...]
+2026-02-19 15:05:41.732 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:41.732 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:41.732 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:41.732 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:41.737 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:41.737 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:41.737 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:41.737 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 1625 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 15:05:41.738 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:05:41.738 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:05:41.738 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:05:41.738 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:05:41.738 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:05:41.739 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:05:41.741 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:41.741 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:41.742 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:41.742 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:41.742 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:41.742 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:41.747 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:41.747 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:05:41.747 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@74a35eff, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:05:41.747 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:05:41.748 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:05:41.748 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:05:41.748 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:05:41.748 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:41.748 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:41.748 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:05:41.748 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:05:41.748 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:05:41.753 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:05:41.753 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:05:41.753 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-19", parameters={masked}
+2026-02-19 15:05:41.753 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 15:05:41.759 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:41.760 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:41.763 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:05:41.763 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:41.763 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@190d1e69, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 15:05:41.763 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:05:41.766 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:41.766 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:41.766 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:41.766 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:41.835 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:41.835 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:42.694 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:05:42.694 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:05:42.694 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:05:42.695 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:05:42.703 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:42.703 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@14252586, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:05:42.704 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:42.704 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:05:42.710 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:05:42.710 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:05:42.710 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:05:42.711 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:05:42.725 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:05:42.726 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:05:42.729 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:05:42.729 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:02.960 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/absences
+2026-02-19 15:07:02.961 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/absences
+2026-02-19 15:07:02.961 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/absences", parameters={}
+2026-02-19 15:07:02.961 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#createOrUpdateAbsence(JSONAbsenceDTO)
+2026-02-19 15:07:02.962 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [JSONAbsenceDTO(id=null, therapistId=7, date=Fri Feb 20 01:00:00 CET 2026, endDate=Fri Feb 20 01:00:0 (truncated)...]
+2026-02-19 15:07:02.981 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:02.982 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [com.example.physiokalendar.entity.Absence@40eb7f77]
+2026-02-19 15:07:02.982 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:02.982 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:02.989 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:07:02.989 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:07:02.989 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:07:02.989 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:07:03.004 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:03.005 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:07:03.006 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:03.007 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:09.759 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:07:09.760 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:07:09.760 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:07:09.760 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:07:09.760 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:07:09.760 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/admin/users
+2026-02-19 15:07:09.760 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:07:09.760 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/admin/users
+2026-02-19 15:07:09.760 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:07:09.761 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:07:09.761 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:07:09.761 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/admin/users", parameters={}
+2026-02-19 15:07:09.761 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:07:09.761 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:07:09.761 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:07:09.761 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AdminController#getAllUsers()
+2026-02-19 15:07:09.761 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:07:09.761 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:07:09.761 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated?size=1&dateFrom=2026-02-19", parameters={masked}
+2026-02-19 15:07:09.761 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointments(int, int, String, String, String, String, Long, String, String)
+2026-02-19 15:07:09.768 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:09.768 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[{role=ADMIN, username=admin, therapistId=0, id=4}, {role=ADMIN, username=max.mustermann, therapistI (truncated)...]
+2026-02-19 15:07:09.768 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:09.768 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@4b3770a5, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:07:09.768 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:09.768 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:09.768 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:09.769 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:09.773 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:09.773 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:07:09.774 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:09.774 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:07:09.774 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:07:09.774 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:07:09.775 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:07:09.775 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:09.775 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:07:09.775 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 1625 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 15:07:09.777 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:09.778 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:09.778 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:09.778 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:09.779 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:09.779 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:09.781 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:09.781 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@63a2120f, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:07:09.782 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:09.782 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:09.784 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:07:09.784 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:07:09.784 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:07:09.784 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:07:09.785 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:07:09.785 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:07:09.785 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:07:09.785 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:07:09.788 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:07:09.788 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:07:09.788 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-19", parameters={masked}
+2026-02-19 15:07:09.789 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 15:07:09.794 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:09.795 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:09.795 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:09.795 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@4dd818a5, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 15:07:09.795 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:07:09.795 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:07:09.799 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:09.799 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:09.799 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:09.799 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:09.858 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:09.858 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:12.734 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-20
+2026-02-19 15:07:12.734 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-20
+2026-02-19 15:07:12.735 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-20", parameters={masked}
+2026-02-19 15:07:12.735 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 15:07:12.744 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:12.744 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@3e0d4d2b, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 15:07:12.819 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:12.819 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:24.499 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:07:24.500 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:07:24.501 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:07:24.501 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:07:24.509 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:24.509 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@9ff47b8, com.example.physiokalendar.dto.JSONTherapi (truncated)...]
+2026-02-19 15:07:24.510 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:24.510 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:24.516 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:07:24.516 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:07:24.516 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:07:24.517 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:07:24.528 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:24.529 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:07:24.531 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:24.531 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:53.653 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /api/absences/1116
+2026-02-19 15:07:53.654 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /api/absences/1116
+2026-02-19 15:07:53.654 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - PUT "/api/absences/1116", parameters={}
+2026-02-19 15:07:53.654 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#updateAbsence(Long, JSONAbsenceDTO)
+2026-02-19 15:07:53.655 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [JSONAbsenceDTO(id=1116, therapistId=7, date=Thu Feb 19 01:00:00 CET 2026, endDate=Thu Feb 19 01:00:0 (truncated)...]
+2026-02-19 15:07:53.684 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:53.684 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [com.example.physiokalendar.entity.Absence@2a367991]
+2026-02-19 15:07:53.684 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:53.685 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:53.715 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:07:53.716 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:07:53.716 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:07:53.716 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:07:53.736 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:53.737 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:07:53.741 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:53.741 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:56.274 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:07:56.274 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:07:56.274 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/admin/users
+2026-02-19 15:07:56.274 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:07:56.274 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:07:56.274 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:07:56.274 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:07:56.274 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/admin/users
+2026-02-19 15:07:56.275 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/admin/users", parameters={}
+2026-02-19 15:07:56.275 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:07:56.275 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:07:56.275 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:07:56.275 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:07:56.275 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AdminController#getAllUsers()
+2026-02-19 15:07:56.275 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:07:56.275 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:07:56.275 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:07:56.275 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/paginated?size=1&dateFrom=2026-02-19
+2026-02-19 15:07:56.275 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/paginated?size=1&dateFrom=2026-02-19", parameters={masked}
+2026-02-19 15:07:56.276 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getPaginatedAppointments(int, int, String, String, String, String, Long, String, String)
+2026-02-19 15:07:56.283 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:56.283 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:56.283 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[{role=ADMIN, username=admin, therapistId=0, id=4}, {role=ADMIN, username=max.mustermann, therapistI (truncated)...]
+2026-02-19 15:07:56.283 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@7db7f358, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:07:56.283 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:56.285 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:56.283 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:56.286 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:56.288 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:07:56.289 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:07:56.289 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:07:56.289 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:07:56.289 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:56.290 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:56.291 [http-nio-8082-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:07:56.291 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:56.291 [http-nio-8082-exec-10] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:07:56.291 [http-nio-8082-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 1625 containing com.example.physiokalendar.entity.Appointment instances]
+2026-02-19 15:07:56.294 [http-nio-8082-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:56.294 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:56.294 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:56.295 [http-nio-8082-exec-7] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@3dffb3d6, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:07:56.296 [http-nio-8082-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:56.296 [http-nio-8082-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:56.296 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:56.296 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:56.296 [http-nio-8082-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:56.296 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:56.299 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/patients
+2026-02-19 15:07:56.299 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:07:56.300 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/patients
+2026-02-19 15:07:56.300 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:07:56.300 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/patients", parameters={}
+2026-02-19 15:07:56.300 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:07:56.300 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.PatientController#getAllPatients()
+2026-02-19 15:07:56.300 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:07:56.302 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:07:56.303 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-19
+2026-02-19 15:07:56.303 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-19", parameters={masked}
+2026-02-19 15:07:56.303 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 15:07:56.310 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:56.311 [http-nio-8082-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@36445eac, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 15:07:56.313 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:56.313 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:56.314 [http-nio-8082-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:07:56.314 [http-nio-8082-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONPatientDTO(id=2687, fullName=Martin Hombitzer, firstName=Martin, lastName=Hombitzer, email=null (truncated)...]
+2026-02-19 15:07:56.318 [http-nio-8082-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:56.318 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:56.318 [http-nio-8082-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:56.319 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:56.377 [http-nio-8082-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:56.377 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:07:58.715 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/appointments/date?date=2026-02-20
+2026-02-19 15:07:58.715 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/appointments/date?date=2026-02-20
+2026-02-19 15:07:58.715 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/appointments/date?date=2026-02-20", parameters={masked}
+2026-02-19 15:07:58.715 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AppointmentController#getAppointmentsForDate(String)
+2026-02-19 15:07:58.726 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:07:58.726 [http-nio-8082-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[com.example.physiokalendar.entity.Appointment@4b33a884, com.example.physiokalendar.entity.Appointme (truncated)...]
+2026-02-19 15:07:58.780 [http-nio-8082-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:07:58.780 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:08:42.148 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/therapists
+2026-02-19 15:08:42.148 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/therapists
+2026-02-19 15:08:42.148 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/therapists", parameters={}
+2026-02-19 15:08:42.148 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.TherapistController#getAllTherapists()
+2026-02-19 15:08:42.158 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:08:42.158 [http-nio-8082-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[com.example.physiokalendar.dto.JSONTherapistDTO@37826502, com.example.physiokalendar.dto.JSONTherap (truncated)...]
+2026-02-19 15:08:42.159 [http-nio-8082-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:08:42.159 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-02-19 15:08:42.165 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/absences
+2026-02-19 15:08:42.165 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/absences
+2026-02-19 15:08:42.166 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/absences", parameters={}
+2026-02-19 15:08:42.166 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.physiokalendar.controller.AbsenceController#getAllAbsences()
+2026-02-19 15:08:42.181 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-02-19 15:08:42.182 [http-nio-8082-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [[JSONAbsenceDTO(id=4, therapistId=6, date=null, endDate=null, weekday=MONDAY, startTime=Thu Jan 01 1 (truncated)...]
+2026-02-19 15:08:42.185 [http-nio-8082-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-19 15:08:42.185 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext

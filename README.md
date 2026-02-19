@@ -175,6 +175,75 @@ Automatically run on backend startup via Flyway:
 
 ---
 
+## 🤖 CI/CD & GitHub Actions Workflows
+
+### Backend Workflows (Automated Deployments)
+
+Two simple workflows triggered by version tags. Backend automatically builds and deploys locally on self-hosted runners.
+
+#### Trigger: Version Tags on Branches
+
+**Deploy to Test Environment**
+```bash
+# On test branch:
+git tag v1.2.3
+git push origin v1.2.3
+```
+→ Triggers `.github/workflows/deploy-test.yml`
+- ✅ Verifies tag is on `test` branch
+- ✅ Builds with Maven: `./mvnw clean package`
+- ✅ Builds Docker image: `docker build -t physio-test-backend:latest -f Dockerfile.test .`
+- ✅ Deploys: `docker compose -f compose.test.yml up -d --no-deps physio-test-backend`
+- ✅ Health check: `curl http://localhost:8081/actuator/health`
+
+**Deploy to Production Environment**
+```bash
+# On master branch:
+git tag v1.2.3
+git push origin v1.2.3
+```
+→ Triggers `.github/workflows/deploy-prod.yml`
+- ✅ Verifies tag is on `master` branch
+- ✅ Requires environment approval (GitHub "production" environment)
+- ✅ Builds with Maven: `./mvnw clean package`
+- ✅ Builds Docker image: `docker build -t physio-prod-backend:latest -f Dockerfile.prod .`
+- ✅ Deploys: `docker compose -f compose.prod.yml up -d --no-deps physio-prod-backend`
+- ✅ Health check: `curl http://localhost:8082/actuator/health`
+
+#### How It Works
+
+| Step | Test | Prod |
+|------|------|------|
+| **Trigger** | Tag push on `test` | Tag push on `master` |
+| **Verification** | Check tag in test branch | Check tag in master branch |
+| **Build** | Maven package | Maven package |
+| **Docker** | `Dockerfile.test` | `Dockerfile.prod` |
+| **Deploy** | Test stack (port 8081) | Prod stack (port 8082) |
+| **Approval** | Auto | Manual approval required |
+
+#### Requirements
+
+- Self-hosted runner with Docker & Java 21 installed
+- Runner labels: `self-hosted`
+- Environment files: `.env.test`, `.env.prod`
+- Docker compose files: `compose.test.yml`, `compose.prod.yml`
+
+#### File Locations
+
+```
+.github/workflows/
+├── deploy-test.yml  # Test environment (auto-deploy)
+└── deploy-prod.yml  # Prod environment (requires approval)
+```
+
+### Frontend Workflows
+
+Frontend has separate GitHub Actions workflows in `Physiokalender-v2-UI`:
+- `.github/workflows/build-and-push-frontend.yml` - Builds & pushes to GHCR on version tags
+- `.github/workflows/deploy-frontend.yml` - Deploys to remote servers
+
+---
+
 ## 🐳 Docker & Containers
 
 ### Basic Commands

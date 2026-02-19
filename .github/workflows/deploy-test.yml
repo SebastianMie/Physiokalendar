@@ -1,124 +1,49 @@
-name: Deploy → Test
-
-permissions:
-  contents: read
-  actions: read
+name: Build & Deploy → Test Backend
 
 on:
-  workflow_dispatch:
-    inputs:
-      image_tag:
-        description: 'Image tag to deploy (default: latest)'
-        required: false
-        default: 'latest'
   push:
-    branches:
-      - test
+    tags:
+      - 'v*'
 
 jobs:
-  detect-selfhosted:
-    name: Detect any self-hosted runner
-    runs-on: ubuntu-latest
-    outputs:
-      any_available: ${{ steps.check.outputs.any_available }}
-    steps:
-      - id: check
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const res = await github.rest.actions.listSelfHostedRunnersForRepo({ owner: context.repo.owner, repo: context.repo.repo });
-            const runners = res.data.runners || [];
-            const any = runners.some(r => r.status === 'online');
-            core.setOutput('any_available', any ? 'true' : 'false');
-
-  deploy-selfhosted:
-    name: Deploy → TEST (self-hosted)
-    needs: detect-selfhosted
-    if: needs.detect-selfhosted.outputs.any_available == 'true'
+  build-and-deploy-test:
     runs-on: [self-hosted]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy to TEST server via SSH
-        uses: appleboy/ssh-action@v0.1.9
+      - name: Verify tag is on test branch
+        run: |
+          TAG_NAME=${GITHUB_REF##*/}
+          echo "Verifying tag $TAG_NAME is on test branch..."
+          TAG_COMMIT=$(git rev-list -n 1 $GITHUB_REF)
+          BRANCHES=$(git branch -r --contains $TAG_COMMIT)
+
+          if echo "$BRANCHES" | grep -q "origin/test"; then
+            echo "✓ Tag is on test branch"
+          else
+            echo "✗ Tag NOT on test branch - skipping deployment"
+            exit 1
+          fi
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
         with:
-          host: ${{ secrets.DEPLOY_HOST_TEST }}
-          username: ${{ secrets.DEPLOY_USER_TEST }}
-          key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
-          port: ${{ secrets.DEPLOY_SSH_PORT_TEST || '22' }}
-          script: |
-            set -euo pipefail
-            # determine image tag: use workflow input if provided, otherwise branch-based default
-            IMAGE_TAG='${{ github.event.inputs.image_tag }}'
-            if [ -z "$IMAGE_TAG" ]; then
-              BRANCH=${GITHUB_REF##*/}
-              if [ "$BRANCH" = "test" ]; then IMAGE_TAG=dev; elif [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then IMAGE_TAG=latest; else IMAGE_TAG=${GITHUB_SHA::8}; fi
-            fi
-            echo "Using image tag: $IMAGE_TAG"
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
 
-            if [ -n "${{ secrets.GHCR_PAT }}" ]; then echo "Logging into GHCR"; echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin; fi
-            BACKEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${IMAGE_TAG}
-            FRONTEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:${IMAGE_TAG}
+      - name: Build backend with Maven
+        run: ./mvnw.cmd clean package -DskipTests
 
-            echo "Pulling $BACKEND_IMAGE"
-            docker pull "$BACKEND_IMAGE" || true
-            docker tag "$BACKEND_IMAGE" physio-test-backend:latest || true
+      - name: Build Docker image
+        run: docker build -t physio-test-backend:latest -f Dockerfile.test .
 
-            echo "Pulling $FRONTEND_IMAGE"
-            docker pull "$FRONTEND_IMAGE" || true
-            docker tag "$FRONTEND_IMAGE" physio-test-frontend:latest || true
-
-            # restart only application containers
-            cd /var/www/physiokalendar || exit 1
-            COMPOSE_PROJECT_NAME=physio-test docker compose -f compose.test.yml --env-file .env.test up -d --no-deps physio-test-backend physio-test-frontend
-
-            # smoke check (remote)
-            sleep 6
-            curl --fail -sS http://localhost:8082/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)
-
-  deploy-hosted:
-    name: Deploy → TEST (github-hosted)
-    needs: detect-selfhosted
-    if: needs.detect-selfhosted.outputs.any_available != 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Deploy to TEST server via SSH
-        uses: appleboy/ssh-action@v0.1.9
-        with:
-          host: ${{ secrets.DEPLOY_HOST_TEST }}
-          username: ${{ secrets.DEPLOY_USER_TEST }}
-          key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
-          port: ${{ secrets.DEPLOY_SSH_PORT_TEST || '22' }}
-          script: |
-            set -euo pipefail
-            # determine image tag: use workflow input if provided, otherwise branch-based default
-            IMAGE_TAG='${{ github.event.inputs.image_tag != '' && github.event.inputs.image_tag || '' }}'
-            if [ -z "$IMAGE_TAG" ]; then
-              BRANCH=${GITHUB_REF##*/}
-              if [ "$BRANCH" = "test" ]; then IMAGE_TAG=dev; elif [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then IMAGE_TAG=latest; else IMAGE_TAG=${GITHUB_SHA::8}; fi
-            fi
-            echo "Using image tag: $IMAGE_TAG"
-
-            if [ -n "${{ secrets.GHCR_PAT }}" ]; then echo "Logging into GHCR"; echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin; fi
-            BACKEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${IMAGE_TAG}
-            FRONTEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:${IMAGE_TAG}
-
-            echo "Pulling $BACKEND_IMAGE"
-            docker pull "$BACKEND_IMAGE" || true
-            docker tag "$BACKEND_IMAGE" physio-test-backend:latest || true
-
-            echo "Pulling $FRONTEND_IMAGE"
-            docker pull "$FRONTEND_IMAGE" || true
-            docker tag "$FRONTEND_IMAGE" physio-test-frontend:latest || true
-
-            # restart only application containers
-            cd /var/www/physiokalendar || exit 1
-            COMPOSE_PROJECT_NAME=physio-test docker compose -f compose.test.yml --env-file .env.test up -d --no-deps physio-test-backend physio-test-frontend
-
-            # smoke check (remote)
-            sleep 6
-            curl --fail -sS http://localhost:8082/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)
+      - name: Deploy to TEST stack
+        run: |
+          cd ${{ github.workspace }}
+          COMPOSE_PROJECT_NAME=physio-test docker compose -f compose.test.yml --env-file .env.test up -d --no-deps physio-test-backend
+          sleep 6
+          echo "Waiting for backend health check..."
+          curl --fail -sS http://localhost:8082/actuator/health || exit 1
+          echo "✓ Backend deployed and healthy"
