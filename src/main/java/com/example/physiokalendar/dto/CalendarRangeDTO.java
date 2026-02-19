@@ -98,8 +98,8 @@ public class CalendarRangeDTO {
         private Long therapistId;
         private String therapistName;
         private LocalDate date;
-        private LocalDateTime startTime;
-        private LocalDateTime endTime;
+        private LocalTime startTime;  // Changed from LocalDateTime to LocalTime
+        private LocalTime endTime;    // Changed from LocalDateTime to LocalTime
         private String reason;
         private String blockType; // SPECIAL, RECURRING
         private Boolean isRecurring;

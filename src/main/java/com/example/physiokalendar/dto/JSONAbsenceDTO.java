@@ -1,7 +1,5 @@
 package com.example.physiokalendar.dto;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,11 +18,11 @@ import lombok.ToString;
 public class JSONAbsenceDTO {
     private Long id;
     private Long therapistId;
-    private Date date;
-    private Date endDate;
+    private String date;           // Changed from Date to String (YYYY-MM-DD format)
+    private String endDate;        // Changed from Date to String (YYYY-MM-DD format)
     private String weekday;
-    private Date startTime;
-    private Date endTime;
+    private String startTime;      // Changed from Date to String (HH:mm:ss or ISO format)
+    private String endTime;        // Changed from Date to String (HH:mm:ss or ISO format)
     private String reason;
     private String absenceType;
 }

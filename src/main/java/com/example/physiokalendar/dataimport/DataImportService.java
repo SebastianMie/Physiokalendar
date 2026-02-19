@@ -577,8 +577,8 @@ public class DataImportService {
                                 absence.setTherapist(therapist);
                                 absence.setAbsenceType(AbsenceType.RECURRING);
                                 absence.setWeekday(weekday);
-                                absence.setStartTime(startTime);
-                                absence.setEndTime(endTime);
+                                absence.setStartTime(startTime.toLocalTime());
+                                absence.setEndTime(endTime.toLocalTime());
                                 absence.setReason("Regelmäßige Abwesenheit");
                                 saveAbsence(absence);
                                 absenceCount++;
@@ -591,8 +591,8 @@ public class DataImportService {
                                     absence.setTherapist(therapist);
                                     absence.setAbsenceType(AbsenceType.SPECIAL);
                                     absence.setDate(absenceDate);
-                                    absence.setStartTime(startTime);
-                                    absence.setEndTime(endTime);
+                                    absence.setStartTime(startTime.toLocalTime());
+                                    absence.setEndTime(endTime.toLocalTime());
                                     absence.setReason("Abwesenheit");
                                     saveAbsence(absence);
                                     absenceCount++;

@@ -188,15 +188,16 @@ public class ConflictService {
 
         for (Absence absence : specialAbsences) {
             if (timesOverlap(draft.getStartTime(), draft.getEndTime(),
-                    absence.getStartTime(), absence.getEndTime())) {
+                        absence.getStartTime().atDate(draft.getStartTime().toLocalDate()),
+                        absence.getEndTime().atDate(draft.getStartTime().toLocalDate()))) {
                 conflicts.add(ConflictDTO.builder()
                         .type("ABSENCE")
                         .id(absence.getId())
                         .therapistId(absence.getTherapist().getId())
                         .therapistName(absence.getTherapist().getFullName())
                         .date(absence.getDate())
-                        .startTime(absence.getStartTime())
-                        .endTime(absence.getEndTime())
+                        .startTime(absence.getStartTime().atDate(draft.getStartTime().toLocalDate()))
+                        .endTime(absence.getEndTime().atDate(draft.getStartTime().toLocalDate()))
                         .description("Therapeut ist abwesend: " +
                                 (absence.getReason() != null ? absence.getReason() : "Keine Angabe"))
                         .build());
@@ -214,8 +215,8 @@ public class ConflictService {
             }
 
             // Recurring absence on this weekday
-            LocalDateTime absenceStart = absence.getStartTime();
-            LocalDateTime absenceEnd = absence.getEndTime();
+            LocalDateTime absenceStart = absence.getStartTime().atDate(LocalDate.of(2000, 1, 1));
+            LocalDateTime absenceEnd = absence.getEndTime().atDate(LocalDate.of(2000, 1, 1));
 
             // If times are not set, it's a full-day absence
             if (absenceStart == null || absenceEnd == null) {

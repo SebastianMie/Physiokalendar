@@ -374,12 +374,29 @@ public class AppointmentService {
     private boolean isTherapistAbsent(List<Absence> absences, Date startDateTime, Date endDateTime) {
         for (Absence absence : absences) {
             if (absence.getDate() != null) {
-                LocalDateTime absenceStart = absence.getStartTime();
-                LocalDateTime absenceEnd = absence.getEndTime();
+                // SPECIAL (one-time) absence
                 LocalDateTime checkStart = dateToLocalDateTime(startDateTime);
                 LocalDateTime checkEnd = dateToLocalDateTime(endDateTime);
-                if (!checkStart.isAfter(absenceEnd) && !checkEnd.isBefore(absenceStart)) {
-                    return true; // Überlappung gefunden
+                LocalDate absenceStartDate = absence.getDate();
+                LocalDate absenceEndDate = absence.getEndDate() != null ? absence.getEndDate() : absenceStartDate;
+                LocalDate checkDate = checkStart.toLocalDate();
+                LocalDate checkEndDate = checkEnd.toLocalDate();
+
+                // Check if appointment overlaps with absence date range
+                if (!checkDate.isAfter(absenceEndDate) && !checkEndDate.isBefore(absenceStartDate)) {
+                    // Appointment date overlaps with absence date range
+                    LocalDateTime absenceStart = absence.getStartTime().atDate(absenceStartDate);
+                    LocalDateTime absenceEnd = absence.getEndTime().atDate(absenceStartDate);
+
+                    // If times are null, it's a full-day absence
+                    if (absenceStart == null || absenceEnd == null) {
+                        return true;
+                    }
+
+                    // Check time overlap
+                    if (!checkStart.isAfter(absenceEnd) && !checkEnd.isBefore(absenceStart)) {
+                        return true; // Zeitliche Überlappung gefunden
+                    }
                 }
             } else if (absence.getWeekday() != null && !absence.getWeekday().isEmpty() && matchesWeeklyAbsence(absence, startDateTime, endDateTime)) {
                 return true; // Überlappung mit wöchentlicher Abwesenheit gefunden

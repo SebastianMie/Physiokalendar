@@ -184,8 +184,8 @@ public class SlotSearchService {
         for (Absence absence : specialAbsences) {
             if (absence.getStartTime() != null && absence.getEndTime() != null) {
                 busy.add(new TimeInterval(
-                        absence.getStartTime().toLocalTime(),
-                        absence.getEndTime().toLocalTime()));
+                        absence.getStartTime(),
+                        absence.getEndTime()));
             } else {
                 // Full day absence
                 busy.add(new TimeInterval(WORK_START, WORK_END));
@@ -200,8 +200,8 @@ public class SlotSearchService {
             if (absenceDay != null && date.getDayOfWeek().equals(absenceDay)) {
                 if (absence.getStartTime() != null && absence.getEndTime() != null) {
                     busy.add(new TimeInterval(
-                            absence.getStartTime().toLocalTime(),
-                            absence.getEndTime().toLocalTime()));
+                            absence.getStartTime(),
+                            absence.getEndTime()));
                 } else {
                     // Full day absence
                     busy.add(new TimeInterval(WORK_START, WORK_END));
