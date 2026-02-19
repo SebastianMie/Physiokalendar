@@ -35,7 +35,8 @@ services:
         condition: service_healthy
     environment:
       SPRING_PROFILES_ACTIVE: prod
-      SPRING_DATASOURCE_URL: jdbc:mysql://physio-prod-db:3306/${DB_NAME:-physiocalendar}
+      SPRING_FLYWAY_ENABLED: "false"
+      SPRING_DATASOURCE_URL: jdbc:mysql://physio-prod-db:3306/${DB_NAME:-physiocalendar_prod}
       SPRING_DATASOURCE_USERNAME: ${DB_USER:-physiouser}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
@@ -58,32 +59,51 @@ services:
     networks:
       - physio-prod-network
 
-  physio-prod-frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-      args:
-        BUILD_ENV: production
-    container_name: physio-prod-frontend
-    image: physio-prod-frontend:latest
-    restart: always
-    depends_on:
-      - physio-prod-backend
-    environment:
-      API_URL: http://physio-prod-backend:8080
-    ports:
-      - "${FRONTEND_HTTP_PORT:-80}:80"
-      - "${FRONTEND_HTTPS_PORT:-443}:443"
-    networks:
-      - physio-prod-network
+  # physio-prod-frontend:
+  #   container_name: ${COMPOSE_PROJECT_NAME:-physio-prod}-frontend
+  #   image: ${FRONTEND_IMAGE:-physio-prod-frontend:latest}
+  #   restart: always
+  #   depends_on:
+  #     - physio-prod-backend
+  #   environment:
+  #     API_URL: http://physio-prod-backend:8080
+  #   ports:
+  #     - "${FRONTEND_HTTP_PORT:-80}:80"
+  #     - "${FRONTEND_HTTPS_PORT:-443}:443"
+  #   healthcheck:
+  #     test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1/" ]
+  #     interval: 30s
+  #     timeout: 5s
+  #     retries: 3
+  #     start_period: 5s
+  #   networks:
+  #     - physio-prod-network
+  physio-prod-backup:
+      build:
+        context: .
+        dockerfile: Dockerfile.backup
+      container_name: ${COMPOSE_PROJECT_NAME:-physio-prod}-backup
+      image: ${COMPOSE_PROJECT_NAME:-physio-prod}-backup:latest
+      restart: unless-stopped
+      environment:
+        DB_HOST: physio-prod-db
+        DB_PORT: 3306
+        DB_NAME: ${DB_NAME:-physiocalendar}
+        DB_USER: ${DB_USER:-physiouser}
+        DB_PASSWORD: ${DB_PASSWORD:-prodpassword}
+      volumes:
+        - ./backups:/backup
+      networks:
+        - physio-prod-network
+      depends_on:
+        physio-prod-db:
+          condition: service_healthy
 
 volumes:
   physio-prod-db-data:
     name: physio-prod-db-data
-    external: true
 
 networks:
   physio-prod-network:
     name: physio-prod-network
     driver: bridge
-    external: true

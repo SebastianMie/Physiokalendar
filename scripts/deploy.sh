@@ -152,12 +152,27 @@ FRONTEND_SERVICE="physio-${TO_ENV}-frontend"
 BACKUP_SERVICE="physio-${TO_ENV}-backup"
 DB_SERVICE="physio-${TO_ENV}-db"
 
-echo "[deploy] Building images for: $BACKEND_SERVICE $FRONTEND_SERVICE"
-COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT docker compose $COMPOSE_FILES build $NO_CACHE $BACKEND_SERVICE $FRONTEND_SERVICE
+# Detect whether frontend service exists in the compose files
+FE_DEFINED=false
+for f in docker-compose.yml compose.${TO_ENV}.yml; do
+  if [[ -f "$f" ]] && grep -qE "^[[:space:]]*${FRONTEND_SERVICE}:" "$f" 2>/dev/null; then
+    FE_DEFINED=true
+    break
+  fi
+done
 
-# Up: restart only application services; include DB only if explicitly requested
-# NOTE: `backup` is intentionally NOT included by default (prevents DB being started by dependency).
-SERVICES_TO_UP="$BACKEND_SERVICE $FRONTEND_SERVICE"
+if [[ "$FE_DEFINED" == true ]]; then
+  echo "[deploy] Building images for: $BACKEND_SERVICE $FRONTEND_SERVICE"
+  COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT docker compose $COMPOSE_FILES build $NO_CACHE $BACKEND_SERVICE $FRONTEND_SERVICE
+  SERVICES_TO_UP="$BACKEND_SERVICE $FRONTEND_SERVICE"
+else
+  echo "[deploy] Frontend service not defined in compose files — skipping frontend build/start"
+  echo "[deploy] Building image for: $BACKEND_SERVICE"
+  COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT docker compose $COMPOSE_FILES build $NO_CACHE $BACKEND_SERVICE
+  SERVICES_TO_UP="$BACKEND_SERVICE"
+fi
+
+# include DB only if explicitly requested
 if $RECREATE_DB; then
   SERVICES_TO_UP="$DB_SERVICE $SERVICES_TO_UP"
 fi

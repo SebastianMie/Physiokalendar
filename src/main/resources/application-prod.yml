@@ -18,7 +18,7 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: false
   flyway:
-    enabled: true
+    enabled: false   # Flyway in Produktion standardmäßig deaktiviert — DB wird per dump/backup gepflegt
     locations: classpath:db/migration
     baselineOnMigrate: false
 
@@ -26,6 +26,10 @@ spring:
 app:
   environment: prod
   seed-data-enabled: false
+
+# Set correct port for production
+server:
+  port: 8080
 
 # JWT Configuration
 jwt:

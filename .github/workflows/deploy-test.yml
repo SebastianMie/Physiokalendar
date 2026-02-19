@@ -11,6 +11,9 @@ on:
         description: 'Image tag to deploy (default: latest)'
         required: false
         default: 'latest'
+  push:
+    branches:
+      - test
 
 jobs:
   detect-selfhosted:
@@ -46,13 +49,33 @@ jobs:
           port: ${{ secrets.DEPLOY_SSH_PORT_TEST || '22' }}
           script: |
             set -euo pipefail
+            # determine image tag: use workflow input if provided, otherwise branch-based default
+            IMAGE_TAG='${{ github.event.inputs.image_tag }}'
+            if [ -z "$IMAGE_TAG" ]; then
+              BRANCH=${GITHUB_REF##*/}
+              if [ "$BRANCH" = "test" ]; then IMAGE_TAG=dev; elif [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then IMAGE_TAG=latest; else IMAGE_TAG=${GITHUB_SHA::8}; fi
+            fi
+            echo "Using image tag: $IMAGE_TAG"
+
+            if [ -n "${{ secrets.GHCR_PAT }}" ]; then echo "Logging into GHCR"; echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin; fi
+            BACKEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${IMAGE_TAG}
+            FRONTEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:${IMAGE_TAG}
+
+            echo "Pulling $BACKEND_IMAGE"
+            docker pull "$BACKEND_IMAGE" || true
+            docker tag "$BACKEND_IMAGE" physio-test-backend:latest || true
+
+            echo "Pulling $FRONTEND_IMAGE"
+            docker pull "$FRONTEND_IMAGE" || true
+            docker tag "$FRONTEND_IMAGE" physio-test-frontend:latest || true
+
+            # restart only application containers
             cd /var/www/physiokalendar || exit 1
-            git fetch --all
-            git reset --hard origin/main
-            ./scripts/redeploy-stack.sh test --mvn --no-cache
+            COMPOSE_PROJECT_NAME=physio-test docker compose -f compose.test.yml --env-file .env.test up -d --no-deps physio-test-backend physio-test-frontend
+
             # smoke check (remote)
             sleep 6
-            curl --fail -sS http://localhost:8080/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)
+            curl --fail -sS http://localhost:8082/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)
 
   deploy-hosted:
     name: Deploy → TEST (github-hosted)
@@ -72,10 +95,30 @@ jobs:
           port: ${{ secrets.DEPLOY_SSH_PORT_TEST || '22' }}
           script: |
             set -euo pipefail
+            # determine image tag: use workflow input if provided, otherwise branch-based default
+            IMAGE_TAG='${{ github.event.inputs.image_tag != '' && github.event.inputs.image_tag || '' }}'
+            if [ -z "$IMAGE_TAG" ]; then
+              BRANCH=${GITHUB_REF##*/}
+              if [ "$BRANCH" = "test" ]; then IMAGE_TAG=dev; elif [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then IMAGE_TAG=latest; else IMAGE_TAG=${GITHUB_SHA::8}; fi
+            fi
+            echo "Using image tag: $IMAGE_TAG"
+
+            if [ -n "${{ secrets.GHCR_PAT }}" ]; then echo "Logging into GHCR"; echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin; fi
+            BACKEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${IMAGE_TAG}
+            FRONTEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:${IMAGE_TAG}
+
+            echo "Pulling $BACKEND_IMAGE"
+            docker pull "$BACKEND_IMAGE" || true
+            docker tag "$BACKEND_IMAGE" physio-test-backend:latest || true
+
+            echo "Pulling $FRONTEND_IMAGE"
+            docker pull "$FRONTEND_IMAGE" || true
+            docker tag "$FRONTEND_IMAGE" physio-test-frontend:latest || true
+
+            # restart only application containers
             cd /var/www/physiokalendar || exit 1
-            git fetch --all
-            git reset --hard origin/main
-            ./scripts/redeploy-stack.sh test --mvn --no-cache
+            COMPOSE_PROJECT_NAME=physio-test docker compose -f compose.test.yml --env-file .env.test up -d --no-deps physio-test-backend physio-test-frontend
+
             # smoke check (remote)
             sleep 6
-            curl --fail -sS http://localhost:8080/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)
+            curl --fail -sS http://localhost:8082/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)

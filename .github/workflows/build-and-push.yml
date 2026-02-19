@@ -7,6 +7,7 @@ permissions:
 on:
   push:
     branches:
+      - test
       - main
       - master
       - 'release/**'
@@ -62,6 +63,12 @@ jobs:
         run: |
           if [ -d "Physiokalender-v2-UI" ] || [ -d "Physiokalendar-v2-UI" ]; then echo "frontend_present=true" >> $GITHUB_OUTPUT; else echo "frontend_present=false" >> $GITHUB_OUTPUT; fi
 
+      - name: Determine image tag
+        id: image_tag
+        run: |
+          BRANCH=${GITHUB_REF##*/}
+          if [ "$BRANCH" = "test" ]; then echo "IMAGE_TAG=dev" >> $GITHUB_OUTPUT; elif [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then echo "IMAGE_TAG=latest" >> $GITHUB_OUTPUT; else echo "IMAGE_TAG=${GITHUB_SHA::8}" >> $GITHUB_OUTPUT; fi
+
       - name: Build and push (backend image)
         uses: docker/build-push-action@v4
         with:
@@ -69,6 +76,7 @@ jobs:
           file: Dockerfile.test
           push: true
           tags: |
+            ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${{ steps.image_tag.outputs.IMAGE_TAG }}
             ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${{ github.sha }}
             ghcr.io/${{ github.repository_owner }}/physiokalender-backend:latest
           cache-from: type=local,src=/tmp/.buildx-cache
@@ -78,8 +86,8 @@ jobs:
         if: steps.detect_frontend.outputs.frontend_present == 'true'
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: Dockerfile.frontend
+          context: ./Physiokalender-v2-UI
+          file: ./Physiokalender-v2-UI/Dockerfile
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:${{ github.sha }}
@@ -122,6 +130,12 @@ jobs:
         run: |
           if [ -d "Physiokalender-v2-UI" ] || [ -d "Physiokalendar-v2-UI" ]; then echo "frontend_present=true" >> $GITHUB_OUTPUT; else echo "frontend_present=false" >> $GITHUB_OUTPUT; fi
 
+      - name: Determine image tag
+        id: image_tag
+        run: |
+          BRANCH=${GITHUB_REF##*/}
+          if [ "$BRANCH" = "test" ]; then echo "IMAGE_TAG=dev" >> $GITHUB_OUTPUT; elif [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then echo "IMAGE_TAG=latest" >> $GITHUB_OUTPUT; else echo "IMAGE_TAG=${GITHUB_SHA::8}" >> $GITHUB_OUTPUT; fi
+
       - name: Build and push (backend image)
         uses: docker/build-push-action@v4
         with:
@@ -129,6 +143,7 @@ jobs:
           file: Dockerfile.test
           push: true
           tags: |
+            ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${{ steps.image_tag.outputs.IMAGE_TAG }}
             ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${{ github.sha }}
             ghcr.io/${{ github.repository_owner }}/physiokalender-backend:latest
           cache-from: type=local,src=/tmp/.buildx-cache
@@ -138,8 +153,8 @@ jobs:
         if: steps.detect_frontend.outputs.frontend_present == 'true'
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: Dockerfile.frontend
+          context: ./Physiokalender-v2-UI
+          file: ./Physiokalender-v2-UI/Dockerfile
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:${{ github.sha }}

@@ -35,8 +35,8 @@ public class AuthController {
         Optional<User> userOpt = userRepository.findByUsername(request.getUsername());
 
         if (userOpt.isEmpty()) {
-            return ResponseEntity.status(401).body(Map.of(
-                "error", "Invalid credentials"
+            return ResponseEntity.status(404).body(Map.of(
+                "error", "Benutzer existiert nicht"
             ));
         }
 
@@ -45,7 +45,7 @@ public class AuthController {
         // Verify password
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             return ResponseEntity.status(401).body(Map.of(
-                "error", "Invalid credentials"
+                "error", "Falsches Passwort"
             ));
         }
 

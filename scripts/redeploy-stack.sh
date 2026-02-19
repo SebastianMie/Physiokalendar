@@ -30,6 +30,19 @@ done
 COMPOSE_FILES="-f compose.${ENV}.yml"
 COMPOSE_PROJECT="physio-${ENV}"
 
+# Detect whether frontend service is defined in the compose files (skip if commented out)
+FE_SERVICE_NAME="physio-${ENV}-frontend"
+FE_DEFINED=false
+for f in docker-compose.yml compose.${ENV}.yml; do
+  if [[ -f "$f" ]] && grep -qE "^[[:space:]]*${FE_SERVICE_NAME}:" "$f" 2>/dev/null; then
+    FE_DEFINED=true
+    break
+  fi
+done
+if [[ "$FE_DEFINED" != true ]]; then
+  echo "[redeploy] frontend service not present in compose files (will skip frontend build/up)"
+fi
+
 # detect mvnw
 if [[ -f ./mvnw ]]; then
   MVNW=./mvnw
@@ -84,7 +97,13 @@ docker images --format '{{.Repository}}:{{.Tag}}\t{{.ID}}\t{{.CreatedSince}}\t{{
 
 echo "[redeploy] Deploying stack (force recreate — DB excluded by default)..."
 # Recreate only application containers by default (do NOT touch DB unless explicitly requested)
-SERVICES="physio-${ENV}-backend physio-${ENV}-frontend physio-${ENV}-backup"
+# Build the list of services to (re)create — only include frontend if it exists in the compose files
+SERVICES="physio-${ENV}-backend physio-${ENV}-backup"
+if [[ "$FE_DEFINED" == true ]]; then
+  SERVICES="physio-${ENV}-backend physio-${ENV}-frontend physio-${ENV}-backup"
+else
+  echo "[redeploy] skipping frontend service because it is not defined in compose files"
+fi
 if $RECREATE_DB; then
   SERVICES="physio-${ENV}-db $SERVICES"
 fi

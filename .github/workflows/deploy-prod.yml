@@ -2,6 +2,9 @@ name: Deploy → Prod (manual approval required)
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
   deploy-prod:
@@ -20,9 +23,23 @@ jobs:
           port: ${{ secrets.DEPLOY_SSH_PORT_PROD || '22' }}
           script: |
             set -euo pipefail
+            IMAGE_TAG='${{ github.event.inputs.image_tag != '' && github.event.inputs.image_tag || '' }}'
+            if [ -z "$IMAGE_TAG" ]; then BRANCH=${GITHUB_REF##*/}; if [ "$BRANCH" = "master" ]; then IMAGE_TAG=latest; else IMAGE_TAG=${GITHUB_SHA::8}; fi; fi
+            echo "Using image tag: $IMAGE_TAG"
+
+            if [ -n "${{ secrets.GHCR_PAT }}" ]; then echo "Logging into GHCR"; echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin; fi
+            BACKEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-backend:${IMAGE_TAG}
+            FRONTEND_IMAGE=ghcr.io/${{ github.repository_owner }}/physiokalender-frontend:${IMAGE_TAG}
+
+            echo "Pulling $BACKEND_IMAGE"
+            docker pull "$BACKEND_IMAGE" || true
+            docker tag "$BACKEND_IMAGE" physio-prod-backend:latest || true
+
+            echo "Pulling $FRONTEND_IMAGE"
+            docker pull "$FRONTEND_IMAGE" || true
+            docker tag "$FRONTEND_IMAGE" physio-prod-frontend:latest || true
+
             cd /var/www/physiokalendar || exit 1
-            git fetch --all
-            git reset --hard origin/main
-            ./scripts/deploy.sh --from test --to prod --no-cache --confirm-prod
+            COMPOSE_PROJECT_NAME=physio-prod docker compose -f compose.prod.yml --env-file .env.prod up -d --no-deps physio-prod-backend physio-prod-frontend
             sleep 6
-            curl --fail -sS http://localhost:8080/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)
+            curl --fail -sS http://localhost:8082/actuator/health | grep -q '"status":"UP"' || (echo 'Healthcheck failed' && exit 1)

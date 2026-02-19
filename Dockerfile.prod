@@ -1,27 +1,18 @@
-# Multi-Stage Production Build
+# Multi-stage Dockerfile for test backend (fast, small runtime image)
+# Builder: build with Maven (use same proven base as Dockerfile.prod)
 FROM maven:3.9-eclipse-temurin-17 AS builder
-
-WORKDIR /build
-COPY pom.xml .
+WORKDIR /workspace
+COPY pom.xml mvnw ./
+COPY .mvn .mvn
+# copy sources (use wildcard for context performance)
 COPY src ./src
+RUN mvn -B -DskipTests package
 
-# Build the application
-RUN mvn clean package -DskipTests
-
-# Production Image
-FROM eclipse-temurin:17-jre-slim
-
-WORKDIR /app
-
-# Copy the built JAR from builder
-COPY --from=builder /build/target/*.jar app.jar
-
-# Expose port
+# Runtime: reliable Temurin JRE (use focal tag which is generally available)
+FROM eclipse-temurin:17-jre-focal
+ARG APP_HOME=/usr/app
+WORKDIR ${APP_HOME}
+# copy app jar from builder
+COPY --from=builder /workspace/target/*-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD curl -f http://localhost:8080/actuator/health || exit 1
-
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","/usr/app/app.jar"]

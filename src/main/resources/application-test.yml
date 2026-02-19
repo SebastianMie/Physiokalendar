@@ -40,6 +40,10 @@ mail:
     to: ${TEST_MAIL_TO:test-inbox@localhost}
     subject-prefix: "[TEST] "
 
+# Set correct port for test
+server:
+  port: 8081
+
 # Audit Configuration
 audit:
   log-before-after: true

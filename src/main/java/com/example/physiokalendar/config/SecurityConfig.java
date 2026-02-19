@@ -41,7 +41,8 @@ public class SecurityConfig {
             public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
                 if (registry != null) {
                     registry.addMapping("/**")
-                    .allowedOrigins("http://localhost:4200", "http://localhost:4201", "http://localhost:5173")
+                    // allow localhost/127.0.0.1 on any port for local/dev UI instances
+                    .allowedOriginPatterns("http://localhost:*", "http://127.0.0.1:*")
                     .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                     .allowedHeaders("*")
                     .allowCredentials(true);
