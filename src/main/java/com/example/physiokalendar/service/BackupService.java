@@ -32,14 +32,19 @@ public class BackupService {
     /**
      * Creates a backup using the Docker backup container's script
      * Falls back to direct mysqldump if the script is not available
+     *
+     * @param backupType Type of backup: "full", "incremental", or null (defaults to auto)
      * @return Backup file path or null if failed
      */
-    public String createBackup() throws IOException {
+    public String createBackup(String backupType) throws IOException {
         try {
-            logger.info("Starting backup using Docker backup container script...");
+            if (backupType == null) {
+                backupType = "auto";
+            }
+            logger.info("Starting backup using Docker backup container script... (type: {})", backupType);
 
             // Try to use the backup script first (for Docker environments)
-            String result = createBackupUsingScript();
+            String result = createBackupUsingScript(backupType);
             if (result != null) {
                 logger.info("Backup created successfully: {}", result);
                 return result;
@@ -65,9 +70,19 @@ public class BackupService {
     }
 
     /**
-     * Uses the existing backup container script to create a backup
+     * Overloaded method for backwards compatibility
+     * Defaults to auto backup type
      */
-    private String createBackupUsingScript() throws IOException {
+    public String createBackup() throws IOException {
+        return createBackup(null);
+    }
+
+    /**
+     * Uses the existing backup container script to create a backup
+     *
+     * @param backupType Type of backup: "full", "incremental", or "auto"
+     */
+    private String createBackupUsingScript(String backupType) throws IOException {
         try {
             String dbName = extractDatabaseName(datasourceUrl);
             String host = extractHost(datasourceUrl);
@@ -82,11 +97,11 @@ public class BackupService {
             env.put("DB_PASSWORD", dbPassword);
             env.put("BACKUP_DIR", backupDir);
 
-            logger.info("Executing backup script: {} with DB_HOST={}, DB_PORT={}, DB_NAME={}",
-                backupScriptPath, host, port, dbName);
+            logger.info("Executing backup script: {} (type: {}) with DB_HOST={}, DB_PORT={}, DB_NAME={}",
+                backupScriptPath, backupType, host, port, dbName);
 
-            // Create backup script process
-            ProcessBuilder pb = new ProcessBuilder("bash", backupScriptPath);
+            // Create backup script process with backup type argument
+            ProcessBuilder pb = new ProcessBuilder("bash", backupScriptPath, backupType);
             pb.environment().putAll(env);
             pb.redirectErrorStream(true);
 

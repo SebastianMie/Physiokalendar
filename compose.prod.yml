@@ -88,9 +88,10 @@ services:
       environment:
         DB_HOST: physio-prod-db
         DB_PORT: 3306
-        DB_NAME: ${DB_NAME:-physiocalendar}
+        DB_NAME: ${DB_NAME:-physiocalendar_prod}
         DB_USER: ${DB_USER:-physiouser}
         DB_PASSWORD: ${DB_PASSWORD:-prodpassword}
+        DB_ENV: prod
       volumes:
         - ./backups:/backup
       networks:

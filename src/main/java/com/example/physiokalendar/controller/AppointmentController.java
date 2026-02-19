@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.physiokalendar.dto.AppointmentDraftDTO;
 import com.example.physiokalendar.dto.AppointmentSaveResult;
+import com.example.physiokalendar.dto.AppointmentStatusUpdateDTO;
 import com.example.physiokalendar.dto.ConflictCheckDTO;
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
 import com.example.physiokalendar.entity.Appointment;
@@ -342,6 +343,37 @@ public class AppointmentController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(Map.of("error", "Fehler beim Stornieren: " + e.getMessage()));
+        }
+    }
+
+    /**
+     * Update appointment status.
+     * PATCH /api/appointments/{id}/status
+     *
+     * Status transitions follow business rules:
+     * - SCHEDULED: Initial status
+     * - CONFIRMED: Manually confirmed appointment
+     * - COMPLETED: Appointment completed (past appointment or manual marking)
+     * - NO_SHOW: Patient didn't show up (should be set for past appointments)
+     * - CANCELLED: Appointment cancelled (can transition from any state)
+     *
+     * @param id the appointment to update
+     * @param statusUpdateDTO contains new status and optional reason
+     * @return updated appointment
+     */
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<?> updateAppointmentStatus(
+            @PathVariable Long id,
+            @RequestBody AppointmentStatusUpdateDTO statusUpdateDTO) {
+        try {
+            Appointment updated = appointmentService.updateAppointmentStatus(id, statusUpdateDTO);
+            return ResponseEntity.ok(updated);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Map.of("error", e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Fehler beim Aktualisieren des Status: " + e.getMessage()));
         }
     }
 

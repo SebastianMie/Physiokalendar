@@ -22,14 +22,23 @@ public class BackupController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Map<String, Object>> createBackup() {
+    public ResponseEntity<Map<String, Object>> createBackup(
+            @RequestParam(value = "type", required = false, defaultValue = "auto") String backupType) {
         Map<String, Object> response = new HashMap<>();
         try {
-            String backupPath = backupService.createBackup();
+            // Validate backup type
+            if (!backupType.matches("^(full|incremental|auto)$")) {
+                response.put("success", false);
+                response.put("message", "Ungültiger Backup-Typ. Erlaubt sind: full, incremental, auto");
+                return ResponseEntity.badRequest().body(response);
+            }
+
+            String backupPath = backupService.createBackup(backupType);
             if (backupPath != null) {
                 response.put("success", true);
-                response.put("message", "Backup erfolgreich erstellt");
+                response.put("message", "Backup erfolgreich erstellt (" + backupType + ")");
                 response.put("path", backupPath);
+                response.put("type", backupType);
                 return ResponseEntity.ok(response);
             } else {
                 response.put("success", false);

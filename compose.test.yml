@@ -124,6 +124,7 @@ services:
       DB_NAME: ${DB_NAME:-physiocalendar_test}
       DB_USER: ${DB_USER:-physiouser}
       DB_PASSWORD: ${DB_PASSWORD:-testpassword}
+      DB_ENV: test
     volumes:
       - ./backups:/backup
     networks:

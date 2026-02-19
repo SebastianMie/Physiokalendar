@@ -2,6 +2,7 @@ package com.example.physiokalendar.service;
 
 import com.example.physiokalendar.dto.AppointmentDraftDTO;
 import com.example.physiokalendar.dto.AppointmentSaveResult;
+import com.example.physiokalendar.dto.AppointmentStatusUpdateDTO;
 import com.example.physiokalendar.dto.ConflictCheckDTO;
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
 import com.example.physiokalendar.entity.*;
@@ -611,5 +612,128 @@ public class AppointmentService {
                     return !appointmentDate.isBefore(from) && !appointmentDate.isAfter(to);
                 })
                 .toList();
+    }
+
+    /**
+     * Update appointment status with business logic validation.
+     * Handles status transitions with appropriate constraints:
+     * - SCHEDULED: Initial status when appointment is created
+     * - CONFIRMED: Can be set manually for confirmed appointments
+     * - COMPLETED: Set manually or auto-set for past appointments
+     * - NO_SHOW: Set for past appointments where patient didn't show up
+     * - CANCELLED: Mark appointment as cancelled (soft delete)
+     *
+     * @param appointmentId the appointment to update
+     * @param statusUpdateDTO contains new status and optional reason
+     * @return updated appointment
+     * @throws IllegalArgumentException if appointment not found or invalid status transition
+     */
+    @Transactional
+    public Appointment updateAppointmentStatus(Long appointmentId, AppointmentStatusUpdateDTO statusUpdateDTO) {
+        Appointment appointment = appointmentRepository.findById(appointmentId)
+                .orElseThrow(() -> new IllegalArgumentException("Appointment not found: " + appointmentId));
+
+        String beforeJson = auditService.toAuditJson(appointment);
+        AppointmentStatus newStatus = statusUpdateDTO.getStatus();
+        String reason = statusUpdateDTO.getReason();
+
+        if (newStatus == null) {
+            throw new IllegalArgumentException("Status must not be null");
+        }
+
+        // Business logic validation
+        validateStatusTransition(appointment, newStatus);
+
+        appointment.setStatus(newStatus);
+
+        // Append reason to comment if provided (similar to cancelAppointment logic)
+        if (reason != null && !reason.isEmpty()) {
+            String statusChangeEntry = String.format("%s", reason);
+            appointment.setComment((appointment.getComment() != null ? appointment.getComment() + " | " : "")
+                    + statusChangeEntry);
+        }
+
+        Appointment saved = appointmentRepository.save(appointment);
+
+        // Audit logging with status change
+        auditService.record(AuditService.builder()
+                .actor(getCurrentUserId(), getCurrentUsername())
+                .entity(AuditEntityType.APPOINTMENT, appointmentId)
+                .action(AuditAction.UPDATE)
+                .before(beforeJson)
+                .after(auditService.toAuditJson(saved)));
+
+        return saved;
+    }
+
+    /**
+     * Auto-update statuses for appointments based on current date.
+     * Called periodically to set COMPLETED for past appointments without explicit status.
+     * This is a helper for data consistency but should be called sparingly.
+     */
+    @Transactional
+    public void autoUpdatePastAppointmentStatuses() {
+        LocalDate today = LocalDate.now();
+        List<Appointment> pastAppointments = appointmentRepository.findAll().stream()
+                .filter(a -> a.getDate().isBefore(today)
+                        && (a.getStatus() == AppointmentStatus.SCHEDULED
+                        || a.getStatus() == AppointmentStatus.CONFIRMED))
+                .toList();
+
+        for (Appointment apt : pastAppointments) {
+            String beforeJson = auditService.toAuditJson(apt);
+            apt.setStatus(AppointmentStatus.COMPLETED);
+            appointmentRepository.save(apt);
+
+            auditService.record(AuditService.builder()
+                    .actor(null, "system-auto-update")
+                    .entity(AuditEntityType.APPOINTMENT, apt.getId())
+                    .action(AuditAction.UPDATE)
+                    .before(beforeJson)
+                    .after(auditService.toAuditJson(apt)));
+        }
+    }
+
+    /**
+     * Validate status transitions with business rules.
+     * Ensures only valid transitions are allowed.
+     */
+    private void validateStatusTransition(Appointment appointment, AppointmentStatus newStatus) {
+        AppointmentStatus currentStatus = appointment.getStatus();
+
+        // Can always transition to CANCELLED from any state
+        if (newStatus == AppointmentStatus.CANCELLED) {
+            return;
+        }
+
+        // SCHEDULED -> CONFIRMED (manual confirmation)
+        if (currentStatus == AppointmentStatus.SCHEDULED && newStatus == AppointmentStatus.CONFIRMED) {
+            return;
+        }
+
+        // CONFIRMED -> SCHEDULED (unconfirm)
+        if (currentStatus == AppointmentStatus.CONFIRMED && newStatus == AppointmentStatus.SCHEDULED) {
+            return;
+        }
+
+        // Any non-cancelled -> COMPLETED (mark as done)
+        if (newStatus == AppointmentStatus.COMPLETED && currentStatus != AppointmentStatus.CANCELLED) {
+            return;
+        }
+
+        // Any non-cancelled -> NO_SHOW (patient didn't show)
+        if (newStatus == AppointmentStatus.NO_SHOW && currentStatus != AppointmentStatus.CANCELLED) {
+            return;
+        }
+
+        // Can transition from COMPLETED/NO_SHOW back to SCHEDULED for correction
+        if ((currentStatus == AppointmentStatus.COMPLETED || currentStatus == AppointmentStatus.NO_SHOW)
+                && newStatus == AppointmentStatus.SCHEDULED) {
+            return;
+        }
+
+        // If we reach here, the transition is invalid
+        throw new IllegalArgumentException(
+                String.format("Invalid status transition from %s to %s", currentStatus, newStatus));
     }
 }

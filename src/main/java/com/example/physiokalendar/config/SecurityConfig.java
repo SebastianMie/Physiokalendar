@@ -43,7 +43,7 @@ public class SecurityConfig {
                     registry.addMapping("/**")
                     // allow localhost/127.0.0.1 on any port for local/dev UI instances
                     .allowedOriginPatterns("http://localhost:*", "http://127.0.0.1:*")
-                    .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                    .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
                     .allowedHeaders("*")
                     .allowCredentials(true);
                 }

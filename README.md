@@ -121,7 +121,278 @@ cd Physiokalender-v2-UI && npm run build
 
 ---
 
-## 🚀 Production Deployment
+## � Backup & Recovery System
+
+Complete automated backup solution for PROD and TEST environments with full & incremental backups.
+
+### 🔄 Backup Schedule & Strategy
+
+**Automated Cron Jobs (via backup-container):**
+- **18:00 (6 PM)** - Full Backup (`{env}_full_YYYYMMDD_HHMMSS.sql.gz`)
+- **07:00 (7 AM)** - Incremental Backup (`{env}_inc_YYYYMMDD_HHMMSS.sql.gz`)
+- **03:00 Sunday** - Cleanup old full backups (older than 28 days)
+
+**Environments:**
+- PROD: `prod_full_...`, `prod_inc_...`
+- TEST: `test_full_...`, `test_inc_...`
+
+**Retention Policy:**
+- Full backups: 28 days (auto-deleted after 4 weeks)
+- Incremental backups: current week only (for space efficiency)
+
+### 📂 Backup Storage
+
+Backups are stored in:
+```
+./backups/
+├── prod_full_20260219_180000.sql.gz    (Full backup from PROD)
+├── prod_inc_20260219_070000.sql.gz     (Incremental)
+├── test_full_20260219_180000.sql.gz    (Full backup from TEST)
+├── test_inc_20260219_070000.sql.gz     (Incremental)
+└── backup.log                           (Cron job logs)
+```
+
+**File Naming Convention:**
+- `{env}_full_{YYYYMMDD}_{HHMMSS}.sql.gz` → Full backups
+- `{env}_inc_{YYYYMMDD}_{HHMMSS}.sql.gz` → Incremental backups
+- Auto-incrementing counter added if multiple backups same environment/date/time
+
+**Example:**
+```
+prod_full_20260219_180000_001.sql.gz  (1st full backup at 18:00)
+prod_full_20260219_180005_002.sql.gz  (2nd backup 5 seconds later)
+```
+
+### 🚀 Manual Backup Triggering
+
+**Option 1: Via REST API (Admin Panel)**
+```bash
+# Auto-detect type (7 AM = incremental, 6 PM = full)
+curl -X POST http://localhost:8080/api/admin/backup/create \
+  -H "Authorization: Bearer {YOUR_ADMIN_TOKEN}"
+
+# Force full backup
+curl -X POST "http://localhost:8080/api/admin/backup/create?type=full" \
+  -H "Authorization: Bearer {YOUR_ADMIN_TOKEN}"
+
+# Force incremental backup
+curl -X POST "http://localhost:8080/api/admin/backup/create?type=incremental" \
+  -H "Authorization: Bearer {YOUR_ADMIN_TOKEN}"
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Backup erfolgreich erstellt (full)",
+  "path": "/backup/prod_full_20260219_180000.sql.gz",
+  "type": "full"
+}
+```
+
+**Option 2: Docker Container Shell**
+```bash
+# Enter backup container
+docker exec -it {COMPOSE_PROJECT_NAME}-backup bash
+
+# Manual trigger (auto-detect from DB_ENV)
+/usr/local/bin/mysql_backup.sh
+
+# Force full backup
+/usr/local/bin/mysql_backup.sh full
+
+# Force incremental backup
+/usr/local/bin/mysql_backup.sh incremental
+
+# Cleanup old backups
+/usr/local/bin/mysql_backup.sh cleanup
+```
+
+**Option 3: Build Container & Run Standalone**
+```bash
+# Build backup container
+docker build -f Dockerfile.backup -t physio-backup:latest .
+
+# Run backup with environment
+docker run --rm \
+  -e DB_HOST=physio-prod-db \
+  -e DB_PORT=3306 \
+  -e DB_NAME=physiocalendar \
+  -e DB_USER=physiouser \
+  -e DB_PASSWORD=prodpassword \
+  -e DB_ENV=prod \
+  -e BACKUP_DIR=/backup \
+  -v $(pwd)/backups:/backup \
+  physio-backup:latest \
+  /usr/local/bin/mysql_backup.sh full
+```
+
+### 📊 List & Download Backups
+
+**List all backups:**
+```bash
+ls -lh backups/
+
+# Sort by date (newest first)
+ls -lthr backups/ | tail -20
+```
+
+**Download backup via API:**
+```bash
+curl -X GET http://localhost:8080/api/admin/backup/list \
+  -H "Authorization: Bearer {YOUR_ADMIN_TOKEN}"
+```
+
+**Response:**
+```json
+[
+  {
+    "filename": "prod_full_20260219_180000.sql.gz",
+    "size": "542.3 MB",
+    "sizeBytes": 567891234,
+    "created": "2026-02-19T18:00:00Z"
+  },
+  {
+    "filename": "test_full_20260219_180000.sql.gz",
+    "size": "125.8 MB",
+    "sizeBytes": 131819876,
+    "created": "2026-02-19T18:00:00Z"
+  }
+]
+```
+
+### 🔄 Restore from Backup
+
+**Step 1: Identify backup file**
+```bash
+ls -lthr backups/ | grep prod_full
+```
+
+**Step 2: Restore to database**
+```bash
+# From local machine
+gunzip -c backups/prod_full_20260219_180000.sql.gz | \
+  mysql -h 127.0.0.1 -P 3306 -u physiouser -p physiocalendar
+
+# Inside backup/database container
+gunzip -c /backup/prod_full_20260219_180000.sql.gz | \
+  mysql -h physio-prod-db -u physiouser -p physiocalendar
+```
+
+**Step 3: Verify restoration**
+```bash
+mysql -h 127.0.0.1 -u physiouser -p -e "SELECT COUNT(*) FROM physiocalendar.patients;"
+```
+
+### 🛠️ Troubleshooting Backups
+
+**Backups not running?**
+```bash
+# Check backup container logs
+docker logs {COMPOSE_PROJECT_NAME}-backup
+
+# Check cron logs inside container
+docker exec -it {COMPOSE_PROJECT_NAME}-backup tail -50 /var/log/mysql_backup.log
+
+# Manually test the script
+docker exec -it {COMPOSE_PROJECT_NAME}-backup bash -x /usr/local/bin/mysql_backup.sh full
+```
+
+**No binary logs (incremental fails)?**
+```bash
+# Inside database container
+mysql> SHOW BINARY LOGS;
+mysql> SHOW VARIABLES LIKE 'log_bin';  # Should be ON
+
+# If off, enable in my.cnf and restart DB:
+[mysqld]
+log_bin = mysql-bin
+binlog_format = ROW
+```
+
+**Storage running out?**
+```bash
+# Check disk usage
+du -sh backups/
+
+# Manually cleanup old full backups
+find backups/ -name "prod_full_*.sql.gz" -mtime +42 -delete
+
+# Or trigger cleanup script
+docker exec {COMPOSE_PROJECT_NAME}-backup /usr/local/bin/mysql_backup.sh cleanup
+```
+### 🔧 Backup Helper Scripts
+
+Drei praktische Shell-Scripts für Backup-Operationen (Parameter basiert auf STAGE):
+
+**1️⃣ Backup triggern**
+```bash
+# Auto-detect type (full/incremental)
+./scripts/backup.sh test
+
+# Force specific type
+./scripts/backup.sh test full
+./scripts/backup.sh prod incremental
+./scripts/backup.sh test cleanup
+
+# Output: zeigt neueste Backups
+# ✅ Backup erfolgreich durchgeführt!
+# 💾 Neuestes Backup: test_full_20260219_180000.sql.gz (142.5 MB)
+```
+
+**2️⃣ Backup Status prüfen**
+```bash
+# Alle Umgebungen anzeigen
+./scripts/backup-status.sh
+
+# Nur eine Umgebung
+./scripts/backup-status.sh test
+
+# Cleanup-Analyse (was würde gelöscht werden)
+./scripts/backup-status.sh --clean
+
+# Output:
+# 📊 BACKUP STATUS: test
+# ✓ test_full_20260219_180000.sql.gz  142.5 MB  2026-02-19 18:00:00
+# ✓ test_inc_20260219_070000.sql.gz    24.3 MB  2026-02-19 07:00:00
+```
+
+**3️⃣ Backup wiederherstellen**
+```bash
+# Liste alle Backups
+./scripts/restore.sh test --list
+
+# Neuestes Backup verwenden
+./scripts/restore.sh test --latest
+
+# Spezifisches Backup
+./scripts/restore.sh prod prod_full_20260219_180000.sql.gz
+
+# Prompt: "Möchten Sie wirklich fortfahren? (Geben Sie 'JA' ein)"
+# Dann: Datenbank wird wiederhergestellt
+```
+
+**Script Parameter:**
+
+| Command | Parameter | Bedeutung |
+|---------|-----------|-----------|
+| `backup.sh` | `test`/`prod` | Stage (erforderlich) |
+| `backup.sh` | `full`/`inc`/`cleanup` | Backup-Type (optional, default: auto) |
+| `restore.sh` | `test`/`prod` | Stage (erforderlich) |
+| `restore.sh` | `--list` | Liste alle Backups |
+| `restore.sh` | `--latest` | Neuestes Backup |
+| `restore.sh` | `filename.sql.gz` | Spezifisches Backup |
+| `backup-status.sh` | `test`/`prod`/`all` | Stage (optional, default: all) |
+| `backup-status.sh` | `--clean` | Cleanup-Analyse |
+
+**Automatische Funktionen:**
+- ✅ Auto-detekt ob Container läuft (startet falls nötig)
+- ✅ Lädt `.env.{stage}` und `compose.{stage}.yml` automatisch
+- ✅ Colored Output mit Status-Indikatoren
+- ✅ Fehlerbehandlung & hilfreiche Meldungen
+---
+
+## �🚀 Production Deployment
 
 ### Quick Deploy
 ```bash
