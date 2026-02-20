@@ -5,6 +5,40 @@ All documentation consolidated into one file. Straightforward & easy to navigate
 
 ---
 
+## 📋 Voraussetzungen (Windows 11 Self-Hosted)
+
+### Benötigte Software
+| Software | Version | Beschreibung |
+|----------|---------|-------------|
+| **Git** | Latest | Versionskontrolle |
+| **Node.js** | 20+ | Via nvm (Node Version Manager) empfohlen |
+| **Docker Desktop** | Latest | Container-Umgebung für Windows |
+| **Java JDK** | 21 | Backend-Runtime |
+| **Maven** | 3.8+ | Build-Tool (oder über `./mvnw`) |
+| **MySQL Workbench** | Optional | Datenbank-GUI |
+| **VS Code** | Optional | Empfohlene IDE |
+
+### GitHub Actions (Self-Hosted Runner)
+- GitHub CI Runner muss auf dem Windows-PC registriert sein
+- Siehe Abschnitt "Self-Hosted Runner" weiter unten
+
+### Vor dem Deploy-Script ausführen
+```bash
+# Backend bauen
+./mvnw clean package
+
+# Frontend bauen
+cd Physiokalender-v2-UI
+npm install
+npm run build
+```
+
+### Desktop-Shortcuts (Empfohlen)
+- **Physiokalender V2** → http://localhost:4200 (Prod)
+- **Physiokalender V2 Test** → http://localhost:4201 (Test)
+
+---
+
 ## 🚀 Quick Start (5 min)
 
 ### Development with Hot-Reload
@@ -121,11 +155,29 @@ cd Physiokalender-v2-UI && npm run build
 
 ---
 
-## � Backup & Recovery System
+## 💾 Backup & Recovery System
 
 Complete automated backup solution for PROD and TEST environments with full & incremental backups.
 
 ### 🔄 Backup Schedule & Strategy
+
+**Manuelles Backup (aus Physiokalender-Verzeichnis):**
+```bash
+# Auto-detect (full/incremental)
+./scripts/backup.sh test
+
+# Force full backup
+./scripts/backup.sh test full
+
+# Force incremental backup
+./scripts/backup.sh test incremental
+
+# Cleanup old backups
+./scripts/backup.sh test cleanup
+
+# Production
+./scripts/backup.sh prod full
+```
 
 **Automated Cron Jobs (via backup-container):**
 - **18:00 (6 PM)** - Full Backup (`{env}_full_YYYYMMDD_HHMMSS.sql.gz`)
@@ -168,16 +220,17 @@ prod_full_20260219_180005_002.sql.gz  (2nd backup 5 seconds later)
 **Option 1: Via REST API (Admin Panel)**
 ```bash
 # Auto-detect type (7 AM = incremental, 6 PM = full)
-curl -X POST http://localhost:8080/api/admin/backup/create \
-  -H "Authorization: Bearer {YOUR_ADMIN_TOKEN}"
+# Not Implemented yet!
+# curl -X POST http://localhost:8080/api/admin/backup/create \
+#   -H "Authorization: Bearer {YOUR_ADMIN_TOKEN}"
 
-# Force full backup
-curl -X POST "http://localhost:8080/api/admin/backup/create?type=full" \
-  -H "Authorization: Bearer {YOUR_ADMIN_TOKEN}"
+# # Force full backup
+# curl -X POST "http://localhost:8080/api/admin/backup/create?type=full" \
+#   -H "Authorization: Bearer {YOUR_ADMIN_TOKEN}"
 
-# Force incremental backup
-curl -X POST "http://localhost:8080/api/admin/backup/create?type=incremental" \
-  -H "Authorization: Bearer {YOUR_ADMIN_TOKEN}"
+# # Force incremental backup
+# curl -X POST "http://localhost:8080/api/admin/backup/create?type=incremental" \
+#   -H "Authorization: Bearer {YOUR_ADMIN_TOKEN}"
 ```
 
 **Response:**
@@ -392,7 +445,7 @@ Drei praktische Shell-Scripts für Backup-Operationen (Parameter basiert auf STA
 - ✅ Fehlerbehandlung & hilfreiche Meldungen
 ---
 
-## �🚀 Production Deployment
+## 🚀 Production Deployment
 
 ### Quick Deploy
 ```bash
