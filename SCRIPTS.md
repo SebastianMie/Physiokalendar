@@ -10,6 +10,7 @@ Schnelle Referenz für alle verfügbaren Backup-Scripts.
 |--------|----------|-----------------|
 | `backup.sh` | Backup triggern | test, prod |
 | `restore.sh` | Datenbank wiederherstellen | test, prod |
+| `import-staging.sh` | Backup zwischen Stages importieren | test ↔ prod |
 | `backup-status.sh` | Backup-Status prüfen | test, prod, all |
 
 ---
@@ -162,6 +163,38 @@ STAGE: test, prod, all (optional, default: all)
 ./scripts/restore.sh <STAGE> [BACKUP_FILE|--latest|--list]
 
 STAGE:        test oder prod (erforderlich)
+BACKUP_FILE:  Dateiname oder --latest oder --list
+```
+
+### Beispiele
+
+**Verfügbare Backups anzeigen**
+```bash
+./scripts/restore.sh test --list
+```
+
+**Neuestes Backup zurückgeben**
+```bash
+./scripts/restore.sh test --latest
+```
+
+**Spezifisches Backup zurückgeben**
+```bash
+./scripts/restore.sh prod prod_full_20260219_180000.sql.gz
+./scripts/restore.sh prod 20260219_180000.sql.gz
+```
+
+⚠️ **Sicherheit**: Script fragt immer um Bestätigung vor dem Restore!
+
+---
+
+## 4️⃣ Import Staging: `import-staging.sh`
+
+### Verwendung
+```bash
+./scripts/restore.sh <STAGE> [BACKUP_FILE|--latest|--list]
+
+STAGE:        test oder prod (erforderlich)
 BACKUP_FILE:  Dateiname (test_full_20260219_180000.sql.gz)
 --latest:     Neuestes Backup verwenden
 --list:       Alle Backups auflisten
@@ -227,6 +260,214 @@ Möchten Sie wirklich fortfahren? (Geben Sie 'JA' ein)
 3. ✅ Datenbank-Container wird geprüft (startet falls nötig)
 4. ✅ Backup wird dekomprimiert und restored
 5. ✅ Statistiken werden für Verifizierung angezeigt
+
+---
+
+## 4️⃣ Import Staging: `import-staging.sh`
+
+**Nutzen**: Backups zwischen Stages austauschen (z.B. Test-Backup → Prod importieren)
+
+### Verwendung
+```bash
+./scripts/import-staging.sh <SOURCE_STAGE> <TARGET_STAGE> [BACKUP_SPEC]
+
+SOURCE_STAGE: Quell-Stage (test oder prod) - von wo das Backup kommt
+TARGET_STAGE: Ziel-Stage (test oder prod) - wohin das Backup gespielt wird
+BACKUP_SPEC:  Backup-Datei / --latest / --list (optional, default: --latest)
+```
+
+### Beispiele
+
+**Neuestes test-Backup in prod importieren**
+```bash
+./scripts/import-staging.sh test prod
+# Nutzt automatisch das neueste Backup von test
+```
+
+**Spezifisches Datum wählen**
+```bash
+./scripts/import-staging.sh test prod 2026-02-19
+# Nutzt das erste Backup vom 19.02.2026 aus test
+```
+
+**Verfügbare Backups anzeigen**
+```bash
+./scripts/import-staging.sh test prod --list
+
+# Output:
+# 📁 Verfügbare Backups von 'test':
+#    ./backups/test_full_20260219_180000.sql.gz      142.5M  2026-02-19 18:00
+#    ./backups/test_inc_20260219_070000.sql.gz        24.3M  2026-02-19 07:00
+```
+
+**Konkretes Backup-Datei importieren**
+```bash
+./scripts/import-staging.sh test prod test_full_20260219_180000.sql.gz
+```
+
+### Import-Dialog
+```
+╔════════════════════════════════════════════════════════════════╗
+║         IMPORT STAGING SCRIPT                                  ║
+║                                                                ║
+║  ⚠️  WARNUNG: Diese Aktion wird die Datenbank ÜBERSCHREIBEN!   ║
+║                                                                ║
+║  Quelle:          test (Backup)                               ║
+║  Ziel:            prod (Datenbank: physiocalendar)            ║
+║  Backup-Datei:    test_full_20260219_180000.sql.gz           ║
+║  Größe:           142.5 MB                                    ║
+║  Ziel-Container:  physio-prod-db                             ║
+╚════════════════════════════════════════════════════════════════╝
+
+Möchten Sie wirklich fortfahren? (Geben Sie 'JA' ein)
+```
+
+### Import abgeschlossen
+```
+✅ Import erfolgreich abgeschlossen!
+
+📊 Datenbank-Statistiken (prod):
+   Patienten: 145
+   Termine: 523
+   Therapeuten: 18
+
+⚠️  Bitte überprüfen Sie die Daten in 'prod' vor weiterer Verwendung!
+```
+
+### Was passiert beim Import?
+1. ✅ Quell- und Ziel-Stage werden validiert (müssen unterschiedlich sein)
+2. ✅ Backup wird aus dem Quell-Stage gesucht
+3. ✅ Ziel-Stage Environment wird geladen
+4. ✅ Benutzer-Bestätigung erforderlich (Sicherheit!)
+5. ✅ Ziel-Datenbank-Container wird geprüft (startet falls nötig)
+6. ✅ Backup wird in Ziel-Datenbank importiert
+7. ✅ Datenbank-Statistiken werden für Verifizierung angezeigt
+
+### ⚠️ Wichtige Hinweise
+
+- **Bestätigung erforderlich**: Script fragt immer `JA` ab
+- **Stages müssen unterschiedlich sein**: Kann nicht gleichzeitig quelle und ziel sein
+- **Keine selbstreferenziellen Imports**: `import-staging.sh prod prod` nicht möglich
+- **Datenbank wird überschrieben**: Alle bestehenden Daten in der Ziel-Stage werden ersetzt
+- **Verify nach Import**: Immer die Daten überprüfen nach dem Import!
+
+---
+
+## 5️⃣ Deployment: `deploy.sh`
+
+**Nutzen**: Backend & optional Frontend zu test/prod deployen
+
+### Verwendung
+```bash
+./scripts/deploy.sh --to test|prod [--from dev|test|prod] [--mvn] [--frontend] [--no-cache] [--confirm-prod]
+
+Erforderlich:
+  --to test|prod              Ziel-Stage (ERFORDERLICH)
+
+Optional:
+  --from dev|test|prod        Quell-Environment (default: dev)
+  --mvn                       Lokalen Maven build vor Docker Build
+  --frontend                  Frontend bauen (Physiokalender-v2-UI)
+  --no-cache                  Docker build ohne Cache
+  --confirm-prod              Bestätigung für prod (ERFORDERLICH bei --to prod)
+```
+
+### Beispiele
+
+**Einfaches Deployment zu test (nur Docker)**
+```bash
+./scripts/deploy.sh --to test
+# Stellt Docker Bilder wieder her und startet Services
+```
+
+**Deployment zu test mit lokalem Maven Build**
+```bash
+./scripts/deploy.sh --to test --mvn
+# Kompiliert Backend → Docker Image → start
+```
+
+**Deployment mit Frontend zu test**
+```bash
+./scripts/deploy.sh --to test --mvn --frontend
+# Kompiliert Backend → Kompiliert Frontend → Docker Images → start
+```
+
+**Deployment zu prod (erfordert Bestätigung)**
+```bash
+./scripts/deploy.sh --to prod --mvn --frontend --no-cache --confirm-prod
+# Alle optionen + Bestätigung für Production
+```
+
+### Deployment-Ablauf
+
+Wenn **keine lokalen Builds** angegeben (`--mvn`, `--frontend`):
+```
+1. ✅ Validiere Parameter
+2. ✅ docker compose -f compose.${TO_ENV}.yml --env-file .env.${TO_ENV} up -d --build
+3. ✅ Zeige Service-Status an
+```
+
+Wenn **--mvn angegeben**:
+```
+1. ✅ Validiere Parameter
+2. ✅ ./mvnw.cmd clean package (lokaler Maven Build)
+3. ✅ docker compose ... up -d --build
+```
+
+Wenn **--mvn --frontend angegeben**:
+```
+1. ✅ Validiere Parameter
+2. ✅ ./mvnw.cmd clean package (Backend Build)
+3. ✅ cd Physiokalender-v2-UI && npm ci && npm run build (Frontend Build)
+4. ✅ docker compose ... up -d --build
+5. ✅ Zeige Service-Status an
+```
+
+### Output Beispiel
+```
+╔════════════════════════════════════════════════════════════════╗
+║              DEPLOYMENT SCRIPT                                 ║
+║                                                                ║
+║  Von:           dev                                             ║
+║  Nach:          test                                            ║
+║  Maven Build:   true                                           ║
+║  Frontend:      true                                           ║
+║  No Cache:      false                                          ║
+╚════════════════════════════════════════════════════════════════╝
+
+🔨 Starte lokalen Maven Build...
+📦 Build ausgeführt...
+✅ Maven Build abgeschlossen
+
+🎨 Starte Frontend Build...
+📁 Frontend Repo: Physiokalender-v2-UI
+📦 npm ci...
+🏗️  npm run build...
+✅ Frontend Build abgeschlossen
+
+🚀 Starte Docker Compose für test...
+   Befehl: docker compose -f compose.test.yml --env-file .env.test up -d --build
+
+✅ Deployment zu 'test' abgeschlossen!
+
+📊 Service Status:
+CONTAINER ID   IMAGE                           NAMES          STATUS
+a1b2c3d4e5f6   physio-test-backend:latest      physio-test-backend   Up 2s (health: starting)
+g7h8i9j0k1l2   mysql:8.0.36                    physio-test-db        Up 3s (healthy)
+```
+
+### ⚠️ Sicherheit für Production
+
+- **--confirm-prod ist erforderlich**: `./scripts/deploy.sh --to prod` ohne Flag wird abgelehnt!
+- **Rationale**: Verhindert versehentliche Production-Deployments
+- **Fehlerbehandlung**: Script stoppt sofort bei unerwarteten Fehlern
+
+### ⚠️ Wichtige Hinweise
+
+- **Backend wird immer gebaut**: Docker re-builds auf Basis der neuesten Änderungen
+- **Frontend kompiliert bei --frontend**: Nutzt `npm run build-${STAGE}` oder fallback zu `npm run build`
+- **Aus Physiokalender-v2-UI repo**: Frontend compose files sind dort, nicht im Backend Repo
+- **--from Parameter**: Wird derzeit nicht aktiv genutzt (für zukünftige Erweiterungen)
 
 ---
 

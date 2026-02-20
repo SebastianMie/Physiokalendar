@@ -74,6 +74,15 @@ public class AppointmentSeries {
     @Column(name = "comment", columnDefinition = "TEXT")
     private String comment;
 
+    @Column(name = "is_hotair")
+    private Boolean isHotair = false;
+
+    @Column(name = "is_ultrasonic")
+    private Boolean isUltrasonic = false;
+
+    @Column(name = "is_electric")
+    private Boolean isElectric = false;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 20)
     private SeriesStatus status = SeriesStatus.ACTIVE;
@@ -81,6 +90,10 @@ public class AppointmentSeries {
     @OneToMany(mappedBy = "appointmentSeries", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Cancellation> cancellations;
+
+    @OneToMany(mappedBy = "appointmentSeries", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Appointment> appointments;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

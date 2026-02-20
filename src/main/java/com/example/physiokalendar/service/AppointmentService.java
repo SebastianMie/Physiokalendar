@@ -329,6 +329,19 @@ public class AppointmentService {
     }
 
 
+    /**
+     * Find available appointment slots in 10-minute intervals.
+     *
+     * Slots are suggested starting on 10-minute boundaries (0, 10, 20, 30, 40, 50 minutes).
+     * For appointments ending at times like :15 or :45, the next slot is rounded up to the
+     * nearest 10-minute boundary (e.g., 10:15 -> 10:20, 10:45 -> 10:50).
+     *
+     * @param therapistId Therapist ID
+     * @param patientId Patient ID
+     * @param timeOfDayId Time of day filter (MORNING, AFTERNOON, EVENING)
+     * @param duration Appointment duration in minutes
+     * @return List of available appointment slots
+     */
     public List<Appointment> findAvailableAppointments(Long therapistId, Long patientId, int timeOfDayId, Integer duration) {
         List<Appointment> availableAppointments = new ArrayList<>();
         List<Absence> absences = absenceService.getAbsencesByTherapistId(therapistId);
@@ -338,22 +351,30 @@ public class AppointmentService {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(today);
 
-        LocalTime startTime = TimeOfDayService.getStartTime(timeOfDayId);
+        LocalTime baseStartTime = TimeOfDayService.getStartTime(timeOfDayId);
         LocalTime endTime = TimeOfDayService.getEndTime(timeOfDayId);
 
-        while (startTime.plusMinutes(duration).isBefore(endTime)) {
-            calendar.set(Calendar.HOUR_OF_DAY, startTime.getHour());
-            calendar.set(Calendar.MINUTE, startTime.getMinute());
+        // Round up to nearest 10-minute boundary for first slot
+        LocalTime currentTime = roundUpTo10Minutes(baseStartTime);
+
+        // Iterate through 10-minute slots
+        while (currentTime.plusMinutes(duration).isBefore(endTime) ||
+               currentTime.plusMinutes(duration).equals(endTime)) {
+
+            calendar.set(Calendar.HOUR_OF_DAY, currentTime.getHour());
+            calendar.set(Calendar.MINUTE, currentTime.getMinute());
+            calendar.set(Calendar.SECOND, 0);
             Date startDateTime = calendar.getTime();
 
             calendar.add(Calendar.MINUTE, duration);
             Date endDateTime = calendar.getTime();
 
-            if (isSlotAvailable(therapistId, startDateTime, endDateTime) && !isTherapistAbsent(absences, startDateTime, endDateTime)) {
+            if (isSlotAvailable(therapistId, startDateTime, endDateTime) &&
+                !isTherapistAbsent(absences, startDateTime, endDateTime)) {
+
                 Appointment potentialAppointment = new Appointment();
                 potentialAppointment.setTherapist(therapistRepository.findById(therapistId)
                     .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID")));
-
                 potentialAppointment.setPatient(patientRepository.findById(patientId)
                     .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID")));
                 potentialAppointment.setStartTime(dateToLocalDateTime(startDateTime));
@@ -366,10 +387,42 @@ public class AppointmentService {
                 availableAppointments.add(potentialAppointment);
             }
 
-            startTime = startTime.plusMinutes(duration);
+            // Move to next 10-minute slot
+            currentTime = currentTime.plusMinutes(10);
         }
 
         return availableAppointments;
+    }
+
+    /**
+     * Round up a time to the nearest 10-minute boundary.
+     * Examples:
+     * - 10:00 -> 10:00 (already on boundary)
+     * - 10:05 -> 10:10
+     * - 10:15 -> 10:20
+     * - 10:45 -> 10:50
+     * - 10:55 -> 11:00
+     *
+     * @param time LocalTime to round up
+     * @return Rounded LocalTime on 10-minute boundary
+     */
+    private LocalTime roundUpTo10Minutes(LocalTime time) {
+        int minutes = time.getMinute();
+
+        // Already on a 10-minute boundary
+        if (minutes % 10 == 0) {
+            return time;
+        }
+
+        // Round up to next 10-minute boundary
+        int roundedMinutes = ((minutes / 10) + 1) * 10;
+
+        if (roundedMinutes >= 60) {
+            // Overflow to next hour
+            return time.plusHours(1).withMinute(0);
+        }
+
+        return time.withMinute(roundedMinutes);
     }
 
     private boolean isTherapistAbsent(List<Absence> absences, Date startDateTime, Date endDateTime) {

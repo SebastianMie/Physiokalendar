@@ -1,53 +1,69 @@
 #!/usr/bin/env bash
-# scripts/deploy.sh
-# Zweck: "deploy" (preferred) — wählt Quell‑Instanz (z. B. dev) und Ziel (test/prod)
-# Standardverhalten: baut **nur** die Ziel‑Docker‑Container (keine lokalen mvn/ng builds),
-# optional können lokale Builds mit --mvn / --frontend vor dem Image‑Build ausgeführt werden.
-# Usage: ./scripts/deploy.sh [--from dev|test|prod] [--to test|prod] [--mvn] [--frontend] [--no-cache]
-# Examples:
+
+################################################################################
+# PHYSIOKALENDAR DEPLOYMENT SCRIPT
+#
+# Deployiert Backend (+ optional Frontend + optional MVN Build) zu test/prod
+#
+# Usage:
 #   ./scripts/deploy.sh --from dev --to test
-#   ./scripts/deploy.sh --from dev --to prod --no-cache
+#   ./scripts/deploy.sh --from dev --to prod --confirm-prod
+#   ./scripts/deploy.sh --from dev --to test --mvn
 #   ./scripts/deploy.sh --from dev --to test --mvn --frontend
+#   ./scripts/deploy.sh --from dev --to prod --no-cache --confirm-prod
+#
+# Optionen:
+#   --from dev|test|prod      Source environment (default: dev)
+#   --to test|prod            Target environment (erforderlich: test oder prod)
+#   --mvn                     Lokalen Maven build vor Docker Image Build
+#   --frontend                Frontend bauen (aus Physiokalender-v2-UI repo)
+#   --no-cache                Docker build ohne Cache
+#   --recreate-db             Datenbank auch neu bauen (normalerweise ignoriert)
+#   --confirm-prod            Erforderlich für Deployment zu prod (Safety)
+################################################################################
 
 set -euo pipefail
+
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 ROOT_DIR=$(cd "$SCRIPT_DIR/.." && pwd)
 cd "$ROOT_DIR"
 
-# defaults
+# Defaults
 FROM_ENV="dev"
-TO_ENV="test"
+TO_ENV=""
 DO_MVN=false
 DO_FE=false
 NO_CACHE=""
-RECREATE_DB=false
-BRANCH=""
-# safety: require explicit confirmation to deploy to production
 CONFIRM_PROD=false
 
 print_usage() {
   cat <<EOF
-Usage: $0 [--from dev|test|prod] [--to test|prod] [--mvn] [--frontend] [--no-cache] [--recreate-db] [--confirm-prod] [--branch <name>]
+Usage: $0 --to test|prod [--from dev|test|prod] [--mvn] [--frontend] [--no-cache] [--confirm-prod]
 
-Default: --from dev --to test
-Default behavior: only target Docker containers (backend/frontend) are rebuilt and restarted.
-The DB container is NOT recreated by default to preserve data; use --recreate-db to explicitly rebuild DB.
-Note: the `backup` service is no longer included by default to avoid unintentionally starting DB dependencies.
-**Safety:** deploying to `prod` requires the explicit `--confirm-prod` flag to avoid accidental production builds.
-Use --mvn / --frontend to run local builds before building images.
---branch <name> : use the specified git branch as the build/deploy source (uses a temporary worktree)
+Erforderlich:
+  --to test|prod              Ziel-Stage (erforderlich)
+
+Optional:
+  --from dev|test|prod        Quell-Environment (default: dev)
+  --mvn                       Lokalen Maven build ausführen
+  --frontend                  Frontend bauen (Physiokalender-v2-UI)
+  --no-cache                  Docker build ohne Cache
+  --confirm-prod              Bestätigung für prod (erforderlich bei --to prod)
+
+Beispiele:
+  ./scripts/deploy.sh --to test
+  ./scripts/deploy.sh --to test --mvn --frontend
+  ./scripts/deploy.sh --to prod --mvn --frontend --no-cache --confirm-prod
 EOF
 }
 
-# parse args
+# Parse arguments
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --from)
       FROM_ENV="$2"; shift 2 ;;
     --to)
       TO_ENV="$2"; shift 2 ;;
-    --branch)
-      BRANCH="$2"; shift 2 ;;
     --mvn)
       DO_MVN=true; shift ;;
     --frontend)
@@ -57,153 +73,147 @@ while [[ $# -gt 0 ]]; do
     --confirm-prod)
       CONFIRM_PROD=true; shift ;;
     --recreate-db)
-      RECREATE_DB=true; shift ;;
+      shift ;; # Ignore, kept for backwards compatibility
     -h|--help)
       print_usage; exit 0 ;;
-    dev|test|prod)
-      # positional convenience: if single value provided, treat as target
-      if [[ -z "$TO_ENV" || "$TO_ENV" == "test" ]]; then
-        TO_ENV="$1"
-      else
-        FROM_ENV="$1"
-      fi
-      shift ;;
     *)
-      echo "Unknown arg: $1"; print_usage; exit 1 ;;
+      echo "Unbekannter Parameter: $1"; print_usage; exit 1 ;;
   esac
 done
 
-# validation
+# ============================================================================
+# VALIDIERUNG
+# ============================================================================
+
+if [ -z "$TO_ENV" ]; then
+  echo "❌ ERROR: --to ist erforderlich (test oder prod)"
+  echo ""
+  print_usage
+  exit 1
+fi
+
 case "$FROM_ENV" in
   dev|test|prod) ;;
-  *) echo "Invalid --from: $FROM_ENV"; exit 1 ;;
+  *) echo "❌ ERROR: Ungültiges --from: $FROM_ENV"; exit 1 ;;
 esac
+
 case "$TO_ENV" in
   test|prod) ;;
-  *) echo "Invalid --to: $TO_ENV (must be 'test' or 'prod')"; exit 1 ;;
+  *) echo "❌ ERROR: Ungültiges --to: $TO_ENV (muss 'test' oder 'prod' sein)"; exit 1 ;;
 esac
-if [[ "$FROM_ENV" == "$TO_ENV" ]]; then
-  echo "Source and target must differ (from=$FROM_ENV, to=$TO_ENV)"; exit 1
+
+# Safety: Production erfordert explizite Bestätigung
+if [[ "$TO_ENV" == "prod" ]] && ! $CONFIRM_PROD; then
+  echo "❌ ERROR: Deployment zu 'prod' erfordert --confirm-prod Flag!"
+  exit 2
 fi
 
-# Safety: require explicit confirmation before touching production
-if [[ "$TO_ENV" == "prod" ]]; then
-  if ! $CONFIRM_PROD; then
-    echo "Refusing to deploy to 'prod' without explicit --confirm-prod flag. Use --confirm-prod to proceed." >&2
+echo ""
+echo "╔════════════════════════════════════════════════════════════════╗"
+echo "║              DEPLOYMENT SCRIPT                                 ║"
+echo "║                                                                ║"
+echo "║  Von:           $FROM_ENV"
+echo "║  Nach:          $TO_ENV"
+echo "║  Maven Build:   $DO_MVN"
+echo "║  Frontend:      $DO_FE"
+echo "║  No Cache:      ${NO_CACHE:-false}"
+echo "╚════════════════════════════════════════════════════════════════╝"
+echo ""
+
+# ============================================================================
+# OPTIONAL: Lokale Maven Build
+# ============================================================================
+
+if $DO_MVN; then
+  echo "🔨 Starte lokalen Maven Build..."
+  echo ""
+
+  if [[ -f ./mvnw.cmd ]]; then
+    ./mvnw.cmd -DskipTests clean package
+  elif [[ -f ./mvnw ]]; then
+    ./mvnw -DskipTests clean package
+  else
+    echo "❌ ERROR: mvnw nicht gefunden"
     exit 2
   fi
+
+  echo ""
+  echo "✅ Maven Build abgeschlossen"
+  echo ""
 fi
 
-echo "[deploy] from=$FROM_ENV  to=$TO_ENV  mvn=$DO_MVN  frontend=$DO_FE  no-cache=${NO_CACHE:-false}  recreate-db=${RECREATE_DB}"
-
-# If branch is specified: create temporary worktree and operate from there
-TMP_WORKDIR=""
-cleanup_worktree() {
-  if [[ -n "$TMP_WORKDIR" && -d "$TMP_WORKDIR" ]]; then
-    echo "[deploy] Cleaning up temporary worktree: $TMP_WORKDIR"
-    git worktree remove -f "$TMP_WORKDIR" 2>/dev/null || rm -rf "$TMP_WORKDIR"
-  fi
-}
-if [[ -n "$BRANCH" ]]; then
-  # verify branch exists locally
-  if ! git show-ref --verify --quiet "refs/heads/$BRANCH"; then
-    echo "Branch '$BRANCH' not found locally. Please fetch or create it locally."; exit 2
-  fi
-  TMP_WORKDIR=$(mktemp -d -t deploy-branch-XXXXXX 2>/dev/null || mktemp -d)
-  echo "[deploy] Creating temporary worktree for branch '$BRANCH' at: $TMP_WORKDIR"
-  git worktree add -f "$TMP_WORKDIR" "$BRANCH"
-  trap cleanup_worktree EXIT INT TERM
-  pushd "$TMP_WORKDIR" >/dev/null
-fi
-
-# Local builds (optional)
-if $DO_MVN; then
-  if [[ -f ./mvnw ]]; then
-    ./mvnw -DskipTests clean package
-  elif [[ -f ./mvnw.cmd ]]; then
-    ./mvnw.cmd -DskipTests clean package
-  else
-    echo "mvnw not found; cannot run local mvn build"; exit 2
-  fi
-fi
+# ============================================================================
+# OPTIONAL: Frontend Build (aus Physiokalender-v2-UI repo)
+# ============================================================================
 
 if $DO_FE; then
-  FE_DIR=""
-  if [[ -d Physiokalender-v2-UI ]]; then
-    FE_DIR="Physiokalender-v2-UI"
-  elif [[ -d ../Physiokalender-v2-UI ]]; then
-    FE_DIR="../Physiokalender-v2-UI"
+  echo "🎨 Frontend Flag erkannt..."
+  echo ""
+  echo "⚠️  Frontend wird über Docker Container gebaut (keine lokalen npm commands)"
+  echo ""
+  echo "💡 Wenn du npm install / npm run build manuell brauchst, führe aus:"
+  echo "   cd Physiokalender-v2-UI"
+  echo "   npm install"
+  echo "   npm run build"
+  echo ""
+fi
+
+# ============================================================================
+# DOCKER COMPOSE UP - Haupt-Deployment
+# ============================================================================
+
+ENV_FILE=".env.${TO_ENV}"
+COMPOSE_FILE="compose.${TO_ENV}.yml"
+
+if [ ! -f "$ENV_FILE" ]; then
+  echo "❌ ERROR: Environment-Datei nicht gefunden: $ENV_FILE"
+  exit 1
+fi
+
+if [ ! -f "$COMPOSE_FILE" ]; then
+  echo "❌ ERROR: Compose-Datei nicht gefunden: $COMPOSE_FILE"
+  exit 1
+fi
+
+echo "🚀 Starte Docker Compose für $TO_ENV..."
+echo ""
+echo "   Befehl: docker compose -f $COMPOSE_FILE --env-file $ENV_FILE up -d --build $NO_CACHE"
+echo ""
+
+docker compose -f "$COMPOSE_FILE" --env-file "$ENV_FILE" up -d --build $NO_CACHE
+
+# Frontend Docker Compose (wenn --frontend Flag gesetzt)
+if $DO_FE; then
+  echo ""
+  echo "🚀 Starte auch Frontend Docker Compose für $TO_ENV..."
+  echo ""
+
+  FE_DIR="Physiokalender-v2-UI"
+  FE_COMPOSE_FILE="$FE_DIR/compose.${TO_ENV}.yml"
+  FE_ENV_FILE="$ENV_FILE"  # Environment File ist im Root-Verzeichnis
+
+  if [ ! -d "$FE_DIR" ]; then
+    echo "❌ ERROR: Frontend Verzeichnis nicht gefunden: $FE_DIR"
+    exit 3
   fi
-  if [[ -n "$FE_DIR" ]]; then
-    pushd "$FE_DIR" >/dev/null
-    npm ci
-    npm run build
-    popd >/dev/null
-  else
-    echo "Frontend folder not found: Physiokalender-v2-UI or ../Physiokalender-v2-UI"; exit 3
+
+  if [ ! -f "$FE_COMPOSE_FILE" ]; then
+    echo "❌ ERROR: Frontend Compose-Datei nicht gefunden: $FE_COMPOSE_FILE"
+    exit 3
   fi
+
+  echo "   Befehl: docker compose -f $FE_COMPOSE_FILE --env-file $FE_ENV_FILE up -d --build $NO_CACHE"
+  echo ""
+
+  # Frontend compose hat ein externes Netzwerk, daher muss Backend vorher starten
+  docker compose -f "$FE_COMPOSE_FILE" --env-file "$FE_ENV_FILE" up -d --build $NO_CACHE
 fi
 
-# Docker Compose — operate only on target services (do NOT touch DB by default)
-COMPOSE_FILES="-f docker-compose.yml -f compose.${TO_ENV}.yml"
-COMPOSE_PROJECT="physio-${TO_ENV}"
-BACKEND_SERVICE="physio-${TO_ENV}-backend"
-FRONTEND_SERVICE="physio-${TO_ENV}-frontend"
-BACKUP_SERVICE="physio-${TO_ENV}-backup"
-DB_SERVICE="physio-${TO_ENV}-db"
-
-# Detect whether frontend service exists in the compose files
-FE_DEFINED=false
-for f in docker-compose.yml compose.${TO_ENV}.yml; do
-  if [[ -f "$f" ]] && grep -qE "^[[:space:]]*${FRONTEND_SERVICE}:" "$f" 2>/dev/null; then
-    FE_DEFINED=true
-    break
-  fi
-done
-
-if [[ "$FE_DEFINED" == true ]]; then
-  echo "[deploy] Building images for: $BACKEND_SERVICE $FRONTEND_SERVICE"
-  COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT docker compose $COMPOSE_FILES build $NO_CACHE $BACKEND_SERVICE $FRONTEND_SERVICE
-  SERVICES_TO_UP="$BACKEND_SERVICE $FRONTEND_SERVICE"
-else
-  echo "[deploy] Frontend service not defined in compose files — skipping frontend build/start"
-  echo "[deploy] Building image for: $BACKEND_SERVICE"
-  COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT docker compose $COMPOSE_FILES build $NO_CACHE $BACKEND_SERVICE
-  SERVICES_TO_UP="$BACKEND_SERVICE"
-fi
-
-# include DB only if explicitly requested
-if $RECREATE_DB; then
-  SERVICES_TO_UP="$DB_SERVICE $SERVICES_TO_UP"
-fi
-
-echo "[deploy] Deploying target services: $SERVICES_TO_UP"
-
-# Ensure no conflicting containers with the same names exist (stop + remove if present)
-for svc in $SERVICES_TO_UP; do
-  if docker ps -a --format '{{.Names}}' | grep -xq "$svc"; then
-    echo "[deploy] Found existing container named $svc — stopping and removing to avoid name conflict"
-    docker rm -f "$svc" >/dev/null 2>&1 || true
-    echo "[deploy] removed $svc"
-  fi
-done
-
-# Start services. Use --no-deps to avoid automatically starting dependent services (DB/backup)
-# unless user explicitly requested DB recreation via --recreate-db.
-if $RECREATE_DB; then
-  COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT docker compose $COMPOSE_FILES up -d --remove-orphans --force-recreate $SERVICES_TO_UP
-else
-  COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT docker compose $COMPOSE_FILES up -d --no-deps --remove-orphans --force-recreate $SERVICES_TO_UP
-fi
-
-echo "[deploy] Done — status:"
-COMPOSE_PROJECT_NAME=$COMPOSE_PROJECT docker compose $COMPOSE_FILES ps
-
-# if we used a temporary worktree, pop back to original repo dir before exit
-if [[ -n "$TMP_WORKDIR" ]]; then
-  popd >/dev/null || true
-  cleanup_worktree
-  trap - EXIT INT TERM
-fi
+echo ""
+echo "✅ Deployment zu '$TO_ENV' abgeschlossen!"
+echo ""
+echo "📊 Service Status:"
+docker compose -f "$COMPOSE_FILE" --env-file "$ENV_FILE" ps
+echo ""
 
 exit 0

@@ -142,18 +142,24 @@ public class AppointmentController {
             @RequestParam(required = false) String appointmentType,
             @RequestParam(required = false) String timeFilter) {
         try {
-            // Parse dates based on timeFilter
-            LocalDate fromDate = null;
-            LocalDate toDate = null;
+            // Parse dates - combine timeFilter with explicit date filters
+            LocalDate fromDate = parseToLocalDate(dateFrom);
+            LocalDate toDate = parseToLocalDate(dateTo);
             LocalDate today = LocalDate.now();
 
             if ("upcoming".equalsIgnoreCase(timeFilter)) {
-                fromDate = today;
+                // Upcoming: fromDate is at least today, combine with user's dateFrom/dateTo
+                if (fromDate == null || fromDate.isBefore(today)) {
+                    fromDate = today;
+                }
+                // Keep user's toDate if set
             } else if ("past".equalsIgnoreCase(timeFilter)) {
-                toDate = today.minusDays(1);
-            } else {
-                fromDate = parseToLocalDate(dateFrom);
-                toDate = parseToLocalDate(dateTo);
+                // Past: toDate is at most yesterday, combine with user's dateFrom/dateTo
+                LocalDate yesterday = today.minusDays(1);
+                if (toDate == null || toDate.isAfter(yesterday)) {
+                    toDate = yesterday;
+                }
+                // Keep user's fromDate if set
             }
 
             // Parse appointment type
@@ -477,6 +483,20 @@ public class AppointmentController {
 
             List<Appointment> appointments = appointmentService.getAppointmentsByDateRange(fromDate, toDate);
             return ResponseEntity.ok(appointments);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    /**
+     * Get all available time of day options for dropdown/selection.
+     * GET /api/appointments/time-options
+     */
+    @GetMapping("/time-options")
+    public ResponseEntity<Map<Integer, String>> getTimeOfDayOptions() {
+        try {
+            Map<Integer, String> options = com.example.physiokalendar.service.TimeOfDayService.getAllTimeOfDayOptions();
+            return ResponseEntity.ok(options);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

@@ -29,22 +29,25 @@ public class SlotSearchService {
     // Configurable working hours
     private static final LocalTime WORK_START = LocalTime.of(7, 0);
     private static final LocalTime WORK_END = LocalTime.of(20, 0);
-    private static final int SLOT_INCREMENT_MINUTES = 15; // Slot granularity
+    private static final int SLOT_INCREMENT_MINUTES = 10; // Slot granularity - 10 minute intervals
 
     private final AppointmentRepository appointmentRepository;
     private final AppointmentSeriesRepository seriesRepository;
     private final AbsenceRepository absenceRepository;
     private final TherapistRepository therapistRepository;
+    private final AppSettingService appSettingService;
 
     public SlotSearchService(
             AppointmentRepository appointmentRepository,
             AppointmentSeriesRepository seriesRepository,
             AbsenceRepository absenceRepository,
-            TherapistRepository therapistRepository) {
+            TherapistRepository therapistRepository,
+            AppSettingService appSettingService) {
         this.appointmentRepository = appointmentRepository;
         this.seriesRepository = seriesRepository;
         this.absenceRepository = absenceRepository;
         this.therapistRepository = therapistRepository;
+        this.appSettingService = appSettingService;
     }
 
     /**
@@ -79,9 +82,9 @@ public class SlotSearchService {
 
         LocalDate currentDate = request.getRangeFrom();
         while (!currentDate.isAfter(request.getRangeTo())) {
-            // Skip weekends (optional - could be made configurable)
-            if (currentDate.getDayOfWeek() == DayOfWeek.SATURDAY ||
-                currentDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
+            // Check if this day is configured as an open day using settings
+            String dayName = getDayNameFromLocalDate(currentDate);
+            if (!appSettingService.isDayActive(dayName)) {
                 currentDate = currentDate.plusDays(1);
                 continue;
             }
@@ -215,6 +218,8 @@ public class SlotSearchService {
 
     /**
      * Find free slots given busy intervals.
+     * Slots are generated in 10-minute intervals starting from 10-minute boundaries.
+     * For example, if a free slot is 08:05-08:55, it rounds up to 08:10-08:40, 08:20-08:50.
      */
     private List<TimeInterval> findFreeSlots(
             List<TimeInterval> busyIntervals,
@@ -228,7 +233,9 @@ public class SlotSearchService {
 
         // Slice free intervals into slots of required duration
         for (TimeInterval free : freeIntervals) {
-            LocalTime slotStart = free.start;
+            // Round up to nearest 10-minute boundary
+            LocalTime slotStart = roundUpTo10Minutes(free.start);
+
             while (slotStart.plusMinutes(durationMinutes).compareTo(free.end) <= 0) {
                 LocalTime slotEnd = slotStart.plusMinutes(durationMinutes);
 
@@ -300,12 +307,45 @@ public class SlotSearchService {
 
     private DayPart determineDayPart(LocalTime time) {
         if (time.isBefore(LocalTime.of(12, 0))) {
-            return DayPart.MORNING;
-        } else if (time.isBefore(LocalTime.of(19, 30))) {
-            return DayPart.AFTERNOON;
+            return DayPart.MORNING;           // 07:00 - 12:00 (Morgens)
+        } else if (time.isBefore(LocalTime.of(15, 0))) {
+            return DayPart.LATE_MORNING;      // 12:00 - 15:00 (Vormittags)
+        } else if (time.isBefore(LocalTime.of(18, 0))) {
+            return DayPart.AFTERNOON;         // 15:00 - 18:00 (Nachmittags)
         } else {
-            return DayPart.EVENING;
+            return DayPart.EVENING;           // 18:00 - 20:00 (Abends)
         }
+    }
+
+    /**
+     * Round up a time to the nearest 10-minute boundary.
+     * Examples:
+     * - 10:00 -> 10:00 (already on boundary)
+     * - 10:05 -> 10:10
+     * - 10:15 -> 10:20
+     * - 10:45 -> 10:50
+     * - 10:55 -> 11:00
+     *
+     * @param time LocalTime to round up
+     * @return Rounded LocalTime on 10-minute boundary
+     */
+    private LocalTime roundUpTo10Minutes(LocalTime time) {
+        int minutes = time.getMinute();
+
+        // Already on a 10-minute boundary
+        if (minutes % 10 == 0) {
+            return time;
+        }
+
+        // Round up to next 10-minute boundary
+        int roundedMinutes = ((minutes / 10) + 1) * 10;
+
+        if (roundedMinutes >= 60) {
+            // Overflow to next hour
+            return time.plusHours(1).withMinute(0);
+        }
+
+        return time.withMinute(roundedMinutes);
     }
 
 
@@ -324,6 +364,44 @@ public class SlotSearchService {
                 default -> DayOfWeek.valueOf(weekday.toUpperCase());
             };
         } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * Get day name (e.g., "MONDAY", "TUESDAY") from LocalDate for use with app settings.
+     */
+    private String getDayNameFromLocalDate(LocalDate date) {
+        return switch (date.getDayOfWeek()) {
+            case MONDAY -> "MONDAY";
+            case TUESDAY -> "TUESDAY";
+            case WEDNESDAY -> "WEDNESDAY";
+            case THURSDAY -> "THURSDAY";
+            case FRIDAY -> "FRIDAY";
+            case SATURDAY -> "SATURDAY";
+            case SUNDAY -> "SUNDAY";
+        };
+    }
+
+    /**
+     * Get working hours for a specific day from app settings.
+     * Returns [openTime, closeTime] as LocalTime array, or null if day is closed.
+     */
+    private LocalTime[] getWorkingHours(String dayName) {
+        if (!appSettingService.isDayActive(dayName)) {
+            return null;
+        }
+
+        try {
+            String openStr = appSettingService.getSettingOrDefault(dayName + "_OPEN_TIME", "08:00");
+            String closeStr = appSettingService.getSettingOrDefault(dayName + "_CLOSE_TIME", "18:00");
+
+            LocalTime openTime = LocalTime.parse(openStr);
+            LocalTime closeTime = LocalTime.parse(closeStr);
+
+            return new LocalTime[]{openTime, closeTime};
+        } catch (Exception e) {
+            log.warn("Could not parse working hours for {}: {}", dayName, e.getMessage());
             return null;
         }
     }

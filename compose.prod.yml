@@ -1,6 +1,7 @@
 # Production Docker Compose Stack
 # Ports: Frontend 80/443, Backend 8080 (internal), DB 3308 (internal)
 # Usage: docker compose -f compose.prod.yml --env-file .env.prod up -d
+# Usage: docker compose -f compose.prod.yml --env-file .env.prod up -d --build
 
 services:
   physio-prod-db:
