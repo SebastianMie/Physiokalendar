@@ -35,6 +35,7 @@ services:
       dockerfile: Dockerfile.test
     container_name: ${COMPOSE_PROJECT_NAME:-physio-test}-backend
     image: physio-test-backend:latest
+    pull_policy: never
     restart: unless-stopped
     depends_on:
       physio-test-db:

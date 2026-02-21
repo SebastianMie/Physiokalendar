@@ -44,7 +44,6 @@ com\example\physiokalendar\config\JwtService.class
 com\example\physiokalendar\config\AppStartupInitializer.class
 com\example\physiokalendar\dataimport\DataImportShell.class
 com\example\physiokalendar\entity\SeriesStatus.class
-com\example\physiokalendar\service\HolidayService$HolidayData.class
 com\example\physiokalendar\controller\AuthController.class
 com\example\physiokalendar\controller\CancellationController.class
 com\example\physiokalendar\dto\JSONLoginDTO.class
@@ -75,6 +74,7 @@ com\example\physiokalendar\controller\AbsenceController.class
 com\example\physiokalendar\service\SlotSearchService$TimeInterval.class
 com\example\physiokalendar\dto\CalendarRangeDTO$CalendarSeriesInstanceDTO$CalendarSeriesInstanceDTOBuilder.class
 com\example\physiokalendar\repository\UserRepository.class
+com\example\physiokalendar\service\HolidayService$HolidayValue.class
 com\example\physiokalendar\dto\CalendarRangeDTO$CalendarAppointmentDTO.class
 com\example\physiokalendar\service\TherapistService.class
 com\example\physiokalendar\controller\AppointmentController.class
