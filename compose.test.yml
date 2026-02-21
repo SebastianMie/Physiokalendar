@@ -137,10 +137,10 @@ services:
 volumes:
   physio-test-db-data:
     name: physio-test-db-data
-    external: true
+    external: false
 
 networks:
   physio-test-network:
     name: physio-test-network
     driver: bridge
-    external: true
+    external: false

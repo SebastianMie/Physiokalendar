@@ -8,9 +8,10 @@ RUN apt-get update && \
 # Copy backup script and cron definition
 COPY mysql_backup.sh /usr/local/bin/mysql_backup.sh
 COPY backup-cron /etc/cron.d/backup-cron
+
+# Set permissions for cron definition
 RUN chmod +x /usr/local/bin/mysql_backup.sh && \
-    chmod 0644 /etc/cron.d/backup-cron && \
-    crontab /etc/cron.d/backup-cron
+    chmod 0644 /etc/cron.d/backup-cron
 
 # Create backup dir and logfile for cron
 RUN mkdir -p /backup /var/log && \
