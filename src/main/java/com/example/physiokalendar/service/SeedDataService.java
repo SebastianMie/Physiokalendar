@@ -273,8 +273,8 @@ public class SeedDataService {
             absence.setTherapist(therapist);
             absence.setDate(date);
             absence.setAbsenceType(AbsenceType.SPECIAL);
-            absence.setStartTime(LocalDateTime.of(date, LocalTime.of(8, 0)));
-            absence.setEndTime(LocalDateTime.of(date, LocalTime.of(18, 0)));
+            absence.setStartTime(LocalTime.of(8, 0));
+            absence.setEndTime(LocalTime.of(18, 0));
             absence.setReason("Fortbildung");
 
             absenceRepository.save(absence);
@@ -286,8 +286,8 @@ public class SeedDataService {
             lunchBreak.setTherapist(therapist);
             lunchBreak.setAbsenceType(AbsenceType.RECURRING);
             lunchBreak.setWeekday("MONDAY");
-            lunchBreak.setStartTime(LocalDateTime.of(LocalDate.now(), LocalTime.of(12, 0)));
-            lunchBreak.setEndTime(LocalDateTime.of(LocalDate.now(), LocalTime.of(13, 0)));
+            lunchBreak.setStartTime(LocalTime.of(12, 0));
+            lunchBreak.setEndTime(LocalTime.of(13, 0));
             lunchBreak.setReason("Mittagspause");
 
             absenceRepository.save(lunchBreak);

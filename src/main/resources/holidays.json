@@ -1,0 +1,279 @@
+{
+  "holidays": [
+    {
+      "date": "2026-01-01",
+      "name": "Neujahrstag",
+      "recurring": true
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Karfreitag",
+      "recurring": false
+    },
+    {
+      "date": "2026-04-06",
+      "name": "Ostermontag",
+      "recurring": false
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Tag der Arbeit",
+      "recurring": true
+    },
+    {
+      "date": "2026-05-14",
+      "name": "Christi Himmelfahrt",
+      "recurring": false
+    },
+    {
+      "date": "2026-05-25",
+      "name": "Pfingstmontag",
+      "recurring": false
+    },
+    {
+      "date": "2026-06-04",
+      "name": "Fronleichnam",
+      "recurring": false
+    },
+    {
+      "date": "2026-10-03",
+      "name": "Tag der Deutschen Einheit",
+      "recurring": true
+    },
+    {
+      "date": "2026-11-01",
+      "name": "Allerheiligen",
+      "recurring": false
+    },
+    {
+      "date": "2026-12-25",
+      "name": "1. Weihnachtstag",
+      "recurring": true
+    },
+    {
+      "date": "2026-12-26",
+      "name": "2. Weihnachtstag",
+      "recurring": true
+    },
+    {
+      "date": "2027-01-01",
+      "name": "Neujahrstag",
+      "recurring": true
+    },
+    {
+      "date": "2027-04-02",
+      "name": "Karfreitag",
+      "recurring": false
+    },
+    {
+      "date": "2027-04-05",
+      "name": "Ostermontag",
+      "recurring": false
+    },
+    {
+      "date": "2027-05-01",
+      "name": "Tag der Arbeit",
+      "recurring": true
+    },
+    {
+      "date": "2027-05-13",
+      "name": "Christi Himmelfahrt",
+      "recurring": false
+    },
+    {
+      "date": "2027-05-24",
+      "name": "Pfingstmontag",
+      "recurring": false
+    },
+    {
+      "date": "2027-06-03",
+      "name": "Fronleichnam",
+      "recurring": false
+    },
+    {
+      "date": "2027-10-03",
+      "name": "Tag der Deutschen Einheit",
+      "recurring": true
+    },
+    {
+      "date": "2027-11-01",
+      "name": "Allerheiligen",
+      "recurring": false
+    },
+    {
+      "date": "2027-12-25",
+      "name": "1. Weihnachtstag",
+      "recurring": true
+    },
+    {
+      "date": "2027-12-26",
+      "name": "2. Weihnachtstag",
+      "recurring": true
+    },
+    {
+      "date": "2028-01-01",
+      "name": "Neujahrstag",
+      "recurring": true
+    },
+    {
+      "date": "2028-04-14",
+      "name": "Karfreitag",
+      "recurring": false
+    },
+    {
+      "date": "2028-04-17",
+      "name": "Ostermontag",
+      "recurring": false
+    },
+    {
+      "date": "2028-05-01",
+      "name": "Tag der Arbeit",
+      "recurring": true
+    },
+    {
+      "date": "2028-05-25",
+      "name": "Christi Himmelfahrt",
+      "recurring": false
+    },
+    {
+      "date": "2028-06-05",
+      "name": "Pfingstmontag",
+      "recurring": false
+    },
+    {
+      "date": "2028-06-15",
+      "name": "Fronleichnam",
+      "recurring": false
+    },
+    {
+      "date": "2028-10-03",
+      "name": "Tag der Deutschen Einheit",
+      "recurring": true
+    },
+    {
+      "date": "2028-11-01",
+      "name": "Allerheiligen",
+      "recurring": false
+    },
+    {
+      "date": "2028-12-25",
+      "name": "1. Weihnachtstag",
+      "recurring": true
+    },
+    {
+      "date": "2028-12-26",
+      "name": "2. Weihnachtstag",
+      "recurring": true
+    },
+    {
+      "date": "2029-01-01",
+      "name": "Neujahrstag",
+      "recurring": true
+    },
+    {
+      "date": "2029-03-30",
+      "name": "Karfreitag",
+      "recurring": false
+    },
+    {
+      "date": "2029-04-02",
+      "name": "Ostermontag",
+      "recurring": false
+    },
+    {
+      "date": "2029-05-01",
+      "name": "Tag der Arbeit",
+      "recurring": true
+    },
+    {
+      "date": "2029-05-10",
+      "name": "Christi Himmelfahrt",
+      "recurring": false
+    },
+    {
+      "date": "2029-05-21",
+      "name": "Pfingstmontag",
+      "recurring": false
+    },
+    {
+      "date": "2029-05-31",
+      "name": "Fronleichnam",
+      "recurring": false
+    },
+    {
+      "date": "2029-10-03",
+      "name": "Tag der Deutschen Einheit",
+      "recurring": true
+    },
+    {
+      "date": "2029-11-01",
+      "name": "Allerheiligen",
+      "recurring": false
+    },
+    {
+      "date": "2029-12-25",
+      "name": "1. Weihnachtstag",
+      "recurring": true
+    },
+    {
+      "date": "2029-12-26",
+      "name": "2. Weihnachtstag",
+      "recurring": true
+    },
+    {
+      "date": "2030-01-01",
+      "name": "Neujahrstag",
+      "recurring": true
+    },
+    {
+      "date": "2030-04-19",
+      "name": "Karfreitag",
+      "recurring": false
+    },
+    {
+      "date": "2030-04-22",
+      "name": "Ostermontag",
+      "recurring": false
+    },
+    {
+      "date": "2030-05-01",
+      "name": "Tag der Arbeit",
+      "recurring": true
+    },
+    {
+      "date": "2030-05-30",
+      "name": "Christi Himmelfahrt",
+      "recurring": false
+    },
+    {
+      "date": "2030-06-10",
+      "name": "Pfingstmontag",
+      "recurring": false
+    },
+    {
+      "date": "2030-06-20",
+      "name": "Fronleichnam",
+      "recurring": false
+    },
+    {
+      "date": "2030-10-03",
+      "name": "Tag der Deutschen Einheit",
+      "recurring": true
+    },
+    {
+      "date": "2030-11-01",
+      "name": "Allerheiligen",
+      "recurring": false
+    },
+    {
+      "date": "2030-12-25",
+      "name": "1. Weihnachtstag",
+      "recurring": true
+    },
+    {
+      "date": "2030-12-26",
+      "name": "2. Weihnachtstag",
+      "recurring": true
+    }
+  ]
+}

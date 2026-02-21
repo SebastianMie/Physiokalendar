@@ -6,7 +6,7 @@ COPY pom.xml mvnw ./
 COPY .mvn .mvn
 # copy sources (use wildcard for context performance)
 COPY src ./src
-RUN --mount=type=cache,target=/root/.m2 mvn -B -DskipTests package
+RUN mvn -B -DskipTests package
 
 # Runtime: reliable Temurin JRE (use focal tag which is generally available)
 FROM eclipse-temurin:17-jre-focal
@@ -14,5 +14,5 @@ ARG APP_HOME=/usr/app
 WORKDIR ${APP_HOME}
 # copy app jar from builder
 COPY --from=builder /workspace/target/*-SNAPSHOT.jar app.jar
-EXPOSE 8080
+EXPOSE 8081
 ENTRYPOINT ["java","-jar","/usr/app/app.jar"]

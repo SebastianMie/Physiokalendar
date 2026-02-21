@@ -1,2 +1,19 @@
-# Run full/incremental backup every day at 02:00 (server timezone)
-0 2 * * * /usr/local/bin/mysql_backup.sh >> /var/log/mysql_backup.log 2>&1
+# ============================================================================
+# PHYSIOKALENDAR BACKUP CRON JOBS
+#
+# Zeitplan:
+#   - 18:00 Uhr: Full Backup (für beide PROD und TEST)
+#   - 07:00 Uhr: Incremental Backup (für beide PROD und TEST)
+#
+# Der backup-container wird für beide Umgebungen (PROD/TEST) verwendet
+# Die Umgebung wird automatisch aus DB_NAME erkannt (prod/test)
+# ============================================================================
+
+# Full Backup täglich um 18:00 Uhr
+0 18 * * * /usr/local/bin/mysql_backup.sh full >> /var/log/mysql_backup.log 2>&1
+
+# Incremental Backup täglich um 07:00 Uhr
+0 7 * * * /usr/local/bin/mysql_backup.sh incremental >> /var/log/mysql_backup.log 2>&1
+
+# Cleanup alte Backups (älter als 28 Tage) jeden Sonntag um 03:00 Uhr
+0 3 * * 0 /usr/local/bin/mysql_backup.sh cleanup >> /var/log/mysql_backup.log 2>&1

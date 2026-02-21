@@ -2,6 +2,7 @@ package com.example.physiokalendar.service;
 
 import com.example.physiokalendar.dto.AppointmentDraftDTO;
 import com.example.physiokalendar.dto.AppointmentSaveResult;
+import com.example.physiokalendar.dto.AppointmentStatusUpdateDTO;
 import com.example.physiokalendar.dto.ConflictCheckDTO;
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
 import com.example.physiokalendar.entity.*;
@@ -328,6 +329,19 @@ public class AppointmentService {
     }
 
 
+    /**
+     * Find available appointment slots in 10-minute intervals.
+     *
+     * Slots are suggested starting on 10-minute boundaries (0, 10, 20, 30, 40, 50 minutes).
+     * For appointments ending at times like :15 or :45, the next slot is rounded up to the
+     * nearest 10-minute boundary (e.g., 10:15 -> 10:20, 10:45 -> 10:50).
+     *
+     * @param therapistId Therapist ID
+     * @param patientId Patient ID
+     * @param timeOfDayId Time of day filter (MORNING, AFTERNOON, EVENING)
+     * @param duration Appointment duration in minutes
+     * @return List of available appointment slots
+     */
     public List<Appointment> findAvailableAppointments(Long therapistId, Long patientId, int timeOfDayId, Integer duration) {
         List<Appointment> availableAppointments = new ArrayList<>();
         List<Absence> absences = absenceService.getAbsencesByTherapistId(therapistId);
@@ -337,22 +351,30 @@ public class AppointmentService {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(today);
 
-        LocalTime startTime = TimeOfDayService.getStartTime(timeOfDayId);
+        LocalTime baseStartTime = TimeOfDayService.getStartTime(timeOfDayId);
         LocalTime endTime = TimeOfDayService.getEndTime(timeOfDayId);
 
-        while (startTime.plusMinutes(duration).isBefore(endTime)) {
-            calendar.set(Calendar.HOUR_OF_DAY, startTime.getHour());
-            calendar.set(Calendar.MINUTE, startTime.getMinute());
+        // Round up to nearest 10-minute boundary for first slot
+        LocalTime currentTime = roundUpTo10Minutes(baseStartTime);
+
+        // Iterate through 10-minute slots
+        while (currentTime.plusMinutes(duration).isBefore(endTime) ||
+               currentTime.plusMinutes(duration).equals(endTime)) {
+
+            calendar.set(Calendar.HOUR_OF_DAY, currentTime.getHour());
+            calendar.set(Calendar.MINUTE, currentTime.getMinute());
+            calendar.set(Calendar.SECOND, 0);
             Date startDateTime = calendar.getTime();
 
             calendar.add(Calendar.MINUTE, duration);
             Date endDateTime = calendar.getTime();
 
-            if (isSlotAvailable(therapistId, startDateTime, endDateTime) && !isTherapistAbsent(absences, startDateTime, endDateTime)) {
+            if (isSlotAvailable(therapistId, startDateTime, endDateTime) &&
+                !isTherapistAbsent(absences, startDateTime, endDateTime)) {
+
                 Appointment potentialAppointment = new Appointment();
                 potentialAppointment.setTherapist(therapistRepository.findById(therapistId)
                     .orElseThrow(() -> new IllegalArgumentException("Invalid therapist ID")));
-
                 potentialAppointment.setPatient(patientRepository.findById(patientId)
                     .orElseThrow(() -> new IllegalArgumentException("Invalid patient ID")));
                 potentialAppointment.setStartTime(dateToLocalDateTime(startDateTime));
@@ -365,21 +387,70 @@ public class AppointmentService {
                 availableAppointments.add(potentialAppointment);
             }
 
-            startTime = startTime.plusMinutes(duration);
+            // Move to next 10-minute slot
+            currentTime = currentTime.plusMinutes(10);
         }
 
         return availableAppointments;
     }
 
+    /**
+     * Round up a time to the nearest 10-minute boundary.
+     * Examples:
+     * - 10:00 -> 10:00 (already on boundary)
+     * - 10:05 -> 10:10
+     * - 10:15 -> 10:20
+     * - 10:45 -> 10:50
+     * - 10:55 -> 11:00
+     *
+     * @param time LocalTime to round up
+     * @return Rounded LocalTime on 10-minute boundary
+     */
+    private LocalTime roundUpTo10Minutes(LocalTime time) {
+        int minutes = time.getMinute();
+
+        // Already on a 10-minute boundary
+        if (minutes % 10 == 0) {
+            return time;
+        }
+
+        // Round up to next 10-minute boundary
+        int roundedMinutes = ((minutes / 10) + 1) * 10;
+
+        if (roundedMinutes >= 60) {
+            // Overflow to next hour
+            return time.plusHours(1).withMinute(0);
+        }
+
+        return time.withMinute(roundedMinutes);
+    }
+
     private boolean isTherapistAbsent(List<Absence> absences, Date startDateTime, Date endDateTime) {
         for (Absence absence : absences) {
             if (absence.getDate() != null) {
-                LocalDateTime absenceStart = absence.getStartTime();
-                LocalDateTime absenceEnd = absence.getEndTime();
+                // SPECIAL (one-time) absence
                 LocalDateTime checkStart = dateToLocalDateTime(startDateTime);
                 LocalDateTime checkEnd = dateToLocalDateTime(endDateTime);
-                if (!checkStart.isAfter(absenceEnd) && !checkEnd.isBefore(absenceStart)) {
-                    return true; // Überlappung gefunden
+                LocalDate absenceStartDate = absence.getDate();
+                LocalDate absenceEndDate = absence.getEndDate() != null ? absence.getEndDate() : absenceStartDate;
+                LocalDate checkDate = checkStart.toLocalDate();
+                LocalDate checkEndDate = checkEnd.toLocalDate();
+
+                // Check if appointment overlaps with absence date range
+                if (!checkDate.isAfter(absenceEndDate) && !checkEndDate.isBefore(absenceStartDate)) {
+                    // Appointment date overlaps with absence date range
+                    LocalDateTime absenceStart = absence.getStartTime().atDate(absenceStartDate);
+                    LocalDateTime absenceEnd = absence.getEndTime().atDate(absenceStartDate);
+
+                    // If times are null, it's a full-day absence
+                    if (absenceStart == null || absenceEnd == null) {
+                        return true;
+                    }
+
+                    // Check time overlap
+                    if (!checkStart.isAfter(absenceEnd) && !checkEnd.isBefore(absenceStart)) {
+                        return true; // Zeitliche Überlappung gefunden
+                    }
                 }
             } else if (absence.getWeekday() != null && !absence.getWeekday().isEmpty() && matchesWeeklyAbsence(absence, startDateTime, endDateTime)) {
                 return true; // Überlappung mit wöchentlicher Abwesenheit gefunden
@@ -594,5 +665,128 @@ public class AppointmentService {
                     return !appointmentDate.isBefore(from) && !appointmentDate.isAfter(to);
                 })
                 .toList();
+    }
+
+    /**
+     * Update appointment status with business logic validation.
+     * Handles status transitions with appropriate constraints:
+     * - SCHEDULED: Initial status when appointment is created
+     * - CONFIRMED: Can be set manually for confirmed appointments
+     * - COMPLETED: Set manually or auto-set for past appointments
+     * - NO_SHOW: Set for past appointments where patient didn't show up
+     * - CANCELLED: Mark appointment as cancelled (soft delete)
+     *
+     * @param appointmentId the appointment to update
+     * @param statusUpdateDTO contains new status and optional reason
+     * @return updated appointment
+     * @throws IllegalArgumentException if appointment not found or invalid status transition
+     */
+    @Transactional
+    public Appointment updateAppointmentStatus(Long appointmentId, AppointmentStatusUpdateDTO statusUpdateDTO) {
+        Appointment appointment = appointmentRepository.findById(appointmentId)
+                .orElseThrow(() -> new IllegalArgumentException("Appointment not found: " + appointmentId));
+
+        String beforeJson = auditService.toAuditJson(appointment);
+        AppointmentStatus newStatus = statusUpdateDTO.getStatus();
+        String reason = statusUpdateDTO.getReason();
+
+        if (newStatus == null) {
+            throw new IllegalArgumentException("Status must not be null");
+        }
+
+        // Business logic validation
+        validateStatusTransition(appointment, newStatus);
+
+        appointment.setStatus(newStatus);
+
+        // Append reason to comment if provided (similar to cancelAppointment logic)
+        if (reason != null && !reason.isEmpty()) {
+            String statusChangeEntry = String.format("%s", reason);
+            appointment.setComment((appointment.getComment() != null ? appointment.getComment() + " | " : "")
+                    + statusChangeEntry);
+        }
+
+        Appointment saved = appointmentRepository.save(appointment);
+
+        // Audit logging with status change
+        auditService.record(AuditService.builder()
+                .actor(getCurrentUserId(), getCurrentUsername())
+                .entity(AuditEntityType.APPOINTMENT, appointmentId)
+                .action(AuditAction.UPDATE)
+                .before(beforeJson)
+                .after(auditService.toAuditJson(saved)));
+
+        return saved;
+    }
+
+    /**
+     * Auto-update statuses for appointments based on current date.
+     * Called periodically to set COMPLETED for past appointments without explicit status.
+     * This is a helper for data consistency but should be called sparingly.
+     */
+    @Transactional
+    public void autoUpdatePastAppointmentStatuses() {
+        LocalDate today = LocalDate.now();
+        List<Appointment> pastAppointments = appointmentRepository.findAll().stream()
+                .filter(a -> a.getDate().isBefore(today)
+                        && (a.getStatus() == AppointmentStatus.SCHEDULED
+                        || a.getStatus() == AppointmentStatus.CONFIRMED))
+                .toList();
+
+        for (Appointment apt : pastAppointments) {
+            String beforeJson = auditService.toAuditJson(apt);
+            apt.setStatus(AppointmentStatus.COMPLETED);
+            appointmentRepository.save(apt);
+
+            auditService.record(AuditService.builder()
+                    .actor(null, "system-auto-update")
+                    .entity(AuditEntityType.APPOINTMENT, apt.getId())
+                    .action(AuditAction.UPDATE)
+                    .before(beforeJson)
+                    .after(auditService.toAuditJson(apt)));
+        }
+    }
+
+    /**
+     * Validate status transitions with business rules.
+     * Ensures only valid transitions are allowed.
+     */
+    private void validateStatusTransition(Appointment appointment, AppointmentStatus newStatus) {
+        AppointmentStatus currentStatus = appointment.getStatus();
+
+        // Can always transition to CANCELLED from any state
+        if (newStatus == AppointmentStatus.CANCELLED) {
+            return;
+        }
+
+        // SCHEDULED -> CONFIRMED (manual confirmation)
+        if (currentStatus == AppointmentStatus.SCHEDULED && newStatus == AppointmentStatus.CONFIRMED) {
+            return;
+        }
+
+        // CONFIRMED -> SCHEDULED (unconfirm)
+        if (currentStatus == AppointmentStatus.CONFIRMED && newStatus == AppointmentStatus.SCHEDULED) {
+            return;
+        }
+
+        // Any non-cancelled -> COMPLETED (mark as done)
+        if (newStatus == AppointmentStatus.COMPLETED && currentStatus != AppointmentStatus.CANCELLED) {
+            return;
+        }
+
+        // Any non-cancelled -> NO_SHOW (patient didn't show)
+        if (newStatus == AppointmentStatus.NO_SHOW && currentStatus != AppointmentStatus.CANCELLED) {
+            return;
+        }
+
+        // Can transition from COMPLETED/NO_SHOW back to SCHEDULED for correction
+        if ((currentStatus == AppointmentStatus.COMPLETED || currentStatus == AppointmentStatus.NO_SHOW)
+                && newStatus == AppointmentStatus.SCHEDULED) {
+            return;
+        }
+
+        // If we reach here, the transition is invalid
+        throw new IllegalArgumentException(
+                String.format("Invalid status transition from %s to %s", currentStatus, newStatus));
     }
 }

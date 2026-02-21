@@ -1,3 +1,0 @@
-# Cron example: import latest dev dump into test DB every night at 03:30
-# Add with: crontab -e (on the host) or place into system scheduler
-30 3 * * * cd /absolute/path/to/Physiokalendar && ./scripts/import_latest_to_test.sh -y >> /absolute/path/to/Physiokalendar/logs/import_cron.log 2>&1

@@ -32,6 +32,12 @@ public class AppointmentSeriesController {
         return ResponseEntity.ok(series);
     }
 
+    @GetMapping("/active")
+    public ResponseEntity<List<AppointmentSeries>> getActiveSeries() {
+        List<AppointmentSeries> series = appointmentSeriesService.getActiveSeries();
+        return ResponseEntity.ok(series);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<AppointmentSeries> getAppointmentSeriesById(@PathVariable Long id) {
         return appointmentSeriesService.getAppointmentSeriesById(id)

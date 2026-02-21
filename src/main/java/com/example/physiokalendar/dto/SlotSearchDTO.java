@@ -35,9 +35,10 @@ public class SlotSearchDTO {
      * Day part enum for filtering.
      */
     public enum DayPart {
-        MORNING,    // 06:00 - 12:00
-        AFTERNOON,  // 12:00 - 19:30
-        EVENING     // 19:30 - 21:00
+        MORNING,       // 07:00 - 12:00 (Morgens)
+        LATE_MORNING,  // 12:00 - 15:00 (Vormittags)
+        AFTERNOON,     // 15:00 - 18:00 (Nachmittags)
+        EVENING        // 18:00 - 20:00 (Abends)
     }
 
     /**

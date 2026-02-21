@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.physiokalendar.dto.AppointmentDraftDTO;
 import com.example.physiokalendar.dto.AppointmentSaveResult;
+import com.example.physiokalendar.dto.AppointmentStatusUpdateDTO;
 import com.example.physiokalendar.dto.ConflictCheckDTO;
 import com.example.physiokalendar.dto.JSONAppointmentDTO;
 import com.example.physiokalendar.entity.Appointment;
@@ -141,18 +142,24 @@ public class AppointmentController {
             @RequestParam(required = false) String appointmentType,
             @RequestParam(required = false) String timeFilter) {
         try {
-            // Parse dates based on timeFilter
-            LocalDate fromDate = null;
-            LocalDate toDate = null;
+            // Parse dates - combine timeFilter with explicit date filters
+            LocalDate fromDate = parseToLocalDate(dateFrom);
+            LocalDate toDate = parseToLocalDate(dateTo);
             LocalDate today = LocalDate.now();
 
             if ("upcoming".equalsIgnoreCase(timeFilter)) {
-                fromDate = today;
+                // Upcoming: fromDate is at least today, combine with user's dateFrom/dateTo
+                if (fromDate == null || fromDate.isBefore(today)) {
+                    fromDate = today;
+                }
+                // Keep user's toDate if set
             } else if ("past".equalsIgnoreCase(timeFilter)) {
-                toDate = today.minusDays(1);
-            } else {
-                fromDate = parseToLocalDate(dateFrom);
-                toDate = parseToLocalDate(dateTo);
+                // Past: toDate is at most yesterday, combine with user's dateFrom/dateTo
+                LocalDate yesterday = today.minusDays(1);
+                if (toDate == null || toDate.isAfter(yesterday)) {
+                    toDate = yesterday;
+                }
+                // Keep user's fromDate if set
             }
 
             // Parse appointment type
@@ -346,6 +353,37 @@ public class AppointmentController {
     }
 
     /**
+     * Update appointment status.
+     * PATCH /api/appointments/{id}/status
+     *
+     * Status transitions follow business rules:
+     * - SCHEDULED: Initial status
+     * - CONFIRMED: Manually confirmed appointment
+     * - COMPLETED: Appointment completed (past appointment or manual marking)
+     * - NO_SHOW: Patient didn't show up (should be set for past appointments)
+     * - CANCELLED: Appointment cancelled (can transition from any state)
+     *
+     * @param id the appointment to update
+     * @param statusUpdateDTO contains new status and optional reason
+     * @return updated appointment
+     */
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<?> updateAppointmentStatus(
+            @PathVariable Long id,
+            @RequestBody AppointmentStatusUpdateDTO statusUpdateDTO) {
+        try {
+            Appointment updated = appointmentService.updateAppointmentStatus(id, statusUpdateDTO);
+            return ResponseEntity.ok(updated);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Map.of("error", e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Fehler beim Aktualisieren des Status: " + e.getMessage()));
+        }
+    }
+
+    /**
      * Check conflicts for a draft appointment (before saving).
      * POST /api/appointments/check-conflicts
      */
@@ -445,6 +483,20 @@ public class AppointmentController {
 
             List<Appointment> appointments = appointmentService.getAppointmentsByDateRange(fromDate, toDate);
             return ResponseEntity.ok(appointments);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    /**
+     * Get all available time of day options for dropdown/selection.
+     * GET /api/appointments/time-options
+     */
+    @GetMapping("/time-options")
+    public ResponseEntity<Map<Integer, String>> getTimeOfDayOptions() {
+        try {
+            Map<Integer, String> options = com.example.physiokalendar.service.TimeOfDayService.getAllTimeOfDayOptions();
+            return ResponseEntity.ok(options);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

@@ -39,12 +39,15 @@ public class AppointmentSeriesGeneratorJob {
 
     private final AppointmentSeriesRepository seriesRepository;
     private final AppointmentRepository appointmentRepository;
+    private final HolidayService holidayService;
 
     public AppointmentSeriesGeneratorJob(
             AppointmentSeriesRepository seriesRepository,
-            AppointmentRepository appointmentRepository) {
+            AppointmentRepository appointmentRepository,
+            HolidayService holidayService) {
         this.seriesRepository = seriesRepository;
         this.appointmentRepository = appointmentRepository;
+        this.holidayService = holidayService;
     }
 
     /**
@@ -151,6 +154,9 @@ public class AppointmentSeriesGeneratorJob {
                     .collect(Collectors.toSet())
                 : Set.of();
 
+        // Get all holiday dates to exclude from generation
+        Set<LocalDate> holidayDates = holidayService.getHolidayDates();
+
         // Find the first occurrence of the target weekday from effectiveStartDate
         LocalDate currentDate = effectiveStartDate;
         while (currentDate.getDayOfWeek() != targetWeekday) {
@@ -163,8 +169,8 @@ public class AppointmentSeriesGeneratorJob {
         LocalTime endTime = series.getEndTime();
 
         while (!currentDate.isAfter(effectiveEndDate)) {
-            // Skip if appointment already exists or date is cancelled
-            if (!existingDates.contains(currentDate) && !cancelledDates.contains(currentDate)) {
+            // Skip if appointment already exists, date is cancelled, or date is a holiday
+            if (!existingDates.contains(currentDate) && !cancelledDates.contains(currentDate) && !holidayDates.contains(currentDate)) {
                 // Create the appointment
                 Appointment appointment = new Appointment();
                 appointment.setTherapist(series.getTherapist());

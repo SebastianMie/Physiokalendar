@@ -46,8 +46,28 @@ public class AppointmentSeriesService {
     @Autowired
     private CancellationRepository cancellationRepository;
 
+    @Autowired
+    private HolidayService holidayService;
+
     public List<AppointmentSeries> getAllAppointmentSeries() {
         return appointmentSeriesRepository.findAll();
+    }
+
+    /**
+     * Get all appointment series that are currently active.
+     * A series is active if its startDate is <= today and endDate is >= today
+     */
+    public List<AppointmentSeries> getActiveSeries() {
+        LocalDate today = LocalDate.now();
+        return appointmentSeriesRepository.findAll().stream()
+                .filter(series -> {
+                    LocalDate startDate = series.getStartDate();
+                    LocalDate endDate = series.getEndDate();
+                    return startDate != null && endDate != null &&
+                           !startDate.isAfter(today) &&
+                           !endDate.isBefore(today);
+                })
+                .collect(Collectors.toList());
     }
 
     public Optional<AppointmentSeries> getAppointmentSeriesById(Long id) {
@@ -121,30 +141,37 @@ public class AppointmentSeriesService {
         LocalTime startTime = series.getStartTime();
         LocalTime endTime = series.getEndTime();
 
+        // Get all holiday dates to exclude from generation
+        java.util.Set<LocalDate> holidayDates = holidayService.getHolidayDates();
+
         // Iterieren durch die Wochen, um die Einzeltermine zu erstellen
         while (startCalendar.before(endCalendar) || startCalendar.equals(endCalendar)) {
-            // Erstellen des Einzeltermins
-            Appointment appointment = new Appointment();
-            appointment.setTherapist(therapist);
-            appointment.setPatient(series.getPatient());
-
             // Kombiniere Datum mit Start- und Endzeit
             LocalDate appointmentDate = dateToLocalDate(startCalendar.getTime());
-            LocalDateTime startDateTime = appointmentDate.atTime(startTime);
-            LocalDateTime endDateTime = appointmentDate.atTime(endTime);
 
-            appointment.setAppointmentSeries(series);
-            appointment.setDate(appointmentDate);
-            appointment.setStartTime(startDateTime);
-            appointment.setEndTime(endDateTime);
-            appointment.setCreatedBySeriesAppointment(true);
-            appointment.setIsElectric(isElectric);
-            appointment.setIsHotair(isHotair);
-            appointment.setIsUltrasonic(isUltrasonic);
-            appointment.setComment("");
+            // Skip if this date is a holiday
+            if (!holidayDates.contains(appointmentDate)) {
+                // Erstellen des Einzeltermins
+                Appointment appointment = new Appointment();
+                appointment.setTherapist(therapist);
+                appointment.setPatient(series.getPatient());
 
-            // Speichern des Einzeltermins
-            appointmentRepository.save(appointment);
+                LocalDateTime startDateTime = appointmentDate.atTime(startTime);
+                LocalDateTime endDateTime = appointmentDate.atTime(endTime);
+
+                appointment.setAppointmentSeries(series);
+                appointment.setDate(appointmentDate);
+                appointment.setStartTime(startDateTime);
+                appointment.setEndTime(endDateTime);
+                appointment.setCreatedBySeriesAppointment(true);
+                appointment.setIsElectric(isElectric);
+                appointment.setIsHotair(isHotair);
+                appointment.setIsUltrasonic(isUltrasonic);
+                appointment.setComment("");
+
+                // Speichern des Einzeltermins
+                appointmentRepository.save(appointment);
+            }
 
             // Nächster Termin basierend auf der wöchentlichen Frequenz
             startCalendar.add(Calendar.WEEK_OF_YEAR, weeklyFrequency);
@@ -208,11 +235,18 @@ public class AppointmentSeriesService {
      * Updates an existing appointment series (master data only).
      * Updates times and treatment flags for the series master.
      * Future appointments generated from this series are also updated.
+     *
+     * Special handling for endDate:
+     * - If endDate is reduced (shortened): deletes all appointments after the new endDate
+     * - If endDate is extended: keeps existing appointments unchanged
      */
     @Transactional
     public AppointmentSeries updateAppointmentSeries(Long id, JSONAppointmentSeriesDTO dto) {
         AppointmentSeries series = appointmentSeriesRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Appointment series not found: " + id));
+
+        LocalDate oldEndDate = series.getEndDate();
+        LocalDate newEndDate = dto.getEndDate() != null ? dateToLocalDate(dto.getEndDate()) : null;
 
         // Update times if provided
         if (dto.getStartTime() != null) {
@@ -227,9 +261,20 @@ public class AppointmentSeriesService {
             series.setComment(dto.getComment());
         }
 
+        // Update treatment flags if provided
+        if (dto.getIsHotair() != null) {
+            series.setIsHotair(dto.getIsHotair());
+        }
+        if (dto.getIsUltrasonic() != null) {
+            series.setIsUltrasonic(dto.getIsUltrasonic());
+        }
+        if (dto.getIsElectric() != null) {
+            series.setIsElectric(dto.getIsElectric());
+        }
+
         // Update endDate if provided
-        if (dto.getEndDate() != null) {
-            series.setEndDate(dateToLocalDate(dto.getEndDate()));
+        if (newEndDate != null) {
+            series.setEndDate(newEndDate);
         }
 
         // Update weeklyFrequency if provided
@@ -239,9 +284,24 @@ public class AppointmentSeriesService {
 
         AppointmentSeries savedSeries = appointmentSeriesRepository.save(series);
 
-        // Update all future appointments in this series
+        // Get all appointments for this series (both past and future)
+        List<Appointment> allAppointments = appointmentRepository.findBySeriesId(id);
         LocalDate today = LocalDate.now();
-        List<Appointment> futureAppointments = appointmentRepository.findBySeriesId(id).stream()
+
+        // Handle endDate reduction: delete appointments after the new endDate
+        if (newEndDate != null && oldEndDate != null && newEndDate.isBefore(oldEndDate)) {
+            List<Appointment> appointmentsToDelete = allAppointments.stream()
+                    .filter(a -> a.getDate().isAfter(newEndDate))
+                    .toList();
+
+            appointmentRepository.deleteAll(appointmentsToDelete);
+
+            // Remove from all appointments list
+            allAppointments.removeAll(appointmentsToDelete);
+        }
+
+        // Update all future appointments (that weren't deleted)
+        List<Appointment> futureAppointments = allAppointments.stream()
                 .filter(a -> !a.getDate().isBefore(today))
                 .toList();
 
@@ -307,11 +367,20 @@ public class AppointmentSeriesService {
     }
 
     private LocalDate dateToLocalDate(Date date) {
-        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalDate();
+        // WICHTIG: Nutze System-Timezone statt UTC, um Verschiebungen um -1 Tag zu vermeiden
+        // Frontend sendet Daten ohne Zeitzone, Jackson interpretiert als UTC
+        // → konsistent UTC verwenden für die Konvertierung
+        return date.toInstant()
+                .atZone(ZoneId.of("UTC"))
+                .toLocalDate();
     }
 
     private LocalTime dateToLocalTime(Date date) {
-        return date.toInstant().atZone(ZoneId.of("UTC")).toLocalTime();
+        // Frontend sendet Zeiten ohne Zeitzone, Jackson interpretiert als UTC
+        // → konsistent UTC verwenden für die Konvertierung
+        return date.toInstant()
+                .atZone(ZoneId.of("UTC"))
+                .toLocalTime();
     }
 
     private Date localDateToDate(LocalDate localDate) {

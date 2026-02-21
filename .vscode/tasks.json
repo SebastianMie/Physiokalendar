@@ -56,7 +56,7 @@
       "args": ["run", "dev"],
       "options": {
         "cwd": "${workspaceFolder}/../Physiokalender-v2-UI"
-      }
+      },
       "isBackground": true,
       "group": "build",
       "problemMatcher": {

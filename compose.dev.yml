@@ -1,7 +1,7 @@
 # Development Docker Compose Stack
 # NOTE: Backend/Frontend containerized dev removed — run both locally (IDE / npm).
 # Use the top-level `docker-compose.yml` (or this file) only to start the DB container.
-# Usage: docker compose -f docker-compose.yml --env-file .env.dev up -d
+# Usage: docker compose -f compose.dev.yml --env-file .env.dev up -d
 
 services:
   physio-dev-db:
