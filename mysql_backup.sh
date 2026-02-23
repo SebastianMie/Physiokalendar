@@ -38,8 +38,10 @@ BACKUP_TYPE="${1:-auto}"  # full, incremental, cleanup, oder auto
 if [ -z "$DB_ENV" ]; then
     if [[ "$DB_NAME" == *"prod"* ]]; then
         DB_ENV="prod"
-    else
+    elif [[ "$DB_NAME" == *"test"* ]]; then
         DB_ENV="test"
+    else
+        DB_ENV="dev"
     fi
 fi
 

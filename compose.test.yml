@@ -55,6 +55,7 @@ services:
         - "${BACKEND_PORT:-8081}:8081"
     volumes:
       - ./logs:/usr/src/app/logs
+      - ./backups:/backup
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
       interval: 30s

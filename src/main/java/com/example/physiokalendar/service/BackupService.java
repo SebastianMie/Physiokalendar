@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 public class BackupService {
     private static final Logger logger = LoggerFactory.getLogger(BackupService.class);
 
-    @Value("${backup.dir:/backups}")
+    @Value("${backup.dir:/backup}")
     private String backupDir;
 
     @Value("${spring.datasource.url:jdbc:mysql://physio-test-db:3306/physiocalendar_test}")
@@ -28,6 +28,9 @@ public class BackupService {
 
     @Value("${backup.script.path:/usr/local/bin/mysql_backup.sh}")
     private String backupScriptPath;
+
+    @Value("${backup.docker.container:}")
+    private String backupDockerContainer;
 
     /**
      * Creates a backup using the Docker backup container's script
@@ -50,10 +53,24 @@ public class BackupService {
                 return result;
             }
         } catch (IOException e) {
-            logger.warn("Backup script method failed, falling back to mysqldump: {}", e.getMessage());
+            logger.warn("Backup script method failed, trying alternative methods: {}", e.getMessage());
         }
 
-        // Fallback: Use mysqldump directly
+        // Fallback 1: Use docker exec to run backup in container (for local dev without mysqldump)
+        if (backupDockerContainer != null && !backupDockerContainer.isEmpty()) {
+            try {
+                logger.info("Attempting backup via docker exec in container: {}", backupDockerContainer);
+                String result = createBackupUsingDockerExec(backupType);
+                if (result != null) {
+                    logger.info("Backup created successfully via docker exec: {}", result);
+                    return result;
+                }
+            } catch (IOException e) {
+                logger.warn("docker exec method failed: {}", e.getMessage());
+            }
+        }
+
+        // Fallback 2: Use mysqldump directly (requires mysqldump installed locally)
         try {
             logger.info("Attempting direct mysqldump backup...");
             String result = createBackupUsingMySQLDump();
@@ -63,7 +80,6 @@ public class BackupService {
             }
         } catch (IOException e) {
             logger.warn("mysqldump method failed: {}", e.getMessage());
-            throw new IOException("All backup methods failed: " + e.getMessage(), e);
         }
 
         throw new IOException("Failed to create backup using any available method");
@@ -158,17 +174,29 @@ public class BackupService {
                 logger.info("Created backup directory: {}", backupDir);
             }
 
-            // Generate timestamp and filename
-            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
-            String backupFilePath = new File(backupDir, "backup_" + timestamp + ".sql.gz").getAbsolutePath();
+            // Detect environment from database name
+            String env = "dev";
+            if (dbName.contains("prod")) {
+                env = "prod";
+            } else if (dbName.contains("test")) {
+                env = "test";
+            }
+
+            // Generate timestamp matching script format: {env}_full_YYYYMMDD_HHMMSS.sql.gz
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+            String filename = String.format("%s_full_%s.sql.gz", env, timestamp);
+            String backupFilePath = new File(backupDir, filename).getAbsolutePath();
+
+            // Convert Windows path to Unix style for bash command
+            String bashFilePath = backupFilePath.replace("\\", "/");
 
             logger.info("Output file: {}", backupFilePath);
 
             // Build mysqldump command via shell pipe
             String passwordPart = (dbPassword != null && !dbPassword.isEmpty()) ? "-p" + dbPassword : "";
             String command = String.format(
-                "mysqldump --single-transaction --routines --triggers --events -h%s -P%s -u%s %s %s | gzip -c > %s",
-                host, port, dbUser, passwordPart, dbName, backupFilePath
+                "mysqldump --single-transaction --routines --triggers --events -h%s -P%s -u%s %s %s | gzip -c > \"%s\"",
+                host, port, dbUser, passwordPart, dbName, bashFilePath
             );
 
             logger.info("Executing: mysqldump ... | gzip > {}", backupFilePath);
@@ -219,6 +247,90 @@ public class BackupService {
     }
 
     /**
+     * Creates backup using docker exec to run the backup script in a container
+     * Used for local development when mysqldump is not installed
+     */
+    private String createBackupUsingDockerExec(String backupType) throws IOException {
+        try {
+            String dbName = extractDatabaseName(datasourceUrl);
+
+            // Detect environment from database name
+            String env = "dev";
+            if (dbName.contains("prod")) {
+                env = "prod";
+            } else if (dbName.contains("test")) {
+                env = "test";
+            }
+
+            logger.info("Running backup via docker exec in container: {}", backupDockerContainer);
+
+            // Build the docker exec command to run the backup script
+            String command = String.format(
+                "docker exec %s bash /scripts/mysql_backup.sh %s",
+                backupDockerContainer, backupType != null ? backupType : "full"
+            );
+
+            logger.info("Executing: {}", command);
+
+            ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
+            // Prevent Git Bash on Windows from converting Unix paths like /scripts/ to Windows paths
+            pb.environment().put("MSYS_NO_PATHCONV", "1");
+            pb.redirectErrorStream(false);
+
+            Process process = pb.start();
+
+            // Capture stdout for the backup filename
+            BufferedReader outputReader = new BufferedReader(
+                new InputStreamReader(process.getInputStream())
+            );
+            StringBuilder output = new StringBuilder();
+            String outputLine;
+            while ((outputLine = outputReader.readLine()) != null) {
+                logger.info("docker exec: {}", outputLine);
+                output.append(outputLine).append("\n");
+            }
+
+            // Capture stderr
+            BufferedReader errorReader = new BufferedReader(
+                new InputStreamReader(process.getErrorStream())
+            );
+            StringBuilder errors = new StringBuilder();
+            String errorLine;
+            while ((errorLine = errorReader.readLine()) != null) {
+                logger.warn("docker exec stderr: {}", errorLine);
+                errors.append(errorLine).append("\n");
+            }
+
+            int exitCode = process.waitFor();
+
+            if (exitCode != 0) {
+                String errorMsg = "docker exec backup failed with exit code: " + exitCode;
+                if (errors.length() > 0) {
+                    errorMsg += "\n" + errors;
+                }
+                logger.error(errorMsg);
+                throw new IOException(errorMsg);
+            }
+
+            // Find the latest backup file created
+            String latestBackup = findLatestBackup();
+            if (latestBackup != null) {
+                return latestBackup;
+            }
+
+            // Fallback: construct expected filename
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+            String filename = String.format("%s_full_%s.sql.gz", env, timestamp);
+            return new File(backupDir, filename).getAbsolutePath();
+
+        } catch (InterruptedException e) {
+            logger.error("Docker exec process was interrupted", e);
+            Thread.currentThread().interrupt();
+            throw new IOException("Docker exec process was interrupted", e);
+        }
+    }
+
+    /**
      * Finds the most recently created backup file
      */
     private String findLatestBackup() {
@@ -228,8 +340,9 @@ public class BackupService {
                 return null;
             }
 
+            // Match both old format and new format ({env}_full_... / {env}_inc_...)
             File[] files = backupDirectory.listFiles((dir, name) ->
-                name.matches("(backup_|full_|inc_).*\\.sql(\\.gz)?"));
+                name.matches("(backup_|(dev|test|prod)_(full|inc)_).*\\.sql(\\.gz)?"));
 
             if (files != null && files.length > 0) {
                 // Sort by modification time, descending
@@ -259,8 +372,9 @@ public class BackupService {
                 return backups;
             }
 
+            // Match both old format (backup_...) and new format ({env}_full_... / {env}_inc_...)
             File[] files = backupDirectory.listFiles((dir, name) ->
-                name.matches("backup_\\d{4}-\\d{2}-\\d{2}_\\d{2}-\\d{2}-\\d{2}\\.sql\\.gz"));
+                name.matches("(backup_\\d{4}-\\d{2}-\\d{2}_\\d{2}-\\d{2}-\\d{2}|(dev|test|prod)_(full|inc)_\\d{8}_\\d{6}(_\\d{3})?)\\.sql\\.gz"));
 
             if (files != null) {
                 Arrays.sort(files, (f1, f2) -> Long.compare(f2.lastModified(), f1.lastModified()));
