@@ -104,12 +104,102 @@ public class AuthController {
     }
 
     /**
+     * Change password endpoint
+     * POST /api/auth/change-password
+     * Header: Authorization: Bearer <token>
+     * Body: { "currentPassword": "...", "newPassword": "..." }
+     */
+    @PostMapping("/change-password")
+    public ResponseEntity<?> changePassword(
+            @RequestHeader(value = "Authorization", required = false) String authHeader,
+            @RequestBody ChangePasswordRequest request) {
+
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(401).body(Map.of(
+                "error", "Kein Token vorhanden"
+            ));
+        }
+
+        String token = authHeader.substring(7);
+        String username = jwtService.extractUsername(token);
+
+        if (username == null || !jwtService.isTokenValid(token, username)) {
+            return ResponseEntity.status(401).body(Map.of(
+                "error", "Ungültiger Token"
+            ));
+        }
+
+        Optional<User> userOpt = userRepository.findByUsername(username);
+        if (userOpt.isEmpty()) {
+            return ResponseEntity.status(404).body(Map.of(
+                "error", "Benutzer nicht gefunden"
+            ));
+        }
+
+        User user = userOpt.get();
+
+        // Verify current password
+        if (!passwordEncoder.matches(request.getCurrentPassword(), user.getPassword())) {
+            return ResponseEntity.status(401).body(Map.of(
+                "error", "Aktuelles Passwort ist falsch"
+            ));
+        }
+
+        // Validate new password
+        if (request.getNewPassword() == null || request.getNewPassword().isBlank()) {
+            return ResponseEntity.badRequest().body(Map.of(
+                "error", "Neues Passwort darf nicht leer sein"
+            ));
+        }
+
+        if (request.getNewPassword().length() < 6) {
+            return ResponseEntity.badRequest().body(Map.of(
+                "error", "Passwort muss mindestens 6 Zeichen lang sein"
+            ));
+        }
+
+        // Update password
+        user.setPassword(passwordEncoder.encode(request.getNewPassword()));
+        userRepository.save(user);
+
+        return ResponseEntity.ok(Map.of(
+            "message", "Passwort erfolgreich geändert"
+        ));
+    }
+
+    /**
      * DEBUG: Generate password hash (remove in production!)
      */
     @GetMapping("/hash/{password}")
     public ResponseEntity<?> generateHash(@PathVariable String password) {
         String hash = passwordEncoder.encode(password);
         return ResponseEntity.ok(Map.of("hash", hash));
+    }
+
+    /**
+     * Change password request DTO
+     */
+    public static class ChangePasswordRequest {
+        public String currentPassword;
+        public String newPassword;
+
+        public ChangePasswordRequest() {}
+
+        public String getCurrentPassword() {
+            return currentPassword;
+        }
+
+        public void setCurrentPassword(String currentPassword) {
+            this.currentPassword = currentPassword;
+        }
+
+        public String getNewPassword() {
+            return newPassword;
+        }
+
+        public void setNewPassword(String newPassword) {
+            this.newPassword = newPassword;
+        }
     }
 
     /**

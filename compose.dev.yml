@@ -17,10 +17,33 @@ services:
       - "${DB_PORT:-3306}:3306"
     volumes:
       - physio-dev-db-data:/var/lib/mysql
+      - ./backups:/backup
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 5s
       retries: 10
+    networks:
+      - physio-dev-network
+
+  # Backup-Utility Container für mysqldump ohne lokale Installation
+  physio-dev-backup:
+    image: mysql:8.0.36
+    container_name: ${COMPOSE_PROJECT_NAME:-physio-dev}-backup
+    depends_on:
+      physio-dev-db:
+        condition: service_healthy
+    environment:
+      DB_NAME: ${DB_NAME:-physiocalendar_dev}
+      DB_USER: ${DB_USER:-physiouser}
+      DB_PASSWORD: ${DB_PASSWORD:-devpassword}
+      DB_HOST: physio-dev-db
+      DB_PORT: "3306"
+      DB_ENV: dev
+      BACKUP_DIR: /backup
+    volumes:
+      - ./backups:/backup
+      - ./mysql_backup.sh:/scripts/mysql_backup.sh:ro
+    entrypoint: ["tail", "-f", "/dev/null"]
     networks:
       - physio-dev-network
 
